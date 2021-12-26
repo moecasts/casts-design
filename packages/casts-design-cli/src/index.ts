@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const inquirer = require('inquirer');
-const { hideBin } = require('yargs/helpers');
 const chalk = require('chalk');
 const { existsSync } = require('fs-extra');
 const path = require('path');
 const jetpack = require('fs-jetpack');
-import ejs = require('ejs');
+const ejs = require('ejs');
 
 const packageType = ['component'];
 

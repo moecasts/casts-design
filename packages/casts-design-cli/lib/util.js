@@ -1,5 +1,4 @@
 "use strict";
-// @ts-nocheck
 module.getPrompts = function (options) {
     return Object.entries(options).map(function (_a) {
         var name = _a[0], _b = _a[1], choices = _b.choices, _default = _b.default, message = _b.message, type = _b.type;

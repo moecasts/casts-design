@@ -35,14 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/no-var-requires */
 var inquirer = require('inquirer');
-var hideBin = require('yargs/helpers').hideBin;
 var chalk = require('chalk');
 var existsSync = require('fs-extra').existsSync;
 var path = require('path');
 var jetpack = require('fs-jetpack');
-var ejs = require("ejs");
+var ejs = require('ejs');
 var packageType = ['component'];
 var questions = [
     {
