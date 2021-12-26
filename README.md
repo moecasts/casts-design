@@ -48,3 +48,29 @@ $ pnpm add @casts/cd-cli
 # Run it
 $ cd-cli
 ```
+
+## Lint
+
+Lint all,
+
+```bash
+$ pnpm lint
+```
+
+Lint `js, jsx, ts, tsx`,
+
+```bash
+$ pnpm lint:js
+
+# lint and fix
+$ pnpm lint:js -- --fix
+```
+
+Lint `css, scss, sass, less`:
+
+```bash
+$ pnpm lint:css
+
+# lint and fix
+$ pnpm lint:css -- --fix
+```
