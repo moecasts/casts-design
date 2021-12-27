@@ -15,8 +15,6 @@
   "typings": "dist/index.d.ts",
   "dependencies": {
     "@casts/cd-cli": "workspace:^1.0.0",
-    "@casts/form": "workspace:^",
-    "@casts/input": "workspace:^",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^6.2.1"
