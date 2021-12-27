@@ -5,7 +5,6 @@ importers:
   .:
     specifiers:
       '@casts/cd-cli': workspace:^1.0.0
-      '@casts/default': workspace:^1.0.0
       '@typescript-eslint/eslint-plugin': ^5.8.0
       '@typescript-eslint/parser': ^5.8.0
       dumi: ^1.0.13
@@ -29,7 +28,6 @@ importers:
       typescript: ^3.9.10
     dependencies:
       '@casts/cd-cli': link:packages/casts-design-cli
-      '@casts/default': link:packages/casts-default
       react: registry.npmmirror.com/react/16.14.0
       react-dom: registry.npmmirror.com/react-dom/16.14.0_react@16.14.0
       react-router: registry.npmmirror.com/react-router/6.2.1_react@16.14.0
@@ -94,6 +92,7 @@ importers:
   packages/casts-design-cli:
     specifiers:
       '@types/ejs': ^3.1.0
+      '@types/fs-extra': ^9.0.13
       '@types/inquirer': ^8.1.3
       '@types/node': ^12.20.38
       '@types/yargs': ^17.0.8
@@ -114,6 +113,7 @@ importers:
       yargs: registry.npmmirror.com/yargs/17.3.1
     devDependencies:
       '@types/ejs': registry.npmmirror.com/@types/ejs/3.1.0
+      '@types/fs-extra': 9.0.13
       '@types/inquirer': registry.npmmirror.com/@types/inquirer/8.1.3
       '@types/node': registry.npmmirror.com/@types/node/12.20.38
       '@types/yargs': registry.npmmirror.com/@types/yargs/17.0.8
@@ -2907,6 +2907,12 @@ packages:
 
   /@types/estree/0.0.50:
     resolution: {integrity: sha512-C6N5s2ZFtuZRj54k2/zyRhNDjJwwcViAM3Nbm8zjBpbqAdZ00mr0CFxvSKeO8Y/e03WVFLpQMdHYVfUd6SB+Hw==}
+    dev: true
+
+  /@types/fs-extra/9.0.13:
+    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+    dependencies:
+      '@types/node': 17.0.4
     dev: true
 
   /@types/glob/7.2.0:

@@ -35,13 +35,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-/* eslint-disable @typescript-eslint/no-var-requires */
-var inquirer = require('inquirer');
-var chalk = require('chalk');
-var existsSync = require('fs-extra').existsSync;
-var path = require('path');
-var jetpack = require('fs-jetpack');
-var ejs = require('ejs');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var inquirer_1 = __importDefault(require("inquirer"));
+var chalk_1 = __importDefault(require("chalk"));
+var fs_extra_1 = require("fs-extra");
+var path_1 = __importDefault(require("path"));
+var fs_jetpack_1 = __importDefault(require("fs-jetpack"));
+var ejs_1 = __importDefault(require("ejs"));
 var packageType = ['component'];
 var questions = [
     {
@@ -56,8 +59,8 @@ var questions = [
         message: 'package path:',
         default: './packages/casts-default',
         validate: function (input) {
-            if (existsSync(input)) {
-                return chalk.red('directory is exists');
+            if (fs_extra_1.existsSync(input)) {
+                return chalk_1.default.red('directory is exists');
             }
             return true;
         },
@@ -68,7 +71,7 @@ var questions = [
         message: 'package name:',
         validate: function (input) {
             if (!input) {
-                return chalk.red('please input the package name');
+                return chalk_1.default.red('please input the package name');
             }
             return true;
         },
@@ -85,7 +88,7 @@ var questions = [
         default: '1.0.0',
         validate: function (input) {
             if (!input.match(/^\d+(\.\d+){2}$/)) {
-                return chalk.red('invalid version, validate format: x.x.x');
+                return chalk_1.default.red('invalid version, validate format: x.x.x');
             }
             return true;
         },
@@ -106,19 +109,19 @@ var questions = [
     var answers, tplPath, destPath, src, dest;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, inquirer.prompt(questions)];
+            case 0: return [4 /*yield*/, inquirer_1.default.prompt(questions)];
             case 1:
                 answers = _a.sent();
-                tplPath = path.join(__dirname, "../templates/" + answers.type);
-                destPath = path.join(process.cwd(), answers.path);
-                src = jetpack.cwd(tplPath);
-                dest = jetpack.cwd(destPath);
+                tplPath = path_1.default.join(__dirname, "../templates/" + answers.type);
+                destPath = path_1.default.join(process.cwd(), answers.path);
+                src = fs_jetpack_1.default.cwd(tplPath);
+                dest = fs_jetpack_1.default.cwd(destPath);
                 src.find({ matching: '*' }).forEach(function (path) {
-                    var originContent = src.read(path);
-                    var content = ejs.render(originContent, answers);
+                    var originContent = src.read(path) || '';
+                    var content = ejs_1.default.render(originContent, answers);
                     dest.write(path, content);
                 });
-                console.log(chalk.green('package created!'));
+                console.log(chalk_1.default.green('package created!'));
                 return [2 /*return*/];
         }
     });

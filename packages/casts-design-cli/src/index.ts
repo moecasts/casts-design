@@ -1,10 +1,19 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const { existsSync } = require('fs-extra');
-const path = require('path');
-const jetpack = require('fs-jetpack');
-const ejs = require('ejs');
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import { existsSync } from 'fs-extra';
+import path from 'path';
+import jetpack from 'fs-jetpack';
+import ejs from 'ejs';
+
+type Answer = {
+  type: string;
+  path: string;
+  name: string;
+  version: string;
+  description?: string;
+  author?: string;
+  license?: string;
+};
 
 const packageType = ['component'];
 
@@ -69,7 +78,7 @@ const questions = [
 ];
 
 (async () => {
-  const answers = await inquirer.prompt(questions);
+  const answers: Answer = await inquirer.prompt(questions);
 
   const tplPath = path.join(__dirname, `../templates/${answers.type}`);
   const destPath = path.join(process.cwd(), answers.path);
@@ -78,7 +87,7 @@ const questions = [
   const dest = jetpack.cwd(destPath);
 
   src.find({ matching: '*' }).forEach((path: string) => {
-    const originContent = src.read(path);
+    const originContent = src.read(path) || '';
     const content: string = ejs.render(originContent, answers);
 
     dest.write(path, content);
