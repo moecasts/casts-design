@@ -104,9 +104,20 @@ var questions = [
         message: 'package license:',
         default: 'MIT',
     },
+    {
+        type: 'input',
+        name: 'repository',
+        message: 'package repository:',
+    },
+    {
+        type: 'confirm',
+        name: 'tsconfigStandalone',
+        message: 'would create a standalone tsconfig?',
+        default: false,
+    },
 ];
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var answers, tplPath, destPath, src, dest;
+    var answers, tplPath, destPath, src, dest, tsconfigs, getExcludedTsConfig;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, inquirer_1.default.prompt(questions)];
@@ -116,10 +127,21 @@ var questions = [
                 destPath = path_1.default.join(process.cwd(), answers.path);
                 src = fs_jetpack_1.default.cwd(tplPath);
                 dest = fs_jetpack_1.default.cwd(destPath);
+                tsconfigs = ['tsconfig.standalone.json', 'tsconfig.json'];
+                getExcludedTsConfig = function (standalone) {
+                    return tsconfigs[Number(standalone)];
+                };
                 src.find({ matching: '*' }).forEach(function (path) {
+                    var destPath = path;
+                    if (tsconfigs.includes(path)) {
+                        if (path === getExcludedTsConfig(answers.tsconfigStandalone)) {
+                            return;
+                        }
+                        destPath = 'tsconfig.json';
+                    }
                     var originContent = src.read(path) || '';
                     var content = ejs_1.default.render(originContent, answers);
-                    dest.write(path, content);
+                    dest.write(destPath, content);
                 });
                 console.log(chalk_1.default.green('package created!'));
                 return [2 /*return*/];

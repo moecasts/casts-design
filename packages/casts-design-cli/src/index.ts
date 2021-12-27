@@ -12,7 +12,9 @@ type Answer = {
   version: string;
   description?: string;
   author?: string;
-  license?: string;
+  license: string;
+  repository?: string;
+  tsconfigStandalone: boolean;
 };
 
 const packageType = ['component'];
@@ -75,6 +77,17 @@ const questions = [
     message: 'package license:',
     default: 'MIT',
   },
+  {
+    type: 'input',
+    name: 'repository',
+    message: 'package repository:',
+  },
+  {
+    type: 'confirm',
+    name: 'tsconfigStandalone',
+    message: 'would create a standalone tsconfig?',
+    default: false,
+  },
 ];
 
 (async () => {
@@ -86,11 +99,23 @@ const questions = [
   const src = jetpack.cwd(tplPath);
   const dest = jetpack.cwd(destPath);
 
+  // get the tsconfig
+  const tsconfigs = ['tsconfig.standalone.json', 'tsconfig.json'];
+  const getExcludedTsConfig = (standalone: boolean) =>
+    tsconfigs[Number(standalone)];
+
   src.find({ matching: '*' }).forEach((path: string) => {
+    let destPath = path;
+    if (tsconfigs.includes(path)) {
+      if (path === getExcludedTsConfig(answers.tsconfigStandalone)) {
+        return;
+      }
+      destPath = 'tsconfig.json';
+    }
+
     const originContent = src.read(path) || '';
     const content: string = ejs.render(originContent, answers);
-
-    dest.write(path, content);
+    dest.write(destPath, content);
   });
 
   console.log(chalk.green('package created!'));
