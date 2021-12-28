@@ -14,6 +14,9 @@ react-app-env.d.ts
 # misc
 .DS_Store
 
+# test
+coverage
+
 # umi
 .umi
 .umi-production
