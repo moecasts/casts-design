@@ -1,3 +1,4 @@
 module.exports = {
-  extends: ['stylelint-config-recess-order', 'stylelint-prettier/recommended'],
+  extends: [require.resolve('@casts/cd-standard/dist/stylelint/stylelintrc.js')],
+  ignoreFiles: ['coverage/**/*.css'],
 };
