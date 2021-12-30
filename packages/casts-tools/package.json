@@ -1,0 +1,35 @@
+{
+  "name": "@casts/cd-tools",
+  "version": "1.0.0",
+  "description": "a tools bin to run test...",
+  "main": "./dist/index.js",
+  "bin": {
+    "cd-tools": "./bin/cd-tools.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "clean": "rimraf dist node_modules",
+    "test": "echo \"Error: no test specified\"",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "casts-design",
+    "tools",
+    "test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@casts/cd-standard": "workspace:^1.0.0",
+    "@types/yargs": "^17.0.8",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  }
+}
