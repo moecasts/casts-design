@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import { existsSync } from 'fs-extra';
 import path from 'path';
 import jetpack from 'fs-jetpack';
 import ejs from 'ejs';
@@ -14,7 +13,6 @@ type Answer = {
   author?: string;
   license: string;
   repository?: string;
-  tsconfigStandalone: boolean;
 };
 
 const packageType = ['component'];
@@ -32,7 +30,7 @@ const questions = [
     message: 'package path:',
     default: './packages/casts-default',
     validate: (input: string) => {
-      if (existsSync(input)) {
+      if (jetpack.exists(input)) {
         return chalk.red('directory is exists');
       }
       return true;
@@ -82,12 +80,6 @@ const questions = [
     name: 'repository',
     message: 'package repository:',
   },
-  {
-    type: 'confirm',
-    name: 'tsconfigStandalone',
-    message: 'would create a standalone tsconfig?',
-    default: false,
-  },
 ];
 
 (async () => {
@@ -99,19 +91,8 @@ const questions = [
   const src = jetpack.cwd(tplPath);
   const dest = jetpack.cwd(destPath);
 
-  // get the tsconfig
-  const tsconfigs = ['tsconfig.standalone.json', 'tsconfig.json'];
-  const getExcludedTsConfig = (standalone: boolean) =>
-    tsconfigs[Number(standalone)];
-
   src.find({ matching: '*' }).forEach((path: string) => {
-    let destPath = path;
-    if (tsconfigs.includes(path)) {
-      if (path === getExcludedTsConfig(answers.tsconfigStandalone)) {
-        return;
-      }
-      destPath = 'tsconfig.json';
-    }
+    const destPath = path;
 
     const originContent = src.read(path) || '';
     const content: string = ejs.render(originContent, answers);

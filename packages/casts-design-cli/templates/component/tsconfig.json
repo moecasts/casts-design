@@ -1,7 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@casts/cd-standard/dist/tsconfig/react17.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxFactory": ""
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "example"]
 }
