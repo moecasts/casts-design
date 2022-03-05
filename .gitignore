@@ -1,0 +1,34 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+npm-debug.log*
+.pnpm-debug.log*
+yarn-error.log
+
+# production
+/dist
+packages/**/dist
+packages/**/lib
+packages/**/es
+react-app-env.d.ts
+
+# misc
+.DS_Store
+
+# test
+coverage
+
+# umi
+.umi
+.umi-production
+.env.local
+.swc
+
+# ide
+/.vscode
+/.idea
+
+# vim
+*.swp
+*.swo
