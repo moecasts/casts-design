@@ -1,0 +1,47 @@
+{
+  "name": "@casts/cd-cli",
+  "version": "1.0.0",
+  "description": "a cli to generate casts design ui package",
+  "main": "./dist/index.js",
+  "bin": {
+    "cd-cli": "./bin/cd-cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist node_modules",
+    "start": "tsc --watch",
+    "test": "echo \"Error: no test specified\"",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "casts-design",
+    "generator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@casts/cd-standard": "workspace:^1.0.0",
+    "@casts/cd-tools": "workspace:^1.0.0",
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/git-user-email": "^0.2.0",
+    "@types/git-user-name": "^2.0.1",
+    "@types/inquirer": "^8.1.3",
+    "@types/node": "^12.20.38",
+    "@types/yargs": "^17.0.8",
+    "parcel": "^2.3.1",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.1"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "ejs": "^3.1.6",
+    "fs-jetpack": "^4.3.0",
+    "git-user-email": "^0.2.2",
+    "git-user-name": "^2.0.0",
+    "inquirer": "^8.2.0",
+    "typescript": "^4.5.4",
+    "yargs": "^17.3.1"
+  }
+}
