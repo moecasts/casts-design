@@ -1,0 +1,50 @@
+{
+  "name": "@casts/cd-tools",
+  "version": "1.0.0",
+  "description": "a tools bin to run test...",
+  "repository": "https://github.com/moecasts/casts-design",
+  "bin": {
+    "cd-tools": "./bin/cd-tools.js"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "build": "esbuild ./src/**/*.* --format=cjs --target=node14 --platform=node --outdir=./dist/ --allow-overwrite",
+    "start": "esbuild ./src/**/*.* --format=cjs --target=node14 --platform=node --outdir=./dist/ --allow-overwrite --watch",
+    "clean": "rimraf dist node_modules",
+    "test": "echo \"Error: no test specified\"",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "casts-design",
+    "tools",
+    "test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@casts/cd-standard": "workspace:^1.0.0",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/yargs": "^17.0.8",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "@swc/core": "^1.2.142",
+    "autoprefixer": "^10.4.2",
+    "chalk": "4.1.2",
+    "cross-spawn": "^7.0.3",
+    "deepmerge": "^4.2.2",
+    "esbuild": "^0.14.21",
+    "esbuild-sass-plugin": "^2.2.3",
+    "glob": "^7.2.0",
+    "jest": "^27.4.5",
+    "postcss": "^8.4.6",
+    "postcss-preset-env": "^7.4.1",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  }
+}

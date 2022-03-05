@@ -1,0 +1,9 @@
+{
+  "extends": "@casts/cd-standard/dist/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "isolatedModules": false,
+    "module": "esnext"
+  },
+  "include": ["scripts/**/*"]
+}
