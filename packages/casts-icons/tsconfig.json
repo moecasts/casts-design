@@ -1,0 +1,23 @@
+{
+  "extends": "@casts/cd-standard/dist/tsconfig/react17.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+    "dist",
+    "typings",
+    "**/__test__",
+    "test",
+    "docs",
+    "tests"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}
