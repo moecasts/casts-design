@@ -236,7 +236,6 @@ importers:
 
   packages/casts-standard:
     specifiers:
-      '@casts/cd-standard': workspace:^1.0.0
       '@typescript-eslint/eslint-plugin': ^5.12.0
       '@typescript-eslint/parser': ^5.12.0
       eslint: ^8.9.0
@@ -273,7 +272,6 @@ importers:
       ts-jest: 27.1.3_jest@27.5.1+typescript@4.5.5
       typescript: 4.5.5
     devDependencies:
-      '@casts/cd-standard': 'link:'
       rimraf: 3.0.2
       stylelint: 14.5.1
 
