@@ -1,0 +1,18 @@
+{
+  "name": "@casts/theme",
+  "version": "1.0.0",
+  "description": "a react compoent theme for casts design",
+  "repository": "https://github.com/moecasts/casts-design",
+  "files": [
+    "scss/**/*.scss"
+  ],
+  "scripts": {},
+  "keywords": [
+    "theme",
+    "casts-design"
+  ],
+  "author": "Caster <moecasts.caster@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
