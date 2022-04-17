@@ -1,7 +1,8 @@
 ---
 title: Button 按钮
 group:
-  title: 基础组件
+  title: 通用
+  order: 1
 nav:
   title: 组件
   path: /components
@@ -180,8 +181,6 @@ export default () => (
 ## 不同尺寸
 
 ```tsx
-import './styles.scss';
-
 import React from 'react';
 import { Button } from '@casts/button';
 import '@casts/button/dist/cjs/index.css';
@@ -215,6 +214,9 @@ export default () => (
     </div>
     <div className="docs-section-item">
       <Button color="secondary">Button</Button>
+    </div>
+    <div className="docs-section-item">
+      <Button color="info">Button</Button>
     </div>
     <div className="docs-section-item">
       <Button color="success">Button</Button>

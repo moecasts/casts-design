@@ -17,6 +17,8 @@ $font-size-large: $font-size-base + 2px;
 $font-size-small: $font-size-base - 2px;
 $line-height: 1.5715;
 
+$display-text-font-size: ceil($font-size-base * 4);
+
 $heading-1-font-size: ceil($font-size-base * 3.42);
 $heading-2-font-size: ceil($font-size-base * 2.57);
 $heading-3-font-size: ceil($font-size-base * 2.28);
@@ -28,23 +30,20 @@ $body-font-size: $font-size-large;
 $subtitle-font-size: $font-size-base;
 $caption-font-size: $font-size-small;
 
+$display-text-line-height: $display-text-font-size + 8px;
+$heading-1-line-height: $heading-1-font-size + 8px;
+$heading-2-line-height: $heading-2-font-size + 8px;
+$heading-3-line-height: $heading-3-font-size + 8px;
+$heading-4-line-height: $heading-4-font-size + 8px;
+$heading-5-line-height: $heading-5-font-size + 8px;
+$heading-6-line-height: $heading-6-font-size + 8px;
+$subtitle-line-height: $subtitle-font-size + 8px;
+$caption-line-height: $caption-font-size + 6px;
+
 // Height
 $height-base: 32px;
 $height-large: 40px;
 $height-small: 24px;
-
-:root {
-  --#{$prefix-cls}-heading-1-font-size: #{$heading-1-font-size};
-  --#{$prefix-cls}-heading-2-font-size: #{$heading-2-font-size};
-  --#{$prefix-cls}-heading-3-font-size: #{$heading-3-font-size};
-  --#{$prefix-cls}-heading-4-font-size: #{$heading-4-font-size};
-  --#{$prefix-cls}-heading-5-font-size: #{$heading-5-font-size};
-  --#{$prefix-cls}-heading-6-font-size: #{$heading-6-font-size};
-
-  --#{$prefix-cls}-body-font-size: #{$body-font-size};
-  --#{$prefix-cls}-subtitle-font-size: #{$subtitle-font-size};
-  --#{$prefix-cls}-caption-font-size: #{$caption-font-size};
-}
 
 // Padding
 $padding-verticle-base: 6px;
@@ -53,12 +52,6 @@ $padding-verticle-small: $padding-verticle-base + 2px;
 $padding-base: 4px;
 $padding-large: 6px;
 $padding-default: $padding-base;
-:root {
-  // --#{$prefix-cls}-padding-small: #{$padding-small};
-  --#{$prefix-cls}-padding-base: #{$padding-base};
-  --#{$prefix-cls}-padding-large: #{$padding-large};
-  --#{$prefix-cls}-padding-default: #{$padding-default};
-}
 
 /* Border Radius */
 $border-radius-base: 4px;

@@ -1,0 +1,152 @@
+@import '@casts/theme/scss/_variables.scss';
+
+:root {
+  --#{$prefix-cls}-notification-padding: 10px 16px;
+  --#{$prefix-cls}-notification-border-radius: #{$border-radius-base};
+  --#{$prefix-cls}-notification-box-shadow: #{$shadow-2};
+  --#{$prefix-cls}-notification-font-size: #{$font-size-base};
+  --#{$prefix-cls}-notification-line-height: #{$font-size-base + 8px};
+  --#{$prefix-cls}-notification-header-font-size: #{$font-size-large};
+  --#{$prefix-cls}-notification-header-line-height: #{$font-size-large + 8px};
+}
+
+.#{$prefix-cls}-notification {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--#{$prefix-cls}-notification-padding);
+  font-size: var(--#{$prefix-cls}-notification-font-size);
+  border-radius: var(--#{$prefix-cls}-notification-border-radius);
+  box-shadow: var(--#{$prefix-cls}-notification-box-shadow);
+  background-color: #fff;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-left: 4px solid transparent;
+  width: fit-content;
+  color: var(--color-black);
+
+  svg {
+    font-size: inherit;
+  }
+
+  &-icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+    font-size: 0;
+
+    .#{$prefix-cls}-circular-progress-container,
+    svg {
+      height: var(--#{$prefix-cls}-notification-header-line-height);
+      width: var(--#{$prefix-cls}-notification-header-line-height);
+      font-size: var(--#{$prefix-cls}-notification-header-line-height);
+    }
+
+    @at-root .#{$prefix-cls}-notification--loading & {
+      color: var(--color-disabled);
+    }
+    @at-root .#{$prefix-cls}-notification--info:not(.#{$prefix-cls}-notification--fill)
+        & {
+      color: var(--color-info);
+    }
+    @at-root .#{$prefix-cls}-notification--success:not(.#{$prefix-cls}-notification--fill)
+        & {
+      color: var(--color-success);
+    }
+    @at-root .#{$prefix-cls}-notification--warning:not(.#{$prefix-cls}-notification--fill)
+        & {
+      color: var(--color-warning);
+    }
+    @at-root .#{$prefix-cls}-notification--error:not(.#{$prefix-cls}-notification--fill)
+        & {
+      color: var(--color-error);
+    }
+    .#{$prefix-cls}-circular-progress-container {
+      color: currentColor;
+    }
+  }
+  &-body {
+    flex: 1;
+    font-size: var(--#{$prefix-cls}-notification-font-size);
+    line-height: var(--#{$prefix-cls}-notification-line-height);
+    overflow: hidden;
+
+    .#{$prefix-cls}-notification-header {
+      font-size: var(--#{$prefix-cls}-notification-header-font-size);
+      line-height: var(--#{$prefix-cls}-notification-header-line-height);
+      display: flex;
+      align-items: center;
+
+      .#{$prefix-cls}-notification-title {
+        flex: 1;
+        font-weight: 500;
+      }
+    }
+    .#{$prefix-cls}-notification-footer {
+      text-align: right;
+    }
+
+    & {
+      div + div {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &-close {
+    font-size: var(--#{$prefix-cls}-notification-font-size);
+    line-height: var(--#{$prefix-cls}-notification-header-line-height);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: top;
+    margin-left: 8px;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    transition: opacity 0.25s ease-in-out;
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.84;
+    }
+    &:active {
+      opacity: 0.96;
+    }
+    svg {
+      font-size: var(--#{$prefix-cls}-notification-header-line-height);
+    }
+  }
+  & {
+    &.#{$prefix-cls}-notification--loading {
+      border-color: var(--color-disabled);
+    }
+    &.#{$prefix-cls}-notification--info {
+      border-color: var(--color-info);
+    }
+    &.#{$prefix-cls}-notification--success {
+      border-color: var(--color-success);
+    }
+    &.#{$prefix-cls}-notification--warning {
+      border-color: var(--color-warning);
+    }
+    &.#{$prefix-cls}-notification--error {
+      border-color: var(--color-error);
+    }
+  }
+  &--fill {
+    &:not(.#{$prefix-cls}-notification--loading) {
+      color: var(--color-white);
+    }
+    &.#{$prefix-cls}-notification--info {
+      background-color: var(--color-info);
+    }
+    &.#{$prefix-cls}-notification--success {
+      background-color: var(--color-success);
+    }
+    &.#{$prefix-cls}-notification--warning {
+      background-color: var(--color-warning);
+    }
+    &.#{$prefix-cls}-notification--error {
+      background-color: var(--color-error);
+    }
+  }
+}

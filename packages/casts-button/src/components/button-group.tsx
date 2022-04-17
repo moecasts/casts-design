@@ -1,7 +1,8 @@
 import { createContext, FC, ReactNode, useContext } from 'react';
 import { ConfigContext } from '@casts/config-provider';
+import { ButtonColor, ButtonShape, ButtonSize, ButtonVariant } from './button';
 import clsx from 'clsx';
-import { ButtonColor, ButtonShape, ButtonSize, ButtonVariant } from './';
+import './styles/button-group.scss';
 
 export type ButtonGroupProps = {
   /**

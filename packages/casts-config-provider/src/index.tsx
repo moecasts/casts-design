@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export type Theme = {
   primaryColor?: string;
@@ -9,8 +9,11 @@ export type Theme = {
   warningColor?: string;
 };
 
+const defaultPrefixCls = 'casts';
+// let globalPrefixCls: string;
+
 export type ConfigContextProps = {
-  getPrefixCls?: (suffixCls?: string, customizePrefixCls?: string) => string;
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
 };
 
 const defaultGetPrefixCls = (
@@ -19,15 +22,23 @@ const defaultGetPrefixCls = (
 ) => {
   if (customizePrefixCls) return customizePrefixCls;
 
-  return suffixCls ? `casts-${suffixCls}` : 'casts';
+  return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : `${defaultPrefixCls}`;
 };
 
 const defaultConfig: ConfigContextProps = {
   getPrefixCls: defaultGetPrefixCls,
 };
 
+export const globalConfig = () => ({
+  getPrefixCls: defaultGetPrefixCls,
+});
+
 export const ConfigContext = createContext<ConfigContextProps>(defaultConfig);
 
 export const ConfigConsumer = ConfigContext.Consumer;
 
 export const ConfigProvider = ConfigContext.Provider;
+
+export const useConfig = () => {
+  return useContext(ConfigContext);
+};

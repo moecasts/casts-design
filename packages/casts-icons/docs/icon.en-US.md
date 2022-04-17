@@ -1,7 +1,7 @@
 ---
 title: Icon
 group:
-  title: Basic
+  title: General
 nav:
   title: Components
   path: /components
@@ -13,7 +13,6 @@ nav:
 import React from 'react';
 import { AncientGateLine } from '@casts/icons';
 import '@casts/icons/dist/esm/index.css';
-import './style.scss';
 
 export default () => {
   return (
@@ -30,7 +29,6 @@ export default () => {
 import React from 'react';
 import * as icons from '@casts/icons';
 import '@casts/icons/dist/cjs/index.css';
-import './style.scss';
 
 const groupedIcons = {
   line: {},
@@ -86,7 +84,6 @@ export default () => {
 import React from 'react';
 import * as icons from '@casts/icons';
 import '@casts/icons/dist/cjs/index.css';
-import './style.scss';
 
 const groupedIcons = {
   line: {},

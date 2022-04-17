@@ -1,0 +1,289 @@
+@import '@casts/theme/scss/_variables.scss';
+
+$button-border-width-base: 1px;
+
+$button-font-size-base: $font-size-base;
+$button-font-size-large: $font-size-large;
+$button-font-size-small: $font-size-small;
+
+$button-height-base: $height-base;
+$button-height-large: $height-large;
+$button-height-small: $height-small;
+
+$button-line-height-base: floor($line-height * $font-size-base);
+$button-line-height-large: floor($line-height * $font-size-large);
+$button-line-height-small: floor($line-height * $font-size-small);
+
+$button-padding-vertical-base: 5px - $button-border-width-base;
+$button-padding-vertical-large: $button-padding-vertical-base + 2px;
+$button-padding-vertical-small: $button-padding-vertical-base - 2px;
+
+$button-padding-horizontal-base: 16px;
+$button-padding-horizontal-large: $button-padding-horizontal-base + 8px;
+$button-padding-horizontal-small: $button-padding-horizontal-base - 8px;
+
+$button-border-radius-base: $border-radius-base;
+$button-border-radius-large: $border-radius-large;
+$button-border-radius-small: $border-radius-small;
+
+$colors: 'primary', 'secondary', 'info', 'success', 'error', 'warning', 'black',
+  'white';
+
+:root {
+  --#{$prefix-cls}-button-font-size-base: #{$button-font-size-base};
+  --#{$prefix-cls}-button-font-size-small: #{$button-font-size-small};
+  --#{$prefix-cls}-button-font-size-large: #{$button-font-size-large};
+
+  --#{$prefix-cls}-button-height-base: #{$button-height-base};
+  --#{$prefix-cls}-button-height-small: #{$button-height-small};
+  --#{$prefix-cls}-button-height-large: #{$button-height-large};
+
+  --#{$prefix-cls}-button-line-height-base: #{$button-line-height-base};
+  --#{$prefix-cls}-button-line-height-small: #{$button-line-height-small};
+  --#{$prefix-cls}-button-line-height-large: #{$button-line-height-large};
+
+  --#{$prefix-cls}-button-border-width-base: #{$button-border-width-base};
+
+  --#{$prefix-cls}-button-padding-vertical-base: #{$button-padding-vertical-base};
+  --#{$prefix-cls}-button-padding-vertical-small: #{$button-padding-vertical-small};
+  --#{$prefix-cls}-button-padding-vertical-large: #{$button-padding-vertical-large};
+
+  --#{$prefix-cls}-button-padding-horizontal-base: #{$button-padding-horizontal-base};
+  --#{$prefix-cls}-button-padding-horizontal-small: #{$button-padding-horizontal-small};
+  --#{$prefix-cls}-button-padding-horizontal-large: #{$button-padding-horizontal-large};
+
+  // color
+  @each $color in $colors {
+    --#{$prefix-cls}-button-color-#{$color}: var(--color-#{$color});
+    --#{$prefix-cls}-button-color-#{$color}-lighter: var(
+      --color-#{$color}-lighter
+    );
+    --#{$prefix-cls}-button-color-#{$color}-darker: var(
+      --color-#{$color}-darker
+    );
+  }
+
+  // border radius
+  --#{$prefix-cls}-button-border-radius-base: #{$button-border-radius-base};
+  --#{$prefix-cls}-button-border-radius-large: #{$button-border-radius-large};
+  --#{$prefix-cls}-button-border-radius-small: #{$button-border-radius-small};
+}
+
+@mixin button-size($size: 'base', $selector: none) {
+  height: var(--#{$prefix-cls}-button-height-#{$size});
+  padding-top: var(--#{$prefix-cls}-button-padding-vertical-#{$size});
+  padding-right: var(--#{$prefix-cls}-button-padding-horizontal-#{$size});
+  padding-bottom: var(--#{$prefix-cls}-button-padding-vertical-#{$size});
+  padding-left: var(--#{$prefix-cls}-button-padding-horizontal-#{$size});
+  font-size: var(--#{$prefix-cls}-button-font-size-#{$size});
+  line-height: var(--#{$prefix-cls}-button-line-height-#{$size});
+  border-width: var(--#{$prefix-cls}-button-border-width-base);
+
+  @if $selector != none {
+    @at-root #{$selector}.#{$prefix-cls}-button--only-icon {
+      min-width: var(--#{$prefix-cls}-button-height-#{$size});
+      padding-right: var(--#{$prefix-cls}-button-padding-vertical-#{$size});
+      padding-left: var(--#{$prefix-cls}-button-padding-vertical-#{$size});
+    }
+  }
+}
+
+@mixin button-color($color, $backgound, $border) {
+  color: $color;
+  border-color: $border;
+  @if ($backgound != none) {
+    background-color: $backgound;
+  }
+}
+
+.#{$prefix-cls}-button {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: var(--#{$prefix-cls}-button-border-width-base) solid transparent;
+  outline: none;
+  fill: currentColor;
+  transition: opacity var(--#{$prefix-cls}-transition-duration-base)
+      var(--#{$prefix-cls}-ease-in-out),
+    box-shadow var(--#{$prefix-cls}-transition-duration-base)
+      var(--#{$prefix-cls}-ease-in-out),
+    border-color var(--#{$prefix-cls}-transition-duration-base)
+      var(--#{$prefix-cls}-ease-in-out),
+    background-color var(--#{$prefix-cls}-transition-duration-base)
+      var(--#{$prefix-cls}-ease-in-out);
+  & > * {
+    transition: color var(--#{$prefix-cls}-transition-duration-base)
+      var(--#{$prefix-cls}-ease-in-out);
+  }
+
+  // size
+  & {
+    @include button-size('base', #{&});
+  }
+  &--small {
+    @include button-size('small', #{&});
+  }
+  &--large {
+    @include button-size('large', #{&});
+  }
+  // shape
+  &--square {
+    border-radius: 0;
+  }
+  &--round {
+    &,
+    &::after {
+      border-radius: var(--#{$prefix-cls}-button-border-radius-base);
+    }
+    &.#{$prefix-cls}-button--small {
+      &,
+      &::after {
+        border-radius: var(--#{$prefix-cls}-button-border-radius-small);
+      }
+    }
+    &.#{$prefix-cls}-button--large {
+      &,
+      &::after {
+        border-radius: var(--#{$prefix-cls}-button-border-radius-large);
+      }
+    }
+  }
+  &--circle {
+    border-radius: 99999px;
+  }
+
+  // variant
+  &--contained {
+    @each $color in $colors {
+      &.#{$prefix-cls}-button--#{$color} {
+        $text-color: var(--#{$prefix-cls}-button-color-white);
+        @if $color == 'white' {
+          $text-color: var(--#{$prefix-cls}-button-color-black);
+        }
+        @include button-color(
+          $text-color,
+          var(--#{$prefix-cls}-button-color-#{$color}),
+          var(--#{$prefix-cls}-button-color-#{$color})
+        );
+        &:hover:not(.#{$prefix-cls}-button--disabled),
+        &:focus-visible:not(.#{$prefix-cls}-button--disabled) {
+          background-color: var(
+            --#{$prefix-cls}-button-color-#{$color}-lighter
+          );
+          border-color: var(--#{$prefix-cls}-button-color-#{$color}-lighter);
+        }
+        &:active:not(.#{$prefix-cls}-button--disabled) {
+          background-color: var(--#{$prefix-cls}-button-color-#{$color}-darker);
+          border-color: var(--#{$prefix-cls}-button-color-#{$color}-darker);
+        }
+      }
+    }
+  }
+  &--outline,
+  &--dashed {
+    @each $color in $colors {
+      &.#{$prefix-cls}-button--#{$color} {
+        @include button-color(
+          var(--#{$prefix-cls}-button-color-#{$color}),
+          none,
+          var(--#{$prefix-cls}-button-color-#{$color})
+        );
+        &:hover:not(.#{$prefix-cls}-button--disabled),
+        &:focus-visible:not(.#{$prefix-cls}-button--disabled) {
+          color: var(--#{$prefix-cls}-button-color-white);
+          background-color: var(--#{$prefix-cls}-button-color-#{$color});
+        }
+        &:active:not(.#{$prefix-cls}-button--disabled) {
+          color: var(--#{$prefix-cls}-button-color-white);
+          background-color: var(--#{$prefix-cls}-button-color-#{$color}-darker);
+          border-color: var(--#{$prefix-cls}-button-color-#{$color}-darker);
+        }
+      }
+    }
+  }
+  &--dashed {
+    border-style: dashed;
+  }
+  &--text {
+    color: var(--#{$prefix-cls}-button-color-black);
+    &:hover:not(.#{$prefix-cls}-button--disabled),
+    &:focus-visible:not(.#{$prefix-cls}-button--disabled) {
+      background-color: var(--#{$prefix-cls}-button-color-white-lighter);
+      border-color: var(--#{$prefix-cls}-button-color-white-lighter);
+    }
+    &:active:not(.#{$prefix-cls}-button--disabled) {
+      background-color: var(--#{$prefix-cls}-button-color-white-darker);
+      border-color: var(--#{$prefix-cls}-button-color-white-darker);
+    }
+  }
+  &--link {
+    color: var(--#{$prefix-cls}-button-color-primary);
+    &:hover:not(.#{$prefix-cls}-button--disabled),
+    &:focus-visible:not(.#{$prefix-cls}-button--disabled) {
+      color: var(--color-primary-lighter);
+    }
+    &:active:not(.#{$prefix-cls}-button--disabled) {
+      color: var(--color-primary-darker);
+    }
+  }
+  &--block {
+    width: 100%;
+  }
+
+  &--disabled,
+  &--loading {
+    &::before {
+      position: absolute;
+      inset: calc(0px - var(--#{$prefix-cls}-button-border-width-base));
+      cursor: not-allowed;
+      content: '';
+      background-color: #fff;
+      opacity: 0.3;
+    }
+  }
+
+  &--loading {
+    & > *:not(.#{$prefix-cls}-loading) {
+      color: transparent;
+    }
+  }
+
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .#{$prefix-cls}-icon {
+    font-size: inherit;
+  }
+
+  &:not(&--only-icon) > .#{$prefix-cls}-icon {
+    margin-right: 4px;
+  }
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.#{$prefix-cls}-loading {
+  position: absolute;
+  display: inline-block;
+  line-height: 0;
+  transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: loadingCircle 1s infinite linear;
+}

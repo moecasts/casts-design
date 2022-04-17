@@ -12,6 +12,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "cd-tools build --esm --cjs",
     "build:types": "tsc --emitDeclarationOnly --outDir dist/types --noEmit false",

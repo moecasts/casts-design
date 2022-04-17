@@ -1,0 +1,30 @@
+@import './variables';
+
+:root {
+  --#{$prefix-cls}-fade-transition-property: opacity;
+  --#{$prefix-cls}-fade-transition-duration: #{$transition-duration-base};
+  --#{$prefix-cls}-fade-transition-timing-function-in: #{$ease-in};
+  --#{$prefix-cls}-fade-transition-timing-function-out: #{$ease-out};
+}
+
+.#{$prefix-cls}-fade-enter {
+  opacity: 0;
+}
+
+.#{$prefix-cls}-fade-enter-active {
+  opacity: 1;
+  transition-property: var(--#{$prefix-cls}-fade-transition-property);
+  transition-duration: var(--#{$prefix-cls}-fade-transition-duration);
+  transition-timing-function: var(--#{$prefix-cls}-fade-transition-duration-in);
+}
+.#{$prefix-cls}-fade-exit {
+  opacity: 1;
+  transition-property: var(--#{$prefix-cls}-fade-transition-property);
+  transition-duration: var(--#{$prefix-cls}-fade-transition-duration);
+  transition-timing-function: var(
+    --#{$prefix-cls}-fade-transition-duration-out
+  );
+}
+.#{$prefix-cls}-fade-exit-active {
+  opacity: 0;
+}

@@ -1,0 +1,20 @@
+@import '@casts/theme/scss/_variables.scss';
+
+:root {
+  --#{$prefix-cls}-tooltip-padding: #{$padding-large};
+  --#{$prefix-cls}-tooltip-border-radius: #{$border-radius-base};
+}
+
+.#{$prefix-cls}-tooltip {
+  &--square {
+    border-radius: 0px;
+  }
+  &--round {
+    border-radius: var(--#{$prefix-cls}-tooltip-border-radius);
+  }
+  &--circle {
+    border-radius: 99999px;
+    padding-left: var(--#{$prefix-cls}-tooltip-padding);
+    padding-right: var(--#{$prefix-cls}-tooltip-padding);
+  }
+}

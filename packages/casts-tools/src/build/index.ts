@@ -8,6 +8,7 @@ import rimraf from 'rimraf';
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
 import postcssPresetEnv from 'postcss-preset-env';
+import { spawnSync } from 'child_process';
 // import ora from 'ora';
 
 const cwd = process.cwd();
@@ -18,11 +19,11 @@ const isBuildCjs = args.includes('--cjs');
 
 const isWatch = args.includes('--watch')
   ? {
-      onRebuild(error) {
-        if (error) console.error('[watch] build failed:', error);
-        else console.log('[watch] build finished, watching...');
-      },
-    }
+    onRebuild(error) {
+      if (error) console.error('[watch] build failed:', error);
+      else console.log('[watch] build finished, watching...');
+    },
+  }
   : false;
 
 const getEsbuildPlugins = ({ replace = false }) => {
@@ -38,6 +39,7 @@ const getEsbuildPlugins = ({ replace = false }) => {
         ]).process(source, { from: undefined });
         return css;
       },
+      cssImports: true,
     }),
   );
 
@@ -114,6 +116,37 @@ const cjsBuildOptions = {
   plugins: getEsbuildPlugins({}),
 };
 
+const calculateSpentTime = (startTime) => {
+  const endTime = process.hrtime.bigint();
+  return endTime - startTime;
+};
+
+const durationStatistics = async (name, fn) => {
+  const startTime = process.hrtime.bigint();
+  try {
+    await fn();
+  } catch (err) {
+    console.log(err);
+  }
+
+  console.log(`[${name}]: Done in ${printSpentTime(calculateSpentTime(startTime) / 1000000n)} ms`);
+}
+
+const buildDTs = async () => {
+  return durationStatistics('build .d.ts', () =>
+    spawnSync("tsc", [
+      "--declaration",
+      "--emitDeclarationOnly",
+      "--types",
+      "'types.d.ts'",
+      "--excludeDirectories",
+      "'node_modules'",
+      "--outDir",
+      "dist/types",
+    ])
+  )
+}
+
 const build = async () => {
   // let spinner = ora('Building esm\n').start();
   if (isBuildEsm) {
@@ -126,6 +159,8 @@ const build = async () => {
   if (isBuildCjs) {
     await buildWrapper(cjsBuildOptions);
   }
+
+  // await buildDTs();
   // spinner.stop();
 };
 

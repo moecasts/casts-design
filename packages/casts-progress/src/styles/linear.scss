@@ -1,0 +1,106 @@
+@import '@casts/theme/scss/_variables.scss';
+
+$local-prefix-cls: #{$prefix-cls}-linear-progress;
+
+:root {
+  --#{$local-prefix-cls}-indeterminate-bar-width: 50%;
+  --#{$local-prefix-cls}-indeterminate-animation-duration: 2.1s;
+
+  --#{$local-prefix-cls}-height-small: 6px;
+  --#{$local-prefix-cls}-height-default: 8px;
+  --#{$local-prefix-cls}-height-large: 10px;
+}
+
+@keyframes linearKeyframe {
+  0% {
+    left: calc(0% - var(--#{$local-prefix-cls}-indeterminate-bar-width));
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@mixin flex-and-align-center($display: flex) {
+  display: $display;
+  align-items: center;
+}
+
+.#{$local-prefix-cls} {
+  position: relative;
+  width: 100%;
+  height: var(--#{$local-prefix-cls}-height-default);
+  @include flex-and-align-center;
+  color: var(--color-primary);
+
+  @mixin linear-progress-height {
+    $heights: 'small', 'default', 'large';
+    @each $height in $heights {
+      @if $height == 'default' {
+        height: var(--#{$local-prefix-cls}-height-#{$height});
+      } @else {
+        &--#{$height} {
+          height: var(--#{$local-prefix-cls}-height-#{$height});
+        }
+      }
+    }
+  }
+
+  @include linear-progress-height();
+
+  &--indeterminate {
+    .#{$local-prefix-cls}-bar {
+      .#{$local-prefix-cls}-inner {
+        position: absolute;
+        width: var(--#{$local-prefix-cls}-indeterminate-bar-width) !important;
+        animation: linearKeyframe
+          var(--#{$local-prefix-cls}-indeterminate-animation-duration)
+          var(--#{$prefix-cls}-ease-in-out) infinite;
+      }
+    }
+  }
+
+  &-bar {
+    position: relative;
+    display: block;
+    background-color: var(--color-disabled-lighter);
+    flex: 1;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    .#{$local-prefix-cls}-inner {
+      display: block;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: 8px;
+      transition: width 150ms var(--#{$prefix-cls}-ease-in-out);
+    }
+  }
+  &-label {
+    @include flex-and-align-center(inline-flex);
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 22px;
+    min-width: 40px;
+
+    .#{$local-prefix-cls}-icon,
+    .#{$local-prefix-cls}-text {
+      @include flex-and-align-center(inline-flex);
+    }
+
+    .#{$local-prefix-cls}-text {
+      color: var(--color-black);
+    }
+  }
+}
+
+@mixin linear-progress-status {
+  $statuses: 'success', 'warning', 'error';
+  @each $status in $statuses {
+    .#{$local-prefix-cls}--#{$status} {
+      color: var(--color-#{$status});
+    }
+  }
+}
+
+@include linear-progress-status();

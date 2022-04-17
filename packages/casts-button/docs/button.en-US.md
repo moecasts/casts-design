@@ -1,7 +1,8 @@
 ---
 title: Button
 group:
-  title: Basic
+  title: General
+  order: 1
 nav:
   title: Components
   path: /components
@@ -95,7 +96,7 @@ export default () => (
 );
 ```
 
-## 自定义图标
+## Custon Icon
 
 ```tsx
 import React from 'react';
@@ -180,8 +181,6 @@ export default () => (
 ## Size
 
 ```tsx
-import './styles.scss';
-
 import React from 'react';
 import { Button } from '@casts/button';
 import '@casts/button/dist/cjs/index.css';
@@ -215,6 +214,9 @@ export default () => (
     </div>
     <div className="docs-section-item">
       <Button color="secondary">Button</Button>
+    </div>
+    <div className="docs-section-item">
+      <Button color="info">Button</Button>
     </div>
     <div className="docs-section-item">
       <Button color="success">Button</Button>

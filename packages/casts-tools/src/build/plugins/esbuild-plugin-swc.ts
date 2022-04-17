@@ -52,7 +52,6 @@ export function swcPlugin(
               },
             },
             filename: args.path,
-            sourceMaps: true,
             sourceFileName: args.path,
           };
 

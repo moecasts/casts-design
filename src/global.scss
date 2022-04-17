@@ -1,0 +1,49 @@
+.docs-section {
+  &-item {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 12px;
+
+    &--block {
+      display: block;
+      margin-right: 0;
+    }
+
+    &--ghost {
+      display: block;
+      padding: 12px;
+      background-color: #e3e3e3;
+    }
+  }
+
+  &--typography {
+    .casts-typography {
+      display: block;
+    }
+  }
+}
+
+.casts-icons-section {
+  .casts-icons-section-title {
+    padding: 24px;
+    font-size: 24px;
+  }
+
+  .casts-icons-section-content {
+    margin: 0 8px;
+    .casts-icon-wrapper {
+      display: inline-block;
+      padding: 16px;
+    }
+  }
+}
+
+.docs-section--position-around {
+  overflow: auto;
+  .docs-section {
+    white-space: nowrap;
+  }
+  .casts-button {
+    width: 120px;
+  }
+}

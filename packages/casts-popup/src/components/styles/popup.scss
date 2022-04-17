@@ -1,0 +1,47 @@
+@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/animation.scss';
+
+:root {
+  --#{$prefix-cls}-popup-color--dark: var(--color-pure-white);
+  --#{$prefix-cls}-popup-color--light: var(--color-black);
+  --#{$prefix-cls}-popup-background-color--dark: var(--color-black);
+  --#{$prefix-cls}-popup-background-color--light: var(--color-pure-white);
+  --#{$prefix-cls}-popup-padding: #{$padding-large};
+  --#{$prefix-cls}-popup-border-radius: #{$border-radius-base};
+  --#{$prefix-cls}-popup-font-size: #{$font-size-base};
+  --#{$prefix-cls}-popup-box-shadow: #{$shadow-2};
+}
+
+$popup-themes: 'light', 'dark';
+
+.#{$prefix-cls}-popup {
+  position: relative;
+  z-index: 999;
+  font-size: var(--#{$prefix-cls}-popup-font-size);
+  border-radius: var(--#{$prefix-cls}-popup-border-radius);
+
+  @each $theme in $popup-themes {
+    &.#{$prefix-cls}-popup--#{$theme} {
+      color: var(--#{$prefix-cls}-popup-color--#{$theme});
+      background-color: var(--#{$prefix-cls}-popup-background-color--#{$theme});
+    }
+  }
+
+  &--shadow {
+    box-shadow: var(--#{$prefix-cls}-popup-box-shadow);
+  }
+
+  &-content {
+    padding: var(--#{$prefix-cls}-popup-padding);
+    background-color: inherit;
+    border-radius: inherit;
+    z-index: 2;
+  }
+
+  &-arrow {
+    background-color: inherit;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}

@@ -22,8 +22,15 @@ export default defineConfig({
   apiParser: {
     propFilter: {
       // 是否忽略从 node_modules 继承的属性，默认值为 false
-      skipNodeModules: true
+      skipNodeModules: true,
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldExtractValuesFromUnion: true,
     },
   },
+  sass: {
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'node_modules')],
+    },
+  }
   // more config: https://d.umijs.org/config
 });

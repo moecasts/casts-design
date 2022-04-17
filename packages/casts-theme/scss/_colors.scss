@@ -55,7 +55,7 @@
   --color-dark-pastel-green-800: hsla(118, 57%, 34%, 1);
   --color-dark-pastel-green-900: hsla(121, 78%, 23%, 1);
 
-  --color-flame-50: hsla(7, 60%, 94%, 1);
+  --color-flame-50: hsla(35, 100%, 95%, 1);
   --color-flame-100: hsla(16, 89%, 86%, 1);
   --color-flame-200: hsla(16, 90%, 77%, 1);
   --color-flame-300: hsla(16, 90%, 68%, 1);
@@ -89,9 +89,9 @@
   --color-error-lighter: var(--color-rose-500);
   --color-error-darker: var(--color-rose-700);
 
-  --color-info: var(--color-dodger-blue-100);
-  --color-info-lighter: var(--color-dodger-blue-50);
-  --color-info-darker: var(--color-dodger-blue-200);
+  --color-info: var(--color-dodger-blue-500);
+  --color-info-lighter: var(--color-dodger-blue-400);
+  --color-info-darker: var(--color-dodger-blue-600);
 
   --color-error: var(--color-rose-600);
   --color-error-lighter: var(--color-rose-500);
@@ -116,6 +116,8 @@
   --color-white: var(--color-onxy-200);
   --color-white-lighter: var(--color-onxy-100);
   --color-white-darker: var(--color-onxy-300);
+
+  --color-pure-white: #fff;
 
   --color-primary-linear: linear-gradient(
     116.53428008470178deg,
