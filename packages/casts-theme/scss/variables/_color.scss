@@ -77,9 +77,9 @@
   --color-onxy-800: hsla(0, 0%, 27%, 1);
   --color-onxy-900: hsla(0, 0%, 14%, 1);
 
-  --color-primary: var(--color-slate-blue-500);
-  --color-primary-lighter: var(--color-slate-blue-400);
-  --color-primary-darker: var(--color-slate-blue-700);
+  --color-brand: var(--color-slate-blue-500);
+  --color-brand-lighter: var(--color-slate-blue-400);
+  --color-brand-darker: var(--color-slate-blue-700);
 
   --color-secondary: var(--color-jasper-700);
   --color-secondary-lighter: var(--color-jasper-600);
@@ -117,9 +117,9 @@
   --color-white-lighter: var(--color-onxy-100);
   --color-white-darker: var(--color-onxy-300);
 
-  --color-primary-linear: linear-gradient(
+  --color-brand-linear: linear-gradient(
     116.53428008470178deg,
-    var(--color-primary) 23.190104166666668%,
+    var(--color-brand) 23.190104166666668%,
     rgba(118, 91, 234, 1) 23.190104166666668%,
     rgba(232, 74, 198, 1) 100.79427083333333%
   );

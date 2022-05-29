@@ -210,7 +210,7 @@ import '@casts/button/dist/cjs/index.css';
 export default () => (
   <div className="docs-section">
     <div className="docs-section-item">
-      <Button color="primary">Button</Button>
+      <Button color="brand">Button</Button>
     </div>
     <div className="docs-section-item">
       <Button color="secondary">Button</Button>

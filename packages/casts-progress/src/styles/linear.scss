@@ -30,7 +30,7 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
   width: 100%;
   height: var(--#{$local-prefix-cls}-height-default);
   @include flex-and-align-center;
-  color: var(--color-primary);
+  color: var(--color-brand);
 
   @mixin linear-progress-height {
     $heights: 'small', 'default', 'large';
@@ -62,11 +62,11 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
   &-bar {
     position: relative;
     display: block;
-    background-color: var(--color-disabled-lighter);
     flex: 1;
     height: 100%;
-    border-radius: 8px;
     overflow: hidden;
+    background-color: var(--color-disabled-lighter);
+    border-radius: 8px;
 
     .#{$local-prefix-cls}-inner {
       display: block;
@@ -78,10 +78,10 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
   }
   &-label {
     @include flex-and-align-center(inline-flex);
+    min-width: 40px;
     margin-left: 8px;
     font-size: 14px;
     line-height: 22px;
-    min-width: 40px;
 
     .#{$local-prefix-cls}-icon,
     .#{$local-prefix-cls}-text {

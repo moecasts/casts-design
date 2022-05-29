@@ -14,7 +14,7 @@ export type ButtonGroupProps = {
    */
   variant?: ButtonVariant;
   /**
-   * @default primary
+   * @default brand
    */
   color?: ButtonColor;
   /**

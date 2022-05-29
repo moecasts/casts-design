@@ -2,7 +2,7 @@
 title: Tooltip 文字提示
 group:
   title: 数据展示
-  order: 2
+  order: 3
 nav:
   title: 组件
   path: /components

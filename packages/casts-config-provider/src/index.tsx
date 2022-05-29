@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
 export type Theme = {
-  primaryColor?: string;
+  brandColor?: string;
   infoColor?: string;
   successColor?: string;
   processingColor?: string;

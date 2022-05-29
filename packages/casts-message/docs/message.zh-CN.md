@@ -2,7 +2,7 @@
 title: Message 全局提示
 group:
   title: 反馈
-  order: 3
+  order: 4
 nav:
   title: Components
   path: /components

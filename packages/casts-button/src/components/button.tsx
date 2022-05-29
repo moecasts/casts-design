@@ -30,7 +30,7 @@ export type ButtonVariant =
 export type ButtonBlock = boolean;
 
 export type ButtonColor =
-  | 'primary'
+  | 'brand'
   | 'secondary'
   | 'info'
   | 'success'
@@ -53,7 +53,7 @@ export type BaseButtonProps = {
    */
   variant?: ButtonVariant;
   /**
-   * @default primary
+   * @default brand
    */
   color?: ButtonColor;
   /**
@@ -103,7 +103,7 @@ const InternalButton: FC<ButtonProps> = (props) => {
     icon,
     children,
     className,
-    color = parentColor || 'primary',
+    color = parentColor || 'brand',
     block = false,
     disabled = parentDisabled || false,
     loading = false,

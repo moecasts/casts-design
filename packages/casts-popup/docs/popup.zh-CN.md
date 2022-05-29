@@ -2,7 +2,7 @@
 title: Popup 弹出层
 group:
   title: 数据展示
-  order: 2
+  order: 3
 nav:
   title: 组件
   path: /components
