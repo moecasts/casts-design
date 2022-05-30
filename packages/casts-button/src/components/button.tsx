@@ -31,14 +31,14 @@ export type ButtonBlock = boolean;
 
 export type ButtonColor =
   | 'brand'
-  | 'secondary'
+  // | 'secondary'
   | 'info'
   | 'success'
   | 'error'
   | 'warning'
-  | 'disabled'
-  | 'black'
-  | 'white';
+  | 'disabled';
+// | 'black'
+// | 'white';
 
 export type ButtonSize = 'small' | 'default' | 'large';
 

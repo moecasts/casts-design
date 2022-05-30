@@ -204,3 +204,173 @@ export default () => (
   </div>
 );
 ```
+
+# 禁用
+
+```tsx
+import React from 'react';
+import { Input } from '@casts/input';
+import '@casts/input/dist/cjs/index.css';
+
+import {
+  InformationLine,
+  CheckboxCircleLine,
+  CloseCircleLine,
+} from '@casts/icons';
+import '@casts/icons/dist/cjs/index.css';
+
+export default () => (
+  <div className="docs-section">
+    <div
+      className="docs-section-item docs-section-item--block"
+      style={{ marginBottom: '20px' }}
+    >
+      <Input
+        disabled
+        placeholder="Please enter something"
+        tips="this is a tip"
+      />
+    </div>
+    <div
+      className="docs-section-item docs-section-item--block"
+      style={{ marginBottom: '20px' }}
+    >
+      <Input
+        disabled
+        placeholder="Please enter something"
+        tips="this is success tips"
+        status="success"
+        suffix={<CheckboxCircleLine />}
+      />
+    </div>
+    <div
+      className="docs-section-item docs-section-item--block"
+      style={{ marginBottom: '20px' }}
+    >
+      <Input
+        disabled
+        placeholder="Please enter something"
+        tips="this is warning tips"
+        status="warning"
+        suffix={<InformationLine />}
+      />
+    </div>
+    <div
+      className="docs-section-item docs-section-item--block"
+      style={{ marginBottom: '20px' }}
+    >
+      <Input
+        disabled
+        placeholder="Please enter something"
+        tips="this is error tips"
+        status="error"
+        suffix={<CloseCircleLine />}
+      />
+    </div>
+  </div>
+);
+```
+
+## 受控值
+
+```tsx
+import React, { useState } from 'react';
+import { Input } from '@casts/input';
+import '@casts/input/dist/cjs/index.css';
+
+export default () => {
+  const [value, setValue] = useState('controlled value');
+  const onChange = (value, { e }) => {
+    setValue(value);
+    console.log('onChange', value, e);
+  };
+  return (
+    <div className="docs-section">
+      <div
+        className="docs-section-item docs-section-item--block"
+        style={{ marginBottom: '20px' }}
+      >
+        <Input
+          value={value}
+          placeholder="Please enter something"
+          onChange={onChange}
+        />
+      </div>
+    </div>
+  );
+};
+```
+
+## 非受控值
+
+```tsx
+import React, { useState } from 'react';
+import { Input } from '@casts/input';
+import '@casts/input/dist/cjs/index.css';
+
+import '@casts/icons/dist/cjs/index.css';
+
+export default () => {
+  return (
+    <div className="docs-section">
+      <div
+        className="docs-section-item docs-section-item--block"
+        style={{ marginBottom: '20px' }}
+      >
+        <Input
+          defaultValue={'uncontrolled value'}
+          placeholder="Please enter something"
+        />
+      </div>
+    </div>
+  );
+};
+```
+
+## 最多输入
+
+```tsx
+import React, { useState } from 'react';
+import { Input } from '@casts/input';
+import '@casts/input/dist/cjs/index.css';
+
+export default () => {
+  return (
+    <div className="docs-section">
+      <div
+        className="docs-section-item docs-section-item--block"
+        style={{ marginBottom: '20px' }}
+      >
+        <Input maxLength="5" placeholder="Please enter something" />
+      </div>
+    </div>
+  );
+};
+```
+
+## 宽度自适应
+
+```tsx
+import React, { useState } from 'react';
+import { Input } from '@casts/input';
+import '@casts/input/dist/cjs/index.css';
+
+export default () => {
+  return (
+    <div className="docs-section">
+      <div
+        className="docs-section-item docs-section-item--block"
+        style={{ marginBottom: '20px' }}
+      >
+        <Input
+          autoWidth
+          defaultValue={'defaultValue'}
+          placeholder="Please enter something"
+        />
+      </div>
+    </div>
+  );
+};
+```
+
+<API src="@casts/input"></API>

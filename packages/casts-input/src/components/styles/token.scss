@@ -1,0 +1,57 @@
+@import '@casts/theme/scss/default.scss';
+
+$input-prefix-cls: #{$prefix-cls}-input;
+$input-border-width-base: $border-width;
+
+$input-font-size-base: $font-size-base;
+$input-font-size-large: $font-size-large;
+$input-font-size-small: $font-size-small;
+
+$input-height-base: $height-base;
+$input-height-large: $height-large;
+$input-height-small: $height-small;
+
+$input-line-height-base: calc(8px + $font-size-base);
+$input-line-height-large: calc(8px + $font-size-large);
+$input-line-height-small: calc(8px + $font-size-small);
+
+$input-padding-vertical-base: 5px - $input-border-width-base;
+$input-padding-vertical-large: $input-padding-vertical-base + 2px;
+$input-padding-vertical-small: $input-padding-vertical-base - 2px;
+
+$input-padding-horizontal-base: 12px;
+$input-padding-horizontal-large: $input-padding-horizontal-base;
+$input-padding-horizontal-small: $input-padding-horizontal-base;
+
+$input-border-radius-base: $border-radius-base;
+$input-border-radius-large: $border-radius-large;
+$input-border-radius-small: $border-radius-small;
+
+:root {
+  --#{$input-prefix-cls}-font-size-base: #{$input-font-size-base};
+  --#{$input-prefix-cls}-font-size-small: #{$input-font-size-small};
+  --#{$input-prefix-cls}-font-size-large: #{$input-font-size-large};
+
+  --#{$input-prefix-cls}-height-base: #{$input-height-base};
+  --#{$input-prefix-cls}-height-small: #{$input-height-small};
+  --#{$input-prefix-cls}-height-large: #{$input-height-large};
+
+  --#{$input-prefix-cls}-line-height-base: #{$input-line-height-base};
+  --#{$input-prefix-cls}-line-height-small: #{$input-line-height-small};
+  --#{$input-prefix-cls}-line-height-large: #{$input-line-height-large};
+
+  --#{$input-prefix-cls}-border-width-base: #{$input-border-width-base};
+
+  --#{$input-prefix-cls}-padding-vertical-base: #{$input-padding-vertical-base};
+  --#{$input-prefix-cls}-padding-vertical-small: #{$input-padding-vertical-small};
+  --#{$input-prefix-cls}-padding-vertical-large: #{$input-padding-vertical-large};
+
+  --#{$input-prefix-cls}-padding-horizontal-base: #{$input-padding-horizontal-base};
+  --#{$input-prefix-cls}-padding-horizontal-small: #{$input-padding-horizontal-small};
+  --#{$input-prefix-cls}-padding-horizontal-large: #{$input-padding-horizontal-large};
+
+  // border radius
+  --#{$input-prefix-cls}-border-radius-base: #{$input-border-radius-base};
+  --#{$input-prefix-cls}-border-radius-large: #{$input-border-radius-large};
+  --#{$input-prefix-cls}-border-radius-small: #{$input-border-radius-small};
+}

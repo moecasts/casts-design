@@ -1,0 +1,216 @@
+@import './global.scss';
+
+/******** shadow *******/
+$shadow-none: none;
+$shadow-special: 0 0 1px rgba(0, 0, 0, 0.3);
+$shadow1-center: 0 0 5px rgba(0, 0, 0, 0.1);
+$shadow1-up: 0 -2px 5px rgba(0, 0, 0, 0.1);
+$shadow1-down: 0 2px 5px rgba(0, 0, 0, 0.1);
+$shadow1-left: -2px 0 5px rgba(0, 0, 0, 0.1);
+$shadow1-right: 2px 0 5px rgba(0, 0, 0, 0.1);
+$shadow1-left-up: -2px -2px 5px rgba(0, 0, 0, 0.1);
+$shadow1-left-down: -2px 2px 5px rgba(0, 0, 0, 0.1);
+$shadow1-right-up: 2px -2px 5px rgba(0, 0, 0, 0.1);
+$shadow1-right-down: 2px 2px 5px rgba(0, 0, 0, 0.1);
+$shadow2-center: 0 0 10px rgba(0, 0, 0, 0.1);
+$shadow2-up: 0 -4px 10px rgba(0, 0, 0, 0.1);
+$shadow2-down: 0 4px 10px rgba(0, 0, 0, 0.1);
+$shadow2-left: -4px 0 10px rgba(0, 0, 0, 0.1);
+$shadow2-right: 4px 0 10px rgba(0, 0, 0, 0.1);
+$shadow2-left-up: -4px -4px 10px rgba(0, 0, 0, 0.1);
+$shadow2-left-down: -4px 4px 10px rgba(0, 0, 0, 0.1);
+$shadow2-right-up: 4px -4px 10px rgba(0, 0, 0, 0.1);
+$shadow2-right-down: 4px 4px 10px rgba(0, 0, 0, 0.1);
+$shadow3-center: 0 0 20px rgba(0, 0, 0, 0.1);
+$shadow3-up: 0 -8px 20px rgba(0, 0, 0, 0.1);
+$shadow3-down: 0 8px 20px rgba(0, 0, 0, 0.1);
+$shadow3-left: -8px 0 20px rgba(0, 0, 0, 0.1);
+$shadow3-right: 8px 0 20px rgba(0, 0, 0, 0.1);
+$shadow3-left-up: -8px -8px 20px rgba(0, 0, 0, 0.1);
+$shadow3-left-down: -8px 8px 20px rgba(0, 0, 0, 0.1);
+$shadow3-right-up: 8px -8px 20px rgba(0, 0, 0, 0.1);
+$shadow3-right-down: 8px 8px 20px rgba(0, 0, 0, 0.1);
+$shadow4-center: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+  0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+/******** animation *******/
+$transition-duration-base: 200ms;
+
+$ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
+$ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+$ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+$ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+$ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+/******** typography *******/
+:root {
+  $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  $code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+
+  $font-size-base: 14px;
+  $font-size-large: $font-size-base + 2px;
+  $font-size-small: $font-size-base - 2px;
+  $line-height: 1.5715;
+
+  $display-text-font-size: ceil($font-size-base * 4);
+
+  $heading-1-font-size: ceil($font-size-base * 3.42);
+  $heading-2-font-size: ceil($font-size-base * 2.57);
+  $heading-3-font-size: ceil($font-size-base * 2.28);
+  $heading-4-font-size: ceil($font-size-base * 2);
+  $heading-5-font-size: ceil($font-size-base * 1.71);
+  $heading-6-font-size: ceil($font-size-base * 1.42);
+
+  $body-font-size: $font-size-large;
+  $subtitle-font-size: $font-size-base;
+  $caption-font-size: $font-size-small;
+
+  $display-text-line-height: $display-text-font-size + 8px;
+  $heading-1-line-height: $heading-1-font-size + 8px;
+  $heading-2-line-height: $heading-2-font-size + 8px;
+  $heading-3-line-height: $heading-3-font-size + 8px;
+  $heading-4-line-height: $heading-4-font-size + 8px;
+  $heading-5-line-height: $heading-5-font-size + 8px;
+  $heading-6-line-height: $heading-6-font-size + 8px;
+  $subtitle-line-height: $subtitle-font-size + 8px;
+  $caption-line-height: $caption-font-size + 6px;
+
+  --#{$prefix-cls}-font-family: #{$font-family};
+  --#{$prefix-cls}-code-family: #{$code-family};
+
+  --#{$prefix-cls}-font-size-base: #{$font-size-base};
+  --#{$prefix-cls}-font-size-large: #{$font-size-large};
+  --#{$prefix-cls}-font-size-small: #{$font-size-small};
+  --#{$prefix-cls}-line-height: #{$line-height};
+
+  --#{$prefix-cls}-display-text-font-size: #{$display-text-font-size};
+
+  --#{$prefix-cls}-heading-1-font-size: #{$heading-1-font-size};
+  --#{$prefix-cls}-heading-2-font-size: #{$heading-2-font-size};
+  --#{$prefix-cls}-heading-3-font-size: #{$heading-3-font-size};
+  --#{$prefix-cls}-heading-4-font-size: #{$heading-4-font-size};
+  --#{$prefix-cls}-heading-5-font-size: #{$heading-5-font-size};
+  --#{$prefix-cls}-heading-6-font-size: #{$heading-6-font-size};
+
+  --#{$prefix-cls}-body-font-size: #{$body-font-size};
+  --#{$prefix-cls}-subtitle-font-size: #{$subtitle-font-size};
+  --#{$prefix-cls}-caption-font-size: #{$caption-font-size};
+
+  --#{$prefix-cls}-display-text-line-height: #{$display-text-line-height};
+  --#{$prefix-cls}-heading-1-line-height: #{$heading-1-line-height};
+  --#{$prefix-cls}-heading-2-line-height: #{$heading-2-line-height};
+  --#{$prefix-cls}-heading-3-line-height: #{$heading-3-line-height};
+  --#{$prefix-cls}-heading-4-line-height: #{$heading-4-line-height};
+  --#{$prefix-cls}-heading-5-line-height: #{$heading-5-line-height};
+  --#{$prefix-cls}-heading-6-line-height: #{$heading-6-line-height};
+  --#{$prefix-cls}-subtitle-line-height: #{$subtitle-line-height};
+  --#{$prefix-cls}-caption-line-height: #{$caption-line-height};
+}
+
+$font-family: var(--#{$prefix-cls}-font-family);
+$code-family: var(--#{$prefix-cls}-code-family);
+
+$font-size-base: var(--#{$prefix-cls}-font-size-base);
+$font-size-large: var(--#{$prefix-cls}-font-size-large);
+$font-size-small: var(--#{$prefix-cls}-font-size-small);
+$line-height: var(--#{$prefix-cls}-line-height);
+
+$display-text-font-size: var(--#{$prefix-cls}-display-text-font-size);
+
+$heading-1-font-size: var(--#{$prefix-cls}-heading-1-font-size);
+$heading-2-font-size: var(--#{$prefix-cls}-heading-2-font-size);
+$heading-3-font-size: var(--#{$prefix-cls}-heading-3-font-size);
+$heading-4-font-size: var(--#{$prefix-cls}-heading-4-font-size);
+$heading-5-font-size: var(--#{$prefix-cls}-heading-5-font-size);
+$heading-6-font-size: var(--#{$prefix-cls}-heading-6-font-size);
+
+$body-font-size: var(--#{$prefix-cls}-body-font-size);
+$subtitle-font-size: var(--#{$prefix-cls}-subtitle-font-size);
+$caption-font-size: var(--#{$prefix-cls}-caption-font-size);
+
+$display-text-line-height: var(--#{$prefix-cls}-display-text-line-height);
+$heading-1-line-height: var(--#{$prefix-cls}-heading-1-line-height);
+$heading-2-line-height: var(--#{$prefix-cls}-heading-2-line-height);
+$heading-3-line-height: var(--#{$prefix-cls}-heading-3-line-height);
+$heading-4-line-height: var(--#{$prefix-cls}-heading-4-line-height);
+$heading-5-line-height: var(--#{$prefix-cls}-heading-5-line-height);
+$heading-6-line-height: var(--#{$prefix-cls}-heading-6-line-height);
+$subtitle-line-height: var(--#{$prefix-cls}-subtitle-line-height);
+$caption-line-height: var(--#{$prefix-cls}-caption-line-height);
+
+/******** height *******/
+:root {
+  --#{$prefix-cls}-height-base: 32px;
+  --#{$prefix-cls}-height-large: 40px;
+  --#{$prefix-cls}-height-small: 24px;
+}
+
+$height-base: var(--#{$prefix-cls}-height-base);
+$height-large: var(--#{$prefix-cls}-height-large);
+$height-small: var(--#{$prefix-cls}-height-small);
+
+/******** padding *******/
+:root {
+  $padding-vertical-base: 6px;
+  $padding-base: 4px;
+  $padding-large: 6px;
+
+  $padding-default: $padding-base;
+  $padding-vertical-large: $padding-vertical-base + 2px;
+  $padding-vertical-small: $padding-vertical-base + 2px;
+
+  $padding-horizontal-base: 16px;
+  $padding-horizontal-large: $padding-horizontal-base + 8px;
+  $padding-horizontal-small: $padding-horizontal-base - 8px;
+
+  --#{$prefix-cls}-padding-vertical-base: #{$padding-vertical-base};
+  --#{$prefix-cls}-padding-vertical-large: #{$padding-vertical-large};
+  --#{$prefix-cls}-padding-vertical-small: #{$padding-vertical-small};
+
+  --#{$prefix-cls}-padding-horizontal-base: #{$padding-horizontal-base};
+  --#{$prefix-cls}-padding-horizontal-large: #{$padding-horizontal-large};
+  --#{$prefix-cls}-padding-horizontal-small: #{$padding-horizontal-small};
+
+  --#{$prefix-cls}-padding-base: #{$padding-base};
+  --#{$prefix-cls}-padding-large: #{$padding-large};
+  --#{$prefix-cls}-padding-default: #{$padding-default};
+}
+
+$padding-vertical-base: var(--#{$prefix-cls}-padding-vertical-base);
+$padding-vertical-large: var(--#{$prefix-cls}-padding-vertical-large);
+$padding-vertical-small: var(--#{$prefix-cls}-padding-vertical-small);
+$padding-horizontal-base: var(--#{$prefix-cls}-padding-horizontal-base);
+$padding-horizontal-large: var(--#{$prefix-cls}-padding-horizontal-large);
+$padding-horizontal-small: var(--#{$prefix-cls}-padding-horizontal-small);
+$padding-base: var(--#{$prefix-cls}-padding-base);
+$padding-large: var(--#{$prefix-cls}-padding-large);
+$padding-default: var(--#{$prefix-cls}-padding-default);
+
+/******** border *******/
+:root {
+  $border-width: 1px;
+  $border-radius-base: 4px;
+  $border-radius-small: $border-radius-base - 2px;
+  $border-radius-large: $border-radius-base + 2px;
+  --#{$prefix-cls}-border-width: #{$border-width};
+  --#{$prefix-cls}-border-radius-small: #{$border-radius-small};
+  --#{$prefix-cls}-border-radius-base: #{$border-radius-base};
+  --#{$prefix-cls}-border-radius-large: #{$border-radius-large};
+}
+
+$border-width: var(--#{$prefix-cls}-border-width);
+$border-radius-small: var(--#{$prefix-cls}-border-radius-small);
+$border-radius-base: var(--#{$prefix-cls}-border-radius-base);
+$border-radius-large: var(--#{$prefix-cls}-border-radius-large);

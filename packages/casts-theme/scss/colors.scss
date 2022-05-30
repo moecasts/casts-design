@@ -1,0 +1,414 @@
+@import './global.scss';
+
+// color string
+$brand-1: '272, 100%, 96%';
+$brand-2: '270, 78%, 85%';
+$brand-3: '268, 73%, 75%';
+$brand-4: '266, 71%, 65%';
+$brand-5: '264, 69%, 57%';
+$brand-6: '262, 73%, 48%';
+$brand-7: '260, 79%, 39%';
+$brand-8: '258, 86%, 30%';
+$brand-9: '256, 93%, 22%';
+$brand-10: '254, 100%, 15%';
+
+$jasper-1: '6, 100%, 96%';
+$jasper-2: '4, 80%, 86%';
+$jasper-3: '2, 76%, 78%';
+$jasper-4: '0, 74%, 69%';
+$jasper-5: '358, 72%, 61%';
+$jasper-6: '356, 71%, 54%';
+$jasper-7: '354, 70%, 43%';
+$jasper-8: '352, 79%, 33%';
+$jasper-9: '350, 89%, 23%';
+$jasper-10: '348, 100%, 15%';
+
+$info-1: '199, 100%, 96%';
+$info-2: '201, 98%, 87%';
+$info-3: '203, 97%, 79%';
+$info-4: '205, 97%, 71%';
+$info-5: '207, 97%, 64%';
+$info-6: '209, 96%, 56%';
+$info-7: '211, 82%, 45%';
+$info-8: '213, 88%, 34%';
+$info-9: '215, 94%, 24%';
+$info-10: '217, 100%, 15%';
+
+$error-1: '5, 100%, 96%';
+$error-2: '3, 85%, 86%';
+$error-3: '1, 81%, 77%';
+$error-4: '359, 80%, 68%';
+$error-5: '357, 79%, 60%';
+$error-6: '355, 78%, 52%';
+$error-7: '353, 78%, 42%';
+$error-8: '351, 85%, 32%';
+$error-9: '349, 92%, 23%';
+$error-10: '347, 100%, 15%';
+
+$success-1: '106, 100%, 96%';
+$success-2: '108, 63%, 85%';
+$success-3: '110, 55%, 75%';
+$success-4: '112, 51%, 66%';
+$success-5: '114, 48%, 58%';
+$success-6: '116, 46%, 50%';
+$success-7: '118, 57%, 39%';
+$success-8: '120, 69%, 30%';
+$success-9: '122, 83%, 22%';
+$success-10: '124, 100%, 15%';
+
+$warning-1: '27, 100%, 96%';
+$warning-2: '25, 88%, 86%';
+$warning-3: '23, 85%, 77%';
+$warning-4: '21, 84%, 69%';
+$warning-5: '19, 83%, 60%';
+$warning-6: '17, 83%, 52%';
+$warning-7: '15, 82%, 42%';
+$warning-8: '13, 88%, 32%';
+$warning-9: '11, 94%, 23%';
+$warning-10: '9, 100%, 15%';
+
+$gray-1: '220, 23%, 97%';
+$gray-2: '220, 13%, 95%';
+$gray-3: '230, 13%, 91%';
+$gray-4: '218, 11%, 81%';
+$gray-5: '220, 10%, 69%';
+$gray-6: '213, 10%, 57%';
+$gray-7: '212, 11%, 47%';
+$gray-8: '216, 15%, 36%';
+$gray-9: '219, 20%, 19%';
+$gray-10: '220, 17%, 14%';
+
+:root {
+  --#{$prefix-cls}-brand-1: #{$brand-1};
+  --#{$prefix-cls}-brand-2: #{$brand-2};
+  --#{$prefix-cls}-brand-3: #{$brand-3};
+  --#{$prefix-cls}-brand-4: #{$brand-4};
+  --#{$prefix-cls}-brand-5: #{$brand-5};
+  --#{$prefix-cls}-brand-6: #{$brand-6};
+  --#{$prefix-cls}-brand-7: #{$brand-7};
+  --#{$prefix-cls}-brand-8: #{$brand-8};
+  --#{$prefix-cls}-brand-9: #{$brand-9};
+  --#{$prefix-cls}-brand-10: #{$brand-10};
+
+  --#{$prefix-cls}-jasper-1: #{$jasper-1};
+  --#{$prefix-cls}-jasper-2: #{$jasper-2};
+  --#{$prefix-cls}-jasper-3: #{$jasper-3};
+  --#{$prefix-cls}-jasper-4: #{$jasper-4};
+  --#{$prefix-cls}-jasper-5: #{$jasper-5};
+  --#{$prefix-cls}-jasper-6: #{$jasper-6};
+  --#{$prefix-cls}-jasper-7: #{$jasper-7};
+  --#{$prefix-cls}-jasper-8: #{$jasper-8};
+  --#{$prefix-cls}-jasper-9: #{$jasper-9};
+  --#{$prefix-cls}-jasper-10: #{$jasper-10};
+
+  --#{$prefix-cls}-info-1: #{$info-1};
+  --#{$prefix-cls}-info-2: #{$info-2};
+  --#{$prefix-cls}-info-3: #{$info-3};
+  --#{$prefix-cls}-info-4: #{$info-4};
+  --#{$prefix-cls}-info-5: #{$info-5};
+  --#{$prefix-cls}-info-6: #{$info-6};
+  --#{$prefix-cls}-info-7: #{$info-7};
+  --#{$prefix-cls}-info-8: #{$info-8};
+  --#{$prefix-cls}-info-9: #{$info-9};
+  --#{$prefix-cls}-info-10: #{$info-10};
+
+  --#{$prefix-cls}-error-1: #{$error-1};
+  --#{$prefix-cls}-error-2: #{$error-2};
+  --#{$prefix-cls}-error-3: #{$error-3};
+  --#{$prefix-cls}-error-4: #{$error-4};
+  --#{$prefix-cls}-error-5: #{$error-5};
+  --#{$prefix-cls}-error-6: #{$error-6};
+  --#{$prefix-cls}-error-7: #{$error-7};
+  --#{$prefix-cls}-error-8: #{$error-8};
+  --#{$prefix-cls}-error-9: #{$error-9};
+  --#{$prefix-cls}-error-10: #{$error-10};
+
+  --#{$prefix-cls}-success-1: #{$success-1};
+  --#{$prefix-cls}-success-2: #{$success-2};
+  --#{$prefix-cls}-success-3: #{$success-3};
+  --#{$prefix-cls}-success-4: #{$success-4};
+  --#{$prefix-cls}-success-5: #{$success-5};
+  --#{$prefix-cls}-success-6: #{$success-6};
+  --#{$prefix-cls}-success-7: #{$success-7};
+  --#{$prefix-cls}-success-8: #{$success-8};
+  --#{$prefix-cls}-success-9: #{$success-9};
+  --#{$prefix-cls}-success-10: #{$success-10};
+
+  --#{$prefix-cls}-warning-1: #{$warning-1};
+  --#{$prefix-cls}-warning-2: #{$warning-2};
+  --#{$prefix-cls}-warning-3: #{$warning-3};
+  --#{$prefix-cls}-warning-4: #{$warning-4};
+  --#{$prefix-cls}-warning-5: #{$warning-5};
+  --#{$prefix-cls}-warning-6: #{$warning-6};
+  --#{$prefix-cls}-warning-7: #{$warning-7};
+  --#{$prefix-cls}-warning-8: #{$warning-8};
+  --#{$prefix-cls}-warning-9: #{$warning-9};
+  --#{$prefix-cls}-warning-10: #{$warning-10};
+
+  --#{$prefix-cls}-gray-1: #{$gray-1};
+  --#{$prefix-cls}-gray-2: #{$gray-2};
+  --#{$prefix-cls}-gray-3: #{$gray-3};
+  --#{$prefix-cls}-gray-4: #{$gray-4};
+  --#{$prefix-cls}-gray-5: #{$gray-5};
+  --#{$prefix-cls}-gray-6: #{$gray-6};
+  --#{$prefix-cls}-gray-7: #{$gray-7};
+  --#{$prefix-cls}-gray-8: #{$gray-8};
+  --#{$prefix-cls}-gray-9: #{$gray-9};
+  --#{$prefix-cls}-gray-10: #{$gray-10};
+}
+
+// hsl color
+$color-brand-1: hsl(var(--#{$prefix-cls}-brand-1));
+$color-brand-2: hsl(var(--#{$prefix-cls}-brand-2));
+$color-brand-3: hsl(var(--#{$prefix-cls}-brand-3));
+$color-brand-4: hsl(var(--#{$prefix-cls}-brand-4));
+$color-brand-5: hsl(var(--#{$prefix-cls}-brand-5));
+$color-brand-6: hsl(var(--#{$prefix-cls}-brand-6));
+$color-brand-7: hsl(var(--#{$prefix-cls}-brand-7));
+$color-brand-8: hsl(var(--#{$prefix-cls}-brand-8));
+$color-brand-9: hsl(var(--#{$prefix-cls}-brand-9));
+$color-brand-10: hsl(var(--#{$prefix-cls}-brand-10));
+
+$color-jasper-1: hsl(var(--#{$prefix-cls}-jasper-1));
+$color-jasper-2: hsl(var(--#{$prefix-cls}-jasper-2));
+$color-jasper-3: hsl(var(--#{$prefix-cls}-jasper-3));
+$color-jasper-4: hsl(var(--#{$prefix-cls}-jasper-4));
+$color-jasper-5: hsl(var(--#{$prefix-cls}-jasper-5));
+$color-jasper-6: hsl(var(--#{$prefix-cls}-jasper-6));
+$color-jasper-7: hsl(var(--#{$prefix-cls}-jasper-7));
+$color-jasper-8: hsl(var(--#{$prefix-cls}-jasper-8));
+$color-jasper-9: hsl(var(--#{$prefix-cls}-jasper-9));
+$color-jasper-10: hsl(var(--#{$prefix-cls}-jasper-10));
+
+$color-info-1: hsl(var(--#{$prefix-cls}-info-1));
+$color-info-2: hsl(var(--#{$prefix-cls}-info-2));
+$color-info-3: hsl(var(--#{$prefix-cls}-info-3));
+$color-info-4: hsl(var(--#{$prefix-cls}-info-4));
+$color-info-5: hsl(var(--#{$prefix-cls}-info-5));
+$color-info-6: hsl(var(--#{$prefix-cls}-info-6));
+$color-info-7: hsl(var(--#{$prefix-cls}-info-7));
+$color-info-8: hsl(var(--#{$prefix-cls}-info-8));
+$color-info-9: hsl(var(--#{$prefix-cls}-info-9));
+$color-info-10: hsl(var(--#{$prefix-cls}-info-10));
+
+$color-error-1: hsl(var(--#{$prefix-cls}-error-1));
+$color-error-2: hsl(var(--#{$prefix-cls}-error-2));
+$color-error-3: hsl(var(--#{$prefix-cls}-error-3));
+$color-error-4: hsl(var(--#{$prefix-cls}-error-4));
+$color-error-5: hsl(var(--#{$prefix-cls}-error-5));
+$color-error-6: hsl(var(--#{$prefix-cls}-error-6));
+$color-error-7: hsl(var(--#{$prefix-cls}-error-7));
+$color-error-8: hsl(var(--#{$prefix-cls}-error-8));
+$color-error-9: hsl(var(--#{$prefix-cls}-error-9));
+$color-error-10: hsl(var(--#{$prefix-cls}-error-10));
+
+$color-success-1: hsl(var(--#{$prefix-cls}-success-1));
+$color-success-2: hsl(var(--#{$prefix-cls}-success-2));
+$color-success-3: hsl(var(--#{$prefix-cls}-success-3));
+$color-success-4: hsl(var(--#{$prefix-cls}-success-4));
+$color-success-5: hsl(var(--#{$prefix-cls}-success-5));
+$color-success-6: hsl(var(--#{$prefix-cls}-success-6));
+$color-success-7: hsl(var(--#{$prefix-cls}-success-7));
+$color-success-8: hsl(var(--#{$prefix-cls}-success-8));
+$color-success-9: hsl(var(--#{$prefix-cls}-success-9));
+$color-success-10: hsl(var(--#{$prefix-cls}-success-10));
+
+$color-warning-1: hsl(var(--#{$prefix-cls}-warning-1));
+$color-warning-2: hsl(var(--#{$prefix-cls}-warning-2));
+$color-warning-3: hsl(var(--#{$prefix-cls}-warning-3));
+$color-warning-4: hsl(var(--#{$prefix-cls}-warning-4));
+$color-warning-5: hsl(var(--#{$prefix-cls}-warning-5));
+$color-warning-6: hsl(var(--#{$prefix-cls}-warning-6));
+$color-warning-7: hsl(var(--#{$prefix-cls}-warning-7));
+$color-warning-8: hsl(var(--#{$prefix-cls}-warning-8));
+$color-warning-9: hsl(var(--#{$prefix-cls}-warning-9));
+$color-warning-10: hsl(var(--#{$prefix-cls}-warning-10));
+
+$color-gray-1: hsl(var(--#{$prefix-cls}-gray-1));
+$color-gray-2: hsl(var(--#{$prefix-cls}-gray-2));
+$color-gray-3: hsl(var(--#{$prefix-cls}-gray-3));
+$color-gray-4: hsl(var(--#{$prefix-cls}-gray-4));
+$color-gray-5: hsl(var(--#{$prefix-cls}-gray-5));
+$color-gray-6: hsl(var(--#{$prefix-cls}-gray-6));
+$color-gray-7: hsl(var(--#{$prefix-cls}-gray-7));
+$color-gray-8: hsl(var(--#{$prefix-cls}-gray-8));
+$color-gray-9: hsl(var(--#{$prefix-cls}-gray-9));
+$color-gray-10: hsl(var(--#{$prefix-cls}-gray-10));
+
+:root {
+  --#{$prefix-cls}-color-brand-1: #{$color-brand-1};
+  --#{$prefix-cls}-color-brand-2: #{$color-brand-2};
+  --#{$prefix-cls}-color-brand-3: #{$color-brand-3};
+  --#{$prefix-cls}-color-brand-4: #{$color-brand-4};
+  --#{$prefix-cls}-color-brand-5: #{$color-brand-5};
+  --#{$prefix-cls}-color-brand-6: #{$color-brand-6};
+  --#{$prefix-cls}-color-brand-7: #{$color-brand-7};
+  --#{$prefix-cls}-color-brand-8: #{$color-brand-8};
+  --#{$prefix-cls}-color-brand-9: #{$color-brand-9};
+  --#{$prefix-cls}-color-brand-10: #{$color-brand-10};
+
+  --#{$prefix-cls}-color-jasper-1: #{$color-jasper-1};
+  --#{$prefix-cls}-color-jasper-2: #{$color-jasper-2};
+  --#{$prefix-cls}-color-jasper-3: #{$color-jasper-3};
+  --#{$prefix-cls}-color-jasper-4: #{$color-jasper-4};
+  --#{$prefix-cls}-color-jasper-5: #{$color-jasper-5};
+  --#{$prefix-cls}-color-jasper-6: #{$color-jasper-6};
+  --#{$prefix-cls}-color-jasper-7: #{$color-jasper-7};
+  --#{$prefix-cls}-color-jasper-8: #{$color-jasper-8};
+  --#{$prefix-cls}-color-jasper-9: #{$color-jasper-9};
+  --#{$prefix-cls}-color-jasper-10: #{$color-jasper-10};
+
+  --#{$prefix-cls}-color-info-1: #{$color-info-1};
+  --#{$prefix-cls}-color-info-2: #{$color-info-2};
+  --#{$prefix-cls}-color-info-3: #{$color-info-3};
+  --#{$prefix-cls}-color-info-4: #{$color-info-4};
+  --#{$prefix-cls}-color-info-5: #{$color-info-5};
+  --#{$prefix-cls}-color-info-6: #{$color-info-6};
+  --#{$prefix-cls}-color-info-7: #{$color-info-7};
+  --#{$prefix-cls}-color-info-8: #{$color-info-8};
+  --#{$prefix-cls}-color-info-9: #{$color-info-9};
+  --#{$prefix-cls}-color-info-10: #{$color-info-10};
+
+  --#{$prefix-cls}-color-error-1: #{$color-error-1};
+  --#{$prefix-cls}-color-error-2: #{$color-error-2};
+  --#{$prefix-cls}-color-error-3: #{$color-error-3};
+  --#{$prefix-cls}-color-error-4: #{$color-error-4};
+  --#{$prefix-cls}-color-error-5: #{$color-error-5};
+  --#{$prefix-cls}-color-error-6: #{$color-error-6};
+  --#{$prefix-cls}-color-error-7: #{$color-error-7};
+  --#{$prefix-cls}-color-error-8: #{$color-error-8};
+  --#{$prefix-cls}-color-error-9: #{$color-error-9};
+  --#{$prefix-cls}-color-error-10: #{$color-error-10};
+
+  --#{$prefix-cls}-color-success-1: #{$color-success-1};
+  --#{$prefix-cls}-color-success-2: #{$color-success-2};
+  --#{$prefix-cls}-color-success-3: #{$color-success-3};
+  --#{$prefix-cls}-color-success-4: #{$color-success-4};
+  --#{$prefix-cls}-color-success-5: #{$color-success-5};
+  --#{$prefix-cls}-color-success-6: #{$color-success-6};
+  --#{$prefix-cls}-color-success-7: #{$color-success-7};
+  --#{$prefix-cls}-color-success-8: #{$color-success-8};
+  --#{$prefix-cls}-color-success-9: #{$color-success-9};
+  --#{$prefix-cls}-color-success-10: #{$color-success-10};
+
+  --#{$prefix-cls}-color-warning-1: #{$color-warning-1};
+  --#{$prefix-cls}-color-warning-2: #{$color-warning-2};
+  --#{$prefix-cls}-color-warning-3: #{$color-warning-3};
+  --#{$prefix-cls}-color-warning-4: #{$color-warning-4};
+  --#{$prefix-cls}-color-warning-5: #{$color-warning-5};
+  --#{$prefix-cls}-color-warning-6: #{$color-warning-6};
+  --#{$prefix-cls}-color-warning-7: #{$color-warning-7};
+  --#{$prefix-cls}-color-warning-8: #{$color-warning-8};
+  --#{$prefix-cls}-color-warning-9: #{$color-warning-9};
+  --#{$prefix-cls}-color-warning-10: #{$color-warning-10};
+
+  --#{$prefix-cls}-color-gray-1: #{$color-gray-1};
+  --#{$prefix-cls}-color-gray-2: #{$color-gray-2};
+  --#{$prefix-cls}-color-gray-3: #{$color-gray-3};
+  --#{$prefix-cls}-color-gray-4: #{$color-gray-4};
+  --#{$prefix-cls}-color-gray-5: #{$color-gray-5};
+  --#{$prefix-cls}-color-gray-6: #{$color-gray-6};
+  --#{$prefix-cls}-color-gray-7: #{$color-gray-7};
+  --#{$prefix-cls}-color-gray-8: #{$color-gray-8};
+  --#{$prefix-cls}-color-gray-9: #{$color-gray-9};
+  --#{$prefix-cls}-color-gray-10: #{$color-gray-10};
+}
+
+$color-white: hsl(0, 0%, 100%);
+$color-black: hsl(0, 0%, 0%);
+
+$color-brand: hsl(var(--#{$prefix-cls}-brand-6));
+$color-brand-hover: hsl(var(--#{$prefix-cls}-brand-5));
+$color-brand-active: hsl(var(--#{$prefix-cls}-brand-7));
+$color-brand-disabled: hsl(var(--#{$prefix-cls}-brand-3));
+$color-brand-shadow: hsla(var(--#{$prefix-cls}-brand-6), 0.08);
+$color-brand-shadow-hover: hsla(var(--#{$prefix-cls}-brand-6), 0.06);
+$color-brand-shadow-active: hsla(var(--#{$prefix-cls}-brand-6), 0.1);
+
+$color-info: hsl(var(--#{$prefix-cls}-info-6));
+$color-info-hover: hsl(var(--#{$prefix-cls}-info-5));
+$color-info-active: hsl(var(--#{$prefix-cls}-info-7));
+$color-info-disabled: hsl(var(--#{$prefix-cls}-info-3));
+$color-info-shadow: hsla(var(--#{$prefix-cls}-info-6), 0.08);
+$color-info-shadow-hover: hsla(var(--#{$prefix-cls}-info-6), 0.06);
+$color-info-shadow-active: hsla(var(--#{$prefix-cls}-info-6), 0.1);
+
+$color-success: hsl(var(--#{$prefix-cls}-success-6));
+$color-success-hover: hsl(var(--#{$prefix-cls}-success-5));
+$color-success-active: hsl(var(--#{$prefix-cls}-success-7));
+$color-success-disabled: hsl(var(--#{$prefix-cls}-success-3));
+$color-success-shadow: hsla(var(--#{$prefix-cls}-success-6), 0.08);
+$color-success-shadow-hover: hsla(var(--#{$prefix-cls}-success-6), 0.06);
+$color-success-shadow-active: hsla(var(--#{$prefix-cls}-success-6), 0.1);
+
+$color-warning: hsl(var(--#{$prefix-cls}-warning-6));
+$color-warning-hover: hsl(var(--#{$prefix-cls}-warning-5));
+$color-warning-active: hsl(var(--#{$prefix-cls}-warning-7));
+$color-warning-disabled: hsl(var(--#{$prefix-cls}-warning-3));
+$color-warning-shadow: hsla(var(--#{$prefix-cls}-warning-6), 0.08);
+$color-warning-shadow-hover: hsla(var(--#{$prefix-cls}-warning-6), 0.06);
+$color-warning-shadow-active: hsla(var(--#{$prefix-cls}-warning-6), 0.1);
+
+$color-error: hsl(var(--#{$prefix-cls}-error-6));
+$color-error-hover: hsl(var(--#{$prefix-cls}-error-5));
+$color-error-active: hsl(var(--#{$prefix-cls}-error-7));
+$color-error-disabled: hsl(var(--#{$prefix-cls}-error-3));
+$color-error-shadow: hsla(var(--#{$prefix-cls}-error-6), 0.08);
+$color-error-shadow-hover: hsla(var(--#{$prefix-cls}-error-6), 0.06);
+$color-error-shadow-active: hsla(var(--#{$prefix-cls}-error-6), 0.1);
+
+$text-color-primary: $color-gray-10; // color-text-primary
+$text-color-secondary: $color-gray-8; // color-text-secondary
+$text-color-placeholder: $color-gray-6; // color-text-placeholder/tips
+$text-color-disabled: $color-gray-4; // color-text-disabled
+$text-color-anti: $color-white; // color-text-anti
+$text-color-brand: $color-brand; // color-text-brand
+
+$bg-color-page: $color-gray-1;
+$bg-color-container: $color-white;
+$bg-color-container-hover: $color-gray-1;
+$bg-color-container-active: $color-gray-2;
+$bg-color-disabled: $color-gray-2;
+
+$border-color-1: $color-gray-3;
+$border-color-2: $color-gray-2;
+
+$colors: (
+  white: $color-white,
+  black: $color-black,
+  brand: $color-brand,
+  brand-hover: $color-brand-hover,
+  brand-active: $color-brand-active,
+  brand-disabled: $color-brand-disabled,
+  brand-shadow: $color-brand-shadow,
+  brand-shadow-hover: $color-brand-shadow-hover,
+  brand-shadow-active: $color-brand-shadow-active,
+  info: $color-info,
+  info-hover: $color-info-hover,
+  info-active: $color-info-active,
+  info-disabled: $color-info-disabled,
+  info-shadow: $color-info-shadow,
+  info-shadow-hover: $color-info-shadow-hover,
+  info-shadow-active: $color-info-shadow-active,
+  success: $color-success,
+  success-hover: $color-success-hover,
+  success-active: $color-success-active,
+  success-disabled: $color-success-disabled,
+  success-shadow: $color-success-shadow,
+  success-shadow-hover: $color-success-shadow-hover,
+  success-shadow-active: $color-success-shadow-active,
+  warning: $color-warning,
+  warning-hover: $color-warning-hover,
+  warning-active: $color-warning-active,
+  warning-disabled: $color-warning-disabled,
+  warning-shadow: $color-warning-shadow,
+  warning-shadow-hover: $color-warning-shadow-hover,
+  warning-shadow-active: $color-warning-shadow-active,
+  error: $color-error,
+  error-hover: $color-error-hover,
+  error-active: $color-error-active,
+  error-disabled: $color-error-disabled,
+  error-shadow: $color-error-shadow,
+  error-shadow-hover: $color-error-shadow-hover,
+  error-shadow-active: $color-error-shadow-active,
+);

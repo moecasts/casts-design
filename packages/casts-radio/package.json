@@ -1,7 +1,7 @@
 {
-  "name": "@casts/input",
+  "name": "@casts/radio",
   "version": "0.0.1",
-  "description": "a react input component",
+  "description": "a react radio component",
   "author": "caster <moecasts.caster@gmail.com>",
   "license": "MIT",
   "repository": "",

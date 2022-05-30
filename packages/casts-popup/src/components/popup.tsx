@@ -104,11 +104,16 @@ export type PopupProps = {
    * delay time(ms)
    */
   delay?: number;
-
   /**
    * visible change event
    */
   onVisibleChange?: (visible: boolean) => void;
+
+  /**
+   * disabled auto placement when popup is overflowing
+   * @default false
+   */
+  disabledAutoPlacement?: boolean;
 };
 
 const SIDES_MAP = {
@@ -139,6 +144,7 @@ export const Popup: FC<PopupProps> = (props) => {
     disabled = false,
     delay = 0,
     duration,
+    disabledAutoPlacement,
     onVisibleChange,
   } = props;
 
@@ -192,7 +198,10 @@ export const Popup: FC<PopupProps> = (props) => {
     onOpenChange: setOpen,
     middleware: [
       offset(4 + arrowSize),
-      flip(),
+      flip({
+        mainAxis: !disabledAutoPlacement,
+        crossAxis: !disabledAutoPlacement,
+      }),
       shift({ padding: 8 }),
       arrow({
         element: arrowRef,

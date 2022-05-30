@@ -1,7 +1,10 @@
 @import '@casts/theme/scss/_variables.scss';
 
-.#{$prefix-cls}-button {
-  @at-root &-group > & {
+$button-prefix-cls: #{$prefix-cls}-button;
+
+.#{$button-prefix-cls}-group {
+  white-space: nowrap;
+  .#{$button-prefix-cls} {
     &:not(:first-child) {
       border-left-width: 0px;
       border-top-left-radius: 0;

@@ -1,31 +1,7 @@
-@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/colors';
+@import '@casts/theme/scss/default';
 
 $levels: 1, 2, 3, 4, 5, 6;
-
-:root {
-  --#{$prefix-cls}-display-text-font-size: #{$display-text-font-size};
-
-  --#{$prefix-cls}-heading-1-font-size: #{$heading-1-font-size};
-  --#{$prefix-cls}-heading-2-font-size: #{$heading-2-font-size};
-  --#{$prefix-cls}-heading-3-font-size: #{$heading-3-font-size};
-  --#{$prefix-cls}-heading-4-font-size: #{$heading-4-font-size};
-  --#{$prefix-cls}-heading-5-font-size: #{$heading-5-font-size};
-  --#{$prefix-cls}-heading-6-font-size: #{$heading-6-font-size};
-
-  --#{$prefix-cls}-body-font-size: #{$body-font-size};
-  --#{$prefix-cls}-subtitle-font-size: #{$subtitle-font-size};
-  --#{$prefix-cls}-caption-font-size: #{$caption-font-size};
-
-  --#{$prefix-cls}-display-text-line-height: #{$display-text-font-size + 8px};
-  --#{$prefix-cls}-heading-1-line-height: #{$heading-1-line-height};
-  --#{$prefix-cls}-heading-2-line-height: #{$heading-2-line-height};
-  --#{$prefix-cls}-heading-3-line-height: #{$heading-3-line-height};
-  --#{$prefix-cls}-heading-4-line-height: #{$heading-4-line-height};
-  --#{$prefix-cls}-heading-5-line-height: #{$heading-5-line-height};
-  --#{$prefix-cls}-heading-6-line-height: #{$heading-6-line-height};
-  --#{$prefix-cls}-subtitle-line-height: #{$subtitle-line-height};
-  --#{$prefix-cls}-caption-line-height: #{$caption-line-height};
-}
 
 .#{$prefix-cls}-typography {
   margin-top: 0;
@@ -48,7 +24,7 @@ $levels: 1, 2, 3, 4, 5, 6;
 
   &,
   mark {
-    color: var(--color-black);
+    color: $text-color-primary;
   }
 
   code,
@@ -91,30 +67,30 @@ $levels: 1, 2, 3, 4, 5, 6;
   }
 
   blockquote {
-    padding-left: 8px;
+    padding: 8px;
     margin: 12px 0;
-    color: var(--color-block-lighter);
-    border-left: 4px solid var(--color-white-darker);
+    color: $text-color-placeholder;
+    border-left: 4px solid $border-color-1;
   }
 
   pre {
     padding: 0.4em 0.6em;
     word-wrap: break-word;
     white-space: pre-wrap;
-    background: var(--color-onxy-100);
-    border: 1px solid var(--color-white-darker);
-    border-radius: 3px;
+    background-color: $bg-color-container-hover;
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
   }
 
   a {
-    color: var(--color-brand);
+    color: $color-brand;
     text-decoration: none;
     &:hover,
     &:focus-visible {
-      color: var(--color-brand-lighter);
+      color: $color-brand-hover;
     }
     &:active {
-      color: var(--color-brand-darker);
+      color: $color-brand-active;
     }
   }
 

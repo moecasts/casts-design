@@ -1,19 +1,19 @@
-@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/colors';
 
-$local-prefix-cls: #{$prefix-cls}-linear-progress;
+$linear-prefix-cls: #{$prefix-cls}-linear-progress;
 
 :root {
-  --#{$local-prefix-cls}-indeterminate-bar-width: 50%;
-  --#{$local-prefix-cls}-indeterminate-animation-duration: 2.1s;
+  --#{$linear-prefix-cls}-indeterminate-bar-width: 50%;
+  --#{$linear-prefix-cls}-indeterminate-animation-duration: 2.1s;
 
-  --#{$local-prefix-cls}-height-small: 6px;
-  --#{$local-prefix-cls}-height-default: 8px;
-  --#{$local-prefix-cls}-height-large: 10px;
+  --#{$linear-prefix-cls}-height-small: 6px;
+  --#{$linear-prefix-cls}-height-default: 8px;
+  --#{$linear-prefix-cls}-height-large: 10px;
 }
 
 @keyframes linearKeyframe {
   0% {
-    left: calc(0% - var(--#{$local-prefix-cls}-indeterminate-bar-width));
+    left: calc(0% - var(--#{$linear-prefix-cls}-indeterminate-bar-width));
   }
   100% {
     left: 100%;
@@ -25,21 +25,21 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
   align-items: center;
 }
 
-.#{$local-prefix-cls} {
+.#{$linear-prefix-cls} {
   position: relative;
   width: 100%;
-  height: var(--#{$local-prefix-cls}-height-default);
+  height: var(--#{$linear-prefix-cls}-height-default);
   @include flex-and-align-center;
-  color: var(--color-brand);
+  color: $color-brand;
 
   @mixin linear-progress-height {
     $heights: 'small', 'default', 'large';
     @each $height in $heights {
       @if $height == 'default' {
-        height: var(--#{$local-prefix-cls}-height-#{$height});
+        height: var(--#{$linear-prefix-cls}-height-#{$height});
       } @else {
         &--#{$height} {
-          height: var(--#{$local-prefix-cls}-height-#{$height});
+          height: var(--#{$linear-prefix-cls}-height-#{$height});
         }
       }
     }
@@ -48,12 +48,12 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
   @include linear-progress-height();
 
   &--indeterminate {
-    .#{$local-prefix-cls}-bar {
-      .#{$local-prefix-cls}-inner {
+    .#{$linear-prefix-cls}-bar {
+      .#{$linear-prefix-cls}-inner {
         position: absolute;
-        width: var(--#{$local-prefix-cls}-indeterminate-bar-width) !important;
+        width: var(--#{$linear-prefix-cls}-indeterminate-bar-width) !important;
         animation: linearKeyframe
-          var(--#{$local-prefix-cls}-indeterminate-animation-duration)
+          var(--#{$linear-prefix-cls}-indeterminate-animation-duration)
           var(--#{$prefix-cls}-ease-in-out) infinite;
       }
     }
@@ -65,10 +65,10 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
     flex: 1;
     height: 100%;
     overflow: hidden;
-    background-color: var(--color-disabled-lighter);
+    background-color: $bg-color-disabled;
     border-radius: 8px;
 
-    .#{$local-prefix-cls}-inner {
+    .#{$linear-prefix-cls}-inner {
       display: block;
       height: 100%;
       background-color: currentColor;
@@ -83,13 +83,13 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
     font-size: 14px;
     line-height: 22px;
 
-    .#{$local-prefix-cls}-icon,
-    .#{$local-prefix-cls}-text {
+    .#{$linear-prefix-cls}-icon,
+    .#{$linear-prefix-cls}-text {
       @include flex-and-align-center(inline-flex);
     }
 
-    .#{$local-prefix-cls}-text {
-      color: var(--color-black);
+    .#{$linear-prefix-cls}-text {
+      color: $text-color-primary;
     }
   }
 }
@@ -97,8 +97,8 @@ $local-prefix-cls: #{$prefix-cls}-linear-progress;
 @mixin linear-progress-status {
   $statuses: 'success', 'warning', 'error';
   @each $status in $statuses {
-    .#{$local-prefix-cls}--#{$status} {
-      color: var(--color-#{$status});
+    .#{$linear-prefix-cls}--#{$status} {
+      color: map-get($colors, #{$status});
     }
   }
 }

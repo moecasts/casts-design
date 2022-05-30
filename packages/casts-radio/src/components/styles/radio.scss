@@ -1,0 +1,84 @@
+@import '@casts/theme/scss/colors';
+@import '@casts/theme/scss/default';
+
+$radio-prefix-cls: #{$prefix-cls}-radio;
+
+@keyframes zoomIn {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    width: 80%;
+    height: 80%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$radio-prefix-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size-base;
+  line-height: calc($font-size-base + 8px);
+  cursor: pointer;
+
+  &-pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+  &-input {
+    position: relative;
+    display: inline-block;
+    width: $font-size-base;
+    height: $font-size-base;
+    margin-right: 8px;
+    border-color: $border-color-1;
+    border-style: solid;
+    border-width: $border-width;
+    border-radius: 100%;
+    transition: all 0.15s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      content: '';
+      background-color: transparent;
+      border-radius: inherit;
+      transition: all 0.15s ease-in-out;
+      transform: scale(0);
+    }
+
+    @at-root .#{$radio-prefix-cls}-pre:focus + & {
+      box-shadow: 0 0 0 3px $color-brand-shadow-active;
+    }
+
+    @at-root .#{$radio-prefix-cls}-pre:checked + & {
+      border-color: $color-brand;
+      &::before {
+        background-color: $color-brand;
+        transform: scale(0.5);
+      }
+    }
+  }
+
+  &-label {
+    font-size: inherit;
+  }
+}

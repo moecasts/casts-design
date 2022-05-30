@@ -1,4 +1,4 @@
-@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/default';
 
 :root {
   --#{$prefix-cls}-tooltip-padding: #{$padding-large};
@@ -13,8 +13,8 @@
     border-radius: var(--#{$prefix-cls}-tooltip-border-radius);
   }
   &--circle {
-    border-radius: 99999px;
-    padding-left: var(--#{$prefix-cls}-tooltip-padding);
     padding-right: var(--#{$prefix-cls}-tooltip-padding);
+    padding-left: var(--#{$prefix-cls}-tooltip-padding);
+    border-radius: 99999px;
   }
 }

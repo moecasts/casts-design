@@ -1,26 +1,28 @@
-@import '@casts/theme/scss/_variables.scss';
-@import '@casts/theme/scss/animation.scss';
+@import '@casts/theme/scss/colors';
+@import '@casts/theme/scss/animation';
+
+$alert-prefix-cls: #{$prefix-cls}-alert;
 
 :root {
-  --#{$prefix-cls}-alert-padding: 10px 16px;
-  --#{$prefix-cls}-alert-border-radius: #{$border-radius-base};
-  --#{$prefix-cls}-alert-box-shadow: #{$shadow-2};
-  --#{$prefix-cls}-alert-font-size: #{$font-size-base};
-  --#{$prefix-cls}-alert-line-height: #{$font-size-base + 8px};
-  --#{$prefix-cls}-alert-header-font-size: #{$font-size-large};
-  --#{$prefix-cls}-alert-header-line-height: #{$font-size-large + 8px};
+  --#{$alert-prefix-cls}-padding: 10px 16px;
+  --#{$alert-prefix-cls}-border-radius: #{$border-radius-base};
+  --#{$alert-prefix-cls}-box-shadow: #{$shadow-2};
+  --#{$alert-prefix-cls}-font-size: #{$font-size-base};
+  --#{$alert-prefix-cls}-line-height: #{$font-size-base + 8px};
+  --#{$alert-prefix-cls}-header-font-size: #{$font-size-large};
+  --#{$alert-prefix-cls}-header-line-height: #{$font-size-large + 8px};
 }
 
-.#{$prefix-cls}-alert {
+.#{$alert-prefix-cls} {
   display: flex;
   align-items: flex-start;
   width: fit-content;
-  padding: var(--#{$prefix-cls}-alert-padding);
-  font-size: var(--#{$prefix-cls}-alert-font-size);
+  padding: var(--#{$alert-prefix-cls}-padding);
+  font-size: var(--#{$alert-prefix-cls}-font-size);
   color: var(--color-black);
-  background-color: #fff;
+  background-color: $bg-color-container;
   border: 1px solid transparent;
-  border-radius: var(--#{$prefix-cls}-alert-border-radius);
+  border-radius: var(--#{$alert-prefix-cls}-border-radius);
 
   svg {
     font-size: inherit;
@@ -33,25 +35,25 @@
 
     .#{$prefix-cls}-circular-progress-container,
     svg {
-      width: var(--#{$prefix-cls}-alert-header-line-height);
-      height: var(--#{$prefix-cls}-alert-header-line-height);
-      font-size: var(--#{$prefix-cls}-alert-header-line-height);
+      width: var(--#{$alert-prefix-cls}-header-line-height);
+      height: var(--#{$alert-prefix-cls}-header-line-height);
+      font-size: var(--#{$alert-prefix-cls}-header-line-height);
     }
 
-    @at-root .#{$prefix-cls}-alert--loading & {
-      color: var(--color-disabled);
+    @at-root .#{$alert-prefix-cls}--loading & {
+      color: $text-color-disabled;
     }
-    @at-root .#{$prefix-cls}-alert--info:not(.#{$prefix-cls}-alert--fill) & {
-      color: var(--color-info);
+    @at-root .#{$alert-prefix-cls}--info:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-info;
     }
-    @at-root .#{$prefix-cls}-alert--success:not(.#{$prefix-cls}-alert--fill) & {
-      color: var(--color-success);
+    @at-root .#{$alert-prefix-cls}--success:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-success;
     }
-    @at-root .#{$prefix-cls}-alert--warning:not(.#{$prefix-cls}-alert--fill) & {
-      color: var(--color-warning);
+    @at-root .#{$alert-prefix-cls}--warning:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-warning;
     }
-    @at-root .#{$prefix-cls}-alert--error:not(.#{$prefix-cls}-alert--fill) & {
-      color: var(--color-error);
+    @at-root .#{$alert-prefix-cls}--error:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-error;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -60,21 +62,21 @@
   &-body {
     flex: 1;
     overflow: hidden;
-    font-size: var(--#{$prefix-cls}-alert-font-size);
-    line-height: var(--#{$prefix-cls}-alert-line-height);
+    font-size: var(--#{$alert-prefix-cls}-font-size);
+    line-height: var(--#{$alert-prefix-cls}-line-height);
 
-    .#{$prefix-cls}-alert-header {
+    .#{$alert-prefix-cls}-header {
       display: flex;
       align-items: center;
-      font-size: var(--#{$prefix-cls}-alert-header-font-size);
-      line-height: var(--#{$prefix-cls}-alert-header-line-height);
+      font-size: var(--#{$alert-prefix-cls}-header-font-size);
+      line-height: var(--#{$alert-prefix-cls}-header-line-height);
 
-      .#{$prefix-cls}-alert-title {
+      .#{$alert-prefix-cls}-title {
         flex: 1;
         font-weight: 500;
       }
     }
-    .#{$prefix-cls}-alert-footer {
+    .#{$alert-prefix-cls}-footer {
       text-align: right;
     }
 
@@ -89,8 +91,8 @@
     align-items: top;
     padding: 0;
     margin-left: 8px;
-    font-size: var(--#{$prefix-cls}-alert-font-size);
-    line-height: var(--#{$prefix-cls}-alert-header-line-height);
+    font-size: var(--#{$alert-prefix-cls}-font-size);
+    line-height: var(--#{$alert-prefix-cls}-header-line-height);
     color: inherit;
     cursor: pointer;
     background-color: transparent;
@@ -98,56 +100,42 @@
     opacity: 0.7;
     transition: opacity 0.25s ease-in-out;
     &:hover {
-      opacity: 0.84;
+      opacity: 0.7;
     }
     &:active {
       opacity: 0.96;
     }
     svg {
-      font-size: var(--#{$prefix-cls}-alert-header-line-height);
+      font-size: var(--#{$alert-prefix-cls}-header-line-height);
     }
   }
   & {
-    &.#{$prefix-cls}-alert--info {
-      background-color: var(--color-dodger-blue-50);
+    &.#{$alert-prefix-cls}--info {
+      background-color: $color-info-shadow-active;
     }
-    &.#{$prefix-cls}-alert--success {
-      background-color: var(--color-dark-pastel-green-50);
+    &.#{$alert-prefix-cls}--success {
+      background-color: $color-success-shadow-active;
     }
-    &.#{$prefix-cls}-alert--warning {
-      background-color: var(--color-flame-50);
+    &.#{$alert-prefix-cls}--warning {
+      background-color: $color-warning-shadow-active;
     }
-    &.#{$prefix-cls}-alert--error {
-      background-color: var(--color-rose-50);
-    }
-  }
-  &:not(&--banner) {
-    &.#{$prefix-cls}-alert--info {
-      border-color: var(--color-info-lighter);
-    }
-    &.#{$prefix-cls}-alert--success {
-      border-color: var(--color-success-lighter);
-    }
-    &.#{$prefix-cls}-alert--warning {
-      border-color: var(--color-warning-lighter);
-    }
-    &.#{$prefix-cls}-alert--error {
-      border-color: var(--color-error-lighter);
+    &.#{$alert-prefix-cls}--error {
+      background-color: $color-error-shadow-active;
     }
   }
   &--fill {
-    color: var(--color-white);
-    &.#{$prefix-cls}-alert--info {
-      background-color: var(--color-info);
+    color: $color-white;
+    &.#{$alert-prefix-cls}--info {
+      background-color: $color-info;
     }
-    &.#{$prefix-cls}-alert--success {
-      background-color: var(--color-success);
+    &.#{$alert-prefix-cls}--success {
+      background-color: $color-success;
     }
-    &.#{$prefix-cls}-alert--warning {
-      background-color: var(--color-warning);
+    &.#{$alert-prefix-cls}--warning {
+      background-color: $color-warning;
     }
-    &.#{$prefix-cls}-alert--error {
-      background-color: var(--color-error);
+    &.#{$alert-prefix-cls}--error {
+      background-color: $color-error;
     }
   }
 }

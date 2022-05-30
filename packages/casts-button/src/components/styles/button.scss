@@ -1,50 +1,5 @@
-@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/colors';
 @import './token.scss';
-
-$button-prefix-cls: #{$prefix-cls}-button;
-
-$button-colors: 'brand', 'secondary', 'info', 'success', 'error', 'warning',
-  'black', 'white';
-
-:root {
-  --#{$button-prefix-cls}-font-size-base: #{$font-size-base};
-  --#{$button-prefix-cls}-font-size-small: #{$font-size-small};
-  --#{$button-prefix-cls}-font-size-large: #{$font-size-large};
-
-  --#{$button-prefix-cls}-height-base: #{$height-base};
-  --#{$button-prefix-cls}-height-small: #{$height-small};
-  --#{$button-prefix-cls}-height-large: #{$height-large};
-
-  --#{$button-prefix-cls}-line-height: #{$line-height};
-
-  --#{$button-prefix-cls}-border-width: #{$border-width};
-
-  --#{$button-prefix-cls}-padding-vertical-base: #{$padding-vertical-base};
-  --#{$button-prefix-cls}-padding-vertical-small: #{$padding-vertical-small};
-  --#{$button-prefix-cls}-padding-vertical-large: #{$padding-vertical-large};
-
-  --#{$button-prefix-cls}-padding-horizontal-base: #{$padding-horizontal-base};
-  --#{$button-prefix-cls}-padding-horizontal-small: #{$padding-horizontal-small};
-  --#{$button-prefix-cls}-padding-horizontal-large: #{$padding-horizontal-large};
-
-  // border radius
-  --#{$button-prefix-cls}-border-radius-base: #{$border-radius-base};
-  --#{$button-prefix-cls}-border-radius-large: #{$border-radius-large};
-  --#{$button-prefix-cls}-border-radius-small: #{$border-radius-small};
-
-  // color
-  @each $color in $button-colors {
-    --#{$button-prefix-cls}-color-#{$color}: #{map-get($colors, #{$color})};
-    --#{$button-prefix-cls}-color-#{$color}-hover: #{map-get(
-        $colors,
-        #{$color}-hover
-      )};
-    --#{$button-prefix-cls}-color-#{$color}-active: #{map-get(
-        $colors,
-        #{$color}-active
-      )};
-  }
-}
 
 @mixin button-size($size: 'base', $selector: none) {
   height: var(--#{$button-prefix-cls}-height-#{$size});
@@ -78,18 +33,17 @@ $button-colors: 'brand', 'secondary', 'info', 'success', 'error', 'warning',
   align-items: center;
   justify-content: center;
   font-weight: 500;
+  line-height: var(--#{$button-prefix-cls}-line-height);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   background-color: transparent;
   border: var(--#{$button-prefix-cls}-border-width) solid transparent;
-  outline: none;
-  fill: currentColor;
-  appearance: none;
 
   border-width: var(--#{$button-prefix-cls}-border-width);
-  line-height: var(--#{$button-prefix-cls}-line-height);
+  outline: none;
+  fill: currentColor;
 
   transition: opacity var(--#{$prefix-cls}-transition-duration-base)
       var(--#{$prefix-cls}-ease-in-out),
@@ -99,6 +53,7 @@ $button-colors: 'brand', 'secondary', 'info', 'success', 'error', 'warning',
       var(--#{$prefix-cls}-ease-in-out),
     background-color var(--#{$prefix-cls}-transition-duration-base)
       var(--#{$prefix-cls}-ease-in-out);
+  appearance: none;
 
   & > * {
     transition: color var(--#{$prefix-cls}-transition-duration-base)

@@ -1,7 +1,7 @@
 {
-  "name": "@casts/input",
+  "name": "@casts/hooks",
   "version": "0.0.1",
-  "description": "a react input component",
+  "description": "a react hooks library",
   "author": "caster <moecasts.caster@gmail.com>",
   "license": "MIT",
   "repository": "",
@@ -47,9 +47,5 @@
     "tslib": "^2.3.1"
   },
   "dependencies": {
-    "@casts/config-provider": "workspace:^1.0.0",
-    "@casts/hooks": "workspace:^0.0.1",
-    "@casts/theme": "workspace:^1.0.0",
-    "clsx": "^1.1.1"
   }
 }

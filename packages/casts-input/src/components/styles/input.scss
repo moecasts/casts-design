@@ -1,87 +1,58 @@
-@import '@casts/theme/scss/_variables.scss';
-
-$input-border-width-base: 1px;
-
-$input-font-size-base: $font-size-base;
-$input-font-size-large: $font-size-large;
-$input-font-size-small: $font-size-small;
-
-$input-height-base: $height-base;
-$input-height-large: $height-large;
-$input-height-small: $height-small;
-
-$input-line-height-base: floor($line-height * $font-size-base);
-$input-line-height-large: floor($line-height * $font-size-large);
-$input-line-height-small: floor($line-height * $font-size-small);
-
-$input-padding-vertical-base: 5px - $input-border-width-base;
-$input-padding-vertical-large: $input-padding-vertical-base + 2px;
-$input-padding-vertical-small: $input-padding-vertical-base - 2px;
-
-$input-padding-horizontal-base: 12px;
-$input-padding-horizontal-large: $input-padding-horizontal-base;
-$input-padding-horizontal-small: $input-padding-horizontal-base;
-
-$input-border-radius-base: $border-radius-base;
-$input-border-radius-large: $border-radius-large;
-$input-border-radius-small: $border-radius-small;
-
-:root {
-  --#{$prefix-cls}-input-font-size-base: #{$input-font-size-base};
-  --#{$prefix-cls}-input-font-size-small: #{$input-font-size-small};
-  --#{$prefix-cls}-input-font-size-large: #{$input-font-size-large};
-
-  --#{$prefix-cls}-input-height-base: #{$input-height-base};
-  --#{$prefix-cls}-input-height-small: #{$input-height-small};
-  --#{$prefix-cls}-input-height-large: #{$input-height-large};
-
-  --#{$prefix-cls}-input-line-height-base: #{$input-line-height-base};
-  --#{$prefix-cls}-input-line-height-small: #{$input-line-height-small};
-  --#{$prefix-cls}-input-line-height-large: #{$input-line-height-large};
-
-  --#{$prefix-cls}-input-border-width-base: #{$input-border-width-base};
-
-  --#{$prefix-cls}-input-padding-vertical-base: #{$input-padding-vertical-base};
-  --#{$prefix-cls}-input-padding-vertical-small: #{$input-padding-vertical-small};
-  --#{$prefix-cls}-input-padding-vertical-large: #{$input-padding-vertical-large};
-
-  --#{$prefix-cls}-input-padding-horizontal-base: #{$input-padding-horizontal-base};
-  --#{$prefix-cls}-input-padding-horizontal-small: #{$input-padding-horizontal-small};
-  --#{$prefix-cls}-input-padding-horizontal-large: #{$input-padding-horizontal-large};
-
-  // border radius
-  --#{$prefix-cls}-input-border-radius-base: #{$input-border-radius-base};
-  --#{$prefix-cls}-input-border-radius-large: #{$input-border-radius-large};
-  --#{$prefix-cls}-input-border-radius-small: #{$input-border-radius-small};
-}
+@import '@casts/theme/scss/colors.scss';
+@import './token.scss';
 
 @mixin input-size($size: 'base', $selector: none) {
-  height: var(--#{$prefix-cls}-input-height-#{$size});
-  line-height: var(--#{$prefix-cls}-input-line-height-#{$size});
-  font-size: var(--#{$prefix-cls}-input-font-size-#{$size});
+  height: var(--#{$input-prefix-cls}-height-#{$size});
+  font-size: var(--#{$input-prefix-cls}-font-size-#{$size});
+  line-height: var(--#{$input-prefix-cls}-line-height-#{$size});
 }
 
-.#{$prefix-cls}-input {
-  display: flex;
-  transition: all 250ms #{$ease-in-out};
-  box-sizing: border-box;
-  border-width: var(--#{$prefix-cls}-input-border-width-base);
-  border-radius: var(--#{$prefix-cls}-input-border-radius-base);
-  border-style: solid;
-  border-color: transparent;
-  background-color: var(--color-onxy-100);
-  padding-right: var(--#{$prefix-cls}-input-padding-horizontal-base);
-  padding-left: var(--#{$prefix-cls}-input-padding-horizontal-base);
+$statuses: 'success', 'warning', 'error';
 
-  &:hover {
-    background-color: var(--color-onxy-200);
+@mixin input-color($status, $disabled: false) {
+  & {
+    $color-suffix: if($disabled == true, '-disabled', '');
+    $shadow-suffix: if($disabled == true, 'hover', 'active');
+    color: map-get($colors, #{$status}#{$color-suffix});
+    background-color: map-get($colors, #{$status}-shadow-#{$shadow-suffix});
+    border-color: map-get($colors, #{$status}#{$color-suffix});
+    box-shadow: 0 0 0 2px map-get($colors, #{$status}-shadow-#{$shadow-suffix});
+
+    &:hover:not(&-wrap--disabled &) {
+      background-color: map-get($colors, #{$status}-shadow-hover);
+    }
+
+    &--focused:not(&-wrap--disabled &),
+    &:focus:not(&-wrap--disabled &) {
+      background-color: transparent !important;
+      border-color: map-get($colors, #{$status});
+      box-shadow: 0 0 0 2px map-get($colors, #{$status}-shadow-active);
+    }
+  }
+}
+
+.#{$input-prefix-cls} {
+  box-sizing: border-box;
+  display: flex;
+  padding-right: var(--#{$input-prefix-cls}-padding-horizontal-base);
+  padding-left: var(--#{$input-prefix-cls}-padding-horizontal-base);
+  cursor: text;
+  background-color: $color-gray-1;
+  border-color: transparent;
+  border-style: solid;
+  border-width: var(--#{$input-prefix-cls}-border-width-base);
+  border-radius: var(--#{$input-prefix-cls}-border-radius-base);
+  transition: all 250ms #{$ease-in-out};
+
+  &:hover:not(&-wrap--disabled &) {
+    background-color: $color-gray-2;
   }
 
-  &--focused,
-  &:focus {
-    border-color: var(--color-brand);
-    box-shadow: 0 0 0 2px var(--color-brand-outline);
+  &--focused:not(&-wrap--disabled &),
+  &:focus:not(&-wrap--disabled &) {
     background-color: transparent !important;
+    border-color: $color-brand;
+    box-shadow: 0 0 0 2px $color-brand-shadow-active;
   }
 
   // size
@@ -97,65 +68,71 @@ $input-border-radius-small: $border-radius-small;
 
   // shape
   &--circle {
-    border-radius: 999px;
-    padding-left: 12px;
     padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 999px;
   }
+
   &--square {
     border-radius: 0px;
   }
 
-  &-wrapper {
+  &-wrap {
     display: inline-block;
     width: 100%;
-    // status
-    &--error {
-      .#{$prefix-cls}-input-tips {
-        color: var(--color-error);
-      }
-      .#{$prefix-cls}-input {
-        color: var(--color-error);
-        border-color: var(--color-error);
-        box-shadow: 0 0 0 2px var(--color-error-outline);
-        background-color: var(--color-error-outline);
+    @at-root #{&}#{&}--auto-width {
+      width: fit-content;
+      min-width: 60px;
+    }
+    @each $status in $statuses {
+      &--#{$status} {
+        .#{$input-prefix-cls}-tips {
+          color: map-get($colors, $status);
+        }
+        .#{$input-prefix-cls} {
+          @include input-color($status, false);
+        }
       }
     }
-    &--success {
-      .#{$prefix-cls}-input-tips {
-        color: var(--color-success);
+    &--disabled {
+      .#{$input-prefix-cls}-tips {
+        color: $text-color-disabled;
       }
-      .#{$prefix-cls}-input {
-        color: var(--color-success);
-        border-color: var(--color-success);
-        box-shadow: 0 0 0 2px var(--color-success-outline);
-        background-color: var(--color-success-outline);
+      .#{$input-prefix-cls} {
+        cursor: not-allowed;
+        background-color: $bg-color-disabled;
       }
-    }
-    &--warning {
-      .#{$prefix-cls}-input-tips {
-        color: var(--color-warning);
+      @each $status in $statuses {
+        &.#{$input-prefix-cls}-wrap--#{$status} {
+          .#{$input-prefix-cls}-tips {
+            color: map-get($colors, #{$status}-disabled);
+          }
+          .#{$input-prefix-cls} {
+            cursor: not-allowed;
+            @include input-color($status, true);
+          }
+        }
       }
-      .#{$prefix-cls}-input {
-        color: var(--color-warning);
-        border-color: var(--color-warning);
-        box-shadow: 0 0 0 2px var(--color-warning-outline);
-        background-color: var(--color-warning-outline);
+
+      .#{$input-prefix-cls}-inner {
+        &::placeholder {
+          color: $text-color-disabled;
+        }
       }
     }
   }
 
+  &-max-length,
   &-prefix,
   &-suffix {
     display: flex;
     align-items: center;
     align-items: center;
     font-size: inherit;
-    // padding-left: 8px;
-    // padding-right: 8px;
 
     svg {
-      fill: currentColor;
       font-size: inherit;
+      fill: currentColor;
     }
   }
 
@@ -164,29 +141,39 @@ $input-border-radius-small: $border-radius-small;
   }
 
   &-inner {
-    background-color: transparent;
     flex: 1;
+    min-width: 0;
+
+    max-width: 100%;
+    padding: 0;
+    font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 
-    max-width: 100%;
-    min-width: 0;
+    color: $text-color-primary;
+
+    cursor: inherit;
+    background-color: transparent;
 
     border: 0;
     outline: 0;
-    padding: 0;
 
-    ::placeholder {
-      color: var(--color-onxy-300);
+    &::placeholder {
+      color: $text-color-placeholder;
     }
   }
 
+  &-pre {
+    position: absolute;
+    white-space: nowrap;
+    visibility: hidden;
+  }
+
   &-tips {
-    color: var(--color-black);
-    font-size: #{$font-size-small};
-    margin-top: 2px;
-    padding-left: 2px;
     padding-right: 2px;
-    // display: none;
+    padding-left: 2px;
+    margin-top: 2px;
+    font-size: #{$font-size-small};
+    color: $text-color-secondary;
   }
 }

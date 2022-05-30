@@ -1,24 +1,27 @@
-@import '@casts/theme/scss/_variables.scss';
+// @import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/colors';
+@import '@casts/theme/scss/default';
 
 :root {
   --#{$prefix-cls}-message-padding: 10px 16px;
   --#{$prefix-cls}-message-border-radius: #{$border-radius-base};
-  --#{$prefix-cls}-message-box-shadow: #{$shadow-2};
+  --#{$prefix-cls}-message-box-shadow: #{$shadow3-center};
   --#{$prefix-cls}-message-font-size: #{$font-size-base};
-  --#{$prefix-cls}-message-line-height: #{$font-size-base + 8px};
+  --#{$prefix-cls}-message-line-height: calc(#{$font-size-base} + 8px);
 }
 
 .#{$prefix-cls}-message {
   display: flex;
   align-items: flex-start;
+  width: fit-content;
   padding: var(--#{$prefix-cls}-message-padding);
+  margin-right: 8px;
+  margin-left: 8px;
   font-size: var(--#{$prefix-cls}-message-font-size);
+  color: $text-color-primary;
+  background-color: $bg-color-container;
   border-radius: var(--#{$prefix-cls}-message-border-radius);
   box-shadow: var(--#{$prefix-cls}-message-box-shadow);
-  background-color: #fff;
-  margin-left: 8px;
-  margin-right: 8px;
-  width: fit-content;
 
   svg {
     font-size: inherit;
@@ -31,46 +34,46 @@
 
     .#{$prefix-cls}-circular-progress-container,
     svg {
-      height: var(--#{$prefix-cls}-message-line-height);
       width: var(--#{$prefix-cls}-message-line-height);
+      height: var(--#{$prefix-cls}-message-line-height);
       font-size: var(--#{$prefix-cls}-message-line-height);
     }
 
     @at-root .#{$prefix-cls}-message--info:not(.#{$prefix-cls}-message--fill)
         & {
-      color: var(--color-info);
+      color: $color-info;
     }
     @at-root .#{$prefix-cls}-message--success:not(.#{$prefix-cls}-message--fill)
         & {
-      color: var(--color-success);
+      color: $color-success;
     }
     @at-root .#{$prefix-cls}-message--warning:not(.#{$prefix-cls}-message--fill)
         & {
-      color: var(--color-warning);
+      color: $color-warning;
     }
     @at-root .#{$prefix-cls}-message--error:not(.#{$prefix-cls}-message--fill)
         & {
-      color: var(--color-error);
+      color: $color-error;
     }
   }
   &-content {
     flex: 1;
+    overflow: hidden;
     font-size: var(--#{$prefix-cls}-message-font-size);
     line-height: var(--#{$prefix-cls}-message-line-height);
-    overflow: hidden;
   }
   &-close {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: top;
+    padding: 0;
+    margin-left: 8px;
     font-size: var(--#{$prefix-cls}-message-font-size);
     line-height: var(--#{$prefix-cls}-message-line-height);
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: top;
-    margin-left: 8px;
-    padding: 0;
-    border: 0;
     color: inherit;
-    background-color: transparent;
     cursor: pointer;
+    background-color: transparent;
+    border: 0;
     opacity: 0.56;
     &:hover {
       opacity: 0.7;
@@ -85,19 +88,19 @@
   }
   &--fill {
     &:not(.#{$prefix-cls}-message--loading) {
-      color: var(--color-white);
+      color: $color-white;
     }
     &.#{$prefix-cls}-message--info {
-      background-color: var(--color-info);
+      background-color: $color-info;
     }
     &.#{$prefix-cls}-message--success {
-      background-color: var(--color-success);
+      background-color: $color-success;
     }
     &.#{$prefix-cls}-message--warning {
-      background-color: var(--color-warning);
+      background-color: $color-warning;
     }
     &.#{$prefix-cls}-message--error {
-      background-color: var(--color-error);
+      background-color: $color-error;
     }
   }
 }

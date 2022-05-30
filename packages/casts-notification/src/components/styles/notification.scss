@@ -1,28 +1,19 @@
-@import '@casts/theme/scss/_variables.scss';
+@import '@casts/theme/scss/colors';
+@import './token.scss';
 
-:root {
-  --#{$prefix-cls}-notification-padding: 10px 16px;
-  --#{$prefix-cls}-notification-border-radius: #{$border-radius-base};
-  --#{$prefix-cls}-notification-box-shadow: #{$shadow-2};
-  --#{$prefix-cls}-notification-font-size: #{$font-size-base};
-  --#{$prefix-cls}-notification-line-height: #{$font-size-base + 8px};
-  --#{$prefix-cls}-notification-header-font-size: #{$font-size-large};
-  --#{$prefix-cls}-notification-header-line-height: #{$font-size-large + 8px};
-}
-
-.#{$prefix-cls}-notification {
+.#{$notification-prefix-cls} {
   display: flex;
   align-items: flex-start;
-  padding: var(--#{$prefix-cls}-notification-padding);
-  font-size: var(--#{$prefix-cls}-notification-font-size);
-  border-radius: var(--#{$prefix-cls}-notification-border-radius);
-  box-shadow: var(--#{$prefix-cls}-notification-box-shadow);
-  background-color: #fff;
-  margin-left: 8px;
-  margin-right: 8px;
-  border-left: 4px solid transparent;
   width: fit-content;
-  color: var(--color-black);
+  padding: var(--#{$notification-prefix-cls}-padding);
+  margin-right: 8px;
+  margin-left: 8px;
+  font-size: var(--#{$notification-prefix-cls}-font-size);
+  color: $text-color-primary;
+  background-color: #fff;
+  border-left: 4px solid transparent;
+  border-radius: var(--#{$notification-prefix-cls}-border-radius);
+  box-shadow: var(--#{$notification-prefix-cls}-box-shadow);
 
   svg {
     font-size: inherit;
@@ -35,29 +26,29 @@
 
     .#{$prefix-cls}-circular-progress-container,
     svg {
-      height: var(--#{$prefix-cls}-notification-header-line-height);
-      width: var(--#{$prefix-cls}-notification-header-line-height);
-      font-size: var(--#{$prefix-cls}-notification-header-line-height);
+      width: var(--#{$notification-prefix-cls}-header-line-height);
+      height: var(--#{$notification-prefix-cls}-header-line-height);
+      font-size: var(--#{$notification-prefix-cls}-header-line-height);
     }
 
-    @at-root .#{$prefix-cls}-notification--loading & {
-      color: var(--color-disabled);
+    @at-root .#{$notification-prefix-cls}--loading & {
+      color: $text-color-disabled;
     }
-    @at-root .#{$prefix-cls}-notification--info:not(.#{$prefix-cls}-notification--fill)
+    @at-root .#{$notification-prefix-cls}--info:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: var(--color-info);
+      color: $color-info;
     }
-    @at-root .#{$prefix-cls}-notification--success:not(.#{$prefix-cls}-notification--fill)
+    @at-root .#{$notification-prefix-cls}--success:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: var(--color-success);
+      color: $color-success;
     }
-    @at-root .#{$prefix-cls}-notification--warning:not(.#{$prefix-cls}-notification--fill)
+    @at-root .#{$notification-prefix-cls}--warning:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: var(--color-warning);
+      color: $color-warning;
     }
-    @at-root .#{$prefix-cls}-notification--error:not(.#{$prefix-cls}-notification--fill)
+    @at-root .#{$notification-prefix-cls}--error:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: var(--color-error);
+      color: $color-error;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -65,22 +56,22 @@
   }
   &-body {
     flex: 1;
-    font-size: var(--#{$prefix-cls}-notification-font-size);
-    line-height: var(--#{$prefix-cls}-notification-line-height);
     overflow: hidden;
+    font-size: var(--#{$notification-prefix-cls}-font-size);
+    line-height: var(--#{$notification-prefix-cls}-line-height);
 
-    .#{$prefix-cls}-notification-header {
-      font-size: var(--#{$prefix-cls}-notification-header-font-size);
-      line-height: var(--#{$prefix-cls}-notification-header-line-height);
+    .#{$notification-prefix-cls}-header {
       display: flex;
       align-items: center;
+      font-size: var(--#{$notification-prefix-cls}-header-font-size);
+      line-height: var(--#{$notification-prefix-cls}-header-line-height);
 
-      .#{$prefix-cls}-notification-title {
+      .#{$notification-prefix-cls}-title {
         flex: 1;
         font-weight: 500;
       }
     }
-    .#{$prefix-cls}-notification-footer {
+    .#{$notification-prefix-cls}-footer {
       text-align: right;
     }
 
@@ -92,19 +83,19 @@
   }
 
   &-close {
-    font-size: var(--#{$prefix-cls}-notification-font-size);
-    line-height: var(--#{$prefix-cls}-notification-header-line-height);
-    flex-shrink: 0;
     display: inline-flex;
+    flex-shrink: 0;
     align-items: top;
-    margin-left: 8px;
     padding: 0;
-    border: 0;
+    margin-left: 8px;
+    font-size: var(--#{$notification-prefix-cls}-font-size);
+    line-height: var(--#{$notification-prefix-cls}-header-line-height);
     color: inherit;
-    background-color: transparent;
     cursor: pointer;
-    transition: opacity 0.25s ease-in-out;
+    background-color: transparent;
+    border: 0;
     opacity: 0.7;
+    transition: opacity 0.25s ease-in-out;
     &:hover {
       opacity: 0.84;
     }
@@ -112,41 +103,41 @@
       opacity: 0.96;
     }
     svg {
-      font-size: var(--#{$prefix-cls}-notification-header-line-height);
+      font-size: var(--#{$notification-prefix-cls}-header-line-height);
     }
   }
   & {
-    &.#{$prefix-cls}-notification--loading {
-      border-color: var(--color-disabled);
+    &.#{$notification-prefix-cls}--loading {
+      border-color: $text-color-disabled;
     }
-    &.#{$prefix-cls}-notification--info {
-      border-color: var(--color-info);
+    &.#{$notification-prefix-cls}--info {
+      border-color: $color-info;
     }
-    &.#{$prefix-cls}-notification--success {
-      border-color: var(--color-success);
+    &.#{$notification-prefix-cls}--success {
+      border-color: $color-success;
     }
-    &.#{$prefix-cls}-notification--warning {
-      border-color: var(--color-warning);
+    &.#{$notification-prefix-cls}--warning {
+      border-color: $color-warning;
     }
-    &.#{$prefix-cls}-notification--error {
-      border-color: var(--color-error);
+    &.#{$notification-prefix-cls}--error {
+      border-color: $color-error;
     }
   }
   &--fill {
-    &:not(.#{$prefix-cls}-notification--loading) {
-      color: var(--color-white);
+    &:not(.#{$notification-prefix-cls}--loading) {
+      color: $color-white;
     }
-    &.#{$prefix-cls}-notification--info {
-      background-color: var(--color-info);
+    &.#{$notification-prefix-cls}--info {
+      background-color: $color-info;
     }
-    &.#{$prefix-cls}-notification--success {
-      background-color: var(--color-success);
+    &.#{$notification-prefix-cls}--success {
+      background-color: $color-success;
     }
-    &.#{$prefix-cls}-notification--warning {
-      background-color: var(--color-warning);
+    &.#{$notification-prefix-cls}--warning {
+      background-color: $color-warning;
     }
-    &.#{$prefix-cls}-notification--error {
-      background-color: var(--color-error);
+    &.#{$notification-prefix-cls}--error {
+      background-color: $color-error;
     }
   }
 }
