@@ -1,0 +1,58 @@
+// @import '@casts/theme/scss/colors';
+// @import '@casts/theme/scss/default';
+// @import '@casts/theme/scss/animation';
+
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/popup';
+@import '@casts/theme/styles/scss/popup';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+// :root {
+//   --#{$prefix-cls}-popup-color--dark: #{$color-white};
+//   --#{$prefix-cls}-popup-color--light: #{$color-black};
+//   --#{$prefix-cls}-popup-background-color--dark: #{$color-black};
+//   --#{$prefix-cls}-popup-background-color--light: #{$color-white};
+//   --#{$prefix-cls}-popup-padding: #{$padding-large};
+//   --#{$prefix-cls}-popup-border-radius: #{$border-radius-base};
+//   --#{$prefix-cls}-popup-font-size: #{$font-size-base};
+//   --#{$prefix-cls}-popup-box-shadow: #{$shadow4-center};
+// }
+
+$popup-themes: 'light', 'dark';
+
+.#{$prefix-cls}-popup {
+  position: relative;
+  z-index: $popup-elevation-z-index;
+  font-size: $popup-font-size;
+  border-radius: $popup-radius;
+
+  @each $theme in $popup-themes {
+    &.#{$prefix-cls}-popup--#{$theme} {
+      color: map-get($popup-tokens, popup-color-text-#{$theme});
+      background-color: map-get(
+        $popup-tokens,
+        popup-color-background-#{$theme}
+      );
+    }
+  }
+
+  &--shadow {
+    box-shadow: $popup-shadow;
+  }
+
+  &-content {
+    z-index: 2;
+    padding: $popup-space;
+    background-color: inherit;
+    border-radius: inherit;
+  }
+
+  &-arrow {
+    position: absolute;
+    z-index: -1;
+    background-color: inherit;
+    transform: rotate(45deg);
+  }
+}

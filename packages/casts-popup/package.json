@@ -1,0 +1,52 @@
+{
+  "name": "@casts/popup",
+  "version": "0.0.1",
+  "description": "a react popup component",
+  "authors": [
+    "Caster <moecasts.caster@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/moecasts/casts-design.git",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "jest"
+  },
+  "keywords": [],
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@casts/standard": "workspace:^0.0.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13",
+    "@types/jest": "^27",
+    "@types/react-transition-group": "^4.4.5",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@umijs/test": "^4",
+    "father": "^4.0.6",
+    "jest": "^27",
+    "ts-node": "^10",
+    "typescript": "^4"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "dependencies": {
+    "@casts/config-provider": "workspace:^0.0.1",
+    "@casts/hooks": "workspace:^0.0.1",
+    "@casts/theme": "workspace:^0.0.1",
+    "@floating-ui/react-dom-interactions": "^0.10.1",
+    "clsx": "^1.2.1",
+    "react-transition-group": "^4.4.5"
+  }
+}
