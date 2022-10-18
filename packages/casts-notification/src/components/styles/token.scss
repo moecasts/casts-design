@@ -1,0 +1,14 @@
+@import '@casts/theme/scss/default';
+
+$notification-prefix-cls: #{$prefix-cls}-notification;
+:root {
+  --#{$notification-prefix-cls}-padding: 10px 16px;
+  --#{$notification-prefix-cls}-border-radius: #{$border-radius-base};
+  --#{$notification-prefix-cls}-box-shadow: #{$shadow3-center};
+  --#{$notification-prefix-cls}-font-size: #{$font-size-base};
+  --#{$notification-prefix-cls}-line-height: calc(#{$font-size-base} + 8px);
+  --#{$notification-prefix-cls}-header-font-size: #{$font-size-large};
+  --#{$notification-prefix-cls}-header-line-height: calc(
+    #{$font-size-large} + 8px
+  );
+}
