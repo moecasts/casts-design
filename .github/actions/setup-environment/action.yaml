@@ -1,0 +1,43 @@
+name: setup-environment
+
+description: setup node and pnpm environment
+
+runs:
+  using: 'composite'
+  steps:
+    - name: checkout
+      uses: actions/checkout@v4
+
+    - name: set up pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: set up node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'pnpm'
+
+    - name: install dependencies
+      run: pnpm install --ignore-scripts --frozen-lockfile
+      shell: bash
+
+    - name: cache build base artifacts
+      id: cache-build-base-artifacts
+      uses: actions/cache@v4
+      with:
+        path: |
+          packages/casts-standard/dist
+          packages/casts-cli/dist
+          packages/casts-theme/dist
+          packages/casts-theme/styles
+          packages/casts-common/dist
+          packages/casts-config-provider/dist
+          packages/casts-locale/dist
+        key: ${{ runner.os }}-build-base-artifacts-${{ hashfiles('packages/casts-standard/src', 'packages/casts-standard/package.json', 'packages/casts-cli/src', 'packages/casts-cli/package.json', 'packages/casts-theme/src', 'packages/casts-theme/styles', '!packages/casts-theme/src/tokens/ts', 'packages/casts-theme/package.json', 'packages/casts-common/src', 'packages/casts-common/package.json', 'packages/casts-config-provider/src', 'packages/casts-config-provider/package.json', 'packages/casts-locale/src', 'packages/casts-locale/package.json') }}
+
+    - name: build base packages
+      if: ${{ steps.cache-build-base-artifacts.outputs.cache-hit != 'true' }}
+      run: pnpm run postinstall && pnpm --filter './packages/casts-(common|config-provider|locale)' build
+      shell: bash

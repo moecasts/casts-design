@@ -1,0 +1,17 @@
+{
+  "extends": "@casts/standard/dist/cjs/tsconfig/react17.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxFactory": "",
+    "baseUrl": "./packages",
+    "paths": {
+      "@casts/*": ["casts-*/src"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "examples"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

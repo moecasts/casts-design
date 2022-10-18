@@ -1,0 +1,44 @@
+name: update-icons
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天午夜触发一次
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup-environment
+        uses: ./.github/actions/setup-environment
+
+      - name: fetch remote icons
+        run: pnpm --filter '@casts/icons' run build:update-raw
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git diff --exit-code --stat packages/casts-icons > /dev/null || echo "::set-output name=has-changes::true"
+
+      - name: build icons
+        if: steps.check-changes.outputs.has-changes == 'true'
+        run: |
+          pnpm --filter '@casts/icons' run build:icons
+
+      - name: create pull request if changes detected
+        if: steps.check-changes.outputs.has-changes == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: |
+            packages/casts-icons
+          commit-message: 'feat(icons): update icons'
+          title: '[icons] update icons'
+          body: 'This PR is automatically created to update the icons files.'
+          branch: feature/update-icons
+          delete-branch: true
+          base: main
