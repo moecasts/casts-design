@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "name": "casts-design",
+  "scripts": {
+    "cli": "cli",
+    "start": "dumi dev",
+    "build": "dumi build",
+    "serve": "serve ./dist",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "prepare": "husky install",
+    "lint:css": "stylelint \"{src,test,packages}/**/*.{css,less,scss}\"",
+    "lint:es": "eslint \"{src,test,packages}/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "pnpm run lint:es && pnpm run lint:css"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "devDependencies": {
+    "@casts/cli": "workspace:^0.0.1",
+    "@casts/standard": "workspace:^0.0.1",
+    "@types/node": "^18.8.2",
+    "@types/react": "^18.0.21",
+    "@umijs/lint": "^4.0.24",
+    "@umijs/plugin-esbuild": "^1.4.2",
+    "@umijs/plugin-sass": "^1.1.1",
+    "clsx": "^1.2.1",
+    "css-loader": "^6.7.1",
+    "dumi": "^1.1.48",
+    "eslint": "^8.24.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^10.5.4",
+    "postcss-scss": "^4.0.5",
+    "prettier": "^2.7.1",
+    "serve": "^14.0.1",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.13.0",
+    "tslib": "^2.4.0",
+    "webpack-chain": "^6.5.1"
+  },
+  "dependencies": {
+    "@casts/button": "workspace:^0.0.1",
+    "@casts/config-provider": "workspace:^0.0.1",
+    "@casts/icons": "workspace:^0.0.1",
+    "@casts/message": "workspace:^0.0.1",
+    "@casts/notification": "workspace:^0.0.1",
+    "@casts/popup": "workspace:^0.0.1",
+    "@casts/progress": "workspace:^0.0.1",
+    "@casts/toast": "workspace:^0.0.1",
+    "@casts/tooltip": "workspace:^0.0.1",
+    "@casts/typography": "workspace:^0.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
