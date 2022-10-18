@@ -1,0 +1,53 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: preview release publish
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main', 'ci/site-deploy', 'feature/ssg']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-artifacts:
+    uses: ./.github/workflows/build-packages.yaml
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build-artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup-environment
+        uses: ./.github/actions/setup-environment
+
+      - name: build site
+        uses: ./.github/actions/build-site
+
+      - name: setup pages
+        uses: actions/configure-pages@v5
+
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site/dist'
+
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v4
