@@ -1,0 +1,135 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/css/typography';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/typography';
+
+.#{$prefix-cls}-typography {
+  font-family: $font-family-default;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $typography-body-font-size;
+  line-height: $typography-body-line-height;
+  overflow-wrap: break-word;
+
+  &--hero {
+    font-size: $typography-hero-font-size;
+    line-height: $typography-hero-line-height;
+  }
+
+  &--subtitle {
+    font-size: $typography-subtitle-font-size;
+    line-height: $typography-subtitle-line-height;
+  }
+
+  &--caption {
+    font-size: $typography-caption-font-size;
+    line-height: $typography-caption-line-height;
+  }
+
+  &,
+  mark {
+    color: $typography-color-text;
+  }
+
+  code,
+  kbd {
+    font-family: $font-family-code;
+    padding: $space-eighth-x $space-quarter-x;
+    margin: 0px $space-eighth-x;
+    font-size: 85%;
+    background-color: $typography-code-color-background;
+    border: $border-width-xsmall solid $color-border-default;
+    border-radius: $radius-small;
+  }
+
+  kbd {
+    border-bottom-width: $border-width-small;
+  }
+
+  mark {
+    padding: 0 $space-quarter-x;
+    background-color: $typography-mark-color-background;
+  }
+
+  u {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  strong {
+    font-weight: $font-weight-bold;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: circle;
+
+    li {
+      padding: 0 0 0 $space-quarter-x;
+      margin: 0 0 0 $space-one-and-a-quarter-x;
+    }
+  }
+
+  blockquote {
+    padding: $space-half-x;
+    margin: $space-three-quarter-x 0;
+    color: $color-text-secondary;
+    border-left: $border-width-medium solid $color-border-default;
+  }
+
+  pre {
+    padding: $space-half-x;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: $color-background-component-default;
+    border: $border-width-xsmall solid $color-border-default;
+    border-radius: $radius-medium;
+  }
+
+  a {
+    color: $color-brand-default;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-brand-hover;
+    }
+
+    &:active {
+      color: $color-brand-active;
+    }
+  }
+
+  $levels: 1, 2, 3, 4, 5, 6;
+  // Heading
+  @at-root {
+    @each $level in $levels {
+      h#{$level}#{&} {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: $font-weight-bold;
+        font-size: map-get(
+          $typography-tokens,
+          typography-heading-#{$level}-font-size
+        );
+        line-height: map-get(
+          $typography-tokens,
+          typography-heading-#{$level}-line-height
+        );
+      }
+    }
+  }
+
+  & + & {
+    margin-top: $space-one-x;
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "typography": {
+    "color": {
+      "text": {
+        "value": "{color.text.primary}"
+      }
+    },
+    "body": {
+      "font": {
+        "size": {
+          "value": "{font.size.medium}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.comfortable}"
+      }
+    },
+    "hero": {
+      "font": {
+        "size": {
+          "value": "{font.size.xxxxlarge}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.xxxxlarge}"
+      }
+    },
+    "subtitle": {
+      "font": {
+        "size": {
+          "value": "{font.size.small}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.small}"
+      }
+    },
+    "caption": {
+      "font": {
+        "size": {
+          "value": "{font.size.xsmall}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.xsmall}"
+      }
+    },
+    "mark": {
+      "color": {
+        "background": {
+          "value": "{color.palette.brand.1}"
+        }
+      }
+    },
+    "code": {
+      "color": {
+        "background": {
+          "value": "{color.background.component.default}"
+        }
+      }
+    },
+    "heading": {
+      "1": {
+        "font": {
+          "size": {
+            "value": "{font.size.xxxlarge}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.xxxlarge}"
+        }
+      },
+      "2": {
+        "font": {
+          "size": {
+            "value": "{font.size.xxlarge}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.xxlarge}"
+        }
+      },
+      "3": {
+        "font": {
+          "size": {
+            "value": "{font.size.xlarge}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.xlarge}"
+        }
+      },
+      "4": {
+        "font": {
+          "size": {
+            "value": "{font.size.large}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.large}"
+        }
+      },
+      "5": {
+        "font": {
+          "size": {
+            "value": "{font.size.medium}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.medium}"
+        }
+      },
+      "6": {
+        "font": {
+          "size": {
+            "value": "{font.size.small}"
+          }
+        },
+        "lineHeight": {
+          "value": "{lineHeight.small}"
+        }
+      }
+    }
+  }
+}
