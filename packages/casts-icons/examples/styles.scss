@@ -1,0 +1,8 @@
+.docs-icon-wrap {
+  color: #555;
+  &:hover {
+    svg {
+      color: var(--cds-color-info-default);
+    }
+  }
+}
