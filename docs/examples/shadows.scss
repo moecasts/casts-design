@@ -1,0 +1,12 @@
+@use '@casts/theme/styles/scss/vars/core' as *;
+
+.demo-shadow-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: $color-palette-neutral-100;
+
+  border-radius: $radius-large;
+}
