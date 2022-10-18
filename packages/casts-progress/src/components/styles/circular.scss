@@ -1,0 +1,68 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/progress';
+@import '@casts/theme/styles/scss/progress';
+
+@keyframes circularRotateKeyframe {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circularDashKeyframe {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+.#{$prefix-cls}-circular-progress-container {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: $progress-color-brand-default;
+
+  .#{$prefix-cls}-circular-progress {
+    &--indeterminate {
+      animation: circularRotateKeyframe 1.4s linear infinite;
+
+      .#{$prefix-cls}-circular-progress-circle {
+        stroke-dasharray: 80px 200px;
+        stroke-dashoffset: 0;
+        animation: circularDashKeyframe 1.4s $motion-easing-in-out infinite;
+      }
+    }
+
+    &-circle {
+      stroke: currentColor;
+      transition: stroke-dashoffset $motion-duration-immediate
+        $motion-easing-in-out;
+    }
+
+    &-circle-track {
+      stroke: $color-background-component-disabled;
+    }
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      // font-size: var(--#{$prefix-cls}-caption-font-size);
+      font-size: 20%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "progress": {
+    "color": {
+      "brand": {
+        "default": {
+          "value": "{color.brand.default}"
+        }
+      },
+      "success": {
+        "default": {
+          "value": "{color.success.default}"
+        }
+      },
+      "warning": {
+        "default": {
+          "value": "{color.warning.default}"
+        }
+      },
+      "danger": {
+        "default": {
+          "value": "{color.danger.default}"
+        }
+      }
+    },
+    "linear": {
+      "size": {
+        "small": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "6px"
+        },
+        "medium": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "8px"
+        },
+        "large": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "10px"
+        }
+      },
+      "indeterminateBarWidth": {
+        "value": "50%"
+      }
+    }
+  }
+}

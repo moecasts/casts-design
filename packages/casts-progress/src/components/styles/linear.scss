@@ -1,0 +1,102 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/progress';
+@import '@casts/theme/styles/scss/progress';
+
+@keyframes linearKeyframe {
+  0% {
+    left: calc(0% - $progress-linear-indeterminate-bar-width);
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+$linear-prefix-cls: #{$prefix-cls}-linear-progress;
+
+@mixin flex-and-align-center($display: flex) {
+  display: $display;
+  align-items: center;
+}
+
+$sizes: 'small', 'medium', 'large';
+.#{$linear-prefix-cls} {
+  position: relative;
+  width: 100%;
+  color: $progress-color-brand-default;
+  @include flex-and-align-center;
+
+  @mixin linear-progress-height {
+    @each $size in $sizes {
+      &--#{$size} {
+        height: map-get($progress-tokens, progress-linear-size-#{$size});
+      }
+    }
+  }
+
+  @include linear-progress-height();
+
+  &--indeterminate {
+    .#{$linear-prefix-cls}-bar {
+      .#{$linear-prefix-cls}-inner {
+        position: absolute;
+        width: $progress-linear-indeterminate-bar-width !important;
+        animation: linearKeyframe $motion-duration-sustained
+          $motion-easing-in-out infinite;
+      }
+    }
+  }
+
+  &-bar {
+    position: relative;
+    display: block;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    background-color: $color-background-component-disabled;
+    border-radius: $radius-large;
+
+    .#{$linear-prefix-cls}-inner {
+      display: block;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: $radius-large;
+      transition: width 150ms $motion-easing-in-out;
+    }
+  }
+  &-label {
+    @include flex-and-align-center(inline-flex);
+    min-width: $size-large;
+    margin-left: $space-half-x;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+
+    .#{$linear-prefix-cls}-icon,
+    .#{$linear-prefix-cls}-text {
+      @include flex-and-align-center(inline-flex);
+    }
+
+    .#{$linear-prefix-cls}-text {
+      color: $color-text-primary;
+    }
+  }
+}
+
+@function get-theme-color($theme) {
+  @if $theme == 'error' {
+    @return map-get($progress-tokens, progress-color-danger-default);
+  }
+  @return map-get($progress-tokens, progress-color-#{$theme}-default);
+}
+
+@mixin linear-progress-status {
+  $statuses: 'success', 'warning', 'error';
+
+  @each $status in $statuses {
+    .#{$linear-prefix-cls}--#{$status} {
+      color: get-theme-color($status);
+    }
+  }
+}
+
+@include linear-progress-status();
