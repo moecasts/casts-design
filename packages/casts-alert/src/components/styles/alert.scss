@@ -1,0 +1,142 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/alert';
+@import '@casts/theme/styles/scss/alert';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+$alert-prefix-cls: #{$prefix-cls}-alert;
+
+.#{$alert-prefix-cls} {
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  padding: $alert-space;
+  font-size: $alert-body-font-size;
+  color: $color-text-primary;
+  background-color: $color-background-container-default;
+  border: $border-width-xsmall solid transparent;
+  border-radius: $alert-radius;
+
+  svg {
+    font-size: inherit;
+  }
+
+  &-icon {
+    flex-shrink: 0;
+    margin-right: $space-three-quarter-x;
+    font-size: 0;
+
+    .#{$prefix-cls}-circular-progress-container,
+    svg {
+      width: $alert-title-line-height;
+      height: $alert-title-line-height;
+      font-size: $alert-title-line-height;
+    }
+
+    @at-root .#{$alert-prefix-cls}--info:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-info-default;
+    }
+    @at-root .#{$alert-prefix-cls}--success:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-success-default;
+    }
+    @at-root .#{$alert-prefix-cls}--warning:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-warning-default;
+    }
+    @at-root .#{$alert-prefix-cls}--error:not(.#{$alert-prefix-cls}--fill) & {
+      color: $color-danger-default;
+    }
+    .#{$prefix-cls}-circular-progress-container {
+      color: currentColor;
+    }
+  }
+  &-body {
+    flex: 1;
+    overflow: hidden;
+    font-size: $alert-body-font-size;
+    line-height: $alert-body-line-height;
+
+    .#{$alert-prefix-cls}-header {
+      display: flex;
+      align-items: center;
+      font-size: $alert-title-font-size;
+      line-height: $alert-title-line-height;
+
+      .#{$alert-prefix-cls}-title {
+        flex: 1;
+        font-weight: $font-weight-bold;
+      }
+    }
+    .#{$alert-prefix-cls}-footer {
+      text-align: right;
+    }
+
+    & > div + div {
+      margin-top: $space-half-x;
+    }
+  }
+
+  &-close {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: top;
+    padding: 0;
+    margin-left: $space-half-x;
+    font-size: $alert-body-font-size;
+    line-height: $alert-title-line-height;
+    color: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    opacity: 0.7;
+    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    &:hover {
+      opacity: 0.84;
+    }
+    &:active {
+      opacity: 0.96;
+    }
+    svg {
+      font-size: $alert-title-line-height;
+    }
+  }
+  & {
+    &.#{$alert-prefix-cls}--loading {
+      color: $color-background-container-default;
+    }
+    &.#{$alert-prefix-cls}--info {
+      background-color: $alert-color-info-default;
+    }
+    &.#{$alert-prefix-cls}--success {
+      background-color: $alert-color-success-default;
+    }
+    &.#{$alert-prefix-cls}--warning {
+      background-color: $alert-color-warning-default;
+    }
+    &.#{$alert-prefix-cls}--error {
+      background-color: $alert-color-danger-default;
+    }
+  }
+  &--fill {
+    &:not(.#{$alert-prefix-cls}--loading) {
+      color: $color-background-container-default;
+    }
+    &.#{$alert-prefix-cls}--info {
+      background-color: $alert-color-info-fill;
+    }
+    &.#{$alert-prefix-cls}--success {
+      background-color: $alert-color-success-fill;
+    }
+    &.#{$alert-prefix-cls}--warning {
+      background-color: $alert-color-warning-fill;
+    }
+    &.#{$alert-prefix-cls}--error {
+      background-color: $alert-color-danger-fill;
+    }
+  }
+
+  // unify icon size
+  .#{$prefix-cls}-circular-progress-container {
+    transform: scale(0.85);
+  }
+}
