@@ -1,0 +1,108 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/message';
+@import '@casts/theme/styles/scss/message';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+.#{$prefix-cls}-message {
+  z-index: $message-elevation-z-index;
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  padding: $message-space;
+  margin-right: $space-half-x;
+  margin-left: $space-half-x;
+  font-size: $message-font-size;
+  color: $color-text-primary;
+  background-color: $color-background-container-default;
+  border-radius: $message-radius;
+  box-shadow: $message-shadow;
+
+  svg {
+    font-size: inherit;
+  }
+
+  &-icon {
+    flex-shrink: 0;
+    margin-right: $space-half-x;
+    font-size: 0;
+
+    .#{$prefix-cls}-circular-progress-container,
+    svg {
+      width: $message-line-height;
+      height: $message-line-height;
+      font-size: $message-line-height;
+    }
+
+    @at-root .#{$prefix-cls}-message--info:not(.#{$prefix-cls}-message--fill)
+        & {
+      color: $color-info-default;
+    }
+    @at-root .#{$prefix-cls}-message--success:not(.#{$prefix-cls}-message--fill)
+        & {
+      color: $color-success-default;
+    }
+    @at-root .#{$prefix-cls}-message--warning:not(.#{$prefix-cls}-message--fill)
+        & {
+      color: $color-warning-default;
+    }
+    @at-root .#{$prefix-cls}-message--error:not(.#{$prefix-cls}-message--fill)
+        & {
+      color: $color-danger-default;
+    }
+  }
+  &-content {
+    flex: 1;
+    overflow: hidden;
+    font-size: $message-font-size;
+    line-height: $message-line-height;
+  }
+  &-close {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: top;
+    padding: 0;
+    margin-left: $space-half-x;
+    font-size: $message-font-size;
+    line-height: $message-line-height;
+    color: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    opacity: 0.6;
+    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:active {
+      opacity: 0.96;
+    }
+
+    svg {
+      font-size: $message-line-height;
+    }
+  }
+  &--fill {
+    &:not(.#{$prefix-cls}-message--loading) {
+      color: $color-background-container-default;
+    }
+    &.#{$prefix-cls}-message--info {
+      background-color: $color-info-default;
+    }
+    &.#{$prefix-cls}-message--success {
+      background-color: $color-success-default;
+    }
+    &.#{$prefix-cls}-message--warning {
+      background-color: $color-warning-default;
+    }
+    &.#{$prefix-cls}-message--error {
+      background-color: $color-danger-default;
+    }
+  }
+
+  // unify icon size
+  .#{$prefix-cls}-circular-progress-container {
+    transform: scale(0.85);
+  }
+}

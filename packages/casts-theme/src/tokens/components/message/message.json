@@ -1,0 +1,26 @@
+{
+  "message": {
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "space": {
+      "value": "{space.half-x} {space.one-x}"
+    },
+    "shadow": {
+      "value": "{shadow.level.4}"
+    },
+    "elevation": {
+      "zIndex": {
+        "value": "{elevation.zIndex.top}"
+      }
+    }
+  }
+}
