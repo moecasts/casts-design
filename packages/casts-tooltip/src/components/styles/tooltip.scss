@@ -1,0 +1,20 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/tooltip';
+@import '@casts/theme/styles/scss/tooltip';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+.#{$prefix-cls}-tooltip {
+  &--square {
+    border-radius: 0px;
+  }
+  &--round {
+    border-radius: $tooltip-radius;
+  }
+  &--circle {
+    padding-right: $tooltip-space;
+    padding-left: $tooltip-space;
+    border-radius: $radius-pill;
+  }
+}
