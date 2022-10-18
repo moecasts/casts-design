@@ -1,0 +1,56 @@
+{
+  "name": "@casts/standard",
+  "version": "0.0.1",
+  "description": "A collection of configuration files containing prettier, eslint, stylelint, jest, tsconfig...",
+  "repository": "https://github.com/moecasts/casts-design",
+  "main": "dist/cjs/index.js",
+  "module": "dist/cjs/index.js",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "jest",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\""
+  },
+  "keywords": [],
+  "authors": [
+    "Caster <moecasts.caster@gmail.com>"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13",
+    "@types/jest": "^27",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@umijs/lint": "^4",
+    "@umijs/test": "^4",
+    "father": "^4.0.6",
+    "jest": "^27",
+    "ts-node": "^10",
+    "tslib": "^2.4.0",
+    "typescript": "^4"
+  },
+  "dependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.2.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}
