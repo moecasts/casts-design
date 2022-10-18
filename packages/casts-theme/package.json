@@ -1,0 +1,39 @@
+{
+  "name": "@casts/theme",
+  "version": "0.0.1",
+  "description": "themes of casts design",
+  "repository": "https://github.com/moecasts/casts-design",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:tokens": "node ./dist/cjs/builder/index.js",
+    "build:tokens:dev": "chokidar './src/tokens/**/*.(json|json5|js|ts)' -c 'pnpm build:tokens'",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build"
+  },
+  "keywords": [],
+  "authors": [
+    "Caster <moecasts.caster@gmail.com>"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled",
+    "styles"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@casts/standard": "workspace:^0.0.1",
+    "@types/glob": "^8.0.0",
+    "@types/node": "^18.8.1",
+    "chokidar-cli": "^3.0.0",
+    "chroma-js": "^2.4.2",
+    "father": "^4.0.6",
+    "glob": "^8.0.3",
+    "style-dictionary": "^3.7.1"
+  }
+}

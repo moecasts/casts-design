@@ -1,0 +1,34 @@
+{
+  "size": {
+    "xsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "20px"
+    },
+    "small": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "24px"
+    },
+    "medium": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "32px"
+    },
+    "large": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "40px"
+    },
+    "xlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "48px"
+    }
+  }
+}

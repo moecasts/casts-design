@@ -1,0 +1,70 @@
+{
+  "space": {
+    "eighth-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "2px"
+    },
+    "quarter-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "4px"
+    },
+    "three-eighth-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "6px"
+    },
+    "half-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "8px"
+    },
+    "three-quarter-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "12px"
+    },
+    "one-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "16px"
+    },
+    "one-and-a-quarter-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "20px"
+    },
+    "one-and-a-half-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "24px"
+    },
+    "two-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "32px"
+    },
+    "three-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "48px"
+    },
+    "four-x": {
+      "attributes": {
+        "category": "space"
+      },
+      "value": "64px"
+    }
+  }
+}
