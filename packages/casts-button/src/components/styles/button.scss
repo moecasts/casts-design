@@ -1,0 +1,228 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/button';
+@import '@casts/theme/styles/scss/button';
+
+$button-prefix-cls: #{$prefix-cls}-button;
+
+@mixin button-size($size: 'medium', $selector: none) {
+  height: map-get($button-tokens, button-size-#{$size});
+  padding-right: map-get($button-tokens, button-space-#{$size});
+  padding-left: map-get($button-tokens, button-space-#{$size});
+  font-size: map-get($button-tokens, button-font-size-#{$size});
+
+  @if $selector != none {
+    @at-root #{$selector}.#{$button-prefix-cls}--only-icon {
+      width: map-get($button-tokens, button-size-#{$size});
+      height: map-get($button-tokens, button-size-#{$size});
+      padding: 0;
+    }
+  }
+}
+
+@mixin button-color($text, $background, $border) {
+  color: $text;
+  border-color: $border;
+  @if ($background != none) {
+    background-color: $background;
+  }
+}
+
+$button-sizes: 'small', 'medium', 'large';
+
+.#{$button-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: $border-width-xsmall solid transparent;
+
+  border-width: $border-width-xsmall;
+  outline: none;
+  fill: currentColor;
+
+  transition: opacity $motion-duration-rapid $motion-easing-in-out,
+    box-shadow $motion-duration-rapid $motion-easing-in-out,
+    border-color $motion-duration-rapid $motion-easing-in-out,
+    background-color $motion-duration-rapid $motion-easing-in-out;
+  appearance: none;
+
+  //   & > * {
+  //     transition: color var(--#{$prefix-cls}-transition-duration-base)
+  //       var(--#{$prefix-cls}-ease-in-out);
+  //   }
+
+  // size
+  @each $size in $button-sizes {
+    &--#{$size} {
+      @include button-size($size, #{&});
+    }
+  }
+
+  // shape
+  &--square {
+    border-radius: 0;
+  }
+  &--round {
+    @each $size in $button-sizes {
+      &.#{$button-prefix-cls}--#{$size} {
+        &,
+        &::before {
+          border-radius: map-get($button-tokens, button-radius-#{$size});
+        }
+      }
+    }
+  }
+  &--pill {
+    border-radius: $button-radius-pill;
+  }
+
+  $button-colors: 'brand', 'info', 'success', 'warning', 'danger';
+  // variant
+  &--contained {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        $text-color: $color-text-anti;
+        @if $color == 'white' {
+          $text-color: $color-text-primary;
+        }
+        @include button-color(
+          $text-color,
+          map-get($button-tokens, button-color-#{$color}-default),
+          map-get($button-tokens, button-color-#{$color}-default)
+        );
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            $text-color,
+            map-get($button-tokens, button-color-#{$color}-hover),
+            map-get($button-tokens, button-color-#{$color}-hover)
+          );
+        }
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            $text-color,
+            map-get($button-tokens, button-color-#{$color}-active),
+            map-get($button-tokens, button-color-#{$color}-active)
+          );
+        }
+      }
+    }
+  }
+
+  &--outline,
+  &--dashed {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-#{$color}-default),
+          none,
+          map-get($button-tokens, button-color-#{$color}-default)
+        );
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+          color: $color-text-anti;
+          background-color: var(--#{$button-prefix-cls}-color-#{$color});
+
+          @include button-color(
+            $color-text-anti,
+            map-get($button-tokens, button-color-#{$color}-hover),
+            map-get($button-tokens, button-color-#{$color}-hover)
+          );
+        }
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            $color-text-anti,
+            map-get($button-tokens, button-color-#{$color}-active),
+            map-get($button-tokens, button-color-#{$color}-active)
+          );
+        }
+      }
+    }
+  }
+  &--dashed {
+    border-style: dashed;
+  }
+
+  &--text {
+    color: $color-text-primary;
+    border-color: transparent;
+    &:hover:not(.#{$button-prefix-cls}--disabled),
+    &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+      background-color: $color-background-component-hover;
+    }
+    &:active:not(.#{$button-prefix-cls}--disabled) {
+      background-color: $color-background-component-active;
+    }
+  }
+  &--link {
+    color: $button-color-brand-default;
+    &:hover:not(.#{$button-prefix-cls}--disabled),
+    &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+      color: $button-color-brand-hover;
+    }
+    &:active:not(.#{$button-prefix-cls}--disabled) {
+      color: $button-color-brand-active;
+    }
+  }
+
+  // Block
+  &--block {
+    width: 100%;
+  }
+
+  &--disabled,
+  &--loading {
+    &::before {
+      position: absolute;
+      inset: calc(0px - $border-width-xsmall);
+      cursor: not-allowed;
+      content: '';
+      background-color: $color-background-container-disabled;
+      opacity: 0.3;
+    }
+  }
+
+  &--loading {
+    & > *:not(.#{$prefix-cls}-loading) {
+      color: transparent;
+    }
+  }
+
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .#{$prefix-cls}-icon {
+    font-size: inherit;
+  }
+
+  &:not(&--only-icon) > .#{$prefix-cls}-icon {
+    margin-right: $space-quarter-x;
+  }
+
+  @keyframes loadingCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .#{$prefix-cls}-loading {
+    position: absolute;
+    display: inline-block;
+    line-height: 0;
+    transition: width $motion-duration-fast $motion-easing-in-out,
+      opacity $motion-duration-fast $motion-easing-in-out;
+    animation: loadingCircle $motion-duration-deliberate infinite linear;
+  }
+}

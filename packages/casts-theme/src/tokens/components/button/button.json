@@ -1,0 +1,125 @@
+{
+  "button": {
+    "font": {
+      "size": {
+        "small": {
+          "value": "{font.size.xsmall}"
+        },
+        "medium": {
+          "value": "{font.size.small}"
+        },
+        "large": {
+          "value": "{font.size.large}"
+        }
+      }
+    },
+    "size": {
+      "small": {
+        "value": "{size.small}"
+      },
+      "medium": {
+        "value": "{size.medium}"
+      },
+      "large": {
+        "value": "{size.large}"
+      }
+    },
+    "space": {
+      "small": {
+        "value": "{space.half-x}"
+      },
+      "medium": {
+        "value": "{space.one-x}"
+      },
+      "large": {
+        "value": "{space.two-x}"
+      }
+    },
+    "radius": {
+      "small": {
+        "value": "{radius.small}"
+      },
+      "medium": {
+        "value": "{radius.medium}"
+      },
+      "large": {
+        "value": "{radius.large}"
+      },
+      "pill": {
+        "value": "{radius.pill}"
+      }
+    },
+    "color": {
+      "brand": {
+        "default": {
+          "value": "{color.brand.default}"
+        },
+        "hover": {
+          "value": "{color.brand.hover}"
+        },
+        "active": {
+          "value": "{color.brand.active}"
+        },
+        "disabled": {
+          "value": "{color.brand.disabled}"
+        }
+      },
+      "info": {
+        "default": {
+          "value": "{color.info.default}"
+        },
+        "hover": {
+          "value": "{color.info.hover}"
+        },
+        "active": {
+          "value": "{color.info.active}"
+        },
+        "disabled": {
+          "value": "{color.info.disabled}"
+        }
+      },
+      "success": {
+        "default": {
+          "value": "{color.success.default}"
+        },
+        "hover": {
+          "value": "{color.success.hover}"
+        },
+        "active": {
+          "value": "{color.success.active}"
+        },
+        "disabled": {
+          "value": "{color.success.disabled}"
+        }
+      },
+      "warning": {
+        "default": {
+          "value": "{color.warning.default}"
+        },
+        "hover": {
+          "value": "{color.warning.hover}"
+        },
+        "active": {
+          "value": "{color.warning.active}"
+        },
+        "disabled": {
+          "value": "{color.warning.disabled}"
+        }
+      },
+      "danger": {
+        "default": {
+          "value": "{color.danger.default}"
+        },
+        "hover": {
+          "value": "{color.danger.hover}"
+        },
+        "active": {
+          "value": "{color.danger.active}"
+        },
+        "disabled": {
+          "value": "{color.danger.disabled}"
+        }
+      }
+    }
+  }
+}
