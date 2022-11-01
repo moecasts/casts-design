@@ -3,7 +3,7 @@ import { Notification } from '@casts/notification';
 import { Space } from '@casts/space';
 
 const HideIconDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Notification
       theme="info"
       icon={false}

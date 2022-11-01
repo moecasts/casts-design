@@ -3,7 +3,7 @@ import { Message } from '@casts/message';
 import { Space } from '@casts/space';
 
 const HideIconDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Message theme="loading" fill icon={false} content="content" />
     <Message theme="info" fill icon={false} content="content" />
     <Message theme="success" fill icon={false} content="content" />

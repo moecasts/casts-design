@@ -4,7 +4,7 @@ import { message } from '@casts/message';
 import { Space } from '@casts/space';
 
 const DifferentPositionDemo = () => (
-  <Space wrap>
+  <Space className="zone-scope" wrap>
     <Button
       theme="info"
       onClick={() =>

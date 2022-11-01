@@ -17,7 +17,7 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
   margin-left: $space-half-x;
   font-size: $notification-body-font-size;
   color: $color-text-primary;
-  background-color: $color-background-container-default;
+  background-color: $color-surface-container-default;
   border-left: $border-width-medium solid transparent;
   border-radius: $notification-radius;
   box-shadow: $notification-shadow;
@@ -40,19 +40,19 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
 
     @at-root .#{$notification-prefix-cls}--info:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: $color-info-default;
+      color: $notification-color-info-default;
     }
     @at-root .#{$notification-prefix-cls}--success:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: $color-success-default;
+      color: $notification-color-success-default;
     }
     @at-root .#{$notification-prefix-cls}--warning:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: $color-warning-default;
+      color: $notification-color-warning-default;
     }
     @at-root .#{$notification-prefix-cls}--error:not(.#{$notification-prefix-cls}--fill)
         & {
-      color: $color-danger-default;
+      color: $notification-color-danger-default;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -113,36 +113,36 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
   }
   & {
     &.#{$notification-prefix-cls}--loading {
-      color: $color-background-container-default;
+      color: $color-surface-container-default;
     }
     &.#{$notification-prefix-cls}--info {
-      border-color: $color-info-default;
+      border-color: $notification-color-info-default;
     }
     &.#{$notification-prefix-cls}--success {
-      border-color: $color-success-default;
+      border-color: $notification-color-success-default;
     }
     &.#{$notification-prefix-cls}--warning {
-      border-color: $color-warning-default;
+      border-color: $notification-color-warning-default;
     }
     &.#{$notification-prefix-cls}--error {
-      border-color: $color-danger-default;
+      border-color: $notification-color-danger-default;
     }
   }
   &--fill {
     &:not(.#{$notification-prefix-cls}--loading) {
-      color: $color-background-container-default;
+      color: $color-surface-container-default;
     }
     &.#{$notification-prefix-cls}--info {
-      background-color: $color-info-default;
+      background-color: $notification-color-info-default;
     }
     &.#{$notification-prefix-cls}--success {
-      background-color: $color-success-default;
+      background-color: $notification-color-success-default;
     }
     &.#{$notification-prefix-cls}--warning {
-      background-color: $color-warning-default;
+      background-color: $notification-color-warning-default;
     }
     &.#{$notification-prefix-cls}--error {
-      background-color: $color-danger-default;
+      background-color: $notification-color-danger-default;
     }
   }
 

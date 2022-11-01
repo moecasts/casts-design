@@ -2,11 +2,10 @@
 @import '@casts/theme/styles/css/typography';
 @import '@casts/theme/styles/scss/core';
 @import '@casts/theme/styles/scss/typography';
-
 .#{$prefix-cls}-typography {
-  font-family: $font-family-default;
   margin-top: 0;
   margin-bottom: 0;
+  font-family: $font-family-default;
   font-size: $typography-body-font-size;
   line-height: $typography-body-line-height;
   overflow-wrap: break-word;
@@ -33,12 +32,12 @@
 
   code,
   kbd {
-    font-family: $font-family-code;
     padding: $space-eighth-x $space-quarter-x;
     margin: 0px $space-eighth-x;
+    font-family: $font-family-code;
     font-size: 85%;
-    background-color: $typography-code-color-background;
-    border: $border-width-xsmall solid $color-border-default;
+    background-color: $typography-block-color-background;
+    border: $border-width-xsmall solid $color-border-neutral-default;
     border-radius: $radius-small;
   }
 
@@ -83,29 +82,29 @@
     padding: $space-half-x;
     margin: $space-three-quarter-x 0;
     color: $color-text-secondary;
-    border-left: $border-width-medium solid $color-border-default;
+    border-left: $border-width-medium solid $color-border-neutral-default;
   }
 
   pre {
     padding: $space-half-x;
     word-wrap: break-word;
     white-space: pre-wrap;
-    background-color: $color-background-component-default;
-    border: $border-width-xsmall solid $color-border-default;
+    background-color: $typography-block-color-background;
+    border: $border-width-xsmall solid $color-border-neutral-default;
     border-radius: $radius-medium;
   }
 
   a {
-    color: $color-brand-default;
+    color: $color-text-brand-default;
     text-decoration: none;
 
     &:hover,
     &:focus-visible {
-      color: $color-brand-hover;
+      color: $color-text-brand-hover;
     }
 
     &:active {
-      color: $color-brand-active;
+      color: $color-text-brand-active;
     }
   }
 
@@ -116,11 +115,11 @@
       h#{$level}#{&} {
         margin-top: 0;
         margin-bottom: 0;
-        font-weight: $font-weight-bold;
         font-size: map-get(
           $typography-tokens,
           typography-heading-#{$level}-font-size
         );
+        font-weight: $font-weight-bold;
         line-height: map-get(
           $typography-tokens,
           typography-heading-#{$level}-line-height

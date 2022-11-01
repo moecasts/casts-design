@@ -4,7 +4,7 @@ import { Space } from '@casts/space';
 import { Home3Fill } from '@casts/icons';
 
 const CustomIconDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Notification
       theme="info"
       icon={<Home3Fill />}

@@ -3,7 +3,7 @@ import { Message } from '@casts/message';
 import { Space } from '@casts/space';
 
 const DifferentThemesDemo = () => (
-  <Space wrap direction="vertical">
+  <Space className="zone-scope" wrap direction="vertical">
     <Message theme="loading" content="content" />
     <Message theme="info" content="content" />
     <Message theme="success" content="content" />

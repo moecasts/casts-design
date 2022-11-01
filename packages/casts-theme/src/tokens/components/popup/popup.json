@@ -17,12 +17,12 @@
           "value": "{color.text.anti}"
         }
       },
-      "background": {
+      "surface": {
         "light": {
-          "value": "{color.background.container.default}"
+          "value": "{color.surface.container.default}"
         },
         "dark": {
-          "value": "{color.background.container.anti}"
+          "value": "{color.surface.container.anti}"
         }
       }
     },

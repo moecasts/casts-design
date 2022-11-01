@@ -34,12 +34,12 @@ export type ButtonBlock = boolean;
 
 export type ButtonTheme =
   | 'brand'
-  // | 'secondary'
   | 'info'
   | 'success'
   | 'warning'
   | 'danger'
-  | 'disabled';
+  | 'disabled'
+  | 'neutral';
 // | 'black'
 // | 'white';
 
@@ -209,5 +209,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
-
-export { ButtonGroup } from './button-group';

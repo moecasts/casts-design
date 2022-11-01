@@ -1,13 +1,9 @@
 import clsx from 'clsx';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { useConfig } from '@casts/config-provider';
+import { HeadingProps } from './types';
 
-export type HeadingProps = {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-  children: ReactNode;
-} & Partial<Omit<HTMLHeadingElement, 'children'>>;
-
-export const Heading: FC<HeadingProps> = (props: HeadingProps) => {
+export const Heading: FC<HeadingProps> = (props) => {
   const { level, children } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('typography');

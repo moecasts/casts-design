@@ -6,3 +6,8 @@ export type Theme = {
   errorColor?: string;
   warningColor?: string;
 };
+
+export type GetPrefixCls = (
+  suffixCls?: string,
+  customizePrefixCls?: string,
+) => string;

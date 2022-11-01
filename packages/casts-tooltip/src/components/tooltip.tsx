@@ -1,18 +1,9 @@
 import { FC } from 'react';
-import { Popup, PopupProps, PopupTrigger, PopupTheme } from '@casts/popup';
+import { Popup } from '@casts/popup';
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
+import { TooltipProps } from './types';
 import './styles/tooltip.scss';
-
-export type TooltipTheme = PopupTheme;
-export type TooltipTrigger = PopupTrigger;
-export type TooltipShape = 'square' | 'round' | 'circle';
-
-export type TooltipProps = Omit<PopupProps, 'trigger' | 'theme'> & {
-  trigger?: TooltipTrigger;
-  theme?: TooltipTheme;
-  shape?: TooltipShape;
-};
 
 export const Tooltip: FC<TooltipProps> = (props) => {
   const { className, shape = 'round', ...rest } = props;

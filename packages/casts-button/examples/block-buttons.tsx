@@ -5,7 +5,7 @@ import '@casts/button/dist/esm/styles.scss';
 
 const BlockButtonsDemo = () => (
   <Space wrap>
-    <Button variant="contained" block>
+    <Button variant="contained" block size="large">
       Button
     </Button>
     <Button variant="outline" block>

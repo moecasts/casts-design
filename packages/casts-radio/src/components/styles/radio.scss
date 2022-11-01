@@ -1,0 +1,83 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/radio';
+@import '@casts/theme/styles/scss/radio';
+
+$radio-prefix-cls: #{$prefix-cls}-radio;
+
+.#{$radio-prefix-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: $radio-font-size;
+  line-height: $radio-line-height;
+  cursor: pointer;
+
+  &-pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  &-input {
+    position: relative;
+    display: inline-block;
+    width: $radio-font-size;
+    height: $radio-font-size;
+    margin-right: $space-half-x;
+    border-color: $color-border-neutral-default;
+    border-style: solid;
+    border-width: $border-width-xsmall;
+    border-radius: 100%;
+    transition: all $motion-duration-rapid $motion-easing-in-out;
+    flex-shrink: 0;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      content: '';
+      background-color: transparent;
+      border-radius: inherit;
+      transition: all $motion-duration-rapid $motion-easing-in-out;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    @at-root .#{$radio-prefix-cls}-pre:focus + & {
+      box-shadow: $radio-input-shadow-active;
+    }
+
+    @at-root .#{$radio-prefix-cls}--checked & {
+      border-color: $color-border-brand-default;
+
+      &::before {
+        background-color: $color-shape-brand-default;
+        transform: translate(-50%, -50%) scale(0.55);
+        opacity: 1;
+      }
+    }
+  }
+
+  &--disabled {
+    color: $color-text-disabled;
+    cursor: not-allowed;
+
+    .#{$radio-prefix-cls}-input {
+      background-color: $color-surface-container-disabled;
+      border-color: $color-border-neutral-disabled;
+
+      &::before {
+        background-color: $radio-input-inner-color-disabled;
+      }
+    }
+  }
+
+  &-label {
+    font-size: inherit;
+  }
+}

@@ -4,7 +4,7 @@ import { Home3Fill } from '@casts/icons';
 import { Space } from '@casts/space';
 
 const CustomCloseDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Message
       theme="info"
       icon={<Home3Fill />}

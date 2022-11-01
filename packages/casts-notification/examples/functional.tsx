@@ -4,7 +4,7 @@ import { notification } from '@casts/notification';
 import { Space } from '@casts/space';
 
 const FunctionalDemo = () => (
-  <Space wrap>
+  <Space className="zone-scope" wrap>
     <Button
       theme="info"
       onClick={() =>

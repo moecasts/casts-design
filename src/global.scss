@@ -1,0 +1,10 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+
+*[class^='#{$prefix-cls}-'] {
+  font-family: $font-family-default;
+}
+
+.zone-scope {
+  transform: translate(0);
+}

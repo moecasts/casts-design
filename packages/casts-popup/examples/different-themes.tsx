@@ -27,7 +27,7 @@ const DifferentThemesDemo = () => (
         </div>
       }
     >
-      <Button>dard theme</Button>
+      <Button>dark theme</Button>
     </Popup>
   </Space>
 );

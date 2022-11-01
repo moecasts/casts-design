@@ -1,12 +1,9 @@
 import clsx from 'clsx';
+import { FC } from 'react';
+import { TypographyProps } from './types';
 import { useConfig } from '@casts/config-provider';
-import { FC, ReactNode } from 'react';
 
-export type TypographyProps = {
-  children?: ReactNode;
-};
-
-export const Typography: FC<TypographyProps> = (props: TypographyProps) => {
+export const Typography: FC<TypographyProps> = (props) => {
   const { children } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('typography');

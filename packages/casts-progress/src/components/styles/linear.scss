@@ -53,7 +53,7 @@ $sizes: 'small', 'medium', 'large';
     flex: 1;
     height: 100%;
     overflow: hidden;
-    background-color: $color-background-component-disabled;
+    background-color: $progress-track-color;
     border-radius: $radius-large;
 
     .#{$linear-prefix-cls}-inner {

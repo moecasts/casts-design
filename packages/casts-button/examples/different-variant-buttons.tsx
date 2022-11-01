@@ -9,7 +9,9 @@ const DifferentVariantButtonsDemo = () => (
     <Button variant="outline">Button</Button>
     <Button variant="dashed">Button</Button>
     <Button variant="text">Button</Button>
-    <Button variant="link">Button</Button>
+    <Button variant="link" href="/" target="_blank">
+      Button
+    </Button>
   </Space>
 );
 

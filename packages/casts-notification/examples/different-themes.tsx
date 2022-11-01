@@ -3,7 +3,7 @@ import { Notification } from '@casts/notification';
 import { Space } from '@casts/space';
 
 const DifferentThemesDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Notification
       theme="info"
       title="通知标题"

@@ -5,7 +5,7 @@ import { message } from '@casts/message';
 // import '@casts/message/dist/cjs/index.css';
 
 const FunctionalDemo = () => (
-  <Space wrap>
+  <Space className="zone-scope" wrap>
     <Button theme="info" onClick={() => message.info('info message')}>
       info
     </Button>

@@ -1,15 +1,16 @@
 import { createContext, useContext } from 'react';
+import { GetPrefixCls } from './types';
 
 export const defaultPrefixCls = 'cds';
 // let globalPrefixCls: string;
 
 export type ConfigContextProps = {
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
+  getPrefixCls: GetPrefixCls;
 };
 
-export const defaultGetPrefixCls = (
-  suffixCls?: string,
-  customizePrefixCls?: string,
+export const defaultGetPrefixCls: GetPrefixCls = (
+  suffixCls,
+  customizePrefixCls,
 ) => {
   const getCompletePrefixCls = ({
     prefixCls,

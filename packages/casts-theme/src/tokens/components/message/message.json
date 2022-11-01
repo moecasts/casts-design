@@ -1,5 +1,32 @@
 {
   "message": {
+    "color": {
+      "brand": {
+        "default": {
+          "value": "{color.shape.brand.default}"
+        }
+      },
+      "info": {
+        "default": {
+          "value": "{color.shape.info.default}"
+        }
+      },
+      "success": {
+        "default": {
+          "value": "{color.shape.success.default}"
+        }
+      },
+      "warning": {
+        "default": {
+          "value": "{color.shape.warning.default}"
+        }
+      },
+      "danger": {
+        "default": {
+          "value": "{color.shape.danger.default}"
+        }
+      }
+    },
     "font": {
       "size": {
         "value": "{font.size.small}"

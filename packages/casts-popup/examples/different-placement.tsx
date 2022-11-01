@@ -16,7 +16,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>top-start</Button>
+        <Button style={{ width: '120px' }}>top-start</Button>
       </Popup>
       <Popup
         placement="top"
@@ -28,7 +28,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>top</Button>
+        <Button style={{ width: '120px' }}>top</Button>
       </Popup>
       <Popup
         placement="top-end"
@@ -40,7 +40,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>top-end</Button>
+        <Button style={{ width: '120px' }}>top-end</Button>
       </Popup>
     </Space>
     <Space size={[16, 150]}>
@@ -56,7 +56,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>left-start</Button>
+          <Button style={{ width: '120px' }}>left-start</Button>
         </Popup>
         <Popup
           placement="left"
@@ -69,7 +69,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>left</Button>
+          <Button style={{ width: '120px' }}>left</Button>
         </Popup>
         <Popup
           placement="left-end"
@@ -82,7 +82,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>left-end</Button>
+          <Button style={{ width: '120px' }}>left-end</Button>
         </Popup>
       </Space>
       <Space direction="vertical">
@@ -97,7 +97,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>right-start</Button>
+          <Button style={{ width: '120px' }}>right-start</Button>
         </Popup>
         <Popup
           placement="right"
@@ -110,7 +110,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>right</Button>
+          <Button style={{ width: '120px' }}>right</Button>
         </Popup>
         <Popup
           placement="right-end"
@@ -123,7 +123,7 @@ const DifferentPlacementDemo = () => (
             </div>
           }
         >
-          <Button>right-end</Button>
+          <Button style={{ width: '120px' }}>right-end</Button>
         </Popup>
       </Space>
     </Space>
@@ -138,7 +138,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>bottom-start</Button>
+        <Button style={{ width: '120px' }}>bottom-start</Button>
       </Popup>
       <Popup
         placement="bottom"
@@ -150,7 +150,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>bottom</Button>
+        <Button style={{ width: '120px' }}>bottom</Button>
       </Popup>
       <Popup
         placement="bottom-end"
@@ -162,7 +162,7 @@ const DifferentPlacementDemo = () => (
           </div>
         }
       >
-        <Button>bottom-end</Button>
+        <Button style={{ width: '120px' }}>bottom-end</Button>
       </Popup>
     </Space>
   </Space>

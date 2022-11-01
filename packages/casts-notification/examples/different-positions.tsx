@@ -4,7 +4,7 @@ import { notification } from '@casts/notification';
 import { Space } from '@casts/space';
 
 const DifferentPositionsDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Space>
       <Button
         theme="info"

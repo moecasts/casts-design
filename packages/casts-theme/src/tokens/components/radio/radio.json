@@ -1,0 +1,35 @@
+{
+  "radio": {
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "input": {
+      "shadow": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "3px",
+            "color": "{color.shadow.brand.active}"
+          }
+        }
+      },
+      "inner": {
+        "color": {
+          "disabled": {
+            "value": "{color.palette.neutral.300}"
+          }
+        }
+      }
+    }
+  }
+}

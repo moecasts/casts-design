@@ -1,0 +1,247 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/input';
+@import '@casts/theme/styles/scss/input';
+
+@import '@casts/theme/styles/plugins/helper/theme';
+
+$input-prefix-cls: #{$prefix-cls}-input;
+
+@mixin input-size($size: 'medium') {
+  $font-size: if(
+    $size == 'small',
+    $input-font-size-small,
+    $input-font-size-medium
+  );
+  $line-height: if(
+    $size == 'small',
+    $input-line-height-small,
+    $input-line-height-medium
+  );
+
+  height: map-get($input-tokens, input-size-#{$size});
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+$sizes: 'small', 'medium', 'large';
+
+$statuses: 'success', 'warning', 'error';
+
+@mixin input-color($status, $disabled: false) {
+  $theme: get-theme-by-status($status);
+  $disabled-selector: '.#{$input-prefix-cls}-wrap--disabled .#{$input-prefix-cls}';
+  & {
+    $color-suffix: if($disabled == true, 'disabled', 'default');
+    $shadow-suffix: if($disabled == true, 'hover', 'active');
+    color: map-get($core-tokens, color-shape-#{$theme}-#{$color-suffix});
+    background-color: map-get(
+      $core-tokens,
+      color-surface-#{$theme}-#{$color-suffix}
+    );
+
+    &:hover:not(#{$disabled-selector}) {
+      background-color: map-get($core-tokens, color-surface-#{$theme}-hover);
+    }
+
+    &--focused:not(#{$disabled-selector}),
+    &:focus:not(#{$disabled-selector}) {
+      background-color: transparent !important;
+      border-color: map-get($core-tokens, color-border-#{$theme}-default);
+      box-shadow: map-get($input-tokens, input-shadow-#{$theme}-active);
+    }
+  }
+}
+
+.#{$input-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  padding-right: $space-half-x;
+  padding-left: $space-half-x;
+  cursor: text;
+  background-color: $color-surface-component-default;
+  border-color: transparent;
+  border-style: solid;
+  border-width: $input-border-width;
+  border-radius: $input-radius;
+  transition: all 250ms #{$motion-easing-in-out};
+  overflow: hidden;
+  align-items: center;
+
+  &:hover:not(&-wrap--disabled &) {
+    background-color: $color-surface-component-hover;
+  }
+
+  &--focused:not(&-wrap--disabled &),
+  &:focus:not(&-wrap--disabled &) {
+    background-color: transparent !important;
+    border-color: $color-border-brand-default;
+    box-shadow: $input-shadow-brand-active;
+  }
+
+  // size
+  @each $size in $sizes {
+    &--#{$size} {
+      @include input-size($size);
+    }
+  }
+
+  // shape
+  &--circle {
+    padding-right: $space-three-quarter-x;
+    padding-left: $space-three-quarter-x;
+    border-radius: 999px;
+  }
+
+  &--square {
+    border-radius: 0px;
+  }
+
+  &-wrap {
+    display: inline-block;
+    width: 100%;
+    @at-root #{&}#{&}--auto-width {
+      width: fit-content;
+      min-width: 60px;
+      max-width: 100%;
+    }
+    @each $status in $statuses {
+      &--#{$status} {
+        .#{$input-prefix-cls}-tips {
+          $theme: get-theme-by-status($status);
+          color: map-get($core-tokens, color-text-#{$theme}-default);
+        }
+        .#{$input-prefix-cls} {
+          @include input-color($status, false);
+        }
+      }
+    }
+
+    &--disabled {
+      .#{$input-prefix-cls}-tips {
+        color: $color-text-disabled;
+      }
+      .#{$input-prefix-cls} {
+        cursor: not-allowed;
+      }
+      @each $status in $statuses {
+        @at-root &.#{$input-prefix-cls}-wrap--#{$status} {
+          .#{$input-prefix-cls}-tips {
+            content: #{&};
+            $theme: get-theme-by-status($status);
+            color: map-get($core-tokens, color-text-#{$theme}-disabled);
+          }
+          .#{$input-prefix-cls} {
+            cursor: not-allowed;
+            @include input-color($status, true);
+          }
+        }
+      }
+
+      .#{$input-prefix-cls}-inner {
+        &::placeholder {
+          color: $color-text-disabled;
+        }
+      }
+    }
+  }
+
+  &-max-length,
+  &-prefix,
+  &-suffix,
+  &-clear {
+    display: inline-flex;
+    align-items: center;
+    align-items: center;
+    font-size: inherit;
+
+    svg {
+      font-size: inherit;
+      fill: currentColor;
+    }
+  }
+
+  &-clear {
+    width: 0;
+    opacity: 0;
+    font-size: inherit;
+    background-color: transparent;
+    height: fit-content;
+    padding: 0px;
+    border: 0px;
+    cursor: pointer;
+    position: relative;
+    color: $color-text-secondary;
+    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+
+    svg {
+      position: relative;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: scale(1.3);
+      border-radius: $radius-circle;
+      transition: background-color $motion-duration-rapid $motion-easing-in-out;
+    }
+
+    &:hover {
+      &::before {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  &:hover:not(&-wrap--disabled &) {
+    background-color: $color-surface-component-hover;
+    .#{$input-prefix-cls}-clear {
+      width: fit-content;
+      opacity: 1;
+    }
+  }
+
+  & > *:not(:last-child) {
+    margin-right: $space-quarter-x;
+  }
+
+  &-inner {
+    flex: 1;
+    min-width: 0;
+
+    max-width: 100%;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    color: $color-text-primary;
+
+    cursor: inherit;
+    background-color: transparent;
+
+    border: 0;
+    outline: 0;
+
+    &::placeholder {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &-pre {
+    position: absolute;
+    white-space: nowrap;
+    visibility: hidden;
+  }
+
+  &-tips {
+    padding-right: 2px;
+    padding-left: 2px;
+    margin-top: 2px;
+    font-size: #{$font-size-small};
+    color: $color-text-secondary;
+  }
+}

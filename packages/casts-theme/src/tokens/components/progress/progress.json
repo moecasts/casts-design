@@ -3,23 +3,28 @@
     "color": {
       "brand": {
         "default": {
-          "value": "{color.brand.default}"
+          "value": "{color.shape.brand.default}"
         }
       },
       "success": {
         "default": {
-          "value": "{color.success.default}"
+          "value": "{color.shape.success.default}"
         }
       },
       "warning": {
         "default": {
-          "value": "{color.warning.default}"
+          "value": "{color.shape.warning.default}"
         }
       },
       "danger": {
         "default": {
-          "value": "{color.danger.default}"
+          "value": "{color.shape.danger.default}"
         }
+      }
+    },
+    "track": {
+      "color": {
+        "value": "{color.surface.component.default}"
       }
     },
     "linear": {

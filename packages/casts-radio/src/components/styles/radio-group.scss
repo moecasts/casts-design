@@ -1,0 +1,12 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+
+$radio-group-prefix-cls: #{$prefix-cls}-radio-group;
+
+.#{$radio-group-prefix-cls} {
+  .#{$prefix-cls}-radio {
+    &:not(:last-child) {
+      margin-right: $space-three-quarter-x;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@casts/button';
 import { Tooltip } from '@casts/tooltip';
 import { Space } from '@casts/space';
+import { Input } from '@casts/input';
 
 const TriggerDemo = () => (
   <Space wrap>
@@ -23,7 +24,7 @@ const TriggerDemo = () => (
         </div>
       }
     >
-      <input placeholder="focus me" />
+      <Input placeholder="focus me" style={{ width: '210px' }} />
     </Tooltip>
     <Tooltip
       trigger="click"

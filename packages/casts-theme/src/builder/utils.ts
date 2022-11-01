@@ -10,7 +10,7 @@ export const buildCoreTokens = (sd: Core) => {
     source: ['src/tokens/core/**/*.@(json|json5|js|ts)'],
     transform: transformers,
     platforms: {
-      coreSss: {
+      coreCss: {
         transformGroup: 'css',
         prefix: 'cds',
         transforms: styleTransformGroup,
@@ -62,7 +62,7 @@ export const buildCoreTokens = (sd: Core) => {
   sd.extend(config).buildAllPlatforms();
 };
 
-export const getComopnentTokenSources = () => {
+export const getComponentTokenSources = () => {
   const paths = glob.sync('src/tokens/components/*');
   return paths.reduce((acc, path) => {
     const name = basename(path, extname(path));
@@ -81,7 +81,7 @@ export const getComopnentTokenSources = () => {
 };
 
 export const getBuildComponentTokenConfigs = (): Config[] => {
-  const componentTokenSources = getComopnentTokenSources();
+  const componentTokenSources = getComponentTokenSources();
   return Object.keys(componentTokenSources).reduce((acc, componentName) => {
     const componentTokenSource = componentTokenSources[componentName];
     const buildTokenConfig: Config = {

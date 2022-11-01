@@ -1,0 +1,128 @@
+{
+  "input": {
+    "size": {
+      "small": {
+        "value": "{size.small}"
+      },
+      "medium": {
+        "value": "{size.medium}"
+      },
+      "large": {
+        "value": "{size.large}"
+      }
+    },
+    "font": {
+      "size": {
+        "medium": {
+          "value": "{font.size.small}"
+        },
+        "small": {
+          "value": "{font.size.xsmall}"
+        }
+      }
+    },
+    "lineHeight": {
+      "medium": {
+        "value": "{lineHeight.small}"
+      },
+      "small": {
+        "value": "{lineHeight.xsmall}"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "{border.width.xsmall}"
+      }
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "color": {
+      "shadow": {
+        "brand": {
+          "active": {
+            "value": "{color.shadow.brand.active}"
+          }
+        },
+        "info": {
+          "active": {
+            "value": "{color.shadow.info.active}"
+          }
+        },
+        "success": {
+          "active": {
+            "value": "{color.shadow.success.active}"
+          }
+        },
+        "warning": {
+          "active": {
+            "value": "{color.shadow.warning.active}"
+          }
+        },
+        "danger": {
+          "active": {
+            "value": "{color.shadow.danger.active}"
+          }
+        }
+      }
+    },
+    "shadow": {
+      "brand": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{input.color.shadow.brand.active}"
+          }
+        }
+      },
+      "success": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{input.color.shadow.success.active}"
+          }
+        }
+      },
+      "warning": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{input.color.shadow.warning.active}"
+          }
+        }
+      },
+      "danger": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{input.color.shadow.danger.active}"
+          }
+        }
+      }
+    }
+  }
+}

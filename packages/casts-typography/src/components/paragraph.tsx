@@ -1,12 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
+import { ParagraphProps } from './types';
 
-export type ParagraphProps = {
-  children?: ReactNode;
-};
-
-export const Paragraph: FC<ParagraphProps> = (props: ParagraphProps) => {
+export const Paragraph: FC<ParagraphProps> = (props) => {
   const { children } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('typography');

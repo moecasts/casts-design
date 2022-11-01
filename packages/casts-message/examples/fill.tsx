@@ -3,7 +3,7 @@ import { Message } from '@casts/message';
 import { Space } from '@casts/space';
 
 const FillStyleDemo = () => (
-  <Space direction="vertical">
+  <Space className="zone-scope" direction="vertical">
     <Message theme="loading" fill content="content" />
     <Message theme="info" fill content="content" />
     <Message theme="success" fill content="content" />

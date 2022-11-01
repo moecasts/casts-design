@@ -7,8 +7,7 @@ $button-prefix-cls: #{$prefix-cls}-button;
 
 @mixin button-size($size: 'medium', $selector: none) {
   height: map-get($button-tokens, button-size-#{$size});
-  padding-right: map-get($button-tokens, button-space-#{$size});
-  padding-left: map-get($button-tokens, button-space-#{$size});
+  padding: 0 map-get($button-tokens, button-space-#{$size});
   font-size: map-get($button-tokens, button-font-size-#{$size});
 
   @if $selector != none {
@@ -21,8 +20,12 @@ $button-prefix-cls: #{$prefix-cls}-button;
 }
 
 @mixin button-color($text, $background, $border) {
-  color: $text;
-  border-color: $border;
+  @if ($text != none) {
+    color: $text;
+  }
+  @if ($border != none) {
+    border-color: $border;
+  }
   @if ($background != none) {
     background-color: $background;
   }
@@ -36,8 +39,10 @@ $button-sizes: 'small', 'medium', 'large';
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  line-height: 100%;
   text-align: center;
   text-decoration: none;
+  white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
   background-color: transparent;
@@ -57,7 +62,6 @@ $button-sizes: 'small', 'medium', 'large';
   //     transition: color var(--#{$prefix-cls}-transition-duration-base)
   //       var(--#{$prefix-cls}-ease-in-out);
   //   }
-
   // size
   @each $size in $button-sizes {
     &--#{$size} {
@@ -83,7 +87,7 @@ $button-sizes: 'small', 'medium', 'large';
     border-radius: $button-radius-pill;
   }
 
-  $button-colors: 'brand', 'info', 'success', 'warning', 'danger';
+  $button-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
   // variant
   &--contained {
     @each $color in $button-colors {
@@ -127,19 +131,16 @@ $button-sizes: 'small', 'medium', 'large';
         );
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
-          color: $color-text-anti;
-          background-color: var(--#{$button-prefix-cls}-color-#{$color});
-
           @include button-color(
-            $color-text-anti,
-            map-get($button-tokens, button-color-#{$color}-hover),
+            none,
+            map-get($core-tokens, color-surface-#{$color}-default),
             map-get($button-tokens, button-color-#{$color}-hover)
           );
         }
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
-            $color-text-anti,
-            map-get($button-tokens, button-color-#{$color}-active),
+            none,
+            map-get($core-tokens, color-surface-#{$color}-hover),
             map-get($button-tokens, button-color-#{$color}-active)
           );
         }
@@ -155,10 +156,10 @@ $button-sizes: 'small', 'medium', 'large';
     border-color: transparent;
     &:hover:not(.#{$button-prefix-cls}--disabled),
     &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
-      background-color: $color-background-component-hover;
+      background-color: $color-surface-component-hover;
     }
     &:active:not(.#{$button-prefix-cls}--disabled) {
-      background-color: $color-background-component-active;
+      background-color: $color-surface-component-active;
     }
   }
   &--link {
@@ -184,7 +185,7 @@ $button-sizes: 'small', 'medium', 'large';
       inset: calc(0px - $border-width-xsmall);
       cursor: not-allowed;
       content: '';
-      background-color: $color-background-container-disabled;
+      background-color: $color-surface-component-disabled;
       opacity: 0.3;
     }
   }

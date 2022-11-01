@@ -15,7 +15,7 @@
   margin-left: $space-half-x;
   font-size: $message-font-size;
   color: $color-text-primary;
-  background-color: $color-background-container-default;
+  background-color: $color-surface-container-default;
   border-radius: $message-radius;
   box-shadow: $message-shadow;
 
@@ -37,19 +37,19 @@
 
     @at-root .#{$prefix-cls}-message--info:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $color-info-default;
+      color: $message-color-info-default;
     }
     @at-root .#{$prefix-cls}-message--success:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $color-success-default;
+      color: $message-color-success-default;
     }
     @at-root .#{$prefix-cls}-message--warning:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $color-warning-default;
+      color: $message-color-warning-default;
     }
     @at-root .#{$prefix-cls}-message--error:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $color-danger-default;
+      color: $message-color-danger-default;
     }
   }
   &-content {
@@ -85,19 +85,19 @@
   }
   &--fill {
     &:not(.#{$prefix-cls}-message--loading) {
-      color: $color-background-container-default;
+      color: $color-text-anti;
     }
     &.#{$prefix-cls}-message--info {
-      background-color: $color-info-default;
+      background-color: $message-color-info-default;
     }
     &.#{$prefix-cls}-message--success {
-      background-color: $color-success-default;
+      background-color: $message-color-success-default;
     }
     &.#{$prefix-cls}-message--warning {
-      background-color: $color-warning-default;
+      background-color: $message-color-warning-default;
     }
     &.#{$prefix-cls}-message--error {
-      background-color: $color-danger-default;
+      background-color: $message-color-danger-default;
     }
   }
 

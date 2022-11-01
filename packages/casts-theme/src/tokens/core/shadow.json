@@ -6,21 +6,21 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.brand.default}",
+          "value": "{color.shape.brand.default}",
           "alpha": 0.08
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.brand.default}",
+          "value": "{color.shape.brand.default}",
           "alpha": 0.06
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.brand.default}",
+          "value": "{color.shape.brand.default}",
           "alpha": 0.1
         }
       },
@@ -29,21 +29,21 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.info.default}",
+          "value": "{color.shape.info.default}",
           "alpha": 0.08
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.info.default}",
+          "value": "{color.shape.info.default}",
           "alpha": 0.06
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.info.default}",
+          "value": "{color.shape.info.default}",
           "alpha": 0.1
         }
       },
@@ -52,21 +52,21 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.success.default}",
+          "value": "{color.shape.success.default}",
           "alpha": 0.08
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.success.default}",
+          "value": "{color.shape.success.default}",
           "alpha": 0.06
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.success.default}",
+          "value": "{color.shape.success.default}",
           "alpha": 0.1
         }
       },
@@ -75,21 +75,21 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.warning.default}",
+          "value": "{color.shape.warning.default}",
           "alpha": 0.08
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.warning.default}",
+          "value": "{color.shape.warning.default}",
           "alpha": 0.06
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.warning.default}",
+          "value": "{color.shape.warning.default}",
           "alpha": 0.1
         }
       },
@@ -98,21 +98,21 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.danger.default}",
+          "value": "{color.shape.danger.default}",
           "alpha": 0.08
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.danger.default}",
+          "value": "{color.shape.danger.default}",
           "alpha": 0.06
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.danger.default}",
+          "value": "{color.shape.danger.default}",
           "alpha": 0.1
         }
       },

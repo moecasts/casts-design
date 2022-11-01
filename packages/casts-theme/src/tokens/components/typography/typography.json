@@ -48,14 +48,14 @@
     "mark": {
       "color": {
         "background": {
-          "value": "{color.palette.brand.1}"
+          "value": "{color.surface.brand.default}"
         }
       }
     },
-    "code": {
+    "block": {
       "color": {
         "background": {
-          "value": "{color.background.component.default}"
+          "value": "{color.surface.neutral.default}"
         }
       }
     },

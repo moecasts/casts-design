@@ -14,7 +14,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
   padding: $alert-space;
   font-size: $alert-body-font-size;
   color: $color-text-primary;
-  background-color: $color-background-container-default;
+  background-color: $color-surface-container-default;
   border: $border-width-xsmall solid transparent;
   border-radius: $alert-radius;
 
@@ -35,16 +35,16 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
     }
 
     @at-root .#{$alert-prefix-cls}--info:not(.#{$alert-prefix-cls}--fill) & {
-      color: $color-info-default;
+      color: $alert-color-info-fill;
     }
     @at-root .#{$alert-prefix-cls}--success:not(.#{$alert-prefix-cls}--fill) & {
-      color: $color-success-default;
+      color: $alert-color-success-fill;
     }
     @at-root .#{$alert-prefix-cls}--warning:not(.#{$alert-prefix-cls}--fill) & {
-      color: $color-warning-default;
+      color: $alert-color-warning-fill;
     }
     @at-root .#{$alert-prefix-cls}--error:not(.#{$alert-prefix-cls}--fill) & {
-      color: $color-danger-default;
+      color: $alert-color-danger-fill;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -66,6 +66,9 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
         flex: 1;
         font-weight: $font-weight-bold;
       }
+    }
+    @at-root .#{$alert-prefix-cls}-content {
+      margin-top: $space-eighth-x;
     }
     .#{$alert-prefix-cls}-footer {
       text-align: right;
@@ -102,7 +105,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
   }
   & {
     &.#{$alert-prefix-cls}--loading {
-      color: $color-background-container-default;
+      color: $color-surface-container-default;
     }
     &.#{$alert-prefix-cls}--info {
       background-color: $alert-color-info-default;
@@ -119,7 +122,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
   }
   &--fill {
     &:not(.#{$alert-prefix-cls}--loading) {
-      color: $color-background-container-default;
+      color: $color-surface-container-default;
     }
     &.#{$alert-prefix-cls}--info {
       background-color: $alert-color-info-fill;

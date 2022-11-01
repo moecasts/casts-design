@@ -1,25 +1,7 @@
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
-import { createElement, FC, ReactNode } from 'react';
-
-export type TextVariantProps = {
-  code?: boolean;
-  mark?: boolean;
-  underline?: boolean;
-  delete?: boolean;
-  strong?: boolean;
-  keyboard?: boolean;
-  italic?: boolean;
-  // LinkProps
-  link?: boolean;
-  href?: string;
-  // type
-  variant?: 'hero' | 'subtitle' | 'caption';
-};
-
-export type TextProps = {
-  children: ReactNode;
-} & TextVariantProps;
+import { createElement, FC } from 'react';
+import { TextProps, TextVariantProps } from './types';
 
 const wrapperDecorations = (
   {
@@ -55,7 +37,7 @@ const wrapperDecorations = (
   return currentContent;
 };
 
-export const Text: FC<TextProps> = (props: TextProps) => {
+export const Text: FC<TextProps> = (props) => {
   const { children, variant } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('typography');

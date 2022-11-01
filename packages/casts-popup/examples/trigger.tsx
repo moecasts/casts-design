@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@casts/button';
 import { Popup } from '@casts/popup';
 import { Space } from '@casts/space';
+import { Input } from '@casts/input';
 
 const TriggerDemo = () => (
   <Space wrap>
@@ -27,7 +28,7 @@ const TriggerDemo = () => (
         </div>
       }
     >
-      <input placeholder="focus me" />
+      <Input placeholder="focus me" style={{ width: '210px' }} />
     </Popup>
     <Popup
       trigger="click"
