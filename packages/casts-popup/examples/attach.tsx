@@ -6,7 +6,6 @@ import { Space } from '@casts/space';
 const AttachDemo = () => {
   return (
     <Space wrap>
-      <div className="custom-popup-root"></div>
       <Popup
         placement="right"
         content={
@@ -20,6 +19,7 @@ const AttachDemo = () => {
       >
         <Button>show arrow</Button>
       </Popup>
+      <div className="custom-popup-root"></div>
     </Space>
   );
 };

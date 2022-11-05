@@ -6,7 +6,6 @@ import { Space } from '@casts/space';
 const DisabledDemo = () => {
   return (
     <Space wrap>
-      <div className="custom-popup-root"></div>
       <Popup
         placement="right"
         disabled
@@ -21,6 +20,7 @@ const DisabledDemo = () => {
       >
         <Button>disabled</Button>
       </Popup>
+      <div className="custom-popup-root"></div>
     </Space>
   );
 };

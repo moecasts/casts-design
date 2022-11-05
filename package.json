@@ -38,6 +38,7 @@
     "webpack-chain": "^6.5.1"
   },
   "dependencies": {
+    "@casts/avatar": "workspace:^0.0.1",
     "@casts/button": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
     "@casts/icons": "workspace:^0.0.1",

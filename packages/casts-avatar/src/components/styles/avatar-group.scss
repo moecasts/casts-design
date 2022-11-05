@@ -1,0 +1,17 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/avatar';
+@import '@casts/theme/styles/scss/avatar';
+
+$avatar-group-prefix-cls: #{$prefix-cls}-avatar-group;
+
+.#{$avatar-group-prefix-cls} {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .#{$prefix-cls}-avatar {
+    border: $border-width-small solid $avatar-group-color-border;
+    margin-left: calc(0px - $space-half-x);
+  }
+}

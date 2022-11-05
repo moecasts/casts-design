@@ -270,7 +270,10 @@ export const Popup: FC<PopupProps> = (props) => {
     <>
       {cloneElement(
         children,
-        getReferenceProps({ ref: reference, ...children.props }),
+        getReferenceProps({
+          ref: !disabled ? reference : undefined,
+          ...children.props,
+        }),
       )}
       {!disabled && (
         <FloatingPortal id={`${prefixCls}-root`} root={rootElement}>

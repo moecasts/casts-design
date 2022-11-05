@@ -19,7 +19,6 @@ const FitContentDemo = () => {
   };
   return (
     <Space wrap>
-      <div className="custom-popup-root"></div>
       <Popup
         content={content}
         trigger="manual"
@@ -30,6 +29,7 @@ const FitContentDemo = () => {
           click to change content{spanVisible && <span>, again</span>}
         </Button>
       </Popup>
+      <div className="custom-popup-root"></div>
     </Space>
   );
 };
