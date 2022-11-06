@@ -14,7 +14,7 @@ import {
   useState,
 } from 'react';
 import { defaultProps } from '../default-props';
-import { AvatarGroupContext, useAvatarGroup } from './use-avatar-group';
+import { AvatarGroupContext } from './use-avatar-group';
 import { Size } from '@casts/common';
 
 export type AvatarSize = 'small' | 'medium' | 'large' | number;
@@ -56,12 +56,10 @@ export const useAvatar = (props: UseAvatarProps) => {
     [props.shape, groupContext],
   );
 
-  console.log('debug1', size);
-
   const prefixCls = getPrefixCls('avatar');
   const classes = clsx(prefixCls, {
     [`${prefixCls}--${shape}`]: shape,
-    [`${prefixCls}--${size}`]: Object.values(Size).includes(size),
+    [`${prefixCls}--${size}`]: Object.values(Size).includes(size as Size),
     [`${prefixCls}--image`]: src,
     [`${prefixCls}--icon`]: icon,
   });

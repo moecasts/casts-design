@@ -8,7 +8,7 @@ const CustomStyleDemo = () => (
     <Tooltip
       theme="dark"
       className="custom-tooltip-class"
-      style={{ backgroundColor: 'var(--color-info)' }}
+      style={{ backgroundColor: 'hsl(209.17,96.43%,56.08%)' }}
       content={
         <div>
           <span>Tooltip content</span>

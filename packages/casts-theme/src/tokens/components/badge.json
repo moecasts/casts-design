@@ -1,0 +1,28 @@
+{
+  "badge": {
+    "color": {
+      "text": {
+        "value": "{color.palette.white}"
+      },
+      "surface": {
+        "value": "{color.shape.danger.default}"
+      },
+      "border": {
+        "value": "{color.palette.white}"
+      }
+    },
+    "dot": {
+      "size": {
+        "default": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "8px"
+        }
+      }
+    },
+    "space": {
+      "value": "{space.half-x}"
+    }
+  }
+}

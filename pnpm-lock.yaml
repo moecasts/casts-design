@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@casts/avatar': workspace:^0.0.1
+      '@casts/badge': workspace:^0.0.1
       '@casts/button': workspace:^0.0.1
       '@casts/cli': workspace:^0.0.1
       '@casts/config-provider': workspace:^0.0.1
@@ -41,6 +42,7 @@ importers:
       webpack-chain: ^6.5.1
     dependencies:
       '@casts/avatar': link:packages/casts-avatar
+      '@casts/badge': link:packages/casts-badge
       '@casts/button': link:packages/casts-button
       '@casts/config-provider': link:packages/casts-config-provider
       '@casts/icons': link:packages/casts-icons
@@ -151,6 +153,41 @@ importers:
       ts-node: 10.9.1_xtdkmayvpbwqd3kc4kczaw2zvm
       typescript: 4.8.4
 
+  packages/casts-badge:
+    specifiers:
+      '@casts/common': workspace:^0.0.1
+      '@casts/config-provider': workspace:^0.0.1
+      '@casts/standard': workspace:^0.0.1
+      '@casts/theme': workspace:^0.0.1
+      '@testing-library/jest-dom': ^5.16.4
+      '@testing-library/react': ^13
+      '@types/jest': ^27
+      '@types/testing-library__jest-dom': ^5.14.5
+      '@umijs/test': ^4
+      clsx: ^1.2.1
+      father: ^4.0.6
+      jest: ^27
+      react: '>=17'
+      ts-node: ^10
+      typescript: ^4
+    dependencies:
+      '@casts/common': link:../casts-common
+      '@casts/config-provider': link:../casts-config-provider
+      '@casts/theme': link:../casts-theme
+      clsx: 1.2.1
+      react: 18.2.0
+    devDependencies:
+      '@casts/standard': link:../casts-standard
+      '@testing-library/jest-dom': 5.16.5
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@types/jest': 27.5.2
+      '@types/testing-library__jest-dom': 5.14.5
+      '@umijs/test': 4.0.24_@babel+core@7.19.3
+      father: 4.0.7_webpack@5.74.0
+      jest: 27.5.1_ts-node@10.9.1
+      ts-node: 10.9.1_xtdkmayvpbwqd3kc4kczaw2zvm
+      typescript: 4.8.4
+
   packages/casts-button:
     specifiers:
       '@casts/config-provider': workspace:^0.0.1
@@ -216,6 +253,39 @@ importers:
       '@types/git-user-name': mirrors.tencent.com/@types/git-user-name/2.0.1
       '@types/inquirer': mirrors.tencent.com/@types/inquirer/8.2.4
       father: mirrors.tencent.com/father/4.0.7_webpack@5.74.0
+
+  packages/casts-common:
+    specifiers:
+      '@casts/config-provider': workspace:^0.0.1
+      '@casts/standard': workspace:^0.0.1
+      '@casts/theme': workspace:^0.0.1
+      '@testing-library/jest-dom': ^5.16.4
+      '@testing-library/react': ^13
+      '@types/jest': ^27
+      '@types/testing-library__jest-dom': ^5.14.5
+      '@umijs/test': ^4
+      clsx: ^1.2.1
+      father: ^4.0.6
+      jest: ^27
+      react: '>=17'
+      ts-node: ^10
+      typescript: ^4
+    dependencies:
+      '@casts/config-provider': link:../casts-config-provider
+      '@casts/theme': link:../casts-theme
+      clsx: 1.2.1
+      react: 18.2.0
+    devDependencies:
+      '@casts/standard': link:../casts-standard
+      '@testing-library/jest-dom': 5.16.5
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@types/jest': 27.5.2
+      '@types/testing-library__jest-dom': 5.14.5
+      '@umijs/test': 4.0.24_@babel+core@7.19.3
+      father: 4.0.7_webpack@5.74.0
+      jest: 27.5.1_ts-node@10.9.1
+      ts-node: 10.9.1_xtdkmayvpbwqd3kc4kczaw2zvm
+      typescript: 4.8.4
 
   packages/casts-config-provider:
     specifiers:
@@ -1190,7 +1260,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1200,7 +1270,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1210,7 +1280,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1221,7 +1291,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1232,7 +1302,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/selector-specificity': 2.0.2_zurzgjffv23ohtxa7nq7nizuja
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -1242,7 +1312,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1253,7 +1323,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1263,7 +1333,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1273,7 +1343,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1283,7 +1353,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /@csstools/selector-specificity/2.0.2_zurzgjffv23ohtxa7nq7nizuja:
@@ -1922,7 +1992,7 @@ packages:
     dependencies:
       '@babel/core': 7.18.9
       postcss: 8.4.17
-      postcss-syntax: 0.36.2_fsgd6fn53f2mxuxau5gupdgbyu
+      postcss-syntax: 0.36.2_postcss@8.4.17
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2344,6 +2414,10 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
+  /@types/node/14.18.31:
+    resolution: {integrity: sha512-vQAnaReSQkEDa8uwAyQby8bYGKu84R/deEc6mg5T8fX6gzCn8QW6rziSgsti1fNvsrswKUKPnVTi7uoB+u62Mw==}
+    dev: true
+
   /@types/node/18.8.1:
     resolution: {integrity: sha512-vuYaNuEIbOYLTLUAJh50ezEbvxrD43iby+lpUA2aa148Nh5kX/AVO/9m1Ahmbux2iU5uxJTNF9g2Y+31uml7RQ==}
     dev: true
@@ -2441,7 +2515,7 @@ packages:
   /@types/sax/1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
     dev: true
 
   /@types/scheduler/0.16.2:
@@ -2652,7 +2726,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.7.4
       typescript: 4.7.4
     transitivePeerDependencies:
@@ -2673,7 +2747,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.8.4
       typescript: 4.8.4
     transitivePeerDependencies:
@@ -2694,7 +2768,7 @@ packages:
       debug: mirrors.tencent.com/debug/4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.7.4
       typescript: 4.7.4
     transitivePeerDependencies:
@@ -2715,7 +2789,7 @@ packages:
       debug: mirrors.tencent.com/debug/4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.8.4
       typescript: 4.8.4
     transitivePeerDependencies:
@@ -3768,7 +3842,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -4815,7 +4889,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -4839,7 +4913,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -4875,7 +4949,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /css-select/4.3.0:
@@ -5311,7 +5385,7 @@ packages:
     resolution: {integrity: sha512-Nv9m36S/vxpsI+Hc4/ZGRs0n9mXqSWGGq49zxb/cJfPAQMbUtttJAlNPS4AQzaBdw/pKskw5bMbekT/Y7W/Wlg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       memory-fs: 0.5.0
       tapable: 1.1.3
     dev: true
@@ -7824,7 +7898,7 @@ packages:
       pretty-format: 27.5.1
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.9.1_xtdkmayvpbwqd3kc4kczaw2zvm
+      ts-node: 10.9.1_r4qqhwfyqdqguvstw6ewjjzu6a
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -8210,7 +8284,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       merge-stream: mirrors.tencent.com/merge-stream/2.0.0
       supports-color: mirrors.tencent.com/supports-color/7.2.0
     dev: true
@@ -9737,7 +9811,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -9747,7 +9821,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.6
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9765,7 +9839,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9792,7 +9866,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9819,7 +9893,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9836,7 +9910,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9846,7 +9920,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9872,7 +9946,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -9890,7 +9964,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -9909,7 +9983,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9927,7 +10001,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -9958,7 +10032,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -9975,7 +10049,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -9990,7 +10064,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-gap-properties/2.0.0:
@@ -10006,7 +10080,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-image-set-function/3.0.1:
@@ -10023,7 +10097,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10038,7 +10112,7 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-js/2.0.3:
@@ -10064,7 +10138,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10099,7 +10173,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-media-minmax/4.0.0:
@@ -10115,7 +10189,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-media-query-parser/0.2.3:
@@ -10169,7 +10243,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/selector-specificity': 2.0.2_zurzgjffv23ohtxa7nq7nizuja
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10198,7 +10272,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10213,7 +10287,7 @@ packages:
     peerDependencies:
       postcss: ^8
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-place/4.0.1:
@@ -10230,7 +10304,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10345,7 +10419,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10360,7 +10434,7 @@ packages:
     peerDependencies:
       postcss: ^8.0.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-resolve-nested-selector/0.1.1:
@@ -10410,7 +10484,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       balanced-match: 1.0.2
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-selector-parser/5.0.0:
@@ -11756,7 +11830,7 @@ packages:
     engines: {node: '>=10.3.0', npm: '>=5.6.0'}
     hasBin: true
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/14.18.31
+      '@types/node': 14.18.31
       '@types/sax': 1.2.4
       arg: mirrors.tencent.com/arg/5.0.2
       sax: 1.2.4
@@ -13840,7 +13914,7 @@ packages:
       chalk: mirrors.tencent.com/chalk/4.1.2
       emittery: mirrors.tencent.com/emittery/0.8.1
       exit: mirrors.tencent.com/exit/0.1.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-changed-files: mirrors.tencent.com/jest-changed-files/27.5.1
       jest-config: mirrors.tencent.com/jest-config/27.5.1_ts-node@10.9.1
       jest-haste-map: mirrors.tencent.com/jest-haste-map/27.5.1
@@ -13874,7 +13948,7 @@ packages:
     dependencies:
       '@jest/fake-timers': mirrors.tencent.com/@jest/fake-timers/27.5.1
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       jest-mock: mirrors.tencent.com/jest-mock/27.5.1
     dev: true
 
@@ -13886,7 +13960,7 @@ packages:
     dependencies:
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
       '@sinonjs/fake-timers': mirrors.tencent.com/@sinonjs/fake-timers/8.1.0
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       jest-message-util: mirrors.tencent.com/jest-message-util/27.5.1
       jest-mock: mirrors.tencent.com/jest-mock/27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
@@ -13924,7 +13998,7 @@ packages:
       collect-v8-coverage: mirrors.tencent.com/collect-v8-coverage/1.0.1
       exit: mirrors.tencent.com/exit/0.1.2
       glob: 7.2.3
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       istanbul-lib-coverage: mirrors.tencent.com/istanbul-lib-coverage/3.2.0
       istanbul-lib-instrument: mirrors.tencent.com/istanbul-lib-instrument/5.2.0
       istanbul-lib-report: mirrors.tencent.com/istanbul-lib-report/3.0.0
@@ -13935,7 +14009,7 @@ packages:
       jest-util: mirrors.tencent.com/jest-util/27.5.1
       jest-worker: mirrors.tencent.com/jest-worker/27.5.1
       slash: mirrors.tencent.com/slash/3.0.0
-      source-map: mirrors.tencent.com/source-map/0.6.1
+      source-map: 0.6.1
       string-length: mirrors.tencent.com/string-length/4.0.2
       terminal-link: mirrors.tencent.com/terminal-link/2.1.1
       v8-to-istanbul: mirrors.tencent.com/v8-to-istanbul/8.1.1
@@ -14001,14 +14075,14 @@ packages:
       chalk: mirrors.tencent.com/chalk/4.1.2
       convert-source-map: mirrors.tencent.com/convert-source-map/1.8.0
       fast-json-stable-stringify: mirrors.tencent.com/fast-json-stable-stringify/2.1.0
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-haste-map: mirrors.tencent.com/jest-haste-map/27.5.1
       jest-regex-util: mirrors.tencent.com/jest-regex-util/27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
       micromatch: 4.0.5
       pirates: mirrors.tencent.com/pirates/4.0.5
       slash: mirrors.tencent.com/slash/3.0.0
-      source-map: mirrors.tencent.com/source-map/0.6.1
+      source-map: 0.6.1
       write-file-atomic: mirrors.tencent.com/write-file-atomic/3.0.3
     transitivePeerDependencies:
       - supports-color
@@ -14027,7 +14101,7 @@ packages:
       chalk: mirrors.tencent.com/chalk/4.1.2
       convert-source-map: mirrors.tencent.com/convert-source-map/1.8.0
       fast-json-stable-stringify: mirrors.tencent.com/fast-json-stable-stringify/2.1.0
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-haste-map: mirrors.tencent.com/jest-haste-map/28.1.3
       jest-regex-util: mirrors.tencent.com/jest-regex-util/28.0.2
       jest-util: mirrors.tencent.com/jest-util/28.1.3
@@ -14061,7 +14135,7 @@ packages:
       '@jest/schemas': mirrors.tencent.com/@jest/schemas/28.1.3
       '@types/istanbul-lib-coverage': mirrors.tencent.com/@types/istanbul-lib-coverage/2.0.4
       '@types/istanbul-reports': mirrors.tencent.com/@types/istanbul-reports/3.0.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       '@types/yargs': mirrors.tencent.com/@types/yargs/17.0.13
       chalk: mirrors.tencent.com/chalk/4.1.2
     dev: true
@@ -14453,7 +14527,7 @@ packages:
     name: '@types/graceful-fs'
     version: 4.1.5
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
     dev: true
 
   mirrors.tencent.com/@types/inquirer/8.2.4:
@@ -14493,12 +14567,6 @@ packages:
     dependencies:
       jest-matcher-utils: mirrors.tencent.com/jest-matcher-utils/27.5.1
       pretty-format: mirrors.tencent.com/pretty-format/27.5.1
-    dev: true
-
-  mirrors.tencent.com/@types/node/14.18.31:
-    resolution: {integrity: sha512-vQAnaReSQkEDa8uwAyQby8bYGKu84R/deEc6mg5T8fX6gzCn8QW6rziSgsti1fNvsrswKUKPnVTi7uoB+u62Mw==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/@types%2fnode/-/node-14.18.31.tgz}
-    name: '@types/node'
-    version: 14.18.31
     dev: true
 
   mirrors.tencent.com/@types/node/18.8.3:
@@ -14932,7 +15000,7 @@ packages:
       babel-plugin-istanbul: mirrors.tencent.com/babel-plugin-istanbul/6.1.1
       babel-preset-jest: mirrors.tencent.com/babel-preset-jest/28.1.3_@babel+core@7.19.3
       chalk: mirrors.tencent.com/chalk/4.1.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       slash: mirrors.tencent.com/slash/3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -15371,13 +15439,6 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: mirrors.tencent.com/delayed-stream/1.0.0
-    dev: true
-
-  mirrors.tencent.com/commander/7.2.0:
-    resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/commander/-/commander-7.2.0.tgz}
-    name: commander
-    version: 7.2.0
-    engines: {node: '>= 10'}
     dev: true
 
   mirrors.tencent.com/convert-source-map/1.8.0:
@@ -16125,12 +16186,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  mirrors.tencent.com/graceful-fs/4.2.10:
-    resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/graceful-fs/-/graceful-fs-4.2.10.tgz}
-    name: graceful-fs
-    version: 4.2.10
-    dev: true
-
   mirrors.tencent.com/has-flag/3.0.0:
     resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/has-flag/-/has-flag-3.0.0.tgz}
     name: has-flag
@@ -16538,7 +16593,7 @@ packages:
       '@jest/environment': mirrors.tencent.com/@jest/environment/27.5.1
       '@jest/test-result': mirrors.tencent.com/@jest/test-result/27.5.1
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       co: mirrors.tencent.com/co/4.6.0
       dedent: mirrors.tencent.com/dedent/0.7.0
@@ -16576,7 +16631,7 @@ packages:
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
       chalk: mirrors.tencent.com/chalk/4.1.2
       exit: mirrors.tencent.com/exit/0.1.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       import-local: mirrors.tencent.com/import-local/3.1.0
       jest-config: mirrors.tencent.com/jest-config/27.5.1_ts-node@10.9.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
@@ -16611,7 +16666,7 @@ packages:
       ci-info: mirrors.tencent.com/ci-info/3.4.0
       deepmerge: mirrors.tencent.com/deepmerge/4.2.2
       glob: 7.2.3
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-circus: mirrors.tencent.com/jest-circus/27.5.1
       jest-environment-jsdom: mirrors.tencent.com/jest-environment-jsdom/27.5.1
       jest-environment-node: mirrors.tencent.com/jest-environment-node/27.5.1
@@ -16626,7 +16681,7 @@ packages:
       parse-json: mirrors.tencent.com/parse-json/5.2.0
       pretty-format: mirrors.tencent.com/pretty-format/27.5.1
       slash: mirrors.tencent.com/slash/3.0.0
-      strip-json-comments: mirrors.tencent.com/strip-json-comments/3.1.1
+      strip-json-comments: 3.1.1
       ts-node: mirrors.tencent.com/ts-node/10.9.1_xtdkmayvpbwqd3kc4kczaw2zvm
     transitivePeerDependencies:
       - bufferutil
@@ -16678,7 +16733,7 @@ packages:
       '@jest/environment': mirrors.tencent.com/@jest/environment/27.5.1
       '@jest/fake-timers': mirrors.tencent.com/@jest/fake-timers/27.5.1
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       jest-mock: mirrors.tencent.com/jest-mock/27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
       jsdom: mirrors.tencent.com/jsdom/16.7.0
@@ -16698,7 +16753,7 @@ packages:
       '@jest/environment': mirrors.tencent.com/@jest/environment/27.5.1
       '@jest/fake-timers': mirrors.tencent.com/@jest/fake-timers/27.5.1
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       jest-mock: mirrors.tencent.com/jest-mock/27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
     dev: true
@@ -16721,7 +16776,7 @@ packages:
       '@types/node': mirrors.tencent.com/@types/node/18.8.3
       anymatch: mirrors.tencent.com/anymatch/3.1.2
       fb-watchman: mirrors.tencent.com/fb-watchman/2.0.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-regex-util: mirrors.tencent.com/jest-regex-util/27.5.1
       jest-serializer: mirrors.tencent.com/jest-serializer/27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
@@ -16740,7 +16795,7 @@ packages:
     dependencies:
       '@jest/types': mirrors.tencent.com/@jest/types/28.1.3
       '@types/graceful-fs': mirrors.tencent.com/@types/graceful-fs/4.1.5
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       anymatch: mirrors.tencent.com/anymatch/3.1.2
       fb-watchman: mirrors.tencent.com/fb-watchman/2.0.2
       graceful-fs: 4.2.10
@@ -16763,7 +16818,7 @@ packages:
       '@jest/source-map': mirrors.tencent.com/@jest/source-map/27.5.1
       '@jest/test-result': mirrors.tencent.com/@jest/test-result/27.5.1
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       co: mirrors.tencent.com/co/4.6.0
       expect: mirrors.tencent.com/expect/27.5.1
@@ -16812,7 +16867,7 @@ packages:
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
       '@types/stack-utils': mirrors.tencent.com/@types/stack-utils/2.0.1
       chalk: mirrors.tencent.com/chalk/4.1.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       micromatch: 4.0.5
       pretty-format: mirrors.tencent.com/pretty-format/27.5.1
       slash: mirrors.tencent.com/slash/3.0.0
@@ -16826,7 +16881,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
     dev: true
 
   mirrors.tencent.com/jest-pnp-resolver/1.2.2_jest-resolve@27.5.1:
@@ -16879,7 +16934,7 @@ packages:
     dependencies:
       '@jest/types': mirrors.tencent.com/@jest/types/27.5.1
       chalk: mirrors.tencent.com/chalk/4.1.2
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-haste-map: mirrors.tencent.com/jest-haste-map/27.5.1
       jest-pnp-resolver: mirrors.tencent.com/jest-pnp-resolver/1.2.2_jest-resolve@27.5.1
       jest-util: mirrors.tencent.com/jest-util/27.5.1
@@ -16903,7 +16958,7 @@ packages:
       '@types/node': mirrors.tencent.com/@types/node/18.8.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       emittery: mirrors.tencent.com/emittery/0.8.1
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-docblock: mirrors.tencent.com/jest-docblock/27.5.1
       jest-environment-jsdom: mirrors.tencent.com/jest-environment-jsdom/27.5.1
       jest-environment-node: mirrors.tencent.com/jest-environment-node/27.5.1
@@ -16941,7 +16996,7 @@ packages:
       collect-v8-coverage: mirrors.tencent.com/collect-v8-coverage/1.0.1
       execa: mirrors.tencent.com/execa/5.1.1
       glob: 7.2.3
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-haste-map: mirrors.tencent.com/jest-haste-map/27.5.1
       jest-message-util: mirrors.tencent.com/jest-message-util/27.5.1
       jest-mock: mirrors.tencent.com/jest-mock/27.5.1
@@ -16961,7 +17016,7 @@ packages:
     version: 27.5.1
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       graceful-fs: 4.2.10
     dev: true
 
@@ -16983,7 +17038,7 @@ packages:
       babel-preset-current-node-syntax: mirrors.tencent.com/babel-preset-current-node-syntax/1.0.1_@babel+core@7.19.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       expect: mirrors.tencent.com/expect/27.5.1
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       jest-diff: mirrors.tencent.com/jest-diff/27.5.1
       jest-get-type: mirrors.tencent.com/jest-get-type/27.5.1
       jest-haste-map: mirrors.tencent.com/jest-haste-map/27.5.1
@@ -16992,7 +17047,7 @@ packages:
       jest-util: mirrors.tencent.com/jest-util/27.5.1
       natural-compare: mirrors.tencent.com/natural-compare/1.4.0
       pretty-format: mirrors.tencent.com/pretty-format/27.5.1
-      semver: mirrors.tencent.com/semver/7.3.8
+      semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -17007,7 +17062,7 @@ packages:
       '@types/node': mirrors.tencent.com/@types/node/18.8.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       ci-info: mirrors.tencent.com/ci-info/3.4.0
-      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
+      graceful-fs: 4.2.10
       picomatch: 2.3.1
     dev: true
 
@@ -17018,7 +17073,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/types': mirrors.tencent.com/@jest/types/28.1.3
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       chalk: mirrors.tencent.com/chalk/4.1.2
       ci-info: mirrors.tencent.com/ci-info/3.4.0
       graceful-fs: 4.2.10
@@ -17071,7 +17126,7 @@ packages:
     version: 28.1.3
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node/18.8.3
+      '@types/node': 18.8.3
       merge-stream: mirrors.tencent.com/merge-stream/2.0.0
       supports-color: mirrors.tencent.com/supports-color/8.1.1
     dev: true
@@ -17906,16 +17961,6 @@ packages:
       xmlchars: mirrors.tencent.com/xmlchars/2.2.0
     dev: true
 
-  mirrors.tencent.com/semver/7.3.8:
-    resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/semver/-/semver-7.3.8.tgz}
-    name: semver
-    version: 7.3.8
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
-    dev: true
-
   mirrors.tencent.com/set-blocking/2.0.0:
     resolution: {integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/set-blocking/-/set-blocking-2.0.0.tgz}
     name: set-blocking
@@ -17986,13 +18031,6 @@ packages:
     dependencies:
       buffer-from: mirrors.tencent.com/buffer-from/1.1.2
       source-map: 0.6.1
-    dev: true
-
-  mirrors.tencent.com/source-map/0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/source-map/-/source-map-0.6.1.tgz}
-    name: source-map
-    version: 0.6.1
-    engines: {node: '>=0.10.0'}
     dev: true
 
   mirrors.tencent.com/stable/0.1.8:
@@ -18129,13 +18167,6 @@ packages:
       min-indent: mirrors.tencent.com/min-indent/1.0.1
     dev: true
 
-  mirrors.tencent.com/strip-json-comments/3.1.1:
-    resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/strip-json-comments/-/strip-json-comments-3.1.1.tgz}
-    name: strip-json-comments
-    version: 3.1.1
-    engines: {node: '>=8'}
-    dev: true
-
   mirrors.tencent.com/supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/supports-color/-/supports-color-5.5.0.tgz}
     name: supports-color
@@ -18194,7 +18225,7 @@ packages:
     hasBin: true
     dependencies:
       '@trysound/sax': 0.2.0
-      commander: mirrors.tencent.com/commander/7.2.0
+      commander: 7.2.0
       css-select: mirrors.tencent.com/css-select/4.3.0
       css-tree: mirrors.tencent.com/css-tree/1.1.3
       csso: mirrors.tencent.com/csso/4.2.0

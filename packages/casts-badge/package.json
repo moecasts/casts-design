@@ -1,12 +1,12 @@
 {
-  "name": "<%= name %>",
-  "version": "<%= version %>",
-  "description": "<%= description %>",
+  "name": "@casts/badge",
+  "version": "0.0.1",
+  "description": "a react badge component",
   "authors": [
-    "<%- author %>"
+    "Caster <moecasts.caster@gmail.com>"
   ],
-  "license": "<%= license %>",
-  "repository": "<%= repository %>",
+  "license": "MIT",
+  "repository": "https://github.com/moecasts/casts-design.git",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
