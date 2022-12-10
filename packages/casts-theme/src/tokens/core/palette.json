@@ -1,90 +1,72 @@
 {
   "color": {
     "palette": {
-      "white": {
-        "attributes": {
-          "category": "color"
-        },
-        "value": "hsl(0, 0%, 100%)"
-      },
-      "black": {
-        "attributes": {
-          "category": "color"
-        },
-        "value": "hsl(0, 0%, 0%)"
-      },
-      "transparent": {
-        "attributes": {
-          "category": "color"
-        },
-        "value": "hsla(0, 0%, 0%, 0)"
-      },
       "brand": {
         "50": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.99, 78.94%, 97.03%)"
+          "value": "hsl(251, 80.83%, 96.73%)"
         },
         "100": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.98, 78.84%, 94.1%)"
+          "value": "hsl(251, 80.73%, 93.49%)"
         },
         "150": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.97, 78.53%, 91.14%)"
+          "value": "hsl(251, 80.45%, 90.24%)"
         },
         "200": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.96, 78.32%, 88.22%)"
+          "value": "hsl(251, 80.25%, 87.02%)"
         },
         "300": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.95, 80.18%, 82.85%)"
+          "value": "hsl(251, 81.69%, 81.36%)"
         },
         "400": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.94, 80.6%, 77.69%)"
+          "value": "hsl(251, 81.96%, 75.92%)"
         },
         "500": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.93, 80.28%, 72.83%)"
+          "value": "hsl(251, 81.59%, 70.79%)"
         },
         "600": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.92, 79.43%, 68.3%)"
+          "value": "hsl(251, 80.76%, 66%)"
         },
         "700": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.91, 78.14%, 64.12%)"
+          "value": "hsl(251.01, 79.53%, 61.56%)"
         },
         "800": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.92, 78.46%, 60.69%)"
+          "value": "hsl(251.01, 77.88%, 57.45%)"
         },
         "900": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(250.92, 77.93%, 57.48%)"
+          "value": "hsl(251.01, 77.45%, 54.57%)"
         }
       },
       "secondary": {
@@ -428,72 +410,102 @@
         }
       },
       "neutral": {
+        "0": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl(0, 0%, 100%)"
+        },
         "50": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.95%, 97.02%)"
+          "value": "hsl(0, 0%, 98.76%)"
         },
         "100": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.58%, 94.07%)"
+          "value": "hsl(0, 0%, 97.51%)"
         },
         "150": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.39%, 91.12%)"
+          "value": "hsl(0, 0%, 94.48%)"
         },
         "200": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.1%, 88.2%)"
+          "value": "hsl(0, 0%, 91.44%)"
         },
         "300": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 22.94%, 80.72%)"
+          "value": "hsl(0, 0%, 81.22%)"
         },
         "400": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.76%, 53.74%)"
+          "value": "hsl(0, 0%, 67.11%)"
         },
         "500": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 17.97%, 44.32%)"
+          "value": "hsl(0, 0%, 50.47%)"
         },
         "600": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 18.99%, 35.81%)"
+          "value": "hsl(0, 0%, 33.93%)"
         },
         "700": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 18.53%, 27.79%)"
+          "value": "hsl(0, 0%, 20.01%)"
         },
         "800": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 16.88%, 19.91%)"
+          "value": "hsl(0, 0%, 9.98%)"
         },
         "900": {
           "attributes": {
             "category": "color"
           },
-          "value": "hsl(210, 14.31%, 11.89%)"
+          "value": "hsl(210, 11.11%, 3.53%)"
+        },
+        "1000": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl(0, 0%, 0%)"
         }
+      },
+      "white": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "{color.palette.neutral.0}"
+      },
+      "black": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "{color.palette.neutral.1000}"
+      },
+      "transparent": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "hsla(0, 0%, 0%, 0)"
       }
     }
   }

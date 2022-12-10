@@ -53,7 +53,7 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
 
   &-count,
   &-dot {
-    background-color: $badge-color-surface;
+    background-color: $badge-color-surface-default;
 
     @at-root .#{$badge-prefix-cls}:not(.#{$badge-prefix-cls}--standalone) & {
       position: absolute;
@@ -61,11 +61,11 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
   }
 
   &-count {
-    min-width: $line-height-xsmall;
+    min-width: $badge-count-line-height;
     padding: 0 $space-quarter-x;
-    font-size: $font-size-xsmall;
-    line-height: $line-height-xsmall;
-    color: $badge-color-text;
+    font-size: $badge-count-font-size;
+    line-height: $badge-count-line-height;
+    color: $badge-color-text-default;
     text-align: center;
     border-radius: $radius-pill;
   }
@@ -84,8 +84,8 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
 
   &-text {
     margin-left: $badge-space;
-    font-size: $font-size-small;
-    line-height: $line-height-small;
+    font-size: $badge-text-font-size;
+    line-height: $badge-text-line-height;
     color: $color-text-primary;
   }
 }

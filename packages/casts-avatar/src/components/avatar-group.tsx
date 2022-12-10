@@ -1,11 +1,11 @@
 import { useConfig } from '@casts/config-provider';
-import { forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 import { AvatarGroupProvider, useAvatarGroup } from './hooks/use-avatar-group';
 import { AvatarGroupProps } from './types';
 import './styles/avatar-group.scss';
 
-export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
-  (props, ref) => {
+export const AvatarGroup = forwardRef(
+  (props: AvatarGroupProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { children, style, className } = props;
     const { getPrefixCls } = useConfig();
     const { classes, styles } = useAvatarGroup({

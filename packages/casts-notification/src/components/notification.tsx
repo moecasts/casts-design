@@ -28,7 +28,7 @@ export const Notification: FC<NotificationProps> = (props) => {
     theme = 'info',
     content,
     icon = true,
-    fill,
+    solid,
     close,
     onClose,
     className,
@@ -42,7 +42,7 @@ export const Notification: FC<NotificationProps> = (props) => {
 
   const notificationClasses = clsx(prefixCls, className, {
     [`${prefixCls}--${theme}`]: theme,
-    [`${prefixCls}--fill`]: fill,
+    [`${prefixCls}--theme-solid`]: solid,
   });
 
   const IconComponent =

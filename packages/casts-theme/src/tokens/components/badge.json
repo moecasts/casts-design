@@ -2,13 +2,39 @@
   "badge": {
     "color": {
       "text": {
-        "value": "{color.palette.white}"
+        "default": {
+          "value": "{color.palette.white}"
+        }
       },
       "surface": {
-        "value": "{color.shape.danger.default}"
+        "default": {
+          "value": "{color.shape.danger.default}"
+        }
       },
       "border": {
-        "value": "{color.palette.white}"
+        "default": {
+          "value": "{color.palette.white}"
+        }
+      }
+    },
+    "count": {
+      "font": {
+        "size": {
+          "value": "{font.size.xsmall}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.xsmall}"
+      }
+    },
+    "text": {
+      "font": {
+        "size": {
+          "value": "{font.size.small}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.small}"
       }
     },
     "dot": {

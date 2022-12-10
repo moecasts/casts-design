@@ -103,6 +103,7 @@ export const useAvatar = (props: UseAvatarProps) => {
 
   useEffect(() => {
     autoSetScale();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gap, isImageExist]);
 
   useEffect(() => {

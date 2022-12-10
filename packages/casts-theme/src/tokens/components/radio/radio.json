@@ -1,9 +1,32 @@
 {
   "radio": {
+    "color": {
+      "surface": {
+        "hover": {
+          "value": "{color.surface.neutral.default}"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "{color.palette.neutral.200}"
+        },
+        "hover": {
+          "value": "{color.border.brand.hover}"
+        }
+      },
+      "outline": {
+        "default": {
+          "value": "{color.outline.brand.default}"
+        }
+      }
+    },
     "font": {
       "size": {
         "value": "{font.size.small}"
       }
+    },
+    "size": {
+      "value": "{size.xxsmall}"
     },
     "lineHeight": {
       "value": "{lineHeight.small}"
@@ -18,7 +41,7 @@
             "offsetX": "0px",
             "offsetY": "0px",
             "blur": "0px",
-            "spread": "3px",
+            "spread": "2px",
             "color": "{color.shadow.brand.active}"
           }
         }

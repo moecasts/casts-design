@@ -9,13 +9,13 @@ $avatar-sizes: 'small', 'medium', 'large';
 $avatar-shapes: 'circle', 'round', 'square';
 
 .#{$avatar-prefix-cls} {
-  display: inline-block;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: $avatar-color-surface;
-  color: $avatar-color-shape;
+  color: $avatar-color-shape-default;
+  background-color: $avatar-color-surface-default;
 
   @each $shape in $avatar-shapes {
     &.#{$avatar-prefix-cls}--#{$shape} {
@@ -25,8 +25,8 @@ $avatar-shapes: 'circle', 'round', 'square';
 
   @each $size in $avatar-sizes {
     &.#{$avatar-prefix-cls}--#{$size} {
-      height: map-get($avatar-tokens, avatar-size-#{$size});
       width: map-get($avatar-tokens, avatar-size-#{$size});
+      height: map-get($avatar-tokens, avatar-size-#{$size});
       font-size: map-get($avatar-tokens, avatar-font-size-#{$size});
     }
   }

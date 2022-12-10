@@ -22,16 +22,17 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
 
   &-input {
     position: relative;
+    box-sizing: border-box;
     display: inline-block;
-    width: $radio-font-size;
-    height: $radio-font-size;
+    flex-shrink: 0;
+    width: $radio-size;
+    height: $radio-size;
     margin-right: $space-half-x;
-    border-color: $color-border-neutral-default;
+    border-color: $radio-color-border-default;
     border-style: solid;
     border-width: $border-width-xsmall;
     border-radius: 100%;
-    transition: all $motion-duration-rapid $motion-easing-in-out;
-    flex-shrink: 0;
+    transition: border $motion-duration-rapid $motion-easing-in-out;
 
     &::before {
       position: absolute;
@@ -43,13 +44,20 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
       content: '';
       background-color: transparent;
       border-radius: inherit;
-      transition: all $motion-duration-rapid $motion-easing-in-out;
       opacity: 0;
+      transition: all $motion-duration-rapid $motion-easing-in-out;
       transform: translate(-50%, -50%) scale(0);
     }
 
-    @at-root .#{$radio-prefix-cls}-pre:focus + & {
-      box-shadow: $radio-input-shadow-active;
+    @at-root .#{$radio-prefix-cls}:not(.#{$radio-prefix-cls}--checked, .#{$radio-prefix-cls}--disabled):hover
+        &,
+      .#{$radio-prefix-cls}:not(.#{$radio-prefix-cls}--checked, .#{$radio-prefix-cls}--disabled):focus-visible
+        & {
+      border-color: $radio-color-border-hover;
+    }
+
+    @at-root .#{$radio-prefix-cls}-pre:focus-visible + & {
+      outline: $border-width-small solid $radio-color-outline-default;
     }
 
     @at-root .#{$radio-prefix-cls}--checked & {
@@ -57,8 +65,8 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
 
       &::before {
         background-color: $color-shape-brand-default;
-        transform: translate(-50%, -50%) scale(0.55);
         opacity: 1;
+        transform: translate(-50%, -50%) scale(0.55);
       }
     }
   }

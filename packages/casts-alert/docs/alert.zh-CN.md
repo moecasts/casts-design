@@ -13,9 +13,9 @@ nav:
 
 <code src="../examples/different-themes" />
 
-## 实心样式
+## 实色样式
 
-<code src="../examples/fill-style" />
+<code src="../examples/solid-style" />
 
 ## 隐藏图标
 

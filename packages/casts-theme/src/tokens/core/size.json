@@ -1,5 +1,11 @@
 {
   "size": {
+    "xxsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "16px"
+    },
     "xsmall": {
       "attributes": {
         "category": "size"

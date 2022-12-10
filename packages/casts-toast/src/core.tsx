@@ -17,6 +17,7 @@ export const createToastContainerIfNotExists = (selector: string) => {
       root.render(
         <Toaster gutter={12}>
           {(t) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const { promise, Component, props } = t as any;
             const style = {
               opacity: t.visible ? 1 : 0,

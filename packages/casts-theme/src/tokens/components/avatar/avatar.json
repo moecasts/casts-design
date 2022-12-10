@@ -26,10 +26,14 @@
     },
     "color": {
       "surface": {
-        "value": "{color.palette.neutral.300}"
+        "default": {
+          "value": "{color.palette.neutral.300}"
+        }
       },
       "shape": {
-        "value": "{color.palette.white}"
+        "default": {
+          "value": "{color.palette.white}"
+        }
       }
     },
     "radius": {

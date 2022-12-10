@@ -2,7 +2,7 @@ import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
 import { noop, useControlled } from '@casts/hooks';
 import { createContext, CSSProperties, FC, ReactNode } from 'react';
-import { ChangeEventContext, ChangeEventHandler, RadioValue } from '../types';
+import { ChangeEventHandler, RadioValue } from '../types';
 import './styles/radio-group.scss';
 
 export type RadioGroupProps = {
@@ -22,7 +22,6 @@ export interface RadioGroupContextProps {
   name?: RadioGroupProps['name'];
   onChange?: ChangeEventHandler;
   type: 'radio' | 'button';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: RadioValue;
 }
 
@@ -41,7 +40,7 @@ export const RadioGroup: FC<RadioGroupProps> = (props) => {
     disabled,
     name,
     onChange: onChangeFromProps = noop,
-    type,
+    type = 'radio',
   } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('radio-group');
@@ -58,7 +57,9 @@ export const RadioGroup: FC<RadioGroupProps> = (props) => {
 
   return (
     <RadioGroupContext.Provider value={RadioGroupContextValue}>
-      <div className={classes}>{children}</div>
+      <div className={classes} role="group">
+        {children}
+      </div>
     </RadioGroupContext.Provider>
   );
 };

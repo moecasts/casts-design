@@ -8,7 +8,7 @@ const GroupDemo = () => {
     console.log('debug1', value);
   };
   return (
-    <Space>
+    <Space direction="vertical">
       <RadioGroup
         defaultValue={defaultValue}
         onChange={onChange}
@@ -16,9 +16,7 @@ const GroupDemo = () => {
       >
         <Radio value={1}>radio1</Radio>
         <Radio value={2}>radio2</Radio>
-        <Radio value={3} disabled>
-          radio3
-        </Radio>
+        <Radio value={3}>radio3</Radio>
         <Radio value={4}>radio4</Radio>
       </RadioGroup>
     </Space>

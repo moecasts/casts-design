@@ -13,9 +13,9 @@ nav:
 
 <code src="../examples/different-themes" />
 
-## Fill style
+## Solid style
 
-<code src="../examples/fill-style" />
+<code src="../examples/solid-style" />
 
 ## Hide icon
 

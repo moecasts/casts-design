@@ -1,29 +1,31 @@
 {
   "message": {
     "color": {
-      "brand": {
-        "default": {
-          "value": "{color.shape.brand.default}"
-        }
-      },
-      "info": {
-        "default": {
-          "value": "{color.shape.info.default}"
-        }
-      },
-      "success": {
-        "default": {
-          "value": "{color.shape.success.default}"
-        }
-      },
-      "warning": {
-        "default": {
-          "value": "{color.shape.warning.default}"
-        }
-      },
-      "danger": {
-        "default": {
-          "value": "{color.shape.danger.default}"
+      "shape": {
+        "brand": {
+          "default": {
+            "value": "{color.shape.brand.default}"
+          }
+        },
+        "info": {
+          "default": {
+            "value": "{color.shape.info.default}"
+          }
+        },
+        "success": {
+          "default": {
+            "value": "{color.shape.success.default}"
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "{color.shape.warning.default}"
+          }
+        },
+        "danger": {
+          "default": {
+            "value": "{color.shape.danger.default}"
+          }
         }
       }
     },
@@ -39,7 +41,9 @@
       "value": "{radius.medium}"
     },
     "space": {
-      "value": "{space.half-x} {space.one-x}"
+      "inset": {
+        "value": "{space.half-x} {space.one-x}"
+      }
     },
     "shadow": {
       "value": "{shadow.level.4}"

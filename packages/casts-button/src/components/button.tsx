@@ -60,6 +60,11 @@ export type BaseButtonProps = {
    */
   theme?: ButtonTheme;
   /**
+   * pastel theme(only works when variant is contained)
+   * @default false
+   */
+  pastel?: boolean;
+  /**
    * @default default
    */
   size?: ButtonSize;
@@ -112,6 +117,7 @@ const InternalButton: FC<ButtonProps> = (props) => {
     loading = false,
     onClick: onClick,
     forwardedRef,
+    pastel,
     ...rest
   } = props;
   const { getPrefixCls } = useConfig();
@@ -121,6 +127,7 @@ const InternalButton: FC<ButtonProps> = (props) => {
     [`${prefixCls}--${variant}`]: variant,
     [`${prefixCls}--${size}`]: size,
     [`${prefixCls}--${theme}`]: theme,
+    [`${prefixCls}--theme-pastel`]: theme && pastel && variant === 'contained',
     [`${prefixCls}--${shape}`]: shape,
     [`${prefixCls}--block`]: block,
     [`${prefixCls}--disabled`]: disabled || loading,

@@ -16,7 +16,7 @@ export type NotificationProps = {
   visible?: boolean;
   content: ReactNode;
   icon?: ReactElement | boolean;
-  fill?: boolean;
+  solid?: boolean;
   close?: ReactNode | boolean;
   onClose?: () => void;
 };

@@ -50,88 +50,420 @@
       }
     },
     "color": {
-      "brand": {
-        "default": {
-          "value": "{color.shape.brand.default}"
+      "outline": {
+        "brand": {
+          "default": {
+            "value": "{color.outline.brand.default}"
+          }
         },
-        "hover": {
-          "value": "{color.shape.brand.hover}"
+        "info": {
+          "default": {
+            "value": "{color.outline.info.default}"
+          }
         },
-        "active": {
-          "value": "{color.shape.brand.active}"
+        "success": {
+          "default": {
+            "value": "{color.outline.success.default}"
+          }
         },
-        "disabled": {
-          "value": "{color.shape.brand.disabled}"
+        "warning": {
+          "default": {
+            "value": "{color.outline.warning.default}"
+          }
+        },
+        "danger": {
+          "default": {
+            "value": "{color.outline.danger.default}"
+          }
+        },
+        "neutral": {
+          "default": {
+            "value": "{color.outline.neutral.default}"
+          }
         }
       },
-      "info": {
-        "default": {
-          "value": "{color.shape.info.default}"
+      "surface": {
+        "brand": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.brand.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.brand.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.brand.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.brand.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.brand.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.brand.active}"
+            }
+          }
         },
-        "hover": {
-          "value": "{color.shape.info.hover}"
+        "info": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.info.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.info.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.info.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.info.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.info.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.info.active}"
+            }
+          }
         },
-        "active": {
-          "value": "{color.shape.info.active}"
+        "success": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.success.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.success.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.success.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.success.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.success.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.success.active}"
+            }
+          }
         },
-        "disabled": {
-          "value": "{color.shape.info.disabled}"
+        "warning": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.warning.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.warning.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.warning.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.warning.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.warning.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.warning.active}"
+            }
+          }
+        },
+        "danger": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.danger.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.danger.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.danger.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.danger.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.danger.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.danger.active}"
+            }
+          }
+        },
+        "neutral": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.neutral.default}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.neutral.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.neutral.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.neutral.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.neutral.active}"
+            },
+            "on-pastel": {
+              "value": "{color.surface.neutral.active}"
+            }
+          }
         }
       },
-      "success": {
-        "default": {
-          "value": "{color.shape.success.default}"
+      "border": {
+        "brand": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.brand.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.brand.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.brand.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.brand.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.brand.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.brand.active}"
+            }
+          }
         },
-        "hover": {
-          "value": "{color.shape.success.hover}"
+        "info": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.info.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.info.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.info.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.info.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.info.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.info.active}"
+            }
+          }
         },
-        "active": {
-          "value": "{color.shape.success.active}"
+        "success": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.success.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.success.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.success.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.success.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.success.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.success.active}"
+            }
+          }
         },
-        "disabled": {
-          "value": "{color.shape.success.disabled}"
+        "warning": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.warning.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.warning.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.warning.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.warning.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.warning.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.warning.active}"
+            }
+          }
+        },
+        "danger": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.danger.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.danger.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.danger.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.danger.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.danger.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.danger.active}"
+            }
+          }
+        },
+        "neutral": {
+          "default": {
+            "on-solid": {
+              "value": "{color.shape.neutral.default}"
+            },
+            "on-pastel": {
+              "value": "{color.border.neutral.default}"
+            }
+          },
+          "hover": {
+            "on-solid": {
+              "value": "{color.shape.neutral.hover}"
+            },
+            "on-pastel": {
+              "value": "{color.border.neutral.hover}"
+            }
+          },
+          "active": {
+            "on-solid": {
+              "value": "{color.shape.neutral.active}"
+            },
+            "on-pastel": {
+              "value": "{color.border.neutral.active}"
+            }
+          }
         }
       },
-      "warning": {
-        "default": {
-          "value": "{color.shape.warning.default}"
+      "text": {
+        "brand": {
+          "default": {
+            "value": "{color.text.brand.default}"
+          },
+          "hover": {
+            "value": "{color.text.brand.hover}"
+          },
+          "active": {
+            "value": "{color.text.brand.active}"
+          }
         },
-        "hover": {
-          "value": "{color.shape.warning.hover}"
+        "info": {
+          "default": {
+            "value": "{color.text.info.default}"
+          },
+          "hover": {
+            "value": "{color.text.info.hover}"
+          },
+          "active": {
+            "value": "{color.text.info.active}"
+          }
         },
-        "active": {
-          "value": "{color.shape.warning.active}"
+        "success": {
+          "default": {
+            "value": "{color.text.success.default}"
+          },
+          "hover": {
+            "value": "{color.text.success.hover}"
+          },
+          "active": {
+            "value": "{color.text.success.active}"
+          }
         },
-        "disabled": {
-          "value": "{color.shape.warning.disabled}"
-        }
-      },
-      "danger": {
-        "default": {
-          "value": "{color.shape.danger.default}"
+        "warning": {
+          "default": {
+            "value": "{color.text.warning.default}"
+          },
+          "hover": {
+            "value": "{color.text.warning.hover}"
+          },
+          "active": {
+            "value": "{color.text.warning.active}"
+          }
         },
-        "hover": {
-          "value": "{color.shape.danger.hover}"
+        "danger": {
+          "default": {
+            "value": "{color.text.danger.default}"
+          },
+          "hover": {
+            "value": "{color.text.danger.hover}"
+          },
+          "active": {
+            "value": "{color.text.danger.active}"
+          }
         },
-        "active": {
-          "value": "{color.shape.danger.active}"
-        },
-        "disabled": {
-          "value": "{color.shape.danger.disabled}"
-        }
-      },
-      "neutral": {
-        "default": {
-          "value": "{color.shape.neutral.default}"
-        },
-        "hover": {
-          "value": "{color.shape.neutral.hover}"
-        },
-        "active": {
-          "value": "{color.shape.neutral.active}"
-        },
-        "disabled": {
-          "value": "{color.shape.neutral.disabled}"
+        "neutral": {
+          "default": {
+            "value": "{color.text.neutral.default}"
+          },
+          "hover": {
+            "value": "{color.text.neutral.hover}"
+          },
+          "active": {
+            "value": "{color.text.neutral.active}"
+          }
         }
       }
     }

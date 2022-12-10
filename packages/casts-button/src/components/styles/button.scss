@@ -49,19 +49,17 @@ $button-sizes: 'small', 'medium', 'large';
   border: $border-width-xsmall solid transparent;
 
   border-width: $border-width-xsmall;
-  outline: none;
+  outline-color: transparent;
   fill: currentColor;
 
-  transition: opacity $motion-duration-rapid $motion-easing-in-out,
+  transition: color $motion-duration-rapid $motion-easing-in-out,
+    opacity $motion-duration-rapid $motion-easing-in-out,
+    outline-color $motion-duration-rapid $motion-easing-in-out,
     box-shadow $motion-duration-rapid $motion-easing-in-out,
     border-color $motion-duration-rapid $motion-easing-in-out,
     background-color $motion-duration-rapid $motion-easing-in-out;
   appearance: none;
 
-  //   & > * {
-  //     transition: color var(--#{$prefix-cls}-transition-duration-base)
-  //       var(--#{$prefix-cls}-ease-in-out);
-  //   }
   // size
   @each $size in $button-sizes {
     &--#{$size} {
@@ -88,32 +86,103 @@ $button-sizes: 'small', 'medium', 'large';
   }
 
   $button-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
+  @each $color in $button-colors {
+    &.#{$button-prefix-cls}--#{$color} {
+      &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+        outline: $border-width-small
+          solid
+          map-get($button-tokens, button-color-outline-#{$color}-default);
+        outline-offset: $border-width-xsmall;
+      }
+    }
+  }
   // variant
   &--contained {
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
-        $text-color: $color-text-anti;
-        @if $color == 'white' {
-          $text-color: $color-text-primary;
-        }
+        $text-color: $color-palette-neutral-0;
         @include button-color(
           $text-color,
-          map-get($button-tokens, button-color-#{$color}-default),
-          map-get($button-tokens, button-color-#{$color}-default)
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-solid
+          ),
+          map-get(
+            $button-tokens,
+            button-color-border-#{$color}-default-on-solid
+          )
         );
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
             $text-color,
-            map-get($button-tokens, button-color-#{$color}-hover),
-            map-get($button-tokens, button-color-#{$color}-hover)
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-solid
+            ),
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-hover-on-solid
+            )
           );
         }
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
             $text-color,
-            map-get($button-tokens, button-color-#{$color}-active),
-            map-get($button-tokens, button-color-#{$color}-active)
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-solid
+            ),
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-active-on-solid
+            )
+          );
+        }
+      }
+    }
+  }
+
+  // pastel contained button style
+  &--contained.#{$button-prefix-cls}--theme-pastel {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-pastel
+          ),
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-pastel
+          )
+        );
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-pastel
+            ),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-pastel
+            )
+          );
+        }
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            ),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            )
           );
         }
       }
@@ -125,23 +194,29 @@ $button-sizes: 'small', 'medium', 'large';
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
         @include button-color(
-          map-get($button-tokens, button-color-#{$color}-default),
+          map-get($button-tokens, button-color-text-#{$color}-default),
           none,
-          map-get($button-tokens, button-color-#{$color}-default)
+          map-get(
+            $button-tokens,
+            button-color-border-#{$color}-default-on-solid
+          )
         );
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
             none,
-            map-get($core-tokens, color-surface-#{$color}-default),
-            map-get($button-tokens, button-color-#{$color}-hover)
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-hover-on-solid
+            )
           );
         }
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
             none,
-            map-get($core-tokens, color-surface-#{$color}-hover),
-            map-get($button-tokens, button-color-#{$color}-active)
+            map-get($button-tokens, button-color-#{$color}-active-on-solid)
           );
         }
       }
@@ -152,42 +227,66 @@ $button-sizes: 'small', 'medium', 'large';
   }
 
   &--text {
-    color: $color-text-primary;
-    border-color: transparent;
-    &:hover:not(.#{$button-prefix-cls}--disabled),
-    &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
-      background-color: $color-surface-component-hover;
-    }
-    &:active:not(.#{$button-prefix-cls}--disabled) {
-      background-color: $color-surface-component-active;
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          none,
+          transparent
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-default-on-pastel
+            ),
+            none
+          );
+        }
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            ),
+            none
+          );
+        }
+      }
     }
   }
   &--link {
-    color: $button-color-brand-default;
+    color: $button-color-text-brand-default;
+
+    &:not(.#{$button-prefix-cls}--disabled) {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+      text-underline-offset: $space-quarter-x;
+    }
+
     &:hover:not(.#{$button-prefix-cls}--disabled),
     &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
-      color: $button-color-brand-hover;
+      color: $button-color-text-brand-hover;
     }
     &:active:not(.#{$button-prefix-cls}--disabled) {
-      color: $button-color-brand-active;
+      color: $button-color-text-brand-active;
     }
   }
 
   // Block
   &--block {
+    display: flex;
     width: 100%;
   }
 
   &--disabled,
   &--loading {
-    &::before {
-      position: absolute;
-      inset: calc(0px - $border-width-xsmall);
-      cursor: not-allowed;
-      content: '';
-      background-color: $color-surface-component-disabled;
-      opacity: 0.3;
-    }
+    opacity: $opacity-38;
+    cursor: not-allowed;
   }
 
   &--loading {

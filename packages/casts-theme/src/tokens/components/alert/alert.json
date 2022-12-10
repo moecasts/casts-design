@@ -1,44 +1,61 @@
 {
   "alert": {
     "color": {
-      "brand": {
-        "default": {
-          "value": "{color.surface.brand.default}"
+      "surface": {
+        "brand": {
+          "default": {
+            "on-pastel": {
+              "value": "{color.surface.brand.default}"
+            },
+            "on-solid": {
+              "value": "{color.shape.brand.default}"
+            }
+          }
         },
-        "fill": {
-          "value": "{color.shape.brand.default}"
-        }
-      },
-      "info": {
-        "default": {
-          "value": "{color.surface.info.default}"
+        "info": {
+          "default": {
+            "on-pastel": {
+              "value": "{color.surface.info.default}"
+            },
+            "on-solid": {
+              "value": "{color.shape.info.default}"
+            }
+          }
         },
-        "fill": {
-          "value": "{color.shape.info.default}"
-        }
-      },
-      "success": {
-        "default": {
-          "value": "{color.surface.success.default}"
+        "success": {
+          "default": {
+            "on-pastel": {
+              "value": "{color.surface.success.default}"
+            },
+            "on-solid": {
+              "value": "{color.shape.success.default}"
+            }
+          }
         },
-        "fill": {
-          "value": "{color.shape.success.default}"
-        }
-      },
-      "warning": {
-        "default": {
-          "value": "{color.surface.warning.default}"
+        "warning": {
+          "default": {
+            "on-pastel": {
+              "value": "{color.surface.warning.default}"
+            },
+            "on-solid": {
+              "value": "{color.shape.warning.default}"
+            }
+          }
         },
-        "fill": {
-          "value": "{color.shape.warning.default}"
-        }
-      },
-      "danger": {
-        "default": {
-          "value": "{color.surface.danger.default}"
+        "danger": {
+          "default": {
+            "on-pastel": {
+              "value": "{color.surface.danger.default}"
+            },
+            "on-solid": {
+              "value": "{color.shape.danger.default}"
+            }
+          }
         },
-        "fill": {
-          "value": "{color.shape.danger.default}"
+        "component": {
+          "default": {
+            "value": "{color.surface.component.default}"
+          }
         }
       }
     },

@@ -1,12 +1,6 @@
 import React from 'react';
 import { Button } from '@casts/button';
-import {
-  ChangeEventContext,
-  ChangeEventHandler,
-  Radio,
-  RadioGroup,
-  RadioValue,
-} from '@casts/radio';
+import { ChangeEventHandler, Radio, RadioGroup } from '@casts/radio';
 import { Space } from '@casts/space';
 
 const GroupCustomItemDemo = () => {

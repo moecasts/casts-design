@@ -1,0 +1,162 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/checkbox';
+@import '@casts/theme/styles/scss/checkbox';
+
+$checkbox-prefix-cls: #{$prefix-cls}-checkbox;
+
+.#{$checkbox-prefix-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: $checkbox-font-size;
+  line-height: $checkbox-line-height;
+  cursor: pointer;
+
+  &-pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  &-input {
+    position: relative;
+
+    box-sizing: border-box;
+    display: inline-block;
+    flex-shrink: 0;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    margin-right: $space-half-x;
+    border-color: $checkbox-color-border-default;
+    border-style: solid;
+    border-width: $border-width-xsmall;
+    border-radius: $radius-xsmall;
+    transition: border $motion-duration-immediate $motion-easing-in-out,
+      background-color $motion-duration-immediate $motion-easing-in-out;
+
+    @at-root .#{$checkbox-prefix-cls}-pre:focus-visible + & {
+      outline: $border-width-small solid $checkbox-color-outline-default;
+    }
+
+    @at-root .#{$checkbox-prefix-cls}--checked & {
+      border-width: calc($checkbox-size / 2);
+    }
+
+    @at-root .#{$checkbox-prefix-cls}--indeterminate & {
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        height: $border-width-small;
+        content: '';
+        background-color: $color-text-anti;
+        border-radius: inherit;
+        transition: all $motion-duration-immediate $motion-easing-in-out;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @at-root .#{$checkbox-prefix-cls}--checked.#{$checkbox-prefix-cls}--indeterminate
+        & {
+      border-color: $checkbox-color-border-hover;
+
+      &::before {
+        animation-name: checkbox-dash;
+        animation-timing-function: $motion-easing-in-out;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    @at-root .#{$checkbox-prefix-cls}:not(.#{$checkbox-prefix-cls}--indeterminate)
+        & {
+      &::before {
+        position: absolute;
+        top: -3px;
+        left: -4px;
+        content: '';
+        background-color: transparent;
+        border-right: $border-width-medium solid transparent;
+        border-bottom: $border-width-medium solid transparent;
+        transform: rotate(45deg);
+        transform-origin: 0% 100%;
+      }
+    }
+
+    @at-root .#{$checkbox-prefix-cls}--checked:not(.#{$checkbox-prefix-cls}--indeterminate)
+        & {
+      border-width: calc($checkbox-size / 2);
+
+      &::before {
+        animation-name: checkbox-check;
+        animation-timing-function: $motion-easing-in-out;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    @at-root .#{$checkbox-prefix-cls}--checked:not(.#{$checkbox-prefix-cls}--disabled)
+        & {
+      border-color: $color-shape-brand-default;
+      animation-duration: $motion-duration-immediate;
+
+      animation-timing-function: $motion-easing-in-out;
+
+      &::before {
+        animation-duration: $motion-duration-immediate;
+        animation-delay: $motion-duration-immediate;
+      }
+    }
+
+    @at-root .#{$checkbox-prefix-cls}:not(.#{$checkbox-prefix-cls}--checked, .#{$checkbox-prefix-cls}--disabled):hover
+        &,
+      .#{$checkbox-prefix-cls}:not(.#{$checkbox-prefix-cls}--checked, .#{$checkbox-prefix-cls}--disabled):focus-visible
+        & {
+      border-color: $checkbox-color-border-hover;
+    }
+  }
+
+  &--disabled {
+    color: $color-text-disabled !important;
+    cursor: not-allowed;
+
+    .#{$checkbox-prefix-cls}-input {
+      background-color: $color-surface-container-disabled !important;
+      border-color: $color-border-neutral-disabled !important;
+    }
+  }
+
+  &-label {
+    font-size: inherit;
+  }
+}
+
+@keyframes checkbox-dash {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 10px;
+  }
+}
+
+@keyframes checkbox-check {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: $color-text-anti;
+    transform: translate3d(0, 0, 0) rotate(45deg) scale(0.5);
+  }
+  33% {
+    width: 5px;
+    height: 0;
+    transform: translate3d(0, 0, 0) rotate(45deg) scale(0.5);
+  }
+  100% {
+    width: 5px;
+    height: 12px;
+    border-color: $color-text-anti;
+    transform: translate3d(0, -12px, 0) rotate(45deg) scale(0.5);
+  }
+}

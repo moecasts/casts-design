@@ -1,33 +1,33 @@
 import React from 'react';
-import { Alert } from '@casts/alert';
+import { Notification } from '@casts/notification';
 import { Space } from '@casts/space';
 
-const FillStyleDemo = () => (
-  <Space direction="vertical">
-    <Alert
+const SolidStyleDemo = () => (
+  <Space className="zone-scope" direction="vertical">
+    <Notification
       theme="info"
-      title="警告提示标题"
-      fill
+      title="通知标题"
+      solid
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec blandit leo, sed scelerisque turpis. Vestibulum ac tortor odio. Praesent dapibus lectus accumsan lobortis convallis."
     />
-    <Alert
+    <Notification
       theme="success"
-      title="警告提示标题"
-      fill
+      title="通知标题"
+      solid
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec blandit leo, sed scelerisque turpis. Vestibulum ac tortor odio. Praesent dapibus lectus accumsan lobortis convallis."
     />
-    <Alert
+    <Notification
       theme="warning"
-      title="警告提示标题"
-      fill
+      title="通知标题"
+      solid
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec blandit leo, sed scelerisque turpis. Vestibulum ac tortor odio. Praesent dapibus lectus accumsan lobortis convallis."
     />
-    <Alert
+    <Notification
       theme="error"
-      title="警告提示标题"
-      fill
+      title="通知标题"
+      solid
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec blandit leo, sed scelerisque turpis. Vestibulum ac tortor odio. Praesent dapibus lectus accumsan lobortis convallis."
     />
   </Space>
 );
-export default FillStyleDemo;
+export default SolidStyleDemo;

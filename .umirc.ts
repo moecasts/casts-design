@@ -7,7 +7,6 @@ const isProd = process.env.NODE_ENV === 'production';
 export default defineConfig({
   title: 'Cast Design',
   mode: 'site',
-  // mfsu: isProd ? false : {},
   esbuild: {},
   chainWebpack: (memo) => {
     if (isProd) {
@@ -15,13 +14,13 @@ export default defineConfig({
     }
   },
   apiParser: {
-    // propFilter: {
-    //   // 是否忽略从 node_modules 继承的属性，默认值为 false
-    //   skipNodeModules: true,
-    //   shouldExtractLiteralValuesFromEnum: true,
-    //   shouldExtractValuesFromUnion: true,
-    //   savePropValueAsString: true,
-    // },
+    propFilter: {
+      // 是否忽略从 node_modules 继承的属性，默认值为 false
+      skipNodeModules: true,
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldExtractValuesFromUnion: true,
+      savePropValueAsString: true,
+    },
   },
   sass: {
     sassOptions: {

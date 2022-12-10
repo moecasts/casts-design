@@ -14,7 +14,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
   padding: $alert-space;
   font-size: $alert-body-font-size;
   color: $color-text-primary;
-  background-color: $color-surface-container-default;
+  background-color: $alert-color-surface-component-default;
   border: $border-width-xsmall solid transparent;
   border-radius: $alert-radius;
 
@@ -34,17 +34,21 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
       font-size: $alert-title-line-height;
     }
 
-    @at-root .#{$alert-prefix-cls}--info:not(.#{$alert-prefix-cls}--fill) & {
-      color: $alert-color-info-fill;
+    @at-root .#{$alert-prefix-cls}--info:not(.#{$alert-prefix-cls}--theme-solid)
+        & {
+      color: $alert-color-surface-info-default-on-solid;
     }
-    @at-root .#{$alert-prefix-cls}--success:not(.#{$alert-prefix-cls}--fill) & {
-      color: $alert-color-success-fill;
+    @at-root .#{$alert-prefix-cls}--success:not(.#{$alert-prefix-cls}--theme-solid)
+        & {
+      color: $alert-color-surface-success-default-on-solid;
     }
-    @at-root .#{$alert-prefix-cls}--warning:not(.#{$alert-prefix-cls}--fill) & {
-      color: $alert-color-warning-fill;
+    @at-root .#{$alert-prefix-cls}--warning:not(.#{$alert-prefix-cls}--theme-solid)
+        & {
+      color: $alert-color-surface-warning-default-on-solid;
     }
-    @at-root .#{$alert-prefix-cls}--error:not(.#{$alert-prefix-cls}--fill) & {
-      color: $alert-color-danger-fill;
+    @at-root .#{$alert-prefix-cls}--error:not(.#{$alert-prefix-cls}--theme-solid)
+        & {
+      color: $alert-color-surface-danger-default-on-solid;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -82,7 +86,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
   &-close {
     display: inline-flex;
     flex-shrink: 0;
-    align-items: top;
+    align-items: flex-start;
     padding: 0;
     margin-left: $space-half-x;
     font-size: $alert-body-font-size;
@@ -91,13 +95,13 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    opacity: 0.7;
+    opacity: $opacity-60;
     transition: opacity $motion-duration-rapid $motion-easing-in-out;
     &:hover {
-      opacity: 0.84;
+      opacity: $opacity-84;
     }
     &:active {
-      opacity: 0.96;
+      opacity: $opacity-90;
     }
     svg {
       font-size: $alert-title-line-height;
@@ -108,33 +112,33 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
       color: $color-surface-container-default;
     }
     &.#{$alert-prefix-cls}--info {
-      background-color: $alert-color-info-default;
+      background-color: $alert-color-surface-info-default-on-pastel;
     }
     &.#{$alert-prefix-cls}--success {
-      background-color: $alert-color-success-default;
+      background-color: $alert-color-surface-success-default-on-pastel;
     }
     &.#{$alert-prefix-cls}--warning {
-      background-color: $alert-color-warning-default;
+      background-color: $alert-color-surface-warning-default-on-pastel;
     }
     &.#{$alert-prefix-cls}--error {
-      background-color: $alert-color-danger-default;
+      background-color: $alert-color-surface-danger-default-on-pastel;
     }
   }
-  &--fill {
+  &--theme-solid {
     &:not(.#{$alert-prefix-cls}--loading) {
       color: $color-surface-container-default;
     }
     &.#{$alert-prefix-cls}--info {
-      background-color: $alert-color-info-fill;
+      background-color: $alert-color-surface-info-default-on-solid;
     }
     &.#{$alert-prefix-cls}--success {
-      background-color: $alert-color-success-fill;
+      background-color: $alert-color-surface-success-default-on-solid;
     }
     &.#{$alert-prefix-cls}--warning {
-      background-color: $alert-color-warning-fill;
+      background-color: $alert-color-surface-warning-default-on-solid;
     }
     &.#{$alert-prefix-cls}--error {
-      background-color: $alert-color-danger-fill;
+      background-color: $alert-color-surface-danger-default-on-solid;
     }
   }
 

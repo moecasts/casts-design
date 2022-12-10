@@ -1,0 +1,58 @@
+{
+  "checkbox": {
+    "color": {
+      "surface": {
+        "hover": {
+          "value": "{color.surface.neutral.default}"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "{color.palette.neutral.200}"
+        },
+        "hover": {
+          "value": "{color.border.brand.hover}"
+        }
+      },
+      "outline": {
+        "default": {
+          "value": "{color.outline.brand.default}"
+        }
+      }
+    },
+    "size": {
+      "value": "16px"
+    },
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "input": {
+      "shadow": {
+        "active": {
+          "attributes": {
+            "category": "shadow"
+          },
+          "value": {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{color.shadow.brand.active}"
+          }
+        }
+      },
+      "inner": {
+        "color": {
+          "disabled": {
+            "value": "{color.palette.neutral.150}"
+          }
+        }
+      }
+    }
+  }
+}

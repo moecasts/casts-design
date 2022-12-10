@@ -34,6 +34,10 @@ nav:
 
 <code src="../examples/different-theme-buttons" />
 
+### 浅色
+
+<code src="../examples/different-pastel-theme-buttons" />
+
 ## 不同形状
 
 <code src="../examples/different-shape-buttons" />

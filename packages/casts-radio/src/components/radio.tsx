@@ -107,6 +107,7 @@ export const Radio = forwardRef((props: RadioProps, ref) => {
         checked={!!checked}
         ref={inputRef}
         value={isBoolean(value) ? Number(value) : value}
+        tabIndex={isFunction(children) ? -1 : 0}
         onChange={(e) => {
           e.persist();
           onChange(e);
@@ -119,9 +120,9 @@ export const Radio = forwardRef((props: RadioProps, ref) => {
         }}
         disabled={disabled}
         name={name}
+        aria-checked={!!checked}
       />
       {isFunction(children) ? (
-        // @ts-ignore this is a function
         children({ checked })
       ) : (
         <>

@@ -39,10 +39,10 @@ export type AlertProps = {
    */
   icon?: ReactElement | boolean;
   /**
-   * is fill style
+   * is solid color theme
    * @default false
    */
-  fill?: boolean;
+  solid?: boolean;
   /**
    * is show close button or custom close button
    * @default true

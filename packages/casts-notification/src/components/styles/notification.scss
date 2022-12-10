@@ -12,7 +12,7 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
   display: flex;
   align-items: flex-start;
   width: fit-content;
-  padding: $notification-space;
+  padding: $notification-space-inset;
   margin-right: $space-half-x;
   margin-left: $space-half-x;
   font-size: $notification-body-font-size;
@@ -38,21 +38,21 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
       font-size: $notification-title-line-height;
     }
 
-    @at-root .#{$notification-prefix-cls}--info:not(.#{$notification-prefix-cls}--fill)
+    @at-root .#{$notification-prefix-cls}--info:not(.#{$notification-prefix-cls}--theme-solid)
         & {
-      color: $notification-color-info-default;
+      color: $notification-color-shape-info-default;
     }
-    @at-root .#{$notification-prefix-cls}--success:not(.#{$notification-prefix-cls}--fill)
+    @at-root .#{$notification-prefix-cls}--success:not(.#{$notification-prefix-cls}--theme-solid)
         & {
-      color: $notification-color-success-default;
+      color: $notification-color-shape-success-default;
     }
-    @at-root .#{$notification-prefix-cls}--warning:not(.#{$notification-prefix-cls}--fill)
+    @at-root .#{$notification-prefix-cls}--warning:not(.#{$notification-prefix-cls}--theme-solid)
         & {
-      color: $notification-color-warning-default;
+      color: $notification-color-shape-warning-default;
     }
-    @at-root .#{$notification-prefix-cls}--error:not(.#{$notification-prefix-cls}--fill)
+    @at-root .#{$notification-prefix-cls}--error:not(.#{$notification-prefix-cls}--theme-solid)
         & {
-      color: $notification-color-danger-default;
+      color: $notification-color-shape-danger-default;
     }
     .#{$prefix-cls}-circular-progress-container {
       color: currentColor;
@@ -116,33 +116,33 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
       color: $color-surface-container-default;
     }
     &.#{$notification-prefix-cls}--info {
-      border-color: $notification-color-info-default;
+      border-color: $notification-color-shape-info-default;
     }
     &.#{$notification-prefix-cls}--success {
-      border-color: $notification-color-success-default;
+      border-color: $notification-color-shape-success-default;
     }
     &.#{$notification-prefix-cls}--warning {
-      border-color: $notification-color-warning-default;
+      border-color: $notification-color-shape-warning-default;
     }
     &.#{$notification-prefix-cls}--error {
-      border-color: $notification-color-danger-default;
+      border-color: $notification-color-shape-danger-default;
     }
   }
-  &--fill {
+  &--theme-solid {
     &:not(.#{$notification-prefix-cls}--loading) {
       color: $color-surface-container-default;
     }
     &.#{$notification-prefix-cls}--info {
-      background-color: $notification-color-info-default;
+      background-color: $notification-color-shape-info-default;
     }
     &.#{$notification-prefix-cls}--success {
-      background-color: $notification-color-success-default;
+      background-color: $notification-color-shape-success-default;
     }
     &.#{$notification-prefix-cls}--warning {
-      background-color: $notification-color-warning-default;
+      background-color: $notification-color-shape-warning-default;
     }
     &.#{$notification-prefix-cls}--error {
-      background-color: $notification-color-danger-default;
+      background-color: $notification-color-shape-danger-default;
     }
   }
 

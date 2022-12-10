@@ -10,7 +10,7 @@
   display: flex;
   align-items: flex-start;
   width: fit-content;
-  padding: $message-space;
+  padding: $message-space-inset;
   margin-right: $space-half-x;
   margin-left: $space-half-x;
   font-size: $message-font-size;
@@ -37,19 +37,19 @@
 
     @at-root .#{$prefix-cls}-message--info:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $message-color-info-default;
+      color: $message-color-shape-info-default;
     }
     @at-root .#{$prefix-cls}-message--success:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $message-color-success-default;
+      color: $message-color-shape-success-default;
     }
     @at-root .#{$prefix-cls}-message--warning:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $message-color-warning-default;
+      color: $message-color-shape-warning-default;
     }
     @at-root .#{$prefix-cls}-message--error:not(.#{$prefix-cls}-message--fill)
         & {
-      color: $message-color-danger-default;
+      color: $message-color-shape-danger-default;
     }
   }
   &-content {
@@ -70,13 +70,13 @@
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    opacity: 0.6;
+    opacity: $opacity-60;
     transition: opacity $motion-duration-rapid $motion-easing-in-out;
     &:hover {
-      opacity: 0.7;
+      opacity: $opacity-84;
     }
     &:active {
-      opacity: 0.96;
+      opacity: $opacity-90;
     }
 
     svg {
@@ -88,16 +88,16 @@
       color: $color-text-anti;
     }
     &.#{$prefix-cls}-message--info {
-      background-color: $message-color-info-default;
+      background-color: $message-color-shape-info-default;
     }
     &.#{$prefix-cls}-message--success {
-      background-color: $message-color-success-default;
+      background-color: $message-color-shape-success-default;
     }
     &.#{$prefix-cls}-message--warning {
-      background-color: $message-color-warning-default;
+      background-color: $message-color-shape-warning-default;
     }
     &.#{$prefix-cls}-message--error {
-      background-color: $message-color-danger-default;
+      background-color: $message-color-shape-danger-default;
     }
   }
 
