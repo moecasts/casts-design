@@ -15,7 +15,8 @@
     "build": "father build",
     "build:deps": "father prebundle",
     "prepublishOnly": "father doctor && npm run build",
-    "test": "jest"
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "files": [
@@ -29,14 +30,13 @@
     "@casts/standard": "workspace:^0.0.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13",
-    "@types/jest": "^27",
     "@types/react-transition-group": "^4.4.5",
     "@types/testing-library__jest-dom": "^5.14.5",
-    "@umijs/test": "^4",
     "father": "^4.0.6",
-    "jest": "^27",
     "ts-node": "^10",
-    "typescript": "^4"
+    "typescript": "^4",
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   },
   "peerDependencies": {
     "react": ">=17"

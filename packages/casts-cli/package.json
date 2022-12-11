@@ -11,7 +11,9 @@
     "dev": "father dev",
     "build": "father build",
     "build:deps": "father prebundle",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "authors": [
@@ -31,7 +33,9 @@
     "@types/git-user-email": "^0.2.0",
     "@types/git-user-name": "^2.0.1",
     "@types/inquirer": "^8.0.0",
-    "father": "^4.0.7"
+    "father": "^4.0.7",
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   },
   "dependencies": {
     "chalk": "^4.0.0",

@@ -11,7 +11,9 @@
     "build:tokens": "node ./dist/cjs/builder/index.js",
     "build:tokens:dev": "chokidar './src/tokens/**/*.(json|json5|js|ts)' -c 'pnpm build:tokens'",
     "build:deps": "father prebundle",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "authors": [
@@ -34,6 +36,8 @@
     "chroma-js": "^2.4.2",
     "father": "^4.0.6",
     "glob": "^8.0.3",
-    "style-dictionary": "^3.7.1"
+    "style-dictionary": "^3.7.1",
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   }
 }
