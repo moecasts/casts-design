@@ -61,10 +61,10 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
     }
 
     @at-root .#{$radio-prefix-cls}--checked & {
-      border-color: $color-border-brand-default;
+      border-color: $radio-color-border-active;
 
       &::before {
-        background-color: $color-shape-brand-default;
+        background-color: $radio-input-inner-color-active;
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.55);
       }
@@ -76,8 +76,8 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
     cursor: not-allowed;
 
     .#{$radio-prefix-cls}-input {
-      background-color: $color-surface-container-disabled;
-      border-color: $color-border-neutral-disabled;
+      background-color: $radio-color-surface-disabled;
+      border-color: $radio-color-border-disabled;
 
       &::before {
         background-color: $radio-input-inner-color-disabled;

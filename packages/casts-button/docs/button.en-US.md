@@ -34,6 +34,14 @@ nav:
 
 <code src="../examples/different-theme-buttons" />
 
+### Pastel
+
+<code src="../examples/different-pastel-theme-buttons" />
+
+#### Bordered
+
+<code src="../examples/different-pastel-theme-buttons-with-border" />
+
 ## Variant
 
 <code src="../examples/different-shape-buttons" />

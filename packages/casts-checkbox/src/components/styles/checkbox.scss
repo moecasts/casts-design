@@ -98,7 +98,7 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
 
     @at-root .#{$checkbox-prefix-cls}--checked:not(.#{$checkbox-prefix-cls}--disabled)
         & {
-      border-color: $color-shape-brand-default;
+      border-color: $checkbox-color-border-active;
       animation-duration: $motion-duration-immediate;
 
       animation-timing-function: $motion-easing-in-out;
@@ -122,8 +122,8 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
     cursor: not-allowed;
 
     .#{$checkbox-prefix-cls}-input {
-      background-color: $color-surface-container-disabled !important;
-      border-color: $color-border-neutral-disabled !important;
+      background-color: $checkbox-color-surface-disabled;
+      border-color: $checkbox-color-border-disabled;
     }
   }
 

@@ -22,6 +22,7 @@ export enum SpaceAlign {
   START = 'start',
   END = 'end',
   BASELINE = 'baseline',
+  STRETCH = 'stretch',
 }
 
 export type SpaceProps = {

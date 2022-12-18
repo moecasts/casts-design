@@ -187,6 +187,41 @@ $button-sizes: 'small', 'medium', 'large';
         }
       }
     }
+    &.#{$button-prefix-cls}--bordered {
+      @each $color in $button-colors {
+        &.#{$button-prefix-cls}--#{$color} {
+          @include button-color(
+            none,
+            none,
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-default-on-solid
+            )
+          );
+          &:hover:not(.#{$button-prefix-cls}--disabled),
+          &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+            @include button-color(
+              none,
+              none,
+              map-get(
+                $button-tokens,
+                button-color-border-#{$color}-hover-on-solid
+              )
+            );
+          }
+          &:active:not(.#{$button-prefix-cls}--disabled) {
+            @include button-color(
+              none,
+              none,
+              map-get(
+                $button-tokens,
+                button-color-border-#{$color}-active-on-solid
+              )
+            );
+          }
+        }
+      }
+    }
   }
 
   &--outline,

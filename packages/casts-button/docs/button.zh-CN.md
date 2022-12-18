@@ -38,6 +38,10 @@ nav:
 
 <code src="../examples/different-pastel-theme-buttons" />
 
+#### 有边框
+
+<code src="../examples/different-pastel-theme-buttons-with-border" />
+
 ## 不同形状
 
 <code src="../examples/different-shape-buttons" />

@@ -55,12 +55,8 @@ export const getGap = (size?: SpaceSize) => {
     return size as string;
   };
 
-  if (!size) {
+  if (!size && size !== 0) {
     return defaultSpaceProps.size as string;
-  }
-
-  if (Object.values(SpaceSizeEnum).includes(size as SpaceSizeEnum)) {
-    return getGapBySizeEnum(size);
   }
 
   if (Array.isArray(size)) {

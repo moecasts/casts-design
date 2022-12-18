@@ -335,6 +335,32 @@
           },
           "value": "{color.palette.neutral.300}"
         }
+      },
+      "component": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "{color.palette.neutral.200}"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "{color.palette.neutral.300}"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "{color.palette.neutral.400}"
+        },
+        "disabled": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "{color.palette.neutral.150}"
+        }
       }
     },
     "outline": {

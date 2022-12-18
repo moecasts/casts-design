@@ -1,0 +1,94 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/css/divider';
+@import '@casts/theme/styles/scss/divider';
+
+$divider-prefix-cls: #{$prefix-cls}-divider;
+
+.#{$divider-prefix-cls} {
+  align-items: center;
+
+  &-content {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    flex: 1;
+  }
+
+  &--vertical {
+    display: inline-flex;
+    margin-left: $divider-space-horizontal;
+    margin-right: $divider-space-horizontal;
+    vertical-align: middle;
+    flex-direction: column;
+
+    &:not(.#{$divider-prefix-cls}--with-content) {
+      height: $divider-size-vertical;
+    }
+
+    &::before,
+    &::after {
+      border-inline-start: $divider-border-width solid
+        $divider-color-border-default;
+    }
+
+    .#{$divider-prefix-cls}-content {
+      writing-mode: vertical-lr;
+      padding-top: $divider-space-horizontal;
+      padding-bottom: $divider-space-horizontal;
+    }
+
+    &.#{$divider-prefix-cls}--align {
+      &-start {
+        &::before {
+          max-height: $divider-size-horizontal-max;
+        }
+      }
+
+      &-end {
+        &::after {
+          max-height: $divider-size-horizontal-max;
+        }
+      }
+    }
+  }
+
+  &--horizontal {
+    display: flex;
+    width: 100%;
+    margin-top: $divider-space-horizontal;
+    margin-bottom: $divider-space-horizontal;
+    vertical-align: middle;
+
+    &::before,
+    &::after {
+      border-block-start: $divider-border-width solid
+        $divider-color-border-default;
+    }
+
+    &.#{$divider-prefix-cls}--align {
+      &-start {
+        &::before {
+          max-width: $divider-size-horizontal-max;
+        }
+      }
+
+      &-end {
+        &::after {
+          max-width: $divider-size-horizontal-max;
+        }
+      }
+    }
+
+    .#{$divider-prefix-cls}-content {
+      padding-left: $divider-space-horizontal;
+      padding-right: $divider-space-horizontal;
+    }
+  }
+}
