@@ -1,0 +1,14 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+
+$layout-prefix-cls: #{$prefix-cls}-layout;
+
+.#{$layout-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &.#{$layout-prefix-cls}--with-aside {
+    flex-direction: row;
+  }
+}

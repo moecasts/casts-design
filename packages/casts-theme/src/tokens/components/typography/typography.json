@@ -3,6 +3,9 @@
     "color": {
       "text": {
         "value": "{color.text.primary}"
+      },
+      "border": {
+        "value": "{color.border.component.default}"
       }
     },
     "body": {

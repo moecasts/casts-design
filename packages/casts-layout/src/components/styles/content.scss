@@ -1,0 +1,8 @@
+@import '@casts/theme/styles/css/core';
+@import '@casts/theme/styles/scss/core';
+
+$content-prefix-cls: #{$prefix-cls}-layout-content;
+
+.#{$content-prefix-cls} {
+  flex: auto;
+}

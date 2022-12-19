@@ -37,7 +37,7 @@
     font-family: $font-family-code;
     font-size: 85%;
     background-color: $typography-block-color-background;
-    border: $border-width-xsmall solid $color-border-neutral-default;
+    border: $border-width-xsmall solid $typography-color-border;
     border-radius: $radius-small;
   }
 
@@ -82,7 +82,7 @@
     padding: $space-half-x;
     margin: $space-three-quarter-x 0;
     color: $color-text-secondary;
-    border-left: $border-width-medium solid $color-border-neutral-default;
+    border-left: $border-width-medium solid $typography-color-border;
   }
 
   pre {
@@ -90,7 +90,7 @@
     word-wrap: break-word;
     white-space: pre-wrap;
     background-color: $typography-block-color-background;
-    border: $border-width-xsmall solid $color-border-neutral-default;
+    border: $border-width-xsmall solid $typography-color-border;
     border-radius: $radius-medium;
   }
 

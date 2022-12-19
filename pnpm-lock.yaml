@@ -11,9 +11,11 @@ importers:
       '@casts/cli': workspace:^0.0.1
       '@casts/common': workspace:^0.0.1
       '@casts/config-provider': workspace:^0.0.1
+      '@casts/divider': workspace:^0.0.1
       '@casts/hooks': workspace:^0.0.1
       '@casts/icons': workspace:^0.0.1
       '@casts/input': workspace:^0.0.1
+      '@casts/layout': workspace:^0.0.1
       '@casts/message': workspace:^0.0.1
       '@casts/notification': workspace:^0.0.1
       '@casts/popup': workspace:^0.0.1
@@ -65,9 +67,11 @@ importers:
       '@casts/checkbox': link:packages/casts-checkbox
       '@casts/common': link:packages/casts-common
       '@casts/config-provider': link:packages/casts-config-provider
+      '@casts/divider': link:packages/casts-divider
       '@casts/hooks': link:packages/casts-hooks
       '@casts/icons': link:packages/casts-icons
       '@casts/input': link:packages/casts-input
+      '@casts/layout': link:packages/casts-layout
       '@casts/message': link:packages/casts-message
       '@casts/notification': link:packages/casts-notification
       '@casts/popup': link:packages/casts-popup
@@ -504,6 +508,39 @@ importers:
       father: 4.0.7_webpack@5.75.0
       ts-node: 10.9.1_e3zhigwspfrsbnjjsuaqg45mum
       typescript: 4.8.4
+      vite: 4.0.0_@types+node@18.11.12
+      vitest: 0.25.7
+
+  packages/casts-layout:
+    specifiers:
+      '@casts/common': workspace:^0.0.1
+      '@casts/config-provider': workspace:^0.0.1
+      '@casts/standard': workspace:^0.0.1
+      '@casts/theme': workspace:^0.0.1
+      '@testing-library/jest-dom': ^5.16.4
+      '@testing-library/react': ^13
+      '@types/testing-library__jest-dom': ^5.14.5
+      clsx: ^1.2.1
+      father: ^4.0.6
+      react: '>=17'
+      ts-node: ^10
+      typescript: ^4
+      vite: ^4.0.0
+      vitest: ^0.25.7
+    dependencies:
+      '@casts/common': link:../casts-common
+      '@casts/config-provider': link:../casts-config-provider
+      '@casts/theme': link:../casts-theme
+      clsx: 1.2.1
+      react: 18.2.0
+    devDependencies:
+      '@casts/standard': link:../casts-standard
+      '@testing-library/jest-dom': 5.16.5
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@types/testing-library__jest-dom': 5.14.5
+      father: 4.0.7_webpack@5.75.0
+      ts-node: 10.9.1_r65g46xrm45gbuklnvp6xevc2y
+      typescript: 4.9.4
       vite: 4.0.0_@types+node@18.11.12
       vitest: 0.25.7
 
@@ -1522,7 +1559,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1532,7 +1569,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1542,7 +1579,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1553,7 +1590,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1564,7 +1601,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/selector-specificity': 2.0.2_zurzgjffv23ohtxa7nq7nizuja
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -1574,7 +1611,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1585,7 +1622,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1595,7 +1632,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1605,7 +1642,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -1615,7 +1652,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /@csstools/selector-specificity/2.0.2_tbwh2mpcdwdeb2slx6bobindua:
@@ -3719,7 +3756,7 @@ packages:
       mime: 1.4.1
       react: 16.14.0
       react-refresh: 0.10.0
-      react-router: 5.2.0_react@18.2.0
+      react-router: 5.2.0_react@16.14.0
       react-router-config: 5.1.1_6flbfkch6crntn4ac2g723iqde
       react-router-dom: 5.2.0_react@16.14.0
       regenerator-runtime: 0.13.5
@@ -4494,7 +4531,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -5636,7 +5673,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -5665,7 +5702,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -5718,7 +5755,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /css-select/4.3.0:
@@ -10606,7 +10643,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10616,7 +10653,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.6
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10634,7 +10671,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10661,7 +10698,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10688,7 +10725,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10705,7 +10742,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10715,7 +10752,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10741,7 +10778,7 @@ packages:
     peerDependencies:
       postcss: ^8.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10759,7 +10796,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10778,7 +10815,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10796,7 +10833,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10827,7 +10864,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10844,7 +10881,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -10859,7 +10896,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-gap-properties/2.0.0:
@@ -10875,7 +10912,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-image-set-function/3.0.1:
@@ -10892,7 +10929,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10907,7 +10944,7 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-js/2.0.3:
@@ -10933,7 +10970,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/postcss-progressive-custom-properties': 1.3.0_postcss@8.4.17
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -10968,7 +11005,7 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-media-minmax/4.0.0:
@@ -10984,7 +11021,7 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-media-query-parser/0.2.3:
@@ -11079,7 +11116,7 @@ packages:
       postcss: ^8.2
     dependencies:
       '@csstools/selector-specificity': 2.0.2_zurzgjffv23ohtxa7nq7nizuja
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -11108,7 +11145,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -11123,7 +11160,7 @@ packages:
     peerDependencies:
       postcss: ^8
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-place/4.0.1:
@@ -11140,7 +11177,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -11255,7 +11292,7 @@ packages:
     peerDependencies:
       postcss: ^8.2
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -11270,7 +11307,7 @@ packages:
     peerDependencies:
       postcss: ^8.0.3
     dependencies:
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-resolve-nested-selector/0.1.1:
@@ -11329,7 +11366,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       balanced-match: 1.0.2
-      postcss: 8.4.17
+      postcss: mirrors.tencent.com/postcss/8.4.17
     dev: true
 
   /postcss-selector-parser/5.0.0:

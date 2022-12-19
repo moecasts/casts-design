@@ -35,6 +35,12 @@
         "category": "size"
       },
       "value": "48px"
+    },
+    "xxlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "64px"
     }
   }
 }

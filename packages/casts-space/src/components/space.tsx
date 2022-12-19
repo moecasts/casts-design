@@ -47,6 +47,14 @@ export const getAlignItemsBySpaceAlign = (align?: `${SpaceAlign}`) => {
 };
 
 export const getGap = (size?: SpaceSize) => {
+  if (!size && size !== 0) {
+    return defaultSpaceProps.size as string;
+  }
+
+  if (Object.values(SpaceSizeEnum).includes(size as SpaceSizeEnum)) {
+    return getGapBySizeEnum(size);
+  }
+
   const formatSize = (size: SpaceSize) => {
     if (Number.isInteger(size)) {
       return `${size}px`;
@@ -54,10 +62,6 @@ export const getGap = (size?: SpaceSize) => {
 
     return size as string;
   };
-
-  if (!size && size !== 0) {
-    return defaultSpaceProps.size as string;
-  }
 
   if (Array.isArray(size)) {
     return size.map((item) => formatSize(item)).join(' ');

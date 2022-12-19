@@ -1,0 +1,39 @@
+@import '@casts/theme/styles/scss/core';
+
+$layout-prefix-cls: #{$prefix-cls}-layout;
+
+.demo-layout {
+  border-radius: $radius-medium;
+  overflow: hidden;
+  box-shadow: $shadow-level-2;
+
+  @at-root .#{$layout-prefix-cls} {
+    &-header,
+    &-aside,
+    &-content,
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 $space-one-and-a-half-x;
+    }
+  }
+
+  .#{$layout-prefix-cls}-header {
+    background-color: $color-palette-neutral-100;
+    min-height: $size-xxlarge;
+  }
+  .#{$layout-prefix-cls}-footer {
+    background-color: $color-palette-neutral-100;
+    min-height: $size-xxlarge;
+  }
+  .#{$layout-prefix-cls}-aside {
+    background-color: $color-palette-neutral-150;
+    width: 30%;
+    max-width: 200px;
+  }
+  .#{$layout-prefix-cls}-content {
+    background-color: $color-palette-neutral-0;
+    height: 200px;
+  }
+}
