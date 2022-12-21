@@ -15,23 +15,30 @@ type MessageFunctionOptions = Omit<MessageProps, 'content'> &
 
 const DEFAULT_POSITION = 'top-center';
 
+const DEFAULT_DURATION = 3000;
+
 const createMessage = (
   type: string,
   content: ReactNode,
   options: MessageFunctionOptions = {},
 ) => {
   createToastContainerIfNotExists('cds-toast-root');
-  const { position = DEFAULT_POSITION, duration, ...props } = options;
+  const {
+    position = DEFAULT_POSITION,
+    duration = DEFAULT_DURATION,
+    ...props
+  } = options;
   const toastOptions = {
     position,
-    duration: props.close ? Infinity : duration,
+    duration: props.close || duration === 0 ? Infinity : duration,
     Component: Message,
     props: {
       ...props,
       theme: type,
     },
   };
-  return toast(content as Renderable, toastOptions);
+  const id = toast(content as Renderable, toastOptions);
+  return id;
 };
 
 const createMessagePromise = (

@@ -9,6 +9,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
 
 .#{$alert-prefix-cls} {
   display: flex;
+  gap: $space-three-quarter-x;
   align-items: flex-start;
   width: fit-content;
   padding: $alert-space;
@@ -24,7 +25,6 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
 
   &-icon {
     flex-shrink: 0;
-    margin-right: $space-three-quarter-x;
     font-size: 0;
 
     .#{$prefix-cls}-circular-progress-container,
@@ -88,7 +88,6 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
     flex-shrink: 0;
     align-items: flex-start;
     padding: 0;
-    margin-left: $space-half-x;
     font-size: $alert-body-font-size;
     line-height: $alert-title-line-height;
     color: inherit;

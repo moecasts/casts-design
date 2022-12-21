@@ -10,6 +10,7 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
 .#{$notification-prefix-cls} {
   z-index: $notification-elevation-z-index;
   display: flex;
+  gap: $space-half-x;
   align-items: flex-start;
   width: fit-content;
   padding: $notification-space-inset;
@@ -28,7 +29,6 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
 
   &-icon {
     flex-shrink: 0;
-    margin-right: $space-three-quarter-x;
     font-size: 0;
 
     .#{$prefix-cls}-circular-progress-container,
@@ -92,7 +92,6 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
     flex-shrink: 0;
     align-items: top;
     padding: 0;
-    margin-left: $space-half-x;
     font-size: $notification-body-font-size;
     line-height: $notification-title-line-height;
     color: inherit;

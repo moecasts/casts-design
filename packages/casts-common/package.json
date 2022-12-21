@@ -38,7 +38,8 @@
     "vitest": "^0.25.7"
   },
   "peerDependencies": {
-    "react": ">=17"
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "dependencies": {
     "@casts/config-provider": "workspace:^0.0.1",

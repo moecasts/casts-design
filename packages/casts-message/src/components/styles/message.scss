@@ -8,6 +8,7 @@
 .#{$prefix-cls}-message {
   z-index: $message-elevation-z-index;
   display: flex;
+  gap: $space-half-x;
   align-items: flex-start;
   width: fit-content;
   padding: $message-space-inset;
@@ -25,7 +26,6 @@
 
   &-icon {
     flex-shrink: 0;
-    margin-right: $space-half-x;
     font-size: 0;
 
     .#{$prefix-cls}-circular-progress-container,
@@ -63,7 +63,6 @@
     flex-shrink: 0;
     align-items: top;
     padding: 0;
-    margin-left: $space-half-x;
     font-size: $message-font-size;
     line-height: $message-line-height;
     color: inherit;
