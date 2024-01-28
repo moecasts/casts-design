@@ -1,0 +1,30 @@
+{
+  "elevation": {
+    "zIndex": {
+      "bottom": {
+        "value": -100
+      },
+      "low": {
+        "value": 1
+      },
+      "mask": {
+        "value": 100
+      },
+      "sticky": {
+        "value": 200
+      },
+      "overlay": {
+        "value": 300
+      },
+      "dialog": {
+        "value": 400
+      },
+      "top": {
+        "value": 99999
+      },
+      "auto": {
+        "value": "auto"
+      }
+    }
+  }
+}

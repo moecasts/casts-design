@@ -1,0 +1,46 @@
+{
+  "radius": {
+    "xsmall": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "2px"
+    },
+    "small": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "4px"
+    },
+    "medium": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "6px"
+    },
+    "large": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "8px"
+    },
+    "sharp": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "0px"
+    },
+    "pill": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "99999px"
+    },
+    "circle": {
+      "attributes": {
+        "category": "radius"
+      },
+      "value": "50%"
+    }
+  }
+}

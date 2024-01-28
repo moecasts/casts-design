@@ -1,0 +1,9 @@
+{
+  "avatarGroup": {
+    "color": {
+      "border": {
+        "value": "{color.surface.container.default}"
+      }
+    }
+  }
+}

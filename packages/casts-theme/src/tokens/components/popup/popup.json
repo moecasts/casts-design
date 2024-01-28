@@ -1,0 +1,41 @@
+{
+  "popup": {
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "color": {
+      "text": {
+        "light": {
+          "value": "{color.text.primary}"
+        },
+        "dark": {
+          "value": "{color.text.anti}"
+        }
+      },
+      "surface": {
+        "light": {
+          "value": "{color.surface.container.default}"
+        },
+        "dark": {
+          "value": "{color.surface.container.anti}"
+        }
+      }
+    },
+    "space": {
+      "value": "{space.0375-x}"
+    },
+    "shadow": {
+      "value": "{shadow.level.3}"
+    },
+    "elevation": {
+      "zIndex": {
+        "value": "{elevation.zIndex.overlay}"
+      }
+    }
+  }
+}

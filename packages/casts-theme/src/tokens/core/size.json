@@ -1,0 +1,58 @@
+{
+  "size": {
+    "xxxsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "16px"
+    },
+    "xxsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "20px"
+    },
+    "xsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "24px"
+    },
+    "small": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "28px"
+    },
+    "medium": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "32px"
+    },
+    "large": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "40px"
+    },
+    "xlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "48px"
+    },
+    "xxlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "56px"
+    },
+    "xxxlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "value": "64px"
+    }
+  }
+}

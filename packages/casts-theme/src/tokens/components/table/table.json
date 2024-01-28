@@ -1,0 +1,46 @@
+{
+  "table": {
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      },
+      "weight": {
+        "value": "{font.weight.normal}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "color": {
+      "border": {
+        "value": "{color.border.component.default}"
+      }
+    },
+    "thead": {
+      "fontSize": {
+        "value": "12px"
+      },
+      "color": {
+        "surface": {
+          "value": "{color.surface.secondaryContainer.default}"
+        },
+        "text": {
+          "value": "{color.text.secondary}"
+        }
+      }
+    },
+    "cell": {
+      "space": {
+        "value": "{space.05-x}"
+      }
+    },
+    "row": {
+      "size": {
+        "value": "{size.large}"
+      }
+    }
+  }
+}
