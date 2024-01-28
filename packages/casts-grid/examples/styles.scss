@@ -1,0 +1,30 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+.demo-grid {
+  width: 100%;
+
+  .#{$prefix-cls}-row {
+  }
+
+  .#{$prefix-cls}-col {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      text-align: center;
+    }
+
+    &:nth-child(even) {
+      div {
+        background-color: $color-palette-brand-200;
+      }
+    }
+
+    &:nth-child(odd) {
+      div {
+        background-color: $color-palette-brand-100;
+      }
+    }
+  }
+}
