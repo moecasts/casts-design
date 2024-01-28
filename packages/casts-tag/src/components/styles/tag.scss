@@ -1,0 +1,199 @@
+@use 'sass:list';
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/tag';
+@import '@casts/theme/styles/scss/vars/tag';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+$tag-prefix-cls: #{$prefix-cls}-tag;
+
+.#{$tag-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+
+  @include button-style($tag-prefix-cls, $cursor: initial);
+
+  &.#{$tag-prefix-cls}--checkable {
+    cursor: pointer !important;
+  }
+
+  $tag-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
+
+  @each $color in $tag-colors {
+    &--contained {
+      &.#{$tag-prefix-cls}--pastel {
+        &.#{$tag-prefix-cls}--#{$color} {
+          @include button-color(
+            $tag-prefix-cls,
+            $with-background: true,
+            $variant: 'contained',
+
+            $color-outline-default:
+              map-get($tag-tokens, tag-color-outline-#{$color}-default),
+            $color-surface-default:
+              map-get(
+                $tag-tokens,
+                tag-color-surface-#{$color}-default-on-pastel
+              ),
+            $color-surface-hover:
+              map-get(
+                $tag-tokens,
+                tag-color-surface-#{$color}-default-on-pastel
+              ),
+            $color-surface-active:
+              map-get(
+                $tag-tokens,
+                tag-color-surface-#{$color}-default-on-pastel
+              ),
+            $color-surface-disabled:
+              map-get(
+                $tag-tokens,
+                tag-color-surface-#{$color}-default-on-pastel
+              ),
+            $color-text-default:
+              map-get($tag-tokens, tag-color-text-#{$color}-default),
+            $color-text-hover:
+              map-get($tag-tokens, tag-color-text-#{$color}-default),
+            $color-text-active:
+              map-get($tag-tokens, tag-color-text-#{$color}-default),
+            $color-text-disabled:
+              map-get($tag-tokens, tag-color-text-#{$color}-disabled)
+          );
+
+          &.#{$tag-prefix-cls}--bordered {
+            @include button-border(
+              $tag-prefix-cls,
+              $with-border: true,
+              $border-style: solid,
+              $color-border-default:
+                map-get($tag-tokens, tag-color-border-#{$color}-default),
+              $color-border-hover:
+                map-get($tag-tokens, tag-color-border-#{$color}-hover),
+              $color-border-active:
+                map-get($tag-tokens, tag-color-border-#{$color}-active),
+              $color-border-disabled:
+                map-get($tag-tokens, tag-color-border-#{$color}-disabled)
+            );
+          }
+        }
+      }
+
+      &.#{$tag-prefix-cls}--#{$color} {
+        @include button-color(
+          $tag-prefix-cls,
+          $with-background: true,
+          $variant: 'contained',
+
+          $color-outline-default:
+            map-get($tag-tokens, tag-color-outline-#{$color}-default),
+          $color-surface-default:
+            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
+          $color-surface-hover:
+            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
+          $color-surface-active:
+            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
+          $color-surface-disabled:
+            map-get($tag-tokens, tag-color-surface-#{$color}-disabled-on-solid),
+          $color-text-default: $color-text-anti,
+          $color-text-hover: $color-text-anti,
+          $color-text-active: $color-text-anti,
+          $color-text-disabled: $color-text-anti-disabled
+        );
+      }
+    }
+
+    &--outline {
+      &.#{$tag-prefix-cls}--#{$color} {
+        @include button-color(
+          $tag-prefix-cls,
+          $with-background: true,
+          $variant: 'outline',
+
+          $color-outline-default:
+            map-get($tag-tokens, tag-color-outline-#{$color}-default),
+          $color-surface-default: transparent,
+          $color-surface-hover: transparent,
+          $color-surface-active: transparent,
+          $color-surface-disabled: transparent,
+          $color-text-default:
+            map-get($tag-tokens, tag-color-text-#{$color}-default),
+          $color-text-hover:
+            map-get($tag-tokens, tag-color-text-#{$color}-default),
+          $color-text-active:
+            map-get($tag-tokens, tag-color-text-#{$color}-default)
+        );
+
+        @include button-border(
+          $tag-prefix-cls,
+          $with-border: true,
+          $border-style: solid,
+          $color-border-default:
+            map-get($tag-tokens, tag-color-border-#{$color}-default),
+          $color-border-hover:
+            map-get($tag-tokens, tag-color-border-#{$color}-default),
+          $color-border-active:
+            map-get($tag-tokens, tag-color-border-#{$color}-default)
+        );
+      }
+    }
+
+    &--dashed {
+      &.#{$tag-prefix-cls}--#{$color} {
+        @include button-color(
+          $tag-prefix-cls,
+          $with-background: true,
+          $variant: 'dashed',
+
+          $color-outline-default:
+            map-get($tag-tokens, tag-color-outline-#{$color}-default),
+          $color-surface-default: transparent,
+          $color-surface-hover: transparent,
+          $color-surface-active: transparent,
+          $color-surface-disabled: transparent,
+          $color-text-default:
+            map-get($tag-tokens, tag-color-text-#{$color}-default),
+          $color-text-hover:
+            map-get($tag-tokens, tag-color-text-#{$color}-default),
+          $color-text-active:
+            map-get($tag-tokens, tag-color-text-#{$color}-default)
+        );
+
+        @include button-border(
+          $tag-prefix-cls,
+          $with-border: true,
+          $border-style: dashed,
+          $color-border-default:
+            map-get($tag-tokens, tag-color-border-#{$color}-default),
+          $color-border-hover:
+            map-get($tag-tokens, tag-color-border-#{$color}-default),
+          $color-border-active:
+            map-get($tag-tokens, tag-color-border-#{$color}-default)
+        );
+      }
+    }
+  }
+
+  $tag-sizes: 'small', 'medium', 'large';
+
+  @each $size in $tag-sizes {
+    &--#{$size} {
+      @include button-space(
+        $space-inset: map-get($tag-tokens, tag-space-#{$size})
+      );
+
+      @include button-size($element: 'tag', $size: $size, $tokens: $tag-tokens);
+    }
+  }
+
+  &-prefix,
+  &-suffix {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-close {
+    cursor: pointer;
+  }
+}
