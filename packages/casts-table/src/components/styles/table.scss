@@ -1,0 +1,144 @@
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/table';
+@import '@casts/theme/styles/scss/vars/table';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$table-prefix-cls: #{$prefix-cls}-table;
+
+.#{$table-prefix-cls} {
+  &-content {
+    overflow: auto;
+
+    @include scrollbar(8px, 2px);
+
+    &::-webkit-scrollbar:vertical {
+      border-inline-start: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &::-webkit-scrollbar:horizontal {
+      border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &::-webkit-scrollbar-corner {
+      display: none;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    text-align: left;
+    border-spacing: 0;
+
+    th,
+    td {
+      padding: $table-cell-space;
+      font-size: $table-font-size;
+      font-weight: $table-font-weight;
+      line-height: $table-line-height;
+    }
+
+    .#{$table-prefix-cls}-thead {
+      min-height: $table-row-size;
+      font-weight: normal;
+      color: $table-thead-color-text;
+      background-color: $table-thead-color-surface;
+    }
+  }
+
+  &--round {
+    .#{$table-prefix-cls}-content {
+      border-radius: $table-radius;
+    }
+
+    // table {
+    //   .#{$table-prefix-cls}-thead {
+    //     th {
+    //       &:first-child {
+    //         border-top-left-radius: $table-radius;
+    //       }
+    //
+    //       &:last-child {
+    //         border-top-right-radius: $table-radius;
+    //       }
+    //     }
+    //   }
+    //
+    //   .#{$table-prefix-cls}-body {
+    //     tr:last-child {
+    //       td {
+    //         &:first-child {
+    //           border-bottom-left-radius: $table-radius;
+    //         }
+    //
+    //         &:last-child {
+    //           border-bottom-right-radius: $table-radius;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  &--row-round {
+    & {
+      th,
+      td {
+        &:first-child {
+          border-top-left-radius: $table-radius;
+          border-bottom-left-radius: $table-radius;
+        }
+
+        &:last-child {
+          border-top-right-radius: $table-radius;
+          border-bottom-right-radius: $table-radius;
+        }
+      }
+    }
+  }
+
+  &--stripe {
+    table {
+      tbody {
+        tr:nth-child(even) {
+          background-color: $table-thead-color-surface;
+        }
+      }
+    }
+  }
+
+  &--bordered {
+    .#{$table-prefix-cls}-content {
+      border: $border-width-xsmall solid $table-color-border;
+    }
+
+    table {
+      // border-right: $border-width-xsmall solid $table-color-border;
+    }
+  }
+
+  &--cell-bordered {
+    table {
+      th,
+      td {
+        border-top: $border-width-xsmall solid $table-color-border;
+
+        &:not(:first-child) {
+          border-left: $border-width-xsmall solid $table-color-border;
+        }
+      }
+    }
+  }
+
+  &--header-fixed {
+    table {
+      .#{$table-prefix-cls}-thead {
+        position: sticky;
+        top: 0;
+      }
+    }
+  }
+}
