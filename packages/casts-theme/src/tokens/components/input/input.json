@@ -13,11 +13,11 @@
     },
     "font": {
       "size": {
-        "medium": {
-          "value": "{font.size.small}"
-        },
         "small": {
           "value": "{font.size.xsmall}"
+        },
+        "medium": {
+          "value": "{font.size.small}"
         }
       }
     },

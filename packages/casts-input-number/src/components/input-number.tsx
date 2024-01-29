@@ -34,6 +34,8 @@ export const InputNumber = forwardRef(
       belowMinValue,
       overRangeValue,
 
+      status,
+
       ...rest
     } = useInputNumber(propsWithDefault);
 
@@ -49,7 +51,7 @@ export const InputNumber = forwardRef(
           onBlur={handleBlur}
           className={classes}
           style={styles}
-          status={overRangeValue ? 'error' : undefined}
+          status={status ?? (overRangeValue ? 'error' : undefined)}
           suffix={
             <>
               {controls && (

@@ -17,6 +17,9 @@
       },
       "code": {
         "value": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace"
+      },
+      "mono": {
+        "value": "'Roboto Mono', monospace"
       }
     },
     "size": {

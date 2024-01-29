@@ -22,6 +22,8 @@ import './styles/select.scss';
 const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
   const propsWithDefault = useDefaultProps(props, defaultSelectProps);
 
+  const { size } = propsWithDefault;
+
   const {
     classes,
     styles,
@@ -37,7 +39,7 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
     handleOutsideClick,
   } = useSelect(propsWithDefault);
 
-  const { open, handleOpenChange } = useSelectContext();
+  const { open, handleOpenChange, valueDisplay } = useSelectContext();
 
   const popupRef = useRef<PopupRef>(null);
 
@@ -60,8 +62,6 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
   }, []);
 
   useImperativeHandle(ref, () => wrapRef.current as HTMLDivElement);
-
-  const { valueDisplay } = useSelectContext();
 
   return (
     <Popup
@@ -86,6 +86,7 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
           readOnly
           placeholder={placeholder}
           value={valueDisplay}
+          size={size}
           suffix={
             <FlipVerticalArrowLine flip={open} className={arrowClasses} />
           }

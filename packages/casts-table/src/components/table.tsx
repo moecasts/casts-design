@@ -1,4 +1,6 @@
 import { forwardRef, Ref, useImperativeHandle } from 'react';
+import { Pagination } from '@casts/pagination';
+import { CircularProgress } from '@casts/progress';
 import { flexRender } from '@tanstack/react-table';
 
 import { useTable } from './hooks';
@@ -15,16 +17,32 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
     theadClasses,
     thClasses,
     tbodyClasses,
-    // tfootClasses,
+    tfootClasses,
+
+    contentStyles,
+
+    paginationClasses,
+    pagination,
+    handlePaginationChange,
 
     table,
+
+    tfoot = true,
+
+    loading,
+    loadingClasses,
   } = useTable(props);
 
   useImperativeHandle(ref, () => ({}));
 
   return (
     <div className={classes} style={styles}>
-      <div className={contentClasses}>
+      {loading && (
+        <div className={loadingClasses}>
+          <CircularProgress track />
+        </div>
+      )}
+      <div className={contentClasses} style={contentStyles}>
         <table>
           <thead className={theadClasses}>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -53,26 +71,35 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
               </tr>
             ))}
           </tbody>
-          {/**
-          <tfoot className={tfootClasses}>
-            {table.getFooterGroups().map((footerGroup) => (
-              <tr key={footerGroup.id}>
-                {footerGroup.headers.map((header) => (
-                  <th key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.footer,
-                          header.getContext(),
-                        )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </tfoot>
-          */}
+          {tfoot && (
+            <tfoot className={tfootClasses}>
+              {table.getFooterGroups().map((footerGroup) => (
+                <tr key={footerGroup.id}>
+                  {footerGroup.headers.map((header) => (
+                    <th key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.footer,
+                            header.getContext(),
+                          )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </tfoot>
+          )}
         </table>
       </div>
+      {pagination.total && (
+        <Pagination
+          total={pagination.total}
+          className={paginationClasses}
+          current={(pagination as any).current || 1}
+          pageSize={pagination.pageSize}
+          onChange={handlePaginationChange}
+        />
+      )}
     </div>
   );
 });

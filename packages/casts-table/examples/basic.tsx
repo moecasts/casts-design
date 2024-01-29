@@ -11,7 +11,7 @@ const makeData = () => {
     'Sydney No. 1 Lake Park',
   ];
 
-  return [...Array(10)].map((_, idx) => {
+  return [...Array(100)].map((_, idx) => {
     return {
       name: names[idx % names.length],
       age: ages[idx % ages.length],
@@ -40,9 +40,13 @@ const TableBasicDemo = () => {
         { key: 'address2', title: 'address2' },
         { key: 'address3', title: 'address3' },
       ]}
+      round
+      // rowRound
       bordered
-      cellBordered
-      stripe
+      // cellBordered
+      rowBordered
+      // stripe
+      maxHeight={500}
     />
   );
 };

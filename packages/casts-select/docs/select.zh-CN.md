@@ -12,6 +12,10 @@ nav:
 
 <code src="../examples/basic.tsx"></code>
 
+## 不同大小
+
+<code src="../examples/different-sizes.tsx" />
+
 ## 虚拟滚动
 
 - 当数据量大于 `100 `时，会默认开启虚拟滚动，以获得更好的性能。

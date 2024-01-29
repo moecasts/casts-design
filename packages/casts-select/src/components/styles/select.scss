@@ -15,6 +15,10 @@ $select-prefix-cls: #{$prefix-cls}-select;
 .#{$select-prefix-cls} {
   display: inline-flex;
 
+  &-arrow {
+    color: $select-arrow-color-default;
+  }
+
   &-popup {
     .#{$prefix-cls}-popup-content {
       padding: 0px;
@@ -66,12 +70,6 @@ $select-prefix-cls: #{$prefix-cls}-select;
     @include button-style($selector: #{$select-prefix-cls}-option);
     @include button-color($selector: #{$select-prefix-cls}-option);
 
-    @include button-size(
-      $element: select-option,
-      $size: 'medium',
-      $tokens: $select-tokens
-    );
-
     @include button-space(
       $space-inset: map-get($select-tokens, select-option-space-inset-medium)
     );
@@ -88,6 +86,20 @@ $select-prefix-cls: #{$prefix-cls}-select;
 
     &-label {
       @include text-ellipsis();
+    }
+  }
+
+  $select-sizes: 'small', 'medium', 'large';
+
+  @each $size in $select-sizes {
+    &-popup--#{$size} {
+      .#{$select-prefix-cls}-option {
+        @include button-size(
+          $element: select-option,
+          $size: $size,
+          $tokens: $select-tokens
+        );
+      }
     }
   }
 }

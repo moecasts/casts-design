@@ -12,6 +12,10 @@ nav:
 
 <code src="../examples/basic.tsx"></code>
 
+## Different sizes
+
+<code src="../examples/different-sizes.tsx" />
+
 ## Virtual scroll
 
 - When the data size is greater than `100`, virtual scrolling will be enabled by default for better performance.

@@ -22,4 +22,10 @@ export const zhCN = {
       number: '{name}不是合法的数字类型',
     },
   },
+
+  pagination: {
+    perPage: '{pageSize} 条 / 页',
+    goto: '跳至',
+    page: '页',
+  },
 };

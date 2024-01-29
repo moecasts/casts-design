@@ -8,6 +8,8 @@ import {
 export type TableProps = UseTableProps;
 
 export type UseTableProps = BaseComponentProps & {
+  loading?: boolean;
+
   /** table columns */
   columns: Column[];
 
@@ -29,8 +31,38 @@ export type UseTableProps = BaseComponentProps & {
   /** Whether to display the table row round style */
   rowRound?: boolean;
 
+  /**
+   * Whether to display the table row border
+   */
+  rowBordered?: boolean;
+
   /** Whether to fixed header */
   headerFixed?: boolean;
+
+  /** Whether to display row hover style */
+  hoverAble?: boolean;
+
+  /** table max height */
+  maxHeight?: string | number;
+
+  /** Whether to show table footer */
+  tfoot?: boolean;
+
+  /** Whether to fixed footer */
+  footerFixed?: boolean;
+
+  pagination?: {
+    pageSize?: number;
+    total?: number;
+  };
+
+  onPaginationChange?: (data: {
+    current: number;
+    pageSize: number;
+    total: number;
+  }) => void;
+
+  manualPagination?: boolean;
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types

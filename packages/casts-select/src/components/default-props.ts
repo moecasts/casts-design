@@ -7,4 +7,5 @@ export const getDefaultVirtual = () =>
 
 export const defaultSelectProps = {
   virtual: getDefaultVirtual(),
+  size: 'medium',
 } satisfies Partial<SelectProps>;

@@ -6,7 +6,7 @@ import { useSelectContext } from '../select-context';
 import { UseSelectProps } from '../types';
 
 export const useSelect = (props: UseSelectProps) => {
-  const { className, style, onOutsideClick, multiple, ...rest } = props;
+  const { className, style, onOutsideClick, multiple, size, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -25,7 +25,9 @@ export const useSelect = (props: UseSelectProps) => {
 
   const listClasses = `${prefixCls}-list`;
 
-  const popupClasses = `${prefixCls}-popup`;
+  const popupClasses = clsx(`${prefixCls}-popup`, {
+    [`${prefixCls}-popup--${size}`]: size,
+  });
 
   /* --------------------------------- events ---------------------------------------- */
   const handleOutsideClick = (e: Event) => {

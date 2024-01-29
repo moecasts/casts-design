@@ -1,5 +1,12 @@
 {
   "select": {
+    "arrow": {
+      "color": {
+        "default": {
+          "value": "{color.text.secondary}"
+        }
+      }
+    },
     "list": {
       "space": {
         "value": "{space.0375-x}"
@@ -27,7 +34,7 @@
               "category": "size"
             },
 
-            "value": "{font.size.medium}"
+            "value": "{font.size.small}"
           }
         }
       },

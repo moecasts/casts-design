@@ -1,8 +1,8 @@
 import { BaseComponentProps } from '@casts/common';
-import { UseInputProps } from '@casts/input';
+import { InputProps, UseInputProps } from '@casts/input';
 
 export type UseInputNumberProps = BaseComponentProps &
-  Omit<UseInputProps, 'value' | 'defaultValue'> & {
+  Omit<UseInputProps, 'value' | 'defaultValue' | 'onChange'> & {
     value?: number;
 
     defaultValue?: number;
@@ -19,6 +19,12 @@ export type UseInputNumberProps = BaseComponentProps &
      * Whether to show `+/-` controls
      */
     controls?: boolean;
+
+    onChange?: (value: number | undefined) => void;
   };
 
-export type InputNumberProps = UseInputNumberProps;
+export type InputNumberProps = Omit<
+  InputProps,
+  'value' | 'defaultValue' | 'onChange'
+> &
+  UseInputNumberProps;

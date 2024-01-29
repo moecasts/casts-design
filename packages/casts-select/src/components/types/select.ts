@@ -1,4 +1,4 @@
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, Size } from '@casts/common';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SelectValue = any;
@@ -13,6 +13,8 @@ export type SelectVirtual = {
    */
   threshold?: number;
 };
+
+export type SelectSize = Size;
 
 export type UseSelectProps = BaseComponentProps & {
   placeholder?: string;
@@ -56,6 +58,8 @@ export type UseSelectProps = BaseComponentProps & {
    * @default true
    */
   virtual?: boolean | SelectVirtual;
+
+  size?: SelectSize;
 };
 
 export type SelectProps = UseSelectProps;

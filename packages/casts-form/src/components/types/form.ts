@@ -21,7 +21,7 @@ export type BaseFormProps = {
   /** Whether to show the required */
   required?: boolean;
 
-  /** Text-align value of label (only works when `layout="horizontal")` */
+  /** Text-align value of label (only works when `layout="horizontal"`) */
   labelAlign?: 'right' | 'left';
 
   /** Callback invoked after clicked on submit button or executed formApi.submit(), and all validation pass. */

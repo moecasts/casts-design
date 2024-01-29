@@ -22,4 +22,10 @@ export const enUS = {
       number: '{name} is not a valid number',
     },
   },
+
+  pagination: {
+    perPage: '{pageSize} / page',
+    goto: 'Goto',
+    page: 'page',
+  },
 };

@@ -11,23 +11,31 @@ export const useControlled = <T, P extends any[] = any[]>(
   props: Record<PropertyKey, any> = {},
   valueKey: string,
   onChange: ChangeHandler<T, P>,
+  /**
+   * use fallbackDefaultValue when defaultValue is not exist
+   */
+  fallbackDefaultValue?: T,
 ): [T, ChangeHandler<T, P>] => {
   // 外部设置 props，说明希望受控
+
+  // is controlled mode when valueKey is exist in props
   const controlled = Reflect.has(props, valueKey);
   // 受控属性
+  // controlled prop
   const value = props[valueKey];
-  // 约定受控属性的非受控 key 为 defaultXxx
-  const defaultValue = props[`default${upperFirst(valueKey)}`];
+  // The uncontrolled key for a controlled attribute is defaultXxx.
+  const defaultValue =
+    props[`default${upperFirst(valueKey)}`] ?? fallbackDefaultValue;
 
-  // 无论是否受控，都要维护一个内部变量，默认值由 defaultValue 控制
+  // maintain an internal variable regardless of whether it is controlled, the default value is controlled by defaultValue
   const [internalValue, setInternalValue] = useState(defaultValue);
 
-  // 受控模式
+  // controlled mode
   if (controlled) {
     return [value, onChange || noop];
   }
 
-  // 非受控模式
+  // uncontrolled mode
   return [
     internalValue,
     (newValue, ...args) => {

@@ -52,19 +52,27 @@ export const useInputNumber = (props: UseInputNumberProps) => {
       return;
     }
 
-    const newValue = isValueEmpty(value) ? undefined : Number(value);
+    const getValue = (value: string) => {
+      if (String(value) === '-') {
+        return value;
+      }
 
-    if (isNumber(max) && !isUndefined(newValue) && newValue > max) {
+      return isValueEmpty(value) ? undefined : Number(value);
+    };
+
+    const newValue = getValue(value);
+
+    if (isNumber(max) && isNumber(newValue) && newValue > max) {
       return;
     }
 
-    if (isNumber(min) && !isUndefined(newValue) && newValue < min) {
+    if (isNumber(min) && isNumber(newValue) && newValue < min) {
       return;
     }
 
     if (
       isNumber(decimal) &&
-      !isUndefined(newValue) &&
+      isNumber(newValue) &&
       isDecimalOverflow(value, decimal)
     ) {
       return;

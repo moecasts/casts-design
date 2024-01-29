@@ -34,12 +34,24 @@
     },
     "cell": {
       "space": {
-        "value": "{space.05-x}"
+        "vertical": {
+          "value": "{space.1-x}"
+        },
+        "horizontal": {
+          "value": "{space.1025-x}"
+        }
       }
     },
     "row": {
       "size": {
         "value": "{size.large}"
+      },
+      "color": {
+        "surface": {
+          "hover": {
+            "value": "{color.surface.secondaryContainer.default}"
+          }
+        }
       }
     }
   }

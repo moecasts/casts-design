@@ -21,12 +21,12 @@ const dialog1 = DialogPlugin({
     </div>
   ),
   onCancel: (_, context) => {
-    console.log('debug onCancel', context);
+    console.log('onCancel', context);
     dialog1.destroy();
     // dialog1.hide();
   },
   onConfirm: (_, context) => {
-    console.log('debug onConfirm', context);
+    console.log('onConfirm', context);
     dialog1.destroy();
     // dialog1.hide();
   },
@@ -43,12 +43,11 @@ const dialog2 = DialogPlugin({
     </>
   ),
   onCancel: (_, context) => {
-    console.log('debug onCancel', context);
+    console.log('onCancel', context);
     dialog2.destroy();
-    // dialog2.hide();
   },
   onConfirm: (_, context) => {
-    console.log('debug onConfirm', context);
+    console.log('onConfirm', context);
     dialog2.destroy();
     // dialog2.hide();
   },
