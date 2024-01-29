@@ -4,7 +4,7 @@ import { DialogProps } from './dialog';
 import { ContextEvent, OpenChangeTrigger } from './use-dialog';
 import { UseDialogCardClassesProps } from './use-dialog-card-classes';
 
-export type DialogCardProps = HTMLAttributes<HTMLDivElement> &
+export type DialogCardProps = Omit<HTMLAttributes<HTMLDivElement>, 'content'> &
   Omit<
     UseDialogCardClassesProps &
       Pick<

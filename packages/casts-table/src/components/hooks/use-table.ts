@@ -1,4 +1,5 @@
-import { CSSProperties, useMemo, useState } from 'react';
+import { createElement, CSSProperties, useMemo, useState } from 'react';
+import { Checkbox } from '@casts/checkbox';
 import { formatSizeUnit, identity, pickBy } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PaginationProps } from '@casts/pagination';
@@ -16,8 +17,8 @@ import { Column, UseTableProps } from '../types';
 
 const columnHelper = createColumnHelper<any>();
 
-const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] =>
-  columns.map((column) => {
+const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
+  const cols = columns.map((column) => {
     const children = column.children ? getColumns(column.children) : undefined;
     const { key } = column;
 
@@ -42,6 +43,31 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] =>
       ...opts,
     });
   });
+
+  cols.unshift({
+    id: 'row-selection',
+    header: ({ table }) =>
+      createElement(Checkbox, {
+        checked: table.getIsAllRowsSelected() || table.getIsSomeRowsSelected(),
+        indeterminate: table.getIsSomeRowsSelected(),
+        onChange: (value) => {
+          const checked = table.getIsSomeRowsSelected() ? true : value;
+          table.toggleAllRowsSelected(checked as boolean);
+        },
+      }),
+    cell: ({ row }) =>
+      createElement(Checkbox, {
+        checked: row.getIsSelected(),
+        disabled: !row.getCanSelect(),
+        indeterminate: row.getIsSomeSelected(),
+        onChange: (value) => {
+          row.toggleSelected(value as boolean);
+        },
+      }),
+  });
+
+  return cols;
+};
 
 export const useTable = (props: UseTableProps) => {
   const {

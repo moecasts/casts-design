@@ -10,6 +10,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
 
 .#{$table-prefix-cls} {
   position: relative;
+
   &-content {
     position: relative;
     overflow: auto;
@@ -64,6 +65,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
 
   &--row-round {
     & {
+
       th,
       td {
         &:first-child {
@@ -97,6 +99,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
 
   &--cell-bordered {
     table {
+
       th,
       td {
         border-bottom: $border-width-xsmall solid $table-color-border;
@@ -115,6 +118,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
   }
 
   &--row-bordered {
+
     th,
     td {
       border-bottom: $border-width-xsmall solid $table-color-border;
@@ -132,6 +136,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
       .#{$table-prefix-cls}-thead {
         position: sticky;
         top: 0;
+        z-index: $elevation-z-index-low;
       }
     }
   }

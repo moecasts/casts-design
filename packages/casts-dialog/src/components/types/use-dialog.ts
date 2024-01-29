@@ -29,7 +29,7 @@ export type OpenChangeHandler = (
   context: { e?: ContextEvent; trigger?: OpenChangeTrigger },
 ) => void;
 
-export type UseDialogProps = HTMLAttributes<HTMLDivElement> &
+export type UseDialogProps = Omit<HTMLAttributes<HTMLDivElement>, 'content'> &
   WithRequired<BaseComponentProps, 'getPrefixCls'> & {
     /**
      * Whether the dialog is open
