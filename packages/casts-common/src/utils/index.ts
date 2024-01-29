@@ -17,6 +17,7 @@ export * from './is-keyboard-confirm';
 export * from './is-value-empty';
 export * from './log';
 export * from './raf';
+export * from './range-inclusive';
 export * from './scroll-to';
 export * from './translate-px-to-number';
 export * from './tree';
