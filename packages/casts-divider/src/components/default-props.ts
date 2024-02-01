@@ -1,6 +1,6 @@
 import { DividerProps } from './types';
 
-export const defaultDividerProps: Partial<DividerProps> = {
+export const defaultDividerProps = {
   layout: 'vertical',
   align: 'center',
-};
+} satisfies Partial<DividerProps>;

@@ -1,9 +1,10 @@
-import { SelectProps } from './types';
+import { SelectProps, SelectVirtual } from './types';
 
-export const getDefaultVirtual = () => ({
-  threshold: 100,
-});
+export const getDefaultVirtual = () =>
+  ({
+    threshold: 100,
+  }) satisfies Partial<SelectVirtual>;
 
-export const defaultSelectProps: Partial<SelectProps> = {
+export const defaultSelectProps = {
   virtual: getDefaultVirtual(),
-};
+} satisfies Partial<SelectProps>;

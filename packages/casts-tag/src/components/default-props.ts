@@ -1,6 +1,6 @@
 import { TagProps } from './types';
 
-export const defaultTagProps: Partial<TagProps> = {
+export const defaultTagProps = {
   theme: 'neutral',
   size: 'medium',
   variant: 'contained',
@@ -10,4 +10,4 @@ export const defaultTagProps: Partial<TagProps> = {
   checkedProps: {
     pastel: false,
   },
-};
+} satisfies Partial<TagProps>;

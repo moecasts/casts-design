@@ -35,5 +35,4 @@ export type SpaceProps = {
   wrap?: boolean;
   direction?: `${SpaceDirection}`;
   onClick?: (e?: MouseEvent<HTMLElement>) => void;
-  testa?: string;
 };
