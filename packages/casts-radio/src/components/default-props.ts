@@ -1,5 +1,5 @@
 import { RadioGroupProps } from './types';
 
-export const defaultRadioGroupProps: RadioGroupProps = {
+export const defaultRadioGroupProps = {
   type: 'radio',
-};
+} satisfies Partial<RadioGroupProps>;

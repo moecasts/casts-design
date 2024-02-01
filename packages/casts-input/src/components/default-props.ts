@@ -1,6 +1,6 @@
 import { InputProps } from './types';
 
-export const defaultInputProps: InputProps = {
+export const defaultInputProps = {
   shape: 'round',
   size: 'medium',
-};
+} satisfies Partial<InputProps>;

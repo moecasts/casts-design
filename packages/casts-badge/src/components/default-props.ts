@@ -1,5 +1,5 @@
 import { BadgeProps } from './types';
 
-export const defaultBadgeProps: Partial<BadgeProps> = {
+export const defaultBadgeProps = {
   placement: 'right-top',
-};
+} satisfies Partial<BadgeProps>;

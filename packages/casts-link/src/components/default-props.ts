@@ -1,7 +1,7 @@
 import { LinkProps } from './types';
 
-export const defaultLinkProps: Partial<LinkProps> = {
+export const defaultLinkProps = {
   theme: 'brand',
   size: 'medium',
   underline: 'hover',
-};
+} satisfies Partial<LinkProps>;

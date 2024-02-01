@@ -1,6 +1,6 @@
 import { DrawerProps } from './types';
 
-export const defaultDrawerProps: Partial<DrawerProps> = {
+export const defaultDrawerProps = {
   placement: 'right',
 
   mask: true,
@@ -14,4 +14,4 @@ export const defaultDrawerProps: Partial<DrawerProps> = {
   destroyOnClose: false,
 
   preventScrollThroughWhenVisible: false,
-};
+} satisfies Partial<DrawerProps>;
