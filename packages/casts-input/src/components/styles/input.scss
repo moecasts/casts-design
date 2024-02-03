@@ -84,6 +84,14 @@ $statuses: 'success', 'warning', 'error';
     outline: $input-outline-width solid $input-color-outline-brand-default;
   }
 
+  &--bordered {
+    border-color: $color-border-neutral-default;
+
+    &:hover {
+      border-color: $color-border-neutral-hover;
+    }
+  }
+
   // size
   @each $size in $sizes {
     &--#{$size} {

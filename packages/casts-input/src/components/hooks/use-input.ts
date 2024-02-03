@@ -46,6 +46,7 @@ export type UseInputProps = {
   defaultValue?: string;
   value?: string;
   getPrefixCls: GetPrefixCls;
+  bordered?: boolean;
 };
 
 export const useInput = (props: UseInputProps) => {
@@ -67,6 +68,7 @@ export const useInput = (props: UseInputProps) => {
     style,
     placeholder,
     defaultValue: _defaultValue,
+    bordered,
     ...rest
   } = props;
 
@@ -78,6 +80,7 @@ export const useInput = (props: UseInputProps) => {
     [`${prefixCls}--focused`]: focused,
     [`${prefixCls}--${size}`]: size,
     [`${prefixCls}--${shape}`]: shape,
+    [`${prefixCls}--bordered`]: bordered,
   });
   const wrapStyles = style;
 

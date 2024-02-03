@@ -18,6 +18,10 @@ nav:
 
 <code src="../examples/different-shape" />
 
+## 有边框
+
+<code src="../examples/bordered.tsx" />
+
 ## 前/后图标
 
 <code src="../examples/with-icon" />

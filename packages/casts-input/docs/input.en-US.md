@@ -18,6 +18,10 @@ nav:
 
 <code src="../examples/different-shape" />
 
+## Bordered
+
+<code src="../examples/bordered.tsx" />
+
 ## Prefix and suffix icon
 
 <code src="../examples/with-icon" />

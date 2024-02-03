@@ -38,4 +38,5 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   tips?: ReactNode;
   defaultValue?: string;
   value?: string;
+  bordered?: boolean;
 };
