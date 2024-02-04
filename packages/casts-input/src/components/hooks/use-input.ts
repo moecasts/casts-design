@@ -11,8 +11,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import { noop, useControlled } from '@casts/common';
+import { noop, omit, useControlled } from '@casts/common';
 import { GetPrefixCls } from '@casts/common';
+import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
 
 import {
@@ -45,7 +46,7 @@ export type UseInputProps = {
   tips?: ReactNode;
   defaultValue?: string;
   value?: string;
-  getPrefixCls: GetPrefixCls;
+  getPrefixCls?: GetPrefixCls;
   bordered?: boolean;
 };
 
@@ -55,7 +56,6 @@ export const useInput = (props: UseInputProps) => {
     clearable = true,
     className,
     disabled,
-    getPrefixCls,
     maxLength,
     onBlur,
     onChange: onChangeFromProps = noop,
@@ -71,6 +71,8 @@ export const useInput = (props: UseInputProps) => {
     bordered,
     ...rest
   } = props;
+
+  const { getPrefixCls } = useConfig();
 
   const [value, onChange] = useControlled(props, 'value', onChangeFromProps);
   const valueLength = useMemo(() => String(value || '')?.length || 0, [value]);
@@ -175,6 +177,6 @@ export const useInput = (props: UseInputProps) => {
     handleChange,
     handleCompositionStart,
     handleCompositionEnd,
-    ...rest,
+    ...omit(rest, 'getPrefixCls'),
   };
 };

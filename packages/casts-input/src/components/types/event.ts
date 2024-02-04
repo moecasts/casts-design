@@ -1,6 +1,6 @@
 import { ChangeEvent, CompositionEvent, MouseEvent } from 'react';
 
-export type InputValue = string | number;
+export type InputValue = string;
 
 export type ChangeEventContext = {
   type?: 'input';

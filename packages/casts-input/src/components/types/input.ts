@@ -5,7 +5,7 @@ import {
   PointerEventHandler,
   ReactNode,
 } from 'react';
-import { Size } from '@casts/common';
+import { GetPrefixCls, Size } from '@casts/common';
 
 import { ChangeEventHandler } from './event';
 
@@ -15,7 +15,10 @@ export type InputShape = 'circle' | 'square' | 'round';
 
 export type InputStatus = 'error' | 'warning' | 'success';
 
-export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
+export type InputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'onChange' | 'onCompositionEnd' | 'onCompositionStart' | 'prefix'
+> & {
   clearable?: boolean;
   onPointerDown?: PointerEventHandler<HTMLInputElement>;
   onPointerLeave?: PointerEventHandler<HTMLInputElement>;
@@ -39,4 +42,5 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   defaultValue?: string;
   value?: string;
   bordered?: boolean;
+  getPrefixCls?: GetPrefixCls;
 };
