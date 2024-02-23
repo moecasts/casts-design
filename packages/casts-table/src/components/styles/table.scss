@@ -46,6 +46,10 @@ $table-prefix-cls: #{$prefix-cls}-table;
       font-size: $table-font-size;
       font-weight: $table-font-weight;
       line-height: $table-line-height;
+
+      .#{$prefix-cls}-checkbox {
+        vertical-align: text-bottom;
+      }
     }
 
     .#{$table-prefix-cls}-thead,
@@ -65,7 +69,6 @@ $table-prefix-cls: #{$prefix-cls}-table;
 
   &--row-round {
     & {
-
       th,
       td {
         &:first-child {
@@ -95,11 +98,23 @@ $table-prefix-cls: #{$prefix-cls}-table;
     .#{$table-prefix-cls}-content {
       border: $border-width-xsmall solid $table-color-border;
     }
+
+    tfoot {
+      tr:first-child {
+        th {
+          border-top: $border-width-xsmall solid $table-color-border;
+        }
+      }
+      tr:last-child {
+        th {
+          border-bottom: none;
+        }
+      }
+    }
   }
 
   &--cell-bordered {
     table {
-
       th,
       td {
         border-bottom: $border-width-xsmall solid $table-color-border;
@@ -118,7 +133,6 @@ $table-prefix-cls: #{$prefix-cls}-table;
   }
 
   &--row-bordered {
-
     th,
     td {
       border-bottom: $border-width-xsmall solid $table-color-border;

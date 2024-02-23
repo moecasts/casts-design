@@ -46,6 +46,7 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
 
   cols.unshift({
     id: 'row-selection',
+    // header: ({ table }) => createElement('span', null, '选'),
     header: ({ table }) =>
       createElement(Checkbox, {
         checked: table.getIsAllRowsSelected() || table.getIsSomeRowsSelected(),

@@ -173,7 +173,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.neutral.125}"
+          "value": "{color.palette.neutral.100}"
         }
       },
       "component": {
@@ -181,7 +181,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.neutral.100}"
+          "value": "{color.palette.neutral.125}"
         },
         "hover": {
           "attributes": {
