@@ -8,14 +8,62 @@ import '@casts/avatar/dist/esm/styles.scss';
 
 const TagCloseableDemo = () => {
   return (
-    <Space>
-      <Tag closeable>TAG</Tag>
-      <Tag closeable prefix={<PriceTag3Line />}>
-        TAG
-      </Tag>
-      <Tag closeable suffix={<PriceTag3Line />}>
-        TAG
-      </Tag>
+    <Space direction="vertical">
+      <Space>
+        <Tag theme="success" closeable>
+          TAG
+        </Tag>
+        <Tag theme="success" closeable prefix={<PriceTag3Line />}>
+          TAG
+        </Tag>
+        <Tag theme="success" closeable suffix={<PriceTag3Line />}>
+          TAG
+        </Tag>
+      </Space>
+
+      <Space>
+        <Tag theme="success" variant="outline" closeable>
+          TAG
+        </Tag>
+        <Tag
+          theme="success"
+          variant="outline"
+          closeable
+          prefix={<PriceTag3Line />}
+        >
+          TAG
+        </Tag>
+        <Tag
+          theme="success"
+          variant="outline"
+          closeable
+          suffix={<PriceTag3Line />}
+        >
+          TAG
+        </Tag>
+      </Space>
+
+      <Space>
+        <Tag theme="success" pastel={false} closeable>
+          TAG
+        </Tag>
+        <Tag
+          theme="success"
+          pastel={false}
+          closeable
+          prefix={<PriceTag3Line />}
+        >
+          TAG
+        </Tag>
+        <Tag
+          theme="success"
+          pastel={false}
+          closeable
+          suffix={<PriceTag3Line />}
+        >
+          TAG
+        </Tag>
+      </Space>
     </Space>
   );
 };

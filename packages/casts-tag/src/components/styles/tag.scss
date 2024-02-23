@@ -28,7 +28,6 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
           @include button-color(
             $tag-prefix-cls,
             $with-background: true,
-            $variant: 'contained',
 
             $color-outline-default:
               map-get($tag-tokens, tag-color-outline-#{$color}-default),
@@ -65,7 +64,6 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
           &.#{$tag-prefix-cls}--bordered {
             @include button-border(
               $tag-prefix-cls,
-              $with-border: true,
               $border-style: solid,
               $color-border-default:
                 map-get($tag-tokens, tag-color-border-#{$color}-default),
@@ -84,7 +82,6 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
         @include button-color(
           $tag-prefix-cls,
           $with-background: true,
-          $variant: 'contained',
 
           $color-outline-default:
             map-get($tag-tokens, tag-color-outline-#{$color}-default),
@@ -108,8 +105,7 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
       &.#{$tag-prefix-cls}--#{$color} {
         @include button-color(
           $tag-prefix-cls,
-          $with-background: true,
-          $variant: 'outline',
+          $with-background: false,
 
           $color-outline-default:
             map-get($tag-tokens, tag-color-outline-#{$color}-default),
@@ -127,7 +123,6 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
 
         @include button-border(
           $tag-prefix-cls,
-          $with-border: true,
           $border-style: solid,
           $color-border-default:
             map-get($tag-tokens, tag-color-border-#{$color}-default),
@@ -143,8 +138,7 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
       &.#{$tag-prefix-cls}--#{$color} {
         @include button-color(
           $tag-prefix-cls,
-          $with-background: true,
-          $variant: 'dashed',
+          $with-background: false,
 
           $color-outline-default:
             map-get($tag-tokens, tag-color-outline-#{$color}-default),
@@ -162,7 +156,6 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
 
         @include button-border(
           $tag-prefix-cls,
-          $with-border: true,
           $border-style: dashed,
           $color-border-default:
             map-get($tag-tokens, tag-color-border-#{$color}-default),
@@ -195,5 +188,12 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
 
   &-close {
     cursor: pointer;
+    outline: none;
+    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+
+    &:hover,
+    &:focus-visible {
+      opacity: $opacity-84;
+    }
   }
 }

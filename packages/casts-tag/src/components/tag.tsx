@@ -1,5 +1,9 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { useDefaultProps } from '@casts/common';
+import {
+  getKeyboardEvents,
+  KEYCODE_CONFIRM,
+  useDefaultProps,
+} from '@casts/common';
 import { CloseLine } from '@casts/icons';
 
 import { defaultTagProps } from './default-props';
@@ -50,7 +54,13 @@ export const Tag = forwardRef((props: TagProps, ref) => {
       <span className={contentClasses}>{children}</span>
       {suffix && <span className={suffixClasses}>{suffix}</span>}
       {closeable && (
-        <CloseLine className={closeClasses} onClick={handleClose} />
+        <CloseLine
+          className={closeClasses}
+          onClick={handleClose}
+          onKeyDown={getKeyboardEvents([[KEYCODE_CONFIRM, handleClose]])}
+          role="button"
+          tabIndex={0}
+        />
       )}
     </div>
   );
