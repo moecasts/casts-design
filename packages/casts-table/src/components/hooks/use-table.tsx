@@ -1,6 +1,12 @@
-import { createElement, CSSProperties, useMemo, useState } from 'react';
+import {
+  createElement,
+  CSSProperties,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 import { Checkbox } from '@casts/checkbox';
-import { formatSizeUnit, identity, pickBy } from '@casts/common';
+import { formatSizeUnit, identity, pickBy, upperFirst } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PaginationProps } from '@casts/pagination';
 import {
@@ -8,7 +14,12 @@ import {
   createColumnHelper,
   getCoreRowModel,
   getPaginationRowModel,
+  IdentifiedColumnDef,
+  isFunction,
   noop,
+  OnChangeFn,
+  Row,
+  RowSelectionState,
   useReactTable,
 } from '@tanstack/react-table';
 import clsx from 'clsx';
@@ -31,6 +42,30 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
       identity,
     );
 
+    if (key === 'row-select') {
+      Object.assign(opts, {
+        header: ({ table }) =>
+          createElement(Checkbox, {
+            checked:
+              table.getIsAllRowsSelected() || table.getIsSomeRowsSelected(),
+            indeterminate: table.getIsSomeRowsSelected(),
+            onChange: (value) => {
+              const checked = table.getIsSomeRowsSelected() ? true : value;
+              table.toggleAllRowsSelected(checked as boolean);
+            },
+          }),
+        cell: ({ row }) =>
+          createElement(Checkbox, {
+            checked: row.getIsSelected(),
+            disabled: !row.getCanSelect(),
+            indeterminate: row.getIsSomeSelected(),
+            onChange: (value) => {
+              row.toggleSelected(value as boolean);
+            },
+          }),
+      } as Partial<IdentifiedColumnDef<any, any>>);
+    }
+
     if (children) {
       return columnHelper.group({
         id: column.key,
@@ -44,30 +79,62 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
     });
   });
 
-  cols.unshift({
-    id: 'row-selection',
-    // header: ({ table }) => createElement('span', null, '选'),
-    header: ({ table }) =>
-      createElement(Checkbox, {
-        checked: table.getIsAllRowsSelected() || table.getIsSomeRowsSelected(),
-        indeterminate: table.getIsSomeRowsSelected(),
-        onChange: (value) => {
-          const checked = table.getIsSomeRowsSelected() ? true : value;
-          table.toggleAllRowsSelected(checked as boolean);
-        },
-      }),
-    cell: ({ row }) =>
-      createElement(Checkbox, {
-        checked: row.getIsSelected(),
-        disabled: !row.getCanSelect(),
-        indeterminate: row.getIsSomeSelected(),
-        onChange: (value) => {
-          row.toggleSelected(value as boolean);
-        },
-      }),
-  });
-
   return cols;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface ChangeHandler<T, P extends any[]> {
+  (value: T, ...args: P): void;
+}
+
+export const useControlledWithUpdater = <T, P extends any[] = any[]>(
+  props: Record<PropertyKey, any> = {},
+  valueKey: string,
+  onChange: ChangeHandler<T, P>,
+  /**
+   * use fallbackDefaultValue when defaultValue is not exist
+   */
+  fallbackDefaultValue?: T,
+): [T, ChangeHandler<T, P>] => {
+  const value = props[valueKey];
+
+  // The uncontrolled key for a controlled attribute is defaultXxx.
+  const defaultValue =
+    props[`default${upperFirst(valueKey)}`] ?? fallbackDefaultValue;
+
+  const [internalValue, setInternalValue] = useState(defaultValue);
+
+  // is controlled mode when valueKey is exist in props
+  const controlled = Reflect.has(props, valueKey);
+
+  const getNextValue = (updaterOrValue, prevValue) => {
+    const nextValue = isFunction(updaterOrValue)
+      ? updaterOrValue(prevValue)
+      : updaterOrValue;
+
+    return nextValue;
+  };
+
+  const setValue = (updaterOrValue) => {
+    if (controlled) {
+      const nextValue = getNextValue(updaterOrValue, value);
+      onChange?.(nextValue);
+      return;
+    }
+
+    setInternalValue((prevValue) => {
+      const nextValue = getNextValue(updaterOrValue, prevValue);
+
+      onChange?.(nextValue);
+      return nextValue;
+    });
+  };
+
+  if (controlled) {
+    return [value, setValue];
+  }
+
+  return [internalValue, setValue];
 };
 
 export const useTable = (props: UseTableProps) => {
@@ -92,6 +159,8 @@ export const useTable = (props: UseTableProps) => {
     onPaginationChange = noop,
 
     loading,
+
+    onRowSelectionChange = noop,
 
     ...rest
   } = props;
@@ -123,6 +192,11 @@ export const useTable = (props: UseTableProps) => {
 
   const loadingClasses = `${prefixCls}-loading`;
 
+  const getRowClasses = (row: Row<unknown>) =>
+    clsx(`${prefixCls}-row`, {
+      [`${prefixCls}-row--selected`]: row.getIsSelected(),
+    });
+
   const columns = useMemo(
     () => getColumns(props.columns || []),
     [props.columns],
@@ -134,17 +208,29 @@ export const useTable = (props: UseTableProps) => {
     total: data.length,
   });
 
+  // const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const [rowSelection, setRowSelection] =
+    useControlledWithUpdater<RowSelectionState>(
+      props,
+      'rowSelection',
+      onRowSelectionChange,
+      {},
+    );
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     manualPagination,
     getPaginationRowModel: getPaginationRowModel(),
+    enableRowSelection: true,
+    onRowSelectionChange: setRowSelection as OnChangeFn<RowSelectionState>,
     state: {
       pagination: {
         pageSize: pagination.pageSize,
         pageIndex: (pagination.current || 1) - 1,
       },
+      rowSelection: rowSelection,
     },
   });
 
@@ -163,6 +249,12 @@ export const useTable = (props: UseTableProps) => {
   const contentStyles: CSSProperties = {
     maxHeight: maxHeight && formatSizeUnit(maxHeight),
   };
+
+  const getRowKey = useCallback(
+    (index: number) => table.getRowModel().rows[index]?.id ?? index,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [table.getRowModel().rows],
+  );
 
   return {
     classes,
@@ -185,6 +277,10 @@ export const useTable = (props: UseTableProps) => {
 
     loading,
     loadingClasses,
+
+    getRowClasses,
+
+    getRowKey,
 
     ...rest,
   };

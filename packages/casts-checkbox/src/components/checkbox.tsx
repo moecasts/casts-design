@@ -100,10 +100,6 @@ export const Checkbox = forwardRef((props: CheckboxProps, ref) => {
           e.persist();
           onChange(e);
         }}
-        onClick={(e) => {
-          e.stopPropagation();
-          onChange(e as unknown as ChangeEvent<HTMLInputElement>);
-        }}
         disabled={disabled}
         name={name}
       />

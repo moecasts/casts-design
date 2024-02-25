@@ -16,11 +16,8 @@ export const useControlled = <T, P extends any[] = any[]>(
    */
   fallbackDefaultValue?: T,
 ): [T, ChangeHandler<T, P>] => {
-  // 外部设置 props，说明希望受控
-
   // is controlled mode when valueKey is exist in props
   const controlled = Reflect.has(props, valueKey);
-  // 受控属性
   // controlled prop
   const value = props[valueKey];
   // The uncontrolled key for a controlled attribute is defaultXxx.

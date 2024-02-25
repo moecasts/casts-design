@@ -3,6 +3,7 @@ import {
   ColumnDef,
   ColumnDefTemplate,
   HeaderContext,
+  RowSelectionState,
 } from '@tanstack/react-table';
 
 export type TableProps = UseTableProps;
@@ -63,6 +64,11 @@ export type UseTableProps = BaseComponentProps & {
   }) => void;
 
   manualPagination?: boolean;
+
+  rowSelection?: RowSelectionState;
+  defaultRowSelection?: RowSelectionState;
+
+  onRowSelectionChange?: (value: RowSelectionState) => void;
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -73,7 +79,7 @@ export type Column = {
   key: string;
 
   /** th content */
-  title: ColumnDefTemplate<HeaderContext<any, unknown>>;
+  title?: ColumnDefTemplate<HeaderContext<any, unknown>>;
 
   /** column group children */
   children?: Column[];

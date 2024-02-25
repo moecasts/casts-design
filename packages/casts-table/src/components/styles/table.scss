@@ -162,6 +162,20 @@ $table-prefix-cls: #{$prefix-cls}-table;
     }
   }
 
+  &-row {
+    th,
+    td {
+      transition: background-color $motion-duration-rapid $motion-easing-in-out;
+    }
+
+    &--selected {
+      th,
+      td {
+        background-color: $color-surface-neutral-default;
+      }
+    }
+  }
+
   &--hover-able {
     table {
       tbody {

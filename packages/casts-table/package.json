@@ -46,7 +46,7 @@
     "@casts/common": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
-    "@tanstack/react-table": "^8.9.3",
+    "@tanstack/react-table": "^8.12.0",
     "clsx": "^2.0.0"
   },
   "sideEffects": [

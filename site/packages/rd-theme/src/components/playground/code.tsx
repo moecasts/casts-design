@@ -77,7 +77,7 @@ export const Code: FC<CodeProps> = (props) => {
   // const { create } = useCodeSandbox();
   //
   // useEffect(() => {
-  //   console.log('debug1 props', props);
+  //   console.log('debug props', props);
   //   create();
   // }, []);
 

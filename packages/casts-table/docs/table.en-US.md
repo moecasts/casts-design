@@ -9,6 +9,10 @@ nav:
 
 # Table
 
+## Selection
+
+<code src="../examples/row-select.tsx" />
+
 ## Basic
 
 <code src="../examples/basic.tsx" />

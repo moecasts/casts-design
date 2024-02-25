@@ -18,11 +18,11 @@ const dialog = DialogPlugin({
     </>
   ),
   onCancel: (_, context) => {
-    console.log('debug1 onCancel', context);
+    console.log('debug onCancel', context);
     dialog.destroy();
   },
   onConfirm: (_, context) => {
-    console.log('debug1 onConfirm', context);
+    console.log('debug onConfirm', context);
     dialog.destroy();
   },
 });

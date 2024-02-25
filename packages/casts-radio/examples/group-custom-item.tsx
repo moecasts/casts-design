@@ -7,7 +7,7 @@ import { Space } from '@casts/space';
 const GroupCustomItemDemo = () => {
   const defaultValue = 2;
   const onChange: ChangeEventHandler = (value, { e }) => {
-    console.log('debug1', value, e);
+    console.log('debug', value, e);
   };
   return (
     <Space>

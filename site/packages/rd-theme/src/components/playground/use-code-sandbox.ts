@@ -1,6 +1,6 @@
 export const useCodeSandbox = () => {
   const create = () => {
-    console.log('debug1 create useCodeSandbox');
+    console.log('debug create useCodeSandbox');
   };
 
   return { create };

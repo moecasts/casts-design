@@ -19,6 +19,8 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
     tbodyClasses,
     tfootClasses,
 
+    getRowClasses,
+
     contentStyles,
 
     paginationClasses,
@@ -27,10 +29,12 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
 
     table,
 
-    tfoot = true,
+    tfoot,
 
     loading,
     loadingClasses,
+
+    getRowKey,
   } = useTable(props);
 
   useImperativeHandle(ref, () => ({}));
@@ -61,13 +65,18 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
             ))}
           </thead>
           <tbody className={tbodyClasses}>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
+            {table.getRowModel().rows.map((row, index) => (
+              <tr key={getRowKey(index)} className={getRowClasses(row)}>
+                {row.getVisibleCells().map((cell) => {
+                  return (
+                    <td key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>

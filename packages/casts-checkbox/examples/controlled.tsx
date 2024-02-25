@@ -17,7 +17,7 @@ const GroupDemo = () => {
 
   const [groupValue, setGroupValue] = useState([1]);
   const onGroupChange: CheckboxGroupProps['onChange'] = (value, context) => {
-    console.log('debug1', value, context);
+    console.log('debug', value, context);
     setGroupValue(value as number[]);
   };
 

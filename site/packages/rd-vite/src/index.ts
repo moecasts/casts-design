@@ -225,7 +225,7 @@ const createPlugin = (userConfig: RdConfig = {}) => {
 
     // handleHotUpdate(ctx) {
     //   const { server } = ctx;
-    //   console.log('debug1 handleHotUpdate', server);
+    //   console.log('debug handleHotUpdate', server);
     //   server.ws.send({
     //     type: 'full-reload',
     //     path: '*',

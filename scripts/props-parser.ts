@@ -8,4 +8,4 @@ const docs = parse(
   options,
 );
 
-console.log('debug1', JSON.stringify(docs, null, 2));
+console.log('debug', JSON.stringify(docs, null, 2));

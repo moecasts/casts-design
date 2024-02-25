@@ -6,7 +6,7 @@ import { Space } from '@casts/space';
 const GroupDemo = () => {
   const defaultValue = 2;
   const onChange: ChangeEventHandler = (value) => {
-    console.log('debug1', value);
+    console.log('debug', value);
   };
   return (
     <Space direction="vertical">

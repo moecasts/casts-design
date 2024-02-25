@@ -19,6 +19,10 @@ nav:
 
 <code src="../examples/manual-pagination.tsx" />
 
+## 可选择
+
+<code src="../examples/row-select.tsx" />
+
 ## API
 
 <API src="@casts/table"></API>
