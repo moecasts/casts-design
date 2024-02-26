@@ -1,1 +1,1 @@
-export default '<%= name %>';
+export * from './components';

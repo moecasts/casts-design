@@ -1,5 +1,5 @@
 ---
-title: <%= name %>
+title: <%= componentNamePascalCase %>
 group:
   title: 通用
 nav:
@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-# <%= name %>
+# <%= componentNamePascalCase %>
 
 TODO

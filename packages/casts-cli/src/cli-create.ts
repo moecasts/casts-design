@@ -1,3 +1,4 @@
+import { camelCase, upperFirst } from '@casts/common';
 import chalk from 'chalk';
 import { execSync } from 'child_process';
 import { Command } from 'commander';
@@ -11,6 +12,8 @@ type Answer = {
   path: string;
   name: string;
   version: string;
+  createDoc: boolean;
+  componentName?: string;
   description?: string;
   author?: string;
   license: string;
@@ -30,6 +33,7 @@ const getRemoteOriginUrl = () =>
 
 const author = `${getGitUserName() || ''} <${getGitUserEmail() || ''}>`;
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const questions = [
   {
     type: 'list',
@@ -62,8 +66,33 @@ const questions = [
   },
   {
     type: 'input',
+    name: 'componentName',
+    message: 'component name:',
+    suffix: ' (please input name as kebab-case and lower, e.g. component-name)',
+    when: (answers: Answer) => answers.type === PackageType.Component,
+    validate: (input: string) => {
+      if (!input) {
+        return chalk.red('please input the component name');
+      }
+
+      if (!input.match(/^[a-z]+(-[a-z]+)*$/)) {
+        return chalk.red(
+          'please input the component name as kebab-case, e.g. component-name',
+        );
+      }
+      return true;
+    },
+  },
+  {
+    type: 'input',
     name: 'description',
     message: 'package description:',
+  },
+  {
+    type: 'confirm',
+    name: 'createDoc',
+    message: 'create document:',
+    choices: ['yes', 'no'],
   },
   {
     type: 'input',
@@ -97,6 +126,11 @@ const questions = [
   },
 ];
 
+const isDocFile = (filePath: string) => filePath.includes('_doc.');
+
+const replaceDocFileName = (filePath: string, name: string) =>
+  filePath.replace('_doc.', `${name}.`);
+
 export const runCreate = async () => {
   const answers: Answer = await inquirer.prompt(questions);
 
@@ -106,11 +140,35 @@ export const runCreate = async () => {
   const src = jetpack.cwd(tplPath);
   const dest = jetpack.cwd(destPath);
 
-  src.find({ matching: '*' }).forEach((path: string) => {
-    const destPath = path;
+  src.find({ matching: '*' }).forEach((filePath: string) => {
+    const getDestPath = (filepath: string) => {
+      if (isDocFile(filepath) && answers.componentName) {
+        return replaceDocFileName(filepath, answers.componentName);
+      }
 
-    const originContent = src.read(path) || '';
-    const content: string = ejs.render(originContent, answers);
+      const { componentName } = answers;
+
+      const replacement: Record<string, string> = {
+        'src/components/component.tsx': `src/components/${componentName}.tsx`,
+        'src/components/hooks/use-component.ts': `src/components/hooks/use-${componentName}.ts`,
+        'src/components/styles/component.scss': `src/components/styles/${componentName}.scss`,
+        'src/components/types/component.ts': `src/components/types/${componentName}.ts`,
+      };
+
+      return replacement[filepath] || filepath;
+    };
+
+    const destPath = getDestPath(filePath);
+
+    const variables = {
+      ...answers,
+      componentNameCamelCase: camelCase(answers.componentName),
+      componentNamePascalCase: upperFirst(camelCase(answers.componentName)),
+    };
+
+    const originContent = src.read(filePath) || '';
+    const content: string = ejs.render(originContent, variables);
+
     dest.write(destPath, content);
   });
 
