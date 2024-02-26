@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import { CircularProgress } from '@casts/progress';
 import { MDXProvider } from '@mdx-js/react';
 
@@ -7,8 +7,10 @@ import { components } from './markdown';
 import { Routes } from './routes';
 
 export const SiteContent = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={`${getPrefixCls('main-content')}`}>
+    <div className={`${getPrefixCls('main-content')}`} ref={containerRef}>
       <div className="markdown">
         <Suspense
           fallback={
@@ -25,7 +27,7 @@ export const SiteContent = () => {
           }
         >
           <MDXProvider components={components}>
-            <Routes />
+            <Routes containerRef={containerRef} />
           </MDXProvider>
         </Suspense>
       </div>
