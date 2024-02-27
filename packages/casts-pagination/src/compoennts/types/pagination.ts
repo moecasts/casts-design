@@ -8,7 +8,6 @@ export enum PaginationItemType {
   Page = 'page',
   Next = 'next',
 }
-
 export type PaginationItemValue = number | PaginationItemType;
 
 export type UsePaginationProps = BaseComponentProps & {

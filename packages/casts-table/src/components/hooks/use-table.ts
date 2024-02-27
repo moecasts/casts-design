@@ -6,16 +6,20 @@ import {
   useState,
 } from 'react';
 import { Checkbox } from '@casts/checkbox';
-import { formatSizeUnit, identity, pickBy, upperFirst } from '@casts/common';
+import {
+  formatSizeUnit,
+  identity,
+  pickBy,
+  useControlledWithUpdater,
+} from '@casts/common';
 import { useConfig } from '@casts/config-provider';
-import { PaginationProps } from '@casts/pagination';
+import { type PaginationProps } from '@casts/pagination';
 import {
   ColumnDef,
   createColumnHelper,
   getCoreRowModel,
   getPaginationRowModel,
   IdentifiedColumnDef,
-  isFunction,
   noop,
   OnChangeFn,
   Row,
@@ -80,61 +84,6 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
   });
 
   return cols;
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface ChangeHandler<T, P extends any[]> {
-  (value: T, ...args: P): void;
-}
-
-export const useControlledWithUpdater = <T, P extends any[] = any[]>(
-  props: Record<PropertyKey, any> = {},
-  valueKey: string,
-  onChange: ChangeHandler<T, P>,
-  /**
-   * use fallbackDefaultValue when defaultValue is not exist
-   */
-  fallbackDefaultValue?: T,
-): [T, ChangeHandler<T, P>] => {
-  const value = props[valueKey];
-
-  // The uncontrolled key for a controlled attribute is defaultXxx.
-  const defaultValue =
-    props[`default${upperFirst(valueKey)}`] ?? fallbackDefaultValue;
-
-  const [internalValue, setInternalValue] = useState(defaultValue);
-
-  // is controlled mode when valueKey is exist in props
-  const controlled = Reflect.has(props, valueKey);
-
-  const getNextValue = (updaterOrValue, prevValue) => {
-    const nextValue = isFunction(updaterOrValue)
-      ? updaterOrValue(prevValue)
-      : updaterOrValue;
-
-    return nextValue;
-  };
-
-  const setValue = (updaterOrValue) => {
-    if (controlled) {
-      const nextValue = getNextValue(updaterOrValue, value);
-      onChange?.(nextValue);
-      return;
-    }
-
-    setInternalValue((prevValue) => {
-      const nextValue = getNextValue(updaterOrValue, prevValue);
-
-      onChange?.(nextValue);
-      return nextValue;
-    });
-  };
-
-  if (controlled) {
-    return [value, setValue];
-  }
-
-  return [internalValue, setValue];
 };
 
 export const useTable = (props: UseTableProps) => {

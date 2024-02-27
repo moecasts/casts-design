@@ -6,7 +6,7 @@ import { find } from 'lodash-es';
 import path from 'path';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import remarkComment from 'remark-frontmatter';
+import remarkFrontmatter from 'remark-frontmatter';
 import remarkGFM from 'remark-gfm';
 import remarkMdxImages from 'remark-mdx-images';
 import { SourceMapGenerator } from 'source-map';
@@ -76,7 +76,7 @@ const getMdxOptions = ({
       },
     ],
   ],
-  recmaPlugins: [remarkComment],
+  recmaPlugins: [remarkFrontmatter],
 });
 
 export type RdConfig = {

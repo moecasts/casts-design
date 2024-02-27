@@ -47,6 +47,9 @@
     "@casts/common": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
     "@casts/icons": "workspace:^",
+    "@casts/input-number": "workspace:^0.0.1",
+    "@casts/locale": "workspace:^0.0.1",
+    "@casts/select": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
     "@fontsource/roboto-mono": "^5.0.16",
     "clsx": "^2.0.0"

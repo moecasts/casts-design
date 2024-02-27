@@ -43,8 +43,10 @@
     "react": ">=17"
   },
   "dependencies": {
+    "@casts/checkbox": "workspace:^0.0.1",
     "@casts/common": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
+    "@casts/pagination": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
     "@tanstack/react-table": "^8.12.0",
     "clsx": "^2.0.0"

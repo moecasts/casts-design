@@ -6,8 +6,6 @@ import {
   RowSelectionState,
 } from '@tanstack/react-table';
 
-export type TableProps = UseTableProps;
-
 export type UseTableProps = BaseComponentProps & {
   loading?: boolean;
 
@@ -89,3 +87,6 @@ export type Column = {
 
   cell?: ColumnDef<any, any>['cell'];
 };
+
+// export type TableProps = UseTableProps;
+export type TableProps = any;
