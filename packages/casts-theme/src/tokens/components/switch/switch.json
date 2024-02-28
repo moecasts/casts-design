@@ -1,0 +1,59 @@
+{
+  "switch": {
+    "color:": {
+      "surface": {
+        "default": {
+          "value": "{color.palette.neutral.300}"
+        },
+        "active": {
+          "value": "{color.shape.brand.default}"
+        }
+      }
+    },
+
+    "space": {
+      "value": "{space.05-x}"
+    },
+
+    "radius": {
+      "pill": {
+        "value": "{radius.pill}"
+      },
+      "round": {
+        "small": {
+          "value": "{radius.small}"
+        },
+        "medium": {
+          "value": "{radius.medium}"
+        },
+        "large": {
+          "value": "{radius.large}"
+        }
+      }
+    },
+
+    "indicator": {
+      "font": {
+        "size": {
+          "small": {
+            "value": "{font.size.xsmall}"
+          },
+          "medium": {
+            "value": "{font.size.small}"
+          },
+          "large": {
+            "value": "{font.size.medium}"
+          }
+        }
+      },
+      "space": {
+        "value": "{space.025-x}"
+      },
+      "color": {
+        "text": {
+          "value": "{color.palette.white}"
+        }
+      }
+    }
+  }
+}
