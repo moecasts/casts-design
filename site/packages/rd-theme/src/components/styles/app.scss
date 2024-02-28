@@ -204,6 +204,7 @@ body {
 }
 
 .#{$rd-prefix-cls}-toc {
+  max-width: 240px;
   height: fit-content;
   min-height: 1px;
   padding-top: 10px;

@@ -40,11 +40,15 @@ export const detectMarkdowns = (
       };
       if (withMeta) {
         const file = readSync(item.path);
-        item.meta = matter(file).data.matter as SourceMeta;
+        matter(file, {
+          strip: true,
+        });
+
+        item.meta = file?.data?.matter as SourceMeta;
 
         const compiledFile = compileSync(file, {
           remarkPlugins: [remarkCodeBlockReplacer, remarkCodeBlockStandalone],
-          rehypePlugins: [rehypeSlug, rehypeToc],
+          rehypePlugins: [rehypeSlug, rehypeToc as any],
           format: 'mdx',
         });
 

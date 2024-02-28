@@ -2,18 +2,18 @@ import { FC, ReactNode } from 'react';
 import { BaseComponentProps } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { Heading, HeadingProps, Text } from '@casts/typography';
-import { Components } from '@mdx-js/react/lib';
 import clsx from 'clsx';
+import type { MDXComponents } from 'mdx/types.js';
 
 import { Api } from './api';
 import { Code } from './playground/code';
 import { Toc } from './toc';
 
-export const getHeadingComponents = (): Components => {
+export const getHeadingComponents = (): MDXComponents => {
   const levels = 4;
 
   return Array.from({ length: levels }).reduce(
-    (acc: Components, _, idx: number) => ({
+    (acc: MDXComponents, _, idx: number) => ({
       ...acc,
       [`h${idx + 1}`]: ({ children, ...rest }: { children: ReactNode }) => {
         return (
@@ -68,7 +68,7 @@ export const Th: FC<BaseComponentProps> = ({ children }) => {
   return <th className={classes}>{children}</th>;
 };
 
-const getTableComponents = (): Components => {
+const getTableComponents = (): MDXComponents => {
   return {
     table: Table,
     thead: THead,
@@ -77,7 +77,7 @@ const getTableComponents = (): Components => {
   };
 };
 
-export const components: Components = {
+export const components: MDXComponents = {
   ...getHeadingComponents(),
   ...getTableComponents(),
   code: ({ children }) => <Text code>{children}</Text>,

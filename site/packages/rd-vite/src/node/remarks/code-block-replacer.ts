@@ -1,9 +1,9 @@
 import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
-import type { Plugin, Transformer } from 'unified';
+import type { Plugin } from 'unified';
 import { visit } from 'unist-util-visit';
 
 export const remarkCodeBlockReplacer: Plugin<[], MdxJsxFlowElement> =
-  (): Transformer => (ast) => {
+  () => (ast) => {
     visit(
       ast,
       {

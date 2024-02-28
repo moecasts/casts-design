@@ -29,7 +29,7 @@ import {
   PropItem,
   withDefaultConfig,
 } from 'react-docgen-typescript';
-import { Plugin, Transformer } from 'unified';
+import { Plugin } from 'unified';
 import { visit } from 'unist-util-visit';
 
 const apiParserOptions: ParserOptions = {
@@ -60,7 +60,7 @@ export const remarkReactApi: Plugin<
     },
   ],
   MdxJsxFlowElement
-> = ({ resolve }): Transformer => {
+> = ({ resolve }) => {
   return async (ast) => {
     const reactApiEntries: string[] = [];
 

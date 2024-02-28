@@ -8,7 +8,7 @@ import { resolve as polyfillResolve } from 'import-meta-resolve';
 import { find, isEmpty, isString, map, zipObject } from 'lodash-es';
 import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
 import path, { extname, relative } from 'path';
-import type { Plugin, Transformer } from 'unified';
+import type { Plugin } from 'unified';
 import { visit } from 'unist-util-visit';
 import { pathToFileURL } from 'url';
 
@@ -99,7 +99,7 @@ export const remarkCodeBlock: Plugin<
     },
   ],
   MdxJsxFlowElement
-> = (options): Transformer => {
+> = (options) => {
   const { resolverRef, root } = options;
 
   const resolve =
@@ -274,10 +274,7 @@ export const remarkCodeBlock: Plugin<
   };
 };
 
-export const remarkCodeBlockStandalone: Plugin<
-  [],
-  MdxJsxFlowElement
-> = (): Transformer => {
+export const remarkCodeBlockStandalone: Plugin<[], MdxJsxFlowElement> = () => {
   return (ast, file) => {
     const standaloneCodeBlocks: Record<string, string> = {};
 

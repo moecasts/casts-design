@@ -1,4 +1,5 @@
-import { createFormatAwareProcessors } from '@mdx-js/mdx/lib/util/create-format-aware-processors.js';
+// @ts-ignore this package d.ts is not available
+import { createFormatAwareProcessors } from '@mdx-js/mdx/internal-create-format-aware-processors';
 import { Options } from '@mdx-js/rollup';
 import { transformSync } from 'esbuild';
 import { readFileSync } from 'fs';
@@ -114,7 +115,7 @@ const createPlugin = (userConfig: RdConfig = {}) => {
 
     config: () => ({
       resolve: {
-        modules: ['@mdx-js/react'],
+        dedupe: ['@mdx-js/react'],
         alias: {
           '@root': docRoot,
           '@casts/rd-vite': path.resolve(__dirname),
