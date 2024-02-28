@@ -4,7 +4,7 @@ import { Command } from 'commander';
 import * as ejs from 'ejs';
 import * as jetpack from 'fs-jetpack';
 import inquirer from 'inquirer';
-import { camelCase, upperFirst } from 'lodash-es';
+import { camelCase, upperFirst } from 'lodash';
 import * as path from 'path';
 
 type Answer = {

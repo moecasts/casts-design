@@ -1,5 +1,5 @@
-import { FC, useContext } from 'react';
-import { ConfigContext } from '@casts/config-provider';
+import { CSSProperties, FC } from 'react';
+import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
 
 import { defaultFormat } from '../utils';
@@ -19,10 +19,12 @@ export const CircularProgress: FC<CircularProgressProps> = (props) => {
     percent,
     showLabel = false,
     format = defaultFormat,
+    className,
+    style,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('circular-progress');
-  const containerClasses = `${prefixCls}-container`;
+  const containerClasses = clsx(`${prefixCls}-container`, className);
   const svgClasses = clsx(prefixCls, {
     [`${prefixCls}--indeterminate`]: percent === undefined,
   });
@@ -50,14 +52,15 @@ export const CircularProgress: FC<CircularProgressProps> = (props) => {
     };
   }
 
+  const styles: CSSProperties = { ...style };
+
   return (
     <span
       className={containerClasses}
       style={{
-        height: `${size}px`,
-        width: `${size}px`,
         color,
         fontSize: `${size}px`,
+        ...styles,
       }}
     >
       <svg

@@ -1,0 +1,7 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+.demo-switch-area {
+  .#{$prefix-cls}-switch {
+    max-width: fit-content;
+  }
+}

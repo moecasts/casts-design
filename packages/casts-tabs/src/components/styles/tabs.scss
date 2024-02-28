@@ -57,9 +57,6 @@ $sizes: 'small', 'medium', 'large';
       text-decoration: none;
 
       @include button-space();
-
-      // &-inner {
-      // }
     }
   }
 
