@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { BaseComponentProps } from '@casts/common';
 
 import { FormatFunction } from '../utils';
 
@@ -16,7 +16,7 @@ export enum ProgressSize {
   LARGE = 'large',
 }
 
-export type CircularProgressProps = {
+export type CircularProgressProps = BaseComponentProps & {
   /**
    * progress size
    * @default 40
@@ -58,11 +58,7 @@ export type CircularProgressProps = {
   format?: FormatFunction;
 };
 
-export type LinearProgressProps = {
-  /**
-   * additional class
-   */
-  className?: string;
+export type LinearProgressProps = BaseComponentProps & {
   /**
    * progress percent
    */
@@ -94,10 +90,6 @@ export type LinearProgressProps = {
    * @default medium
    */
   size?: `${ProgressSize}`;
-  /**
-   * custom style
-   */
-  style?: CSSProperties;
   /**
    * bar height
    */
