@@ -141,7 +141,6 @@
           "value": "{color.palette.neutral.200}"
         }
       },
-
       "page": {
         "attributes": {
           "category": "color"
@@ -820,7 +819,6 @@
           "value": "{color.palette.neutral.300}"
         }
       },
-
       "primary": {
         "attributes": {
           "category": "color"
@@ -849,7 +847,7 @@
         "attributes": {
           "category": "color"
         },
-        "value": "{color.palette.neutral.0}"
+        "value": "{color.palette.white}"
       },
       "anti-disabled": {
         "attributes": {
