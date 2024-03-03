@@ -32,7 +32,7 @@ export const Code: FC<CodeProps> = (props) => {
   const prefixCls = getPrefixCls('code-block');
 
   /* --------------------------------- get imported source codes ---------------------------------------- */
-  const [codes, setCodes] = useState({});
+  const [codes, setCodes] = useState<Record<string, string>>({});
 
   const initCodes = async (
     codeSources: Record<string, () => Promise<{ default: string }>>,

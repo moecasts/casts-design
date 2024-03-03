@@ -1,6 +1,3 @@
-import { BaseComponentProps } from '@casts/common';
+import { UseCodeProps } from './use-code';
 
-export type CodeProps = BaseComponentProps & {
-  language?: string;
-  source: string;
-};
+export type CodeProps = UseCodeProps;

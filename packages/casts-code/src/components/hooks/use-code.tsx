@@ -3,10 +3,17 @@ import { clsx } from 'clsx';
 // NOTE: The `js` file is loaded first, as the `mjs` file requires additional webpack configuration
 import { Highlight, themes } from 'prism-react-renderer/dist/index.js';
 
+import { defaultCodeProps } from '../default-props';
 import { UseCodeProps } from '../types/use-code';
 
 export const useCode = (props: UseCodeProps) => {
-  const { className, style, language = 'tsx', showLineNumber = true } = props;
+  const {
+    className,
+    style,
+    language = defaultCodeProps.language,
+    showLineNumber = defaultCodeProps.showLineNumber,
+    theme = defaultCodeProps.theme,
+  } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -17,7 +24,7 @@ export const useCode = (props: UseCodeProps) => {
   const styles = style;
 
   const element = (
-    <Highlight theme={themes.github} code={props.source} language={language}>
+    <Highlight theme={themes[theme]} code={props.source} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
           {tokens.map((line, i) => (

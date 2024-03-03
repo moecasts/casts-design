@@ -13,6 +13,10 @@ nav:
 
 <code src="../examples/basic" />
 
+## 不同主题
+
+<code src="../examples/different-theme.tsx" />
+
 ## API
 
 <API src="@casts/code"></API>
