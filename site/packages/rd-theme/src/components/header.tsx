@@ -66,7 +66,9 @@ export const Header: FC<HeaderProps> = () => {
               navigate(indexRoute);
             }}
           >
-            <Brand style={{ width: '96px' }} />
+            <Brand
+              style={{ width: '96px', fill: 'var(--cds-color-text-primary)' }}
+            />
           </Link>
         }
         value={active}

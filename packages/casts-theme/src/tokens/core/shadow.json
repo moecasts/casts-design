@@ -121,7 +121,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.black}",
+          "value": "{color.palette.neutral.1000}",
           "alpha": 0.2
         }
       }

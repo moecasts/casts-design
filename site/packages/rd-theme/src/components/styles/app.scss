@@ -72,6 +72,8 @@ body {
     position: relative;
     z-index: $elevation-z-index-sticky;
     height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     max-height: 100vh;
     max-height: 100dvh;
     padding-bottom: 64px;
@@ -215,6 +217,14 @@ body {
 
   .#{$rd-prefix-cls}-anchor {
     width: 168px;
+  }
+}
+
+.#{$rd-prefix-cls}-root-layout {
+  .#{$rd-prefix-cls}-float-button {
+    position: fixed;
+    right: $space-2-x;
+    bottom: $space-2-x;
   }
 }
 

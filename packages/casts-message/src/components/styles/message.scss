@@ -93,7 +93,7 @@
 
   &--fill {
     &:not(.#{$prefix-cls}-message--loading) {
-      color: $color-text-anti;
+      color: $color-palette-white;
     }
 
     &.#{$prefix-cls}-message--info {

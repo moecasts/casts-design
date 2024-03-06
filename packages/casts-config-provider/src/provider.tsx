@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { ConfigContext, defaultConfig } from './context';
 import { setGlobalConfig } from './global-config';
@@ -16,7 +16,9 @@ export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
       });
   }
 
-  const config = Object.assign({}, defaultConfig, globalConfig);
+  const [config] = useState(() => {
+    return Object.assign({}, defaultConfig, globalConfig);
+  });
 
   useEffect(() => {
     setGlobalConfig(globalConfig);
@@ -24,6 +26,12 @@ export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
   }, [config]);
 
   return (
-    <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>
+    <ConfigContext.Provider
+      value={{
+        ...config,
+      }}
+    >
+      {children}
+    </ConfigContext.Provider>
   );
 };

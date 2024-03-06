@@ -147,7 +147,7 @@ $alert-prefix-cls: #{$prefix-cls}-alert;
 
   &--theme-solid {
     &:not(.#{$alert-prefix-cls}--loading) {
-      color: $color-surface-container-default;
+      color: $color-palette-white;
     }
 
     &.#{$alert-prefix-cls}--info {

@@ -18,7 +18,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.150}"
+          "value": "{color.palette.brand.50}"
         }
       },
       "secondary": {
@@ -52,7 +52,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.150}"
+          "value": "{color.palette.info.50}"
         }
       },
       "success": {
@@ -72,7 +72,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.150}"
+          "value": "{color.palette.success.50}"
         }
       },
       "warning": {
@@ -92,7 +92,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.150}"
+          "value": "{color.palette.warning.50}"
         }
       },
       "danger": {
@@ -112,7 +112,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.150}"
+          "value": "{color.palette.danger.50}"
         }
       },
       "neutral": {
@@ -152,7 +152,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.white}"
+          "value": "{color.palette.neutral.0}"
         },
         "disabled": {
           "attributes": {
@@ -208,25 +208,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.600}"
+          "value": "{color.palette.brand.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.500}"
+          "value": "{color.palette.brand.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.700}"
+          "value": "{color.palette.brand.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.200}"
+          "value": "{color.palette.brand.100}"
         }
       },
       "secondary": {
@@ -234,25 +234,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.600}"
+          "value": "{color.palette.secondary.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.500}"
+          "value": "{color.palette.secondary.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.700}"
+          "value": "{color.palette.secondary.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.200}"
+          "value": "{color.palette.secondary.100}"
         }
       },
       "info": {
@@ -260,25 +260,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.500}"
+          "value": "{color.palette.info.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.400}"
+          "value": "{color.palette.info.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.600}"
+          "value": "{color.palette.info.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.200}"
+          "value": "{color.palette.info.100}"
         }
       },
       "success": {
@@ -286,25 +286,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.500}"
+          "value": "{color.palette.success.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.400}"
+          "value": "{color.palette.success.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.600}"
+          "value": "{color.palette.success.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.200}"
+          "value": "{color.palette.success.100}"
         }
       },
       "warning": {
@@ -312,25 +312,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.600}"
+          "value": "{color.palette.warning.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.500}"
+          "value": "{color.palette.warning.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.700}"
+          "value": "{color.palette.warning.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.200}"
+          "value": "{color.palette.warning.100}"
         }
       },
       "danger": {
@@ -338,25 +338,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.600}"
+          "value": "{color.palette.danger.200}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.500}"
+          "value": "{color.palette.danger.300}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.700}"
+          "value": "{color.palette.danger.200}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.200}"
+          "value": "{color.palette.danger.100}"
         }
       },
       "neutral": {
@@ -484,25 +484,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.700}"
+          "value": "{color.palette.brand.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.600}"
+          "value": "{color.palette.brand.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.800}"
+          "value": "{color.palette.brand.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.400}"
+          "value": "{color.palette.brand.300}"
         }
       },
       "secondary": {
@@ -510,25 +510,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.700}"
+          "value": "{color.palette.secondary.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.600}"
+          "value": "{color.palette.secondary.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.800}"
+          "value": "{color.palette.secondary.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.secondary.400}"
+          "value": "{color.palette.secondary.300}"
         }
       },
       "info": {
@@ -536,19 +536,19 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.600}"
+          "value": "{color.palette.info.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.500}"
+          "value": "{color.palette.info.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.700}"
+          "value": "{color.palette.info.500}"
         },
         "disabled": {
           "attributes": {
@@ -562,19 +562,19 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.600}"
+          "value": "{color.palette.success.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.500}"
+          "value": "{color.palette.success.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.700}"
+          "value": "{color.palette.success.500}"
         },
         "disabled": {
           "attributes": {
@@ -588,25 +588,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.700}"
+          "value": "{color.palette.warning.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.600}"
+          "value": "{color.palette.warning.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.800}"
+          "value": "{color.palette.warning.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.400}"
+          "value": "{color.palette.warning.300}"
         }
       },
       "danger": {
@@ -614,25 +614,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.700}"
+          "value": "{color.palette.danger.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.600}"
+          "value": "{color.palette.danger.400}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.800}"
+          "value": "{color.palette.danger.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.400}"
+          "value": "{color.palette.danger.300}"
         }
       },
       "neutral": {
@@ -668,7 +668,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.800}"
+          "value": "{color.palette.brand.500}"
         },
         "hover": {
           "attributes": {
@@ -680,7 +680,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.brand.900}"
+          "value": "{color.palette.brand.500}"
         },
         "disabled": {
           "attributes": {
@@ -694,25 +694,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.700}"
+          "value": "{color.palette.info.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.500}"
+          "value": "{color.palette.info.600}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.800}"
+          "value": "{color.palette.info.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.info.200}"
+          "value": "{color.palette.info.400}"
         }
       },
       "success": {
@@ -720,25 +720,25 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.700}"
+          "value": "{color.palette.success.500}"
         },
         "hover": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.500}"
+          "value": "{color.palette.success.600}"
         },
         "active": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.800}"
+          "value": "{color.palette.success.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.success.200}"
+          "value": "{color.palette.success.400}"
         }
       },
       "warning": {
@@ -746,7 +746,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.800}"
+          "value": "{color.palette.warning.500}"
         },
         "hover": {
           "attributes": {
@@ -758,13 +758,13 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.900}"
+          "value": "{color.palette.warning.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.warning.200}"
+          "value": "{color.palette.warning.400}"
         }
       },
       "danger": {
@@ -772,7 +772,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.800}"
+          "value": "{color.palette.danger.500}"
         },
         "hover": {
           "attributes": {
@@ -784,13 +784,13 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.900}"
+          "value": "{color.palette.danger.500}"
         },
         "disabled": {
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.200}"
+          "value": "{color.palette.danger.500}"
         }
       },
       "neutral": {

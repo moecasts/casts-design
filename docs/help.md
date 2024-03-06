@@ -1,6 +1,0 @@
----
-nav:
-  title: help
----
-
-Balabala...

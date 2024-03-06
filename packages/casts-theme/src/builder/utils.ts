@@ -91,6 +91,18 @@ export const buildCoreTokens = (sd: Core) => {
           mapName: 'core-tokens',
         },
       },
+      coreTokensTs: {
+        transformGroup: 'js',
+        prefix: 'cds',
+        buildPath: 'src/tokens/ts/',
+        files: [
+          {
+            destination: 'core-tokens.ts',
+            format: 'es6BaseOnCssVariableFormat',
+            filter: coreTokenFilter,
+          },
+        ],
+      },
     },
   };
   sd.extend(config).buildAllPlatforms();

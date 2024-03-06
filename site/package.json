@@ -40,6 +40,7 @@
     "@casts/table": "workspace:^0.0.1",
     "@casts/tabs": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
+    "@casts/theme-generator": "workspace:^0.0.1",
     "@casts/toast": "workspace:^0.0.1",
     "@casts/tooltip": "workspace:^0.0.1",
     "@casts/typography": "workspace:^0.0.1",

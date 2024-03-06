@@ -152,7 +152,7 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
 
   &--theme-solid {
     &:not(.#{$notification-prefix-cls}--loading) {
-      color: $color-surface-container-default;
+      color: $color-palette-white;
     }
 
     &.#{$notification-prefix-cls}--info {

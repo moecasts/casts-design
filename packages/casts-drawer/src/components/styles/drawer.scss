@@ -77,7 +77,7 @@ $drawer-prefix-cls: #{$prefix-cls}-drawer;
   }
 
   /* --------------------------------- children ---------------------------------------- */
-  &-close {
+  & &-close {
     position: absolute;
     top: $drawer-close-space-top;
     right: $drawer-close-space-right;
