@@ -4,6 +4,7 @@
 // export * from './is-boolean';
 // export * from './is-object';
 export * from './array-insert-interval';
+export * from './browser-storage';
 export * from './drop-undefined-props';
 export * from './easings';
 export * from './format-size-unit';
@@ -13,8 +14,10 @@ export * from './get-scroll';
 export * from './get-slide-animation-name';
 export * from './get-style';
 export * from './get-target-element';
+export * from './is-browser';
 export * from './is-can-use-document';
 export * from './is-keyboard-confirm';
+export * from './is-server';
 export * from './is-value-empty';
 export * from './log';
 export * from './raf';

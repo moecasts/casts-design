@@ -21,7 +21,7 @@
     width: $anchor-border-width;
     height: 100%;
     content: '';
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: $color-border-component-default;
     border-radius: $radius-medium;
   }
 

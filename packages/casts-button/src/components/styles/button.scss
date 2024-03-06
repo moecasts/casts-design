@@ -108,7 +108,7 @@ $button-sizes: 'small', 'medium', 'large';
   &--contained {
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
-        $text-color: $color-palette-neutral-0;
+        $text-color: $color-palette-white;
         @include button-color(
           $text-color,
           map-get(

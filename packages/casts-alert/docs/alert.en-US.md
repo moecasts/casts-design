@@ -37,7 +37,7 @@ nav:
 
 <code src="../examples/custom-footer" />
 
-## Manual control visibl
+## Manual control visible
 
 <code src="../examples/visible" />
 

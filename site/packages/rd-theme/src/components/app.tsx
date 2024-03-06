@@ -12,6 +12,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { getPrefixCls } from '../common';
 import { SiteContent } from './content';
+import { FloatButton } from './float-button';
 import { SiteFooter } from './footer';
 import { Header } from './header';
 import { useAside } from './hooks';
@@ -90,6 +91,7 @@ export const App: FC<Partial<ConfigProviderProps>> = () => {
           </Footer>
         </Layout>
       </Layout>
+      <FloatButton />
     </Layout>
   );
 };
