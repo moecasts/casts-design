@@ -11,10 +11,10 @@
           "value": "{color.palette.neutral.300}"
         },
         "hover": {
-          "value": "{color.border.brand.hover}"
+          "value": "{color.shape.brand.hover}"
         },
         "active": {
-          "value": "{color.border.brand.active}"
+          "value": "{color.shape.brand.active}"
         },
         "disabled": {
           "value": "{color.border.component.disabled}"
