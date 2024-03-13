@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { runColors } from '@casts/colors';
 import { capitalize, groupBy, map, pickBy, sortBy } from '@casts/common';
 import { Space } from '@casts/space';
 import * as tokens from '@casts/theme';
@@ -39,8 +40,22 @@ const Palette = () => {
     return result as Record<string, string>;
   }, []);
 
+  const colorGroups = runColors();
+
   return (
     <Space direction="vertical" size={40}>
+      {map(colorGroups, (colors, idx) => (
+        <Space wrap key={idx}>
+          {map(colors, (color: string, i) => (
+            <div
+              className="demo-color-item"
+              style={{ backgroundColor: color }}
+              key={i}
+            ></div>
+          ))}
+        </Space>
+      ))}
+
       {map(categories, (category) => {
         const palettes = paletteTokens[category];
         return (
