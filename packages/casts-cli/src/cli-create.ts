@@ -142,7 +142,7 @@ export const runCreate = async () => {
 
   src.find({ matching: '*' }).forEach((filePath: string) => {
     const getDestPath = (filepath: string) => {
-      if (isDocFile(filepath) && answers.componentName) {
+      if (isDocFile(filepath) && answers.componentName && answers.createDoc) {
         return replaceDocFileName(filepath, answers.componentName);
       }
 
