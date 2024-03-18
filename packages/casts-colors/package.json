@@ -46,6 +46,7 @@
     "@casts/common": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
+    "@k-vyn/coloralgorithm": "^1.0.0",
     "@types/bezier-easing": "^2.1.2",
     "bezier-easing": "^2.1.0",
     "clsx": "^2.0.0",

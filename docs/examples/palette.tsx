@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { runColors } from '@casts/colors';
+import { useMemo, useState } from 'react';
+import { CurveEditor, hsv } from '@casts/colors';
 import { capitalize, groupBy, map, pickBy, sortBy } from '@casts/common';
 import { Space } from '@casts/space';
 import * as tokens from '@casts/theme';
@@ -40,10 +40,34 @@ const Palette = () => {
     return result as Record<string, string>;
   }, []);
 
-  const colorGroups = runColors();
+  const [easing, setEasing] = useState<
+    [number, number, number, number] | undefined
+  >(undefined);
+
+  const genereteColors = () => {
+    const baseColors = ['#CA56DA'];
+
+    const colors = baseColors.map((color) => {
+      return hsv(color, {
+        easing,
+      });
+      // return tintsAndShades(color, {
+      //   easing,
+      // });
+    });
+
+    return colors;
+  };
+
+  const colorGroups = useMemo(() => genereteColors(), []);
 
   return (
     <Space direction="vertical" size={40}>
+      <CurveEditor
+        onChange={(points) => {
+          setEasing(points);
+        }}
+      />
       {map(colorGroups, (colors, idx) => (
         <Space wrap key={idx}>
           {map(colors, (color: string, i) => (

@@ -1,0 +1,58 @@
+@import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$curve-editor-prefix-cls: #{$prefix-cls}-curve-editor;
+
+.#{$curve-editor-prefix-cls} {
+  $space: $space-1-x;
+
+  position: relative;
+
+  width: 200px;
+  height: 200px;
+  padding: $space;
+  background-color: $color-surface-neutral-default;
+  border-radius: var(--border-radius-large);
+  border-radius: $radius-medium;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke: $color-palette-neutral-300;
+    stroke-linecap: round;
+    stroke-width: 0.125rem;
+  }
+
+  &-grid {
+    opacity: 0.25;
+    stroke-width: 0.0625rem;
+  }
+
+  &-curve {
+    stroke: currentColor;
+    stroke-width: 0.25rem;
+  }
+
+  &-interaction {
+    position: absolute;
+    inset: $space;
+    touch-action: none;
+    user-select: none;
+  }
+
+  &-handle {
+    $size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $size;
+    height: $size;
+    background-color: $color-shape-brand-default;
+    border: 0.125rem solid $color-shape-brand-default;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
