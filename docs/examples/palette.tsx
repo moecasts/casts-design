@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { runColors } from '@casts/colors';
+import { CurveEditor, runColors } from '@casts/colors';
 import { capitalize, groupBy, map, pickBy, sortBy } from '@casts/common';
 import { Space } from '@casts/space';
 import * as tokens from '@casts/theme';
@@ -44,6 +44,11 @@ const Palette = () => {
 
   return (
     <Space direction="vertical" size={40}>
+      <CurveEditor
+        onChange={(points) => {
+          console.log('points', points);
+        }}
+      />
       {map(colorGroups, (colors, idx) => (
         <Space wrap key={idx}>
           {map(colors, (color: string, i) => (

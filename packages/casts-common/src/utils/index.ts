@@ -5,6 +5,7 @@
 // export * from './is-object';
 export * from './array-insert-interval';
 export * from './browser-storage';
+export * from './clamp-number';
 export * from './drop-undefined-props';
 export * from './easings';
 export * from './format-size-unit';
