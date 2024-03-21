@@ -1,4 +1,6 @@
-$scrollbar-color: rgba(0, 0, 0, 0.1);
+@import '../../scss/vars/core.scss';
+
+$scrollbar-color: $color-palette-neutral-200;
 $scrollbar-hover-color: rgba(0, 0, 0, 0.3);
 $scroll-track-color: #fff;
 

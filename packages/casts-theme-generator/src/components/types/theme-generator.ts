@@ -34,6 +34,12 @@ export type UseThemeGeneratorProps = BaseComponentProps & {
    * theme generator drawer visible change
    */
   onVisibleChange?: (visible: boolean) => void;
+
+  /**
+   * append theme code on mounted
+   * @default true
+   */
+  addThemeCodeOnMounted?: boolean;
 };
 
 export type ThemeGeneratorProps = UseThemeGeneratorProps;

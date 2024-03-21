@@ -2,25 +2,25 @@ import { useRef } from 'react';
 import { Affix } from '@casts/affix';
 import { Button } from '@casts/button';
 import {
-  CdsColorSurfaceComponentDefault,
-  CdsRadiusMedium,
-  CdsSpace1X,
-  CdsSpace05X,
+  TokenCdsColorSurfaceComponentDefault,
+  TokenCdsRadiusMedium,
+  TokenCdsSpace1X,
+  TokenCdsSpace05X,
 } from '@casts/theme';
 
 const AffixCustomContainerDemo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <div
-      style={{ height: '300px', overflow: 'auto', padding: CdsSpace05X }}
+      style={{ height: '300px', overflow: 'auto', padding: TokenCdsSpace05X }}
       ref={containerRef}
     >
       <div
         style={{
-          backgroundColor: CdsColorSurfaceComponentDefault,
+          backgroundColor: TokenCdsColorSurfaceComponentDefault,
           height: '500px',
-          borderRadius: CdsRadiusMedium,
-          marginBottom: CdsSpace1X,
+          borderRadius: TokenCdsRadiusMedium,
+          marginBottom: TokenCdsSpace1X,
         }}
       ></div>
       <Affix container={() => containerRef.current}>
@@ -28,10 +28,10 @@ const AffixCustomContainerDemo = () => {
       </Affix>
       <div
         style={{
-          backgroundColor: CdsColorSurfaceComponentDefault,
+          backgroundColor: TokenCdsColorSurfaceComponentDefault,
           height: '500px',
-          borderRadius: CdsRadiusMedium,
-          marginTop: CdsSpace1X,
+          borderRadius: TokenCdsRadiusMedium,
+          marginTop: TokenCdsSpace1X,
         }}
       ></div>
     </div>

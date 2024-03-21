@@ -12,4 +12,6 @@ nav:
 
 ## Palettes
 
-<code src="./examples/palette.tsx" />
+import Palette from './examples/palette.tsx';
+
+<Palette />

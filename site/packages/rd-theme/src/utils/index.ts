@@ -1,1 +1,1 @@
-export {};
+export * from './is-link-click';

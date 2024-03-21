@@ -1,9 +1,9 @@
 import { Affix } from '@casts/affix';
 import { Button } from '@casts/button';
 import {
-  CdsColorSurfaceComponentDefault,
-  CdsRadiusMedium,
-  CdsSpace1X,
+  TokenCdsColorSurfaceComponentDefault,
+  TokenCdsRadiusMedium,
+  TokenCdsSpace1X,
 } from '@casts/theme';
 
 const AffixBasicDemo = () => {
@@ -11,10 +11,10 @@ const AffixBasicDemo = () => {
     <div>
       <div
         style={{
-          backgroundColor: CdsColorSurfaceComponentDefault,
+          backgroundColor: TokenCdsColorSurfaceComponentDefault,
           height: '500px',
-          borderRadius: CdsRadiusMedium,
-          marginBottom: CdsSpace1X,
+          borderRadius: TokenCdsRadiusMedium,
+          marginBottom: TokenCdsSpace1X,
         }}
       ></div>
       <Affix>
@@ -22,10 +22,10 @@ const AffixBasicDemo = () => {
       </Affix>
       <div
         style={{
-          backgroundColor: CdsColorSurfaceComponentDefault,
+          backgroundColor: TokenCdsColorSurfaceComponentDefault,
           height: '500px',
-          borderRadius: CdsRadiusMedium,
-          marginTop: CdsSpace1X,
+          borderRadius: TokenCdsRadiusMedium,
+          marginTop: TokenCdsSpace1X,
         }}
       ></div>
     </div>

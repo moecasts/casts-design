@@ -56,6 +56,7 @@ export const FloatButton = () => {
         onModeChange={(mode) => updateTheme({ mode })}
         visible={themeGeneratorVisible}
         onVisibleChange={(visible) => setThemeGeneratorVisible(visible)}
+        addThemeCodeOnMounted={!!themeStorage.get()}
       />
     </>
   );
