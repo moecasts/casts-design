@@ -1,17 +1,19 @@
 import { FC, MouseEvent, useMemo } from 'react';
 import { Button } from '@casts/button';
 import { last, map } from '@casts/common';
-import { Translate2 } from '@casts/icons';
+import { MoonFill, SunFill, Translate2 } from '@casts/icons';
 import { Layout } from '@casts/layout';
 import { HeadMenu } from '@casts/menu';
 import { useLocaleLocation } from '@casts/rd-vite/client/hooks/use-locale-location';
 import { useRd } from '@casts/rd-vite/client/hooks/use-rd';
 import { localeCodes } from '@casts/rd-vite/common';
+import { Switch } from '@casts/switch';
 import { Link, To, useNavigate } from 'react-router-dom';
 
 // @ts-ignore svgr component
 import { ReactComponent as Brand } from '../../../../src/brand.svg';
 import { getPrefixCls } from '../common';
+import { isLinkClick } from '../utils';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type HeaderProps = {};
@@ -77,11 +79,15 @@ export const Header: FC<HeaderProps> = () => {
           navigate(value as To);
         }}
         onClickCapture={(e: MouseEvent<HTMLDivElement>) => {
-          e.nativeEvent.preventDefault();
+          if (isLinkClick(e)) {
+            e.nativeEvent.preventDefault();
+          }
         }}
         items={navToMenuData(nav)}
         operations={
           <>
+            <Switch checkedIcon={<SunFill />} uncheckedIcon={<MoonFill />} />
+
             <Button
               icon={<Translate2 />}
               variant="link"

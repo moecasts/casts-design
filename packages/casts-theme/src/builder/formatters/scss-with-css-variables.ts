@@ -11,7 +11,7 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
     formatHelpers.fileHeader({ file, commentStyle: 'short' }),
     prefixCls,
     `${selector} {\n` +
-      `--#{$prefix-cls}-prefix-cls: ${prefixCls};\n` +
+      `--#{$prefix-cls}-prefix-cls: ${prefix};\n` +
       formatHelpers
         .formattedVariables({
           format: 'css',

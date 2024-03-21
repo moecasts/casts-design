@@ -86,6 +86,8 @@ $sizes: 'small', 'medium', 'large';
   }
 
   &-operations {
+    display: inline-flex;
+    align-items: center;
     white-space: nowrap;
 
     & > * + * {

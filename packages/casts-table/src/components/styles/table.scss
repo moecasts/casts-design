@@ -65,6 +65,10 @@ $table-prefix-cls: #{$prefix-cls}-table;
     .#{$table-prefix-cls}-content {
       border-radius: $table-radius;
     }
+
+    .#{$table-prefix-cls}-loading {
+      border-radius: $table-radius;
+    }
   }
 
   &--row-round {
@@ -199,9 +203,11 @@ $table-prefix-cls: #{$prefix-cls}-table;
     bottom: 0px;
     left: 0px;
     z-index: $elevation-z-index-low;
+    z-index: $elevation-z-index-low;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: $color-surface-neutral-default;
+    opacity: $opacity-60;
   }
 }

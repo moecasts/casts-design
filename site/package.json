@@ -37,6 +37,7 @@
     "@casts/radio": "workspace:^0.0.1",
     "@casts/space": "workspace:^0.0.1",
     "@casts/standard": "workspace:^0.0.1",
+    "@casts/switch": "workspace:^0.0.1",
     "@casts/table": "workspace:^0.0.1",
     "@casts/tabs": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",

@@ -20,7 +20,7 @@ export type ButtonGroupProps = {
    */
   theme?: ButtonTheme;
   /**
-   * @default default
+   * @default medium
    */
   size?: ButtonSize;
   /**
