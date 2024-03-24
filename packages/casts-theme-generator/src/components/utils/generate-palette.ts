@@ -251,13 +251,13 @@ export const neutral = (reverse = false) => {
   const finalShades = reverse ? invertedShades : shades;
 
   const namedShades = naming.reduce((namedShadesAcc, step, index) => {
+    const color = new TinyColor(finalShades[index]);
+
+    const hsl = color.toHslString().replace('hsl(', '').replace(')', '');
     return {
       ...namedShadesAcc,
       [step]: {
-        attributes: {
-          category: 'color',
-        },
-        value: finalShades[index],
+        value: hsl,
       },
     };
   }, {});
@@ -279,13 +279,13 @@ export const generatePalettes = (
 
     const namedShades = namings.materials.reduce(
       (namedShadesAcc, step, index) => {
+        const color = new TinyColor(finalShades[index]);
+
+        const hsl = color.toHslString().replace('hsl(', '').replace(')', '');
         return {
           ...namedShadesAcc,
           [step]: {
-            attributes: {
-              category: 'color',
-            },
-            value: finalShades[index],
+            value: hsl,
           },
         };
       },
@@ -308,7 +308,7 @@ export const toCssVariables = (palettes: Palettes) => {
     category: string;
     step: string;
   }) => {
-    return `--${CdsPrefixCls}-color-palette-${payload.category}-${payload.step}`;
+    return `--${CdsPrefixCls}-color-palette-hsl-${payload.category}-${payload.step}`;
   };
 
   const shadowCssVariables = `
@@ -320,7 +320,7 @@ export const toCssVariables = (palettes: Palettes) => {
   `;
 
   const cssVariables =
-    ':root {\n' +
+    ':root[theme-mode="custom"] {\n' +
     reduce(
       palettes,
       (allCode, palette, category) => {
@@ -334,7 +334,7 @@ export const toCssVariables = (palettes: Palettes) => {
                 `${getPaletteVariableName({
                   category,
                   step,
-                })}: ${value.value} !important;\n`
+                })}: ${value.value};\n`
               );
             },
             '',

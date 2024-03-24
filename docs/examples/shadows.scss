@@ -1,0 +1,9 @@
+@use '@casts/theme/styles/scss/vars/core' as *;
+
+.demo-shadow-item {
+  width: 100px;
+  height: 100px;
+  background-color: $color-palette-neutral-200;
+
+  border-radius: $radius-medium;
+}

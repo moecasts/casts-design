@@ -18,7 +18,8 @@ export const transformers: Record<string, Transform> = {
     // only transforms that have transitive: true will be applied to tokens
     // that alias/reference other tokens
     transitive: true,
-    matcher: (token) => token.attributes?.category === 'color',
+    matcher: (token) =>
+      token.attributes?.category === 'color' && !('alpha' in token),
     transformer: colorCss,
   },
   shadowCss: {

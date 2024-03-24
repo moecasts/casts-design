@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { GetPrefixCls } from '@casts/common';
+import { GetPrefixCls, noop } from '@casts/common';
 import { zhCN } from '@casts/locale';
 
-import { Config } from './types';
+import { ConfigWithUpdater } from './types';
 import { getCompletePrefixCls } from './utils';
 
 export const defaultPrefixCls = 'cds';
@@ -16,12 +16,14 @@ export const defaultGetPrefixCls: GetPrefixCls = (
     suffixCls,
   });
 
-export const defaultConfig: Config = {
+export const defaultConfig: ConfigWithUpdater = {
   prefixCls: 'cds',
   getPrefixCls: defaultGetPrefixCls,
   locale: zhCN,
+  themeMode: 'default',
+  setConfig: noop,
 };
 
-export const ConfigContext = createContext<Config>(defaultConfig);
+export const ConfigContext = createContext<ConfigWithUpdater>(defaultConfig);
 
 export const ConfigConsumer = ConfigContext.Consumer;

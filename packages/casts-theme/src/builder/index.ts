@@ -19,7 +19,8 @@ const run = () => {
       formatter: es6BaseOnCssVariableFormat,
     });
   buildCoreTokens(sd);
-  buildComponentTokens(sd);
+  buildComponentTokens;
+  // buildComponentTokens(sd);
 };
 
 run();

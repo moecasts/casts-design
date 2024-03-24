@@ -10,39 +10,8 @@ import {
   toCssVariables,
 } from '../utils/generate-palette';
 
-const defaultMainColors: MainColor[] = [
-  {
-    name: 'brand',
-    color: '#CA56DA',
-  },
-  {
-    name: 'secondary',
-    color: '#DD3541',
-  },
-  {
-    name: 'info',
-    color: '#2191FB',
-  },
-  {
-    name: 'success',
-    color: '#4CB944',
-  },
-  {
-    name: 'warning',
-    color: '#EA591F',
-  },
-  {
-    name: 'danger',
-    color: '#E42535',
-  },
-  // {
-  //   name: 'neutral',
-  //   color: '#666666',
-  // },
-];
-
 export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
-  const { className, style } = props;
+  const { className, style, addThemeCodeOnMounted } = props;
 
   const [visible, onVisibleChange] = useControlled<boolean>(
     props,
@@ -81,7 +50,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
     props,
     'mainColors',
     props.onMainColorsChange || noop,
-    defaultMainColors,
+    [],
   );
 
   const debounceGeneratePalettes = useDebounceFn(
@@ -89,7 +58,9 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
       const reverse = mode === 'dark' ? true : false;
 
       const palettes = generatePalettes(mainColors, reverse);
+
       const cssCodes = toCssVariables(palettes);
+      document.documentElement.setAttribute('theme-mode', 'custom');
       appendThemeVariablesToHead(cssCodes);
     },
     {
@@ -99,6 +70,9 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
 
   // generate current theme when component mounted
   useEffect(() => {
+    if (!addThemeCodeOnMounted) {
+      return;
+    }
     debounceGeneratePalettes.run(mainColors, mode);
     debounceGeneratePalettes.flush();
   }, []);

@@ -46,7 +46,7 @@ const Palette = () => {
         return (
           <div key={`${category}`}>
             <Heading level={3}>{capitalize(category)}</Heading>
-            <Space wrap>
+            <Space wrap size={32}>
               {map(
                 sortBy(palettes, (color: string) => getColorStep(color)),
                 (color: string) => (

@@ -228,6 +228,14 @@ body {
   }
 }
 
+.#{$rd-prefix-cls}-theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size-medium;
+  color: $color-text-primary;
+  transition: color $motion-duration-rapid $motion-easing-in-out;
+}
+
 .demo-full {
   width: 100%;
 }
