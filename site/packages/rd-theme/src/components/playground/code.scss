@@ -6,6 +6,7 @@
 $playground-prefix-cls: rd-code-block;
 
 .#{$playground-prefix-cls} {
+  background-color: $color-surface-container-default;
   border: $border-width-xsmall solid $color-border-component-default;
   border-radius: $radius-medium;
 

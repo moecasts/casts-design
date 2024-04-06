@@ -311,7 +311,8 @@ export const toCssVariables = (palettes: Palettes) => {
     return `--${CdsPrefixCls}-color-palette-hsl-${payload.category}-${payload.step}`;
   };
 
-  const shadowCssVariables = `
+  const shadowCssVariables = '';
+  const shadowCssVariables1 = `
     --${CdsPrefixCls}-color-shadow-black-default: ${new TinyColor(
       palettes.neutral['1000'].value,
     )

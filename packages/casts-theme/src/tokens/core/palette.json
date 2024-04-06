@@ -261,55 +261,43 @@
           },
           "50": {
             "value": "0, 0%, 99%",
-            "darkValue": "206, 78%, 2%"
+            "darkValue": "0, 0%, 3%"
           },
           "100": {
-            "value": "0, 0%, 98%",
-            "darkValue": "213, 43%, 4%"
-          },
-          "125": {
-            "value": "0, 0%, 96%",
-            "darkValue": "210, 36%, 5%"
-          },
-          "150": {
-            "value": "0, 0%, 95%",
-            "darkValue": "207, 31%, 7%"
-          },
-          "175": {
-            "value": "0, 0%, 93%",
-            "darkValue": "210, 23%, 9%"
+            "value": "0, 0%, 97%",
+            "darkValue": "0, 0%, 6%"
           },
           "200": {
-            "value": "0, 0%, 91%",
-            "darkValue": "210, 19%, 11%"
+            "value": "0, 0%, 95%",
+            "darkValue": "0, 0%, 10%"
           },
           "300": {
-            "value": "0, 0%, 81%",
-            "darkValue": "210, 11%, 18%"
+            "value": "0, 0%, 93%",
+            "darkValue": "0, 0%, 13%"
           },
           "400": {
-            "value": "0, 0%, 67%",
-            "darkValue": "207, 7%, 26%"
+            "value": "0, 0%, 90%",
+            "darkValue": "0, 0%, 18%"
           },
           "500": {
-            "value": "0, 0%, 51%",
-            "darkValue": "210, 5%, 47%"
+            "value": "0, 0%, 60%",
+            "darkValue": "0, 0%, 35%"
           },
           "600": {
-            "value": "0, 0%, 34%",
-            "darkValue": "210, 8%, 69%"
+            "value": "0, 0%, 40%",
+            "darkValue": "0, 0%, 70%"
           },
           "700": {
-            "value": "0, 0%, 20%",
-            "darkValue": "213, 8%, 79%"
+            "value": "0, 0%, 28%",
+            "darkValue": "0, 0%, 75%"
           },
           "800": {
-            "value": "0, 0%, 10%",
-            "darkValue": "210, 9%, 86%"
+            "value": "0, 0%, 18%",
+            "darkValue": "0, 0%, 86%"
           },
           "900": {
-            "value": "210, 11%, 4%",
-            "darkValue": "220, 9%, 94%"
+            "value": "0, 0%, 6%",
+            "darkValue": "0, 0%, 93%"
           },
           "1000": {
             "value": "0, 0%, 0%",
@@ -776,21 +764,21 @@
             "category": "color"
           },
           "type": "hsl",
-          "value": "{color.palette.hsl.neutral.125}"
+          "value": "{color.palette.hsl.neutral.100}"
         },
         "150": {
           "attributes": {
             "category": "color"
           },
           "type": "hsl",
-          "value": "{color.palette.hsl.neutral.150}"
+          "value": "{color.palette.hsl.neutral.100}"
         },
         "175": {
           "attributes": {
             "category": "color"
           },
           "type": "hsl",
-          "value": "{color.palette.hsl.neutral.175}"
+          "value": "{color.palette.hsl.neutral.200}"
         },
         "200": {
           "attributes": {
