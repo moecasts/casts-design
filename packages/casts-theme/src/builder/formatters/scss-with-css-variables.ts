@@ -16,7 +16,7 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
         ...dictionary,
         allTokens: dictionary.allTokens
           .filter((token) => {
-            return token?.attributes?.category === 'color' && token.darkValue;
+            return token.darkValue;
           })
           .map((token) => {
             const { value: _value, ...restToken } = token;

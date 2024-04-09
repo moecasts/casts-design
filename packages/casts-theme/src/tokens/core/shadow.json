@@ -143,10 +143,25 @@
       }
     }
   },
+  "opacity": {
+    "shadow": {
+      "border": {
+        "value": "0.24",
+        "darkValue": "0.48"
+      }
+    }
+  },
   "shadow": {
     "level": {
       "1": {
         "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
           {
             "offsetX": "0px",
             "offsetY": "2px",
@@ -167,6 +182,13 @@
         "value": [
           {
             "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
             "offsetY": "4px",
             "blur": "6px",
             "spread": "-4px",
@@ -183,6 +205,13 @@
       },
       "3": {
         "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
           {
             "offsetX": "0px",
             "offsetY": "6px",
@@ -203,6 +232,13 @@
         "value": [
           {
             "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
             "offsetY": "6px",
             "blur": "14px",
             "spread": "-6px",
@@ -219,6 +255,13 @@
       },
       "5": {
         "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
           {
             "offsetX": "0px",
             "offsetY": "8px",

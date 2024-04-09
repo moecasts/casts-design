@@ -5,7 +5,7 @@ import {
   type TouchEvent as ReactTouchEvent,
   useState,
 } from 'react';
-import { noop, useControlled } from '@casts/common';
+import { addEventListener, noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
@@ -86,6 +86,16 @@ export const useSwitch = (props: UseSwitchProps) => {
     }
 
     setPressed(true);
+
+    addEventListener(
+      document,
+      ['mouseup', 'touchcancel', 'touchend'],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (e) => handlePressEnd(e as any),
+      {
+        once: true,
+      },
+    );
   };
 
   const handlePressEnd = (
@@ -100,13 +110,7 @@ export const useSwitch = (props: UseSwitchProps) => {
 
     e.preventDefault();
     setPressed(false);
-
-    if (
-      e.nativeEvent instanceof KeyboardEvent &&
-      e.nativeEvent.code === 'Space'
-    ) {
-      handleChange();
-    }
+    handleChange();
   };
 
   const handleBlur = () => {

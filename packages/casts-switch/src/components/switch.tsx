@@ -52,7 +52,6 @@ export const Switch = forwardRef(
         aria-checked={checked}
         onTouchStart={handlePressStart}
         onMouseDown={handlePressStart}
-        onMouseUp={handlePressEnd}
         onKeyDown={handlePressStart}
         onKeyUp={handlePressEnd}
         onBlur={handleBlur}
@@ -64,7 +63,6 @@ export const Switch = forwardRef(
           tabIndex={-1}
           style={{ display: 'none' }}
           value={String(checked)}
-          onChange={handleChange}
           aria-checked={checked}
           disabled={disabled}
         />
