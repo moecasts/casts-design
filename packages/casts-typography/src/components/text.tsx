@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { TextProps, TextVariantProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/typography.scss';
 
 const wrapperDecorations = (

@@ -15,6 +15,7 @@ import { SubMenuProvider } from './menu-context';
 import { MenuItem } from './menu-item';
 import { MenuBlockType, SubMenuProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/sub-menu.scss';
 
 export const DEFAULT_DURATION = parseFloat(CdsMotionDurationFast);

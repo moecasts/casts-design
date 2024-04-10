@@ -17,6 +17,7 @@ import { SelectProvider, useSelectContext } from './select-context';
 import { SelectList } from './select-list';
 import { SelectProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/select.scss';
 
 const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {

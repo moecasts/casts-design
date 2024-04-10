@@ -7,6 +7,7 @@ import { defaultInputProps } from './default-props';
 import { useInput } from './hooks';
 import { InputProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/input.scss';
 
 type InputRef = HTMLInputElement | null;

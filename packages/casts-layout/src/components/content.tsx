@@ -4,6 +4,7 @@ import { useConfig } from '@casts/config-provider';
 import { useContent } from './hooks';
 import type { ContentProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/content.scss';
 
 export const Content = forwardRef(

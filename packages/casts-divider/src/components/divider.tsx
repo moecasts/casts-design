@@ -6,6 +6,7 @@ import { defaultDividerProps } from './default-props';
 import { useDivider } from './hooks';
 import { DividerProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/divider.scss';
 
 export const Divider = forwardRef(

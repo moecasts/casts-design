@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { defaultRadioGroupProps } from './default-props';
 import { RadioGroupContextProps, RadioGroupProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/radio-group.scss';
 
 export const RadioGroupContext = createContext<RadioGroupContextProps>({

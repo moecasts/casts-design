@@ -6,6 +6,7 @@ import { defaultSwitchProps } from '../default-props';
 import { useSwitch } from './hooks';
 import { SwitchProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/switch.scss';
 
 export const Switch = forwardRef(

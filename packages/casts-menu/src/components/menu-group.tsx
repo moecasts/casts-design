@@ -3,6 +3,7 @@ import { forwardRef, Ref } from 'react';
 import { useMenuGroup } from './hooks';
 import { MenuBlockType, MenuGroupProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/menu-group.scss';
 
 export const MenuGroup = forwardRef(

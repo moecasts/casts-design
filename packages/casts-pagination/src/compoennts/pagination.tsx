@@ -16,6 +16,7 @@ import { PaginationItem } from './pagination-item';
 import { PaginationJumper } from './pagination-jumper';
 import { PaginationItemType, PaginationProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/pagination.scss';
 
 export const Pagination = forwardRef((props: PaginationProps, ref) => {

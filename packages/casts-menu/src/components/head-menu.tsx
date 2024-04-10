@@ -9,6 +9,7 @@ import { OverflowWrap } from './overflow-wrap';
 import { SubMenu } from './sub-menu';
 import { HeadMenuProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/head-menu.scss';
 
 export const HeadMenu = forwardRef(

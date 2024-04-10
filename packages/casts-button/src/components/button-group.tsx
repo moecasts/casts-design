@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { ButtonShape, ButtonSize, ButtonTheme, ButtonVariant } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/button-group.scss';
 
 export type ButtonGroupProps = {

@@ -6,6 +6,7 @@ import { flexRender } from '@tanstack/react-table';
 import { useTable } from './hooks';
 import { TableProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/table.scss';
 
 export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {

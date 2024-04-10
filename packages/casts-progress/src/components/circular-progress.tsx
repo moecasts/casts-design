@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { defaultFormat } from '../utils';
 import { CircularProgressProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/circular.scss';
 
 const SIZE = 44;

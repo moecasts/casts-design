@@ -10,6 +10,7 @@ import { ColorPicker } from './color-picker';
 import { useThemeGenerator } from './hooks';
 import { ThemeGeneratorProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/theme-generator.scss';
 
 export const ThemeGenerator = forwardRef(

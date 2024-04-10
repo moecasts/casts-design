@@ -6,6 +6,7 @@ import { FormLabel } from './form-label';
 import { useFormItem } from './hooks';
 import { FormItemProps, ValidateError } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/form-item.scss';
 
 export const FormItem = forwardRef(

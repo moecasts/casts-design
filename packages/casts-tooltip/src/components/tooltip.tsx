@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import { TooltipProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/tooltip.scss';
 
 export const Tooltip: FC<TooltipProps> = (props) => {

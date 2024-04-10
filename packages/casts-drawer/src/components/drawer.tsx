@@ -10,6 +10,7 @@ import { defaultDrawerProps } from './default-props';
 import { useDrawer } from './hooks';
 import { DrawerProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/drawer.scss';
 
 export const Drawer = forwardRef(

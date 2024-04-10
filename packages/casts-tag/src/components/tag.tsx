@@ -10,6 +10,7 @@ import { defaultTagProps } from './default-props';
 import { useTag } from './hooks';
 import { TagProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/tag.scss';
 
 export const Tag = forwardRef((props: TagProps, ref) => {

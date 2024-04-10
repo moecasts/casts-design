@@ -11,6 +11,7 @@ import clsx from 'clsx';
 
 import { MessageProps, MessageTheme } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/message.scss';
 
 const getThemeIcon = (theme: `${MessageTheme}`) => {

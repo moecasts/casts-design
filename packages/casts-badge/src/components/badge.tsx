@@ -6,6 +6,7 @@ import { defaultBadgeProps } from './default-props';
 import { useBadge } from './hooks';
 import { BadgeProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/badge.scss';
 
 export const Badge = forwardRef(

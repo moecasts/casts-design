@@ -6,6 +6,7 @@ import type { FC, HTMLProps, ReactNode } from 'react';
 import { useCurveEditor } from './hooks';
 import { CurveEditorProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/curve-editor.scss';
 
 export type Position = { top: number; left: number };

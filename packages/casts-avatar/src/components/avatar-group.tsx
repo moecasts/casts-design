@@ -4,6 +4,7 @@ import { useConfig } from '@casts/config-provider';
 import { AvatarGroupProvider, useAvatarGroup } from './hooks/use-avatar-group';
 import { AvatarGroupProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/avatar-group.scss';
 
 export const AvatarGroup = forwardRef(

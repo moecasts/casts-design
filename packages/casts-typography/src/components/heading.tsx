@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { HeadingProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/typography.scss';
 
 export const Heading: FC<HeadingProps> = (props) => {

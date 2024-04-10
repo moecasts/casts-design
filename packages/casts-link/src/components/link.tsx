@@ -5,6 +5,7 @@ import { defaultLinkProps } from './default-props';
 import { useLink } from './hooks';
 import { LinkProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/link.scss';
 
 export const Link = forwardRef(

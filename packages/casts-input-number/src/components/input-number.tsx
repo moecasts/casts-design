@@ -8,6 +8,7 @@ import { defaultInputNumberProps } from './default-props';
 import { useInputNumber } from './hooks';
 import { InputNumberProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/input-number.scss';
 
 export const InputNumber = forwardRef(

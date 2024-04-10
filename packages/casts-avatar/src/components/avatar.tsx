@@ -6,6 +6,7 @@ import { defaultAvatarProps } from './default-props';
 import { useAvatar } from './hooks';
 import { AvatarProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/avatar.scss';
 
 export const Avatar = forwardRef(

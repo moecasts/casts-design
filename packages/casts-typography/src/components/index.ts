@@ -1,3 +1,4 @@
+import '@casts/theme/styles/scss/core.scss';
 import './styles/typography.scss';
 
 export * from './heading';

@@ -9,6 +9,7 @@ import {
 import { useRowStyles } from './hooks';
 import { RowContextProps, RowProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/row.scss';
 
 export const RowContext = createContext<RowContextProps>({});

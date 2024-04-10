@@ -16,6 +16,7 @@ import { ButtonGroupContext } from './button-group';
 import { defaultButtonProps } from './default-props';
 import type { ButtonProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/button.scss';
 
 export const Button = forwardRef(

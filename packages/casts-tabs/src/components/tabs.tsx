@@ -7,6 +7,7 @@ import { TabsBar } from './tabs-bar';
 import { TabsContent } from './tabs-content';
 import { UseTabProps as TabsProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/tabs.scss';
 
 export const Tabs = forwardRef(

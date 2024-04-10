@@ -22,6 +22,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { AlertProps, AlertTheme } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/alert.scss';
 
 const getThemeIcon = (theme: AlertTheme) => {

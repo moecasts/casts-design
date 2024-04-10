@@ -4,6 +4,7 @@ import { omit } from '@casts/common';
 import { useOverflowWrap } from './hooks';
 import { OverflowWrapProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/overflow-wrap.scss';
 
 export const OverflowWrap = (props: OverflowWrapProps) => {

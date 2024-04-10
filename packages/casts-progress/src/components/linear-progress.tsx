@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { defaultFormat } from '../utils';
 import { LinearProgressProps, ProgressStatus } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/linear.scss';
 
 export const LinearProgress: FC<LinearProgressProps> = (props) => {

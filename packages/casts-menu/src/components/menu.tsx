@@ -6,6 +6,7 @@ import { useMenu, useMenuElements } from './hooks';
 import { MenuProvider } from './menu-context';
 import { MenuProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/menu.scss';
 
 export const Menu = forwardRef((props: MenuProps, ref: Ref<HTMLDivElement>) => {

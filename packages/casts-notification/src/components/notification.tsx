@@ -11,6 +11,7 @@ import clsx from 'clsx';
 
 import { NotificationProps, NotificationTheme } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/notification.scss';
 
 const getThemeIcon = (theme: NotificationTheme) => {

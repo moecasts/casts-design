@@ -20,6 +20,7 @@ import { Header } from './header';
 import { useAside } from './hooks';
 import { Sidebar } from './sidebar';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/app.scss';
 
 const { Content, Footer, Aside } = Layout;

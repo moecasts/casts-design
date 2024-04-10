@@ -17,6 +17,7 @@ import clsx from 'clsx';
 import { CheckboxGroupContext } from './checkbox-group';
 import { CheckboxProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/checkbox.scss';
 
 export const Checkbox = forwardRef((props: CheckboxProps, ref) => {

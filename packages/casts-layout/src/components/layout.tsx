@@ -4,6 +4,7 @@ import { useConfig } from '@casts/config-provider';
 import { useLayout } from './hooks';
 import type { LayoutProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/layout.scss';
 
 export const Layout = forwardRef(

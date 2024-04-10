@@ -11,6 +11,7 @@ import { defaultMenuItemProps } from './default-props';
 import { useMenuItem } from './hooks';
 import { MenuBlockType, MenuItemProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/menu-item.scss';
 
 export const MenuItem = forwardRef(

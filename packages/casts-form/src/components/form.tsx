@@ -6,6 +6,7 @@ import { FormProvider } from './form-context';
 import { useForm } from './hooks';
 import { FormProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/form.scss';
 
 export const Form = forwardRef(

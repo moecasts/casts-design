@@ -7,6 +7,7 @@ import { defaultCheckboxGroupProps } from './default-props';
 import { useCheckboxGroupState } from './hooks';
 import { CheckboxGroupContextProps, CheckboxGroupProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/checkbox-group.scss';
 
 export const CheckboxGroupContext = createContext<CheckboxGroupContextProps>({

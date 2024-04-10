@@ -12,6 +12,7 @@ import { defaultPopupProps } from './default-props';
 import { usePopup } from './hooks';
 import { PopupProps, PopupRef } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/popup.scss';
 
 const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {

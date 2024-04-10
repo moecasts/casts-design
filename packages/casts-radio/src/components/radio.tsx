@@ -16,6 +16,7 @@ import clsx from 'clsx';
 import { RadioGroupContext } from './radio-group';
 import { ChangeEventHandler, RadioValue } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/radio.scss';
 
 export type CustomRadioComponentFunction = ({

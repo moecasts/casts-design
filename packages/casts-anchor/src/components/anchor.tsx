@@ -6,6 +6,7 @@ import { AnchorLink } from './anchor-link';
 import { useAnchor } from './hooks';
 import { AnchorLinkProps, AnchorProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/anchor.scss';
 
 const _Anchor: FC<AnchorProps> = (props) => {

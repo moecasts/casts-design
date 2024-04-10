@@ -5,6 +5,7 @@ import { defaultCodeProps } from './default-props';
 import { useCode } from './hooks';
 import { CodeProps } from './types';
 
+import '@casts/theme/styles/scss/core.scss';
 import './styles/code.scss';
 
 export const Code = forwardRef(
