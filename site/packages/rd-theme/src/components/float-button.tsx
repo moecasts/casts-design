@@ -28,16 +28,15 @@ export const FloatButton = () => {
   }) => {
     const { mainColors, mode } = payload;
 
-    const theme = {
-      mode: themeMode,
-      mainColors: themeMainColors,
-      ...payload,
-    };
-
     mainColors && setThemeMainColors(mainColors);
     mode && setThemeMode(mode);
 
-    themeStorage.set(theme);
+    // const theme = {
+    //   mode: themeMode,
+    //   mainColors: themeMainColors,
+    //   ...payload,
+    // };
+    // themeStorage.set(theme);
   };
 
   return (
@@ -56,7 +55,7 @@ export const FloatButton = () => {
         onModeChange={(mode) => updateTheme({ mode })}
         visible={themeGeneratorVisible}
         onVisibleChange={(visible) => setThemeGeneratorVisible(visible)}
-        addThemeCodeOnMounted={!!themeStorage.get()}
+        // addThemeCodeOnMounted={!!themeStorage.get()}
       />
     </>
   );

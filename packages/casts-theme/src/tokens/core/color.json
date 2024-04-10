@@ -790,7 +790,7 @@
           "attributes": {
             "category": "color"
           },
-          "value": "{color.palette.danger.500}"
+          "value": "{color.palette.danger.300}"
         }
       },
       "neutral": {
@@ -847,7 +847,7 @@
         "attributes": {
           "category": "color"
         },
-        "value": "{color.palette.white}"
+        "value": "{color.palette.neutral.50}"
       },
       "anti-disabled": {
         "attributes": {

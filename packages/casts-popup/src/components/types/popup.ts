@@ -2,7 +2,7 @@ import { CSSProperties, ReactElement, ReactNode, RefObject } from 'react';
 import { BaseComponentProps } from '@casts/common';
 import { Placement, UseFloatingReturn } from '@floating-ui/react';
 
-export type PopupTheme = 'light' | 'dark';
+export type PopupTheme = 'default' | 'anti';
 
 export type PopupTrigger = 'hover' | 'click' | 'focus' | 'manual';
 

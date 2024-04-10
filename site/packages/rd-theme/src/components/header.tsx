@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useMemo } from 'react';
+import { FC, MouseEvent, useMemo, useRef } from 'react';
 import { Button } from '@casts/button';
 import { last, map } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
@@ -15,6 +15,7 @@ import { Link, To, useNavigate } from 'react-router-dom';
 import { ReactComponent as Brand } from '../../../../src/brand.svg';
 import { getPrefixCls } from '../common';
 import { isLinkClick } from '../utils';
+import { useThemeSwitch } from './hooks/use-theme-switch';
 
 import '@theme-toggles/react/css/Around.css';
 
@@ -60,13 +61,11 @@ export const Header: FC<HeaderProps> = () => {
     return `${baseRoute}/`.replace(/\/(\/)+/g, '/');
   }, [matches]);
 
-  const { themeMode, setConfig } = useConfig();
+  const { themeMode } = useConfig();
 
-  const toggleThemeMode = () => {
-    const newThemeMode = themeMode === 'dark' ? 'default' : 'dark';
+  const themeSwitchRef = useRef<HTMLButtonElement>(null);
 
-    setConfig({ themeMode: newThemeMode });
-  };
+  const { toggleThemeMode } = useThemeSwitch(themeSwitchRef);
 
   return (
     <Layout.Header>
@@ -110,6 +109,7 @@ export const Header: FC<HeaderProps> = () => {
                 'theme-toggle--toggled': themeMode === 'dark',
               })}
               size="large"
+              ref={themeSwitchRef}
               icon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

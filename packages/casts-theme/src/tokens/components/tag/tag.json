@@ -231,50 +231,110 @@
       "text": {
         "brand": {
           "default": {
-            "value": "{color.text.brand.default}"
+            "on-pastel": {
+              "value": "{color.text.brand.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.brand.disabled}"
+            "on-pastel": {
+              "value": "{color.text.brand.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         },
         "info": {
           "default": {
-            "value": "{color.text.info.default}"
+            "on-pastel": {
+              "value": "{color.text.info.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.info.disabled}"
+            "on-pastel": {
+              "value": "{color.text.info.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         },
         "success": {
           "default": {
-            "value": "{color.text.success.default}"
+            "on-pastel": {
+              "value": "{color.text.success.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.success.disabled}"
+            "on-pastel": {
+              "value": "{color.text.success.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         },
         "warning": {
           "default": {
-            "value": "{color.text.warning.default}"
+            "on-pastel": {
+              "value": "{color.text.warning.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.warning.disabled}"
+            "on-pastel": {
+              "value": "{color.text.warning.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         },
         "danger": {
           "default": {
-            "value": "{color.text.danger.default}"
+            "on-pastel": {
+              "value": "{color.text.danger.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.danger.disabled}"
+            "on-pastel": {
+              "value": "{color.text.danger.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         },
         "neutral": {
           "default": {
-            "value": "{color.text.neutral.default}"
+            "on-pastel": {
+              "value": "{color.text.neutral.default}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti}"
+            }
           },
           "disabled": {
-            "value": "{color.text.neutral.disabled}"
+            "on-pastel": {
+              "value": "{color.text.neutral.disabled}"
+            },
+            "on-solid": {
+              "value": "{color.text.anti-disabled}"
+            }
           }
         }
       }

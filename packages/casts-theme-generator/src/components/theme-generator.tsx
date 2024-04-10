@@ -1,5 +1,5 @@
 import 'react-color-palette/css';
-import { forwardRef, Ref } from 'react';
+import { forwardRef, Ref, RefObject, useImperativeHandle } from 'react';
 import { capitalize } from '@casts/common';
 import { Drawer } from '@casts/drawer';
 import { MoonFill, SunFill } from '@casts/icons';
@@ -35,7 +35,11 @@ export const ThemeGenerator = forwardRef(
 
       visible,
       onVisibleChange,
+
+      generatorRef,
     } = useThemeGenerator(props);
+
+    useImperativeHandle(ref, () => generatorRef.current as HTMLDivElement);
 
     return (
       <Drawer
@@ -45,7 +49,11 @@ export const ThemeGenerator = forwardRef(
         closeable
         header={'Theme Generator'}
       >
-        <div ref={ref} className={classes} style={styles}>
+        <div
+          ref={generatorRef as RefObject<HTMLDivElement>}
+          className={classes}
+          style={styles}
+        >
           <div className={itemClasses}>
             <span className={itemTitleClasses}>Mode</span>
             <span className={itemContentClasses}>

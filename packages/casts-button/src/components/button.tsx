@@ -64,7 +64,7 @@ export const Button = forwardRef(
       [`${prefixCls}--only-icon`]: icon && !children,
     });
     const textClasses = `${prefixCls}-text`;
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
     useImperativeHandle(ref, () => buttonRef.current as HTMLButtonElement, [
       buttonRef,
@@ -106,6 +106,7 @@ export const Button = forwardRef(
           onKeyDown={handleKeyDown}
           aria-disabled={loading || disabled}
           tabIndex={loading || disabled ? -1 : 0}
+          ref={buttonRef as Ref<HTMLAnchorElement>}
           {...rest}
         >
           {icon}
@@ -118,7 +119,7 @@ export const Button = forwardRef(
     return (
       <button
         className={classes}
-        ref={buttonRef}
+        ref={buttonRef as Ref<HTMLButtonElement>}
         aria-disabled={loading || disabled}
         onClick={handleClick}
         tabIndex={loading || disabled ? -1 : 0}

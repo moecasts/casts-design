@@ -52,13 +52,13 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
                 tag-color-surface-#{$color}-default-on-pastel
               ),
             $color-text-default:
-              map-get($tag-tokens, tag-color-text-#{$color}-default),
+              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
             $color-text-hover:
-              map-get($tag-tokens, tag-color-text-#{$color}-default),
+              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
             $color-text-active:
-              map-get($tag-tokens, tag-color-text-#{$color}-default),
+              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
             $color-text-disabled:
-              map-get($tag-tokens, tag-color-text-#{$color}-disabled)
+              map-get($tag-tokens, tag-color-text-#{$color}-disabled-on-pastel)
           );
 
           &.#{$tag-prefix-cls}--bordered {
@@ -93,10 +93,14 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
             map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
           $color-surface-disabled:
             map-get($tag-tokens, tag-color-surface-#{$color}-disabled-on-solid),
-          $color-text-default: $color-text-anti,
-          $color-text-hover: $color-text-anti,
-          $color-text-active: $color-text-anti,
-          $color-text-disabled: $color-text-anti-disabled
+          $color-text-default:
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
+          $color-text-hover:
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
+          $color-text-active:
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
+          $color-text-disabled:
+            map-get($tag-tokens, tag-color-text-#{$color}-disabled-on-solid)
         );
       }
     }
@@ -114,11 +118,11 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
           $color-surface-active: transparent,
           $color-surface-disabled: transparent,
           $color-text-default:
-            map-get($tag-tokens, tag-color-text-#{$color}-default),
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
           $color-text-hover:
-            map-get($tag-tokens, tag-color-text-#{$color}-default),
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
           $color-text-active:
-            map-get($tag-tokens, tag-color-text-#{$color}-default)
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel)
         );
 
         @include button-border(
@@ -147,11 +151,11 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
           $color-surface-active: transparent,
           $color-surface-disabled: transparent,
           $color-text-default:
-            map-get($tag-tokens, tag-color-text-#{$color}-default),
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
           $color-text-hover:
-            map-get($tag-tokens, tag-color-text-#{$color}-default),
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
           $color-text-active:
-            map-get($tag-tokens, tag-color-text-#{$color}-default)
+            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel)
         );
 
         @include button-border(

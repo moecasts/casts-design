@@ -108,7 +108,7 @@ export const Code: FC<CodeProps> = (props) => {
             {Object.entries(codes || {}).map(([name, code]) => (
               <TabPane label={name} value={name} key={name}>
                 <div className={`${prefixCls}-source-item`} key={name}>
-                  <BaseCode source={code} />
+                  <BaseCode source={code} theme="dracula" />
                 </div>
               </TabPane>
             ))}

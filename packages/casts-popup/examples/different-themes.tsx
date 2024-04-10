@@ -7,7 +7,7 @@ import { Space } from '@casts/space';
 const DifferentThemesDemo = () => (
   <Space wrap>
     <Popup
-      theme="light"
+      theme="default"
       content={
         <div>
           <span>Popup title</span>
@@ -16,10 +16,10 @@ const DifferentThemesDemo = () => (
         </div>
       }
     >
-      <Button>light theme</Button>
+      <Button>default theme</Button>
     </Popup>
     <Popup
-      theme="dark"
+      theme="anti"
       content={
         <div>
           <span>Popup title</span>
@@ -28,7 +28,7 @@ const DifferentThemesDemo = () => (
         </div>
       }
     >
-      <Button>dark theme</Button>
+      <Button>anti theme</Button>
     </Popup>
   </Space>
 );

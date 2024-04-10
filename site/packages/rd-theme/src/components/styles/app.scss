@@ -5,6 +5,12 @@
 @import '@casts/theme/styles/plugins/helper/scrollbar';
 @import './vars';
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
 html {
   height: 100%;
 }

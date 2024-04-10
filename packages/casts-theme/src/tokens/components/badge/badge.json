@@ -3,7 +3,7 @@
     "color": {
       "text": {
         "default": {
-          "value": "{color.palette.white}"
+          "value": "{color.text.anti}"
         }
       },
       "surface": {

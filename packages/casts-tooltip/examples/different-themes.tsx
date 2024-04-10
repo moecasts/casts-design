@@ -7,24 +7,24 @@ import { Tooltip } from '@casts/tooltip';
 const DifferentThemesDemo = () => (
   <Space wrap>
     <Tooltip
-      theme="light"
+      theme="default"
       content={
         <div>
           <span>Tooltip content</span>
         </div>
       }
     >
-      <Button>light theme</Button>
+      <Button>default theme</Button>
     </Tooltip>
     <Tooltip
-      theme="dark"
+      theme="anti"
       content={
         <div>
           <span>Tooltip content</span>
         </div>
       }
     >
-      <Button>dark theme</Button>
+      <Button>anti theme</Button>
     </Tooltip>
   </Space>
 );

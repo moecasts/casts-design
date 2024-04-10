@@ -1,5 +1,10 @@
-import { CSSProperties, useEffect } from 'react';
-import { noop, useControlled, useDebounceFn } from '@casts/common';
+import { CSSProperties, useEffect, useRef } from 'react';
+import {
+  noop,
+  useCircleTransition,
+  useControlled,
+  useDebounceFn,
+} from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
@@ -21,6 +26,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
 
   const { getPrefixCls } = useConfig();
 
+  /* --------------------------------- classes and styles ---------------------------------------- */
   const prefixCls = getPrefixCls('theme-generator');
 
   const classes = clsx(prefixCls, className);
@@ -39,12 +45,16 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   const pickerPreviewClasses = `${pickerClasses}-preview`;
   const pickerTextClasses = `${pickerClasses}-text`;
 
+  /* --------------------------------- states ---------------------------------------- */
   const [mode, setMode] = useControlled<ThemeMode>(
     props,
     'mode',
     props.onModeChange || noop,
     'light',
   );
+
+  const { circleTransition } = useCircleTransition();
+  const generatorRef = useRef<HTMLElement>(null);
 
   const [mainColors, setMainColors] = useControlled<MainColor[]>(
     props,
@@ -53,29 +63,29 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
     [],
   );
 
+  /* --------------------------------- events ---------------------------------------- */
+
   const debounceGeneratePalettes = useDebounceFn(
     (mainColors: MainColor[], mode: ThemeMode = 'light') => {
-      const reverse = mode === 'dark' ? true : false;
+      const update = () => {
+        const reverse = mode === 'dark' ? true : false;
 
-      const palettes = generatePalettes(mainColors, reverse);
+        const palettes = generatePalettes(mainColors, reverse);
 
-      const cssCodes = toCssVariables(palettes);
-      document.documentElement.setAttribute('theme-mode', 'custom');
-      appendThemeVariablesToHead(cssCodes);
+        const cssCodes = toCssVariables(palettes);
+        document.documentElement.setAttribute('theme-mode', 'custom');
+        appendThemeVariablesToHead(cssCodes);
+      };
+
+      circleTransition({
+        ref: generatorRef,
+        update,
+      });
     },
     {
       wait: 300,
     },
   );
-
-  // generate current theme when component mounted
-  useEffect(() => {
-    if (!addThemeCodeOnMounted) {
-      return;
-    }
-    debounceGeneratePalettes.run(mainColors, mode);
-    debounceGeneratePalettes.flush();
-  }, []);
 
   const handleMainColorsChange = (payload: { name: string; color: string }) => {
     const { name, color } = payload;
@@ -100,6 +110,15 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
     debounceGeneratePalettes.run(mainColors, mode);
   };
 
+  // generate current theme when component mounted
+  useEffect(() => {
+    if (!addThemeCodeOnMounted) {
+      return;
+    }
+    debounceGeneratePalettes.run(mainColors, mode);
+    debounceGeneratePalettes.flush();
+  }, []);
+
   return {
     classes,
     styles,
@@ -121,5 +140,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
 
     visible,
     onVisibleChange,
+
+    generatorRef,
   };
 };

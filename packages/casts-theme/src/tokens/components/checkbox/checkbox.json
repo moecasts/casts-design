@@ -45,6 +45,12 @@
           },
           "disabled": {
             "value": "{color.shape.neutral.disabled}"
+          },
+
+          "text": {
+            "active": {
+              "value": "{color.text.anti}"
+            }
           }
         }
       }

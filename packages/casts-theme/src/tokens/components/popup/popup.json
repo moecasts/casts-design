@@ -10,18 +10,18 @@
     },
     "color": {
       "text": {
-        "light": {
+        "default": {
           "value": "{color.text.primary}"
         },
-        "dark": {
+        "anti": {
           "value": "{color.text.anti}"
         }
       },
       "surface": {
-        "light": {
+        "default": {
           "value": "{color.surface.container.default}"
         },
-        "dark": {
+        "anti": {
           "value": "{color.surface.container.anti}"
         }
       }

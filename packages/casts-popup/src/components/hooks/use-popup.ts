@@ -21,6 +21,7 @@ import {
 } from '@floating-ui/react';
 import clsx from 'clsx';
 
+import { defaultPopupProps } from '../default-props';
 import { UsePopupProps } from '../types';
 
 const SIDES_MAP: Record<string, string> = {
@@ -41,7 +42,7 @@ export const usePopup = (props: UsePopupProps) => {
     trigger = 'hover',
     arrowSize = ARROW_SIZE,
     shadow = true,
-    theme = 'light',
+    theme = defaultPopupProps.theme,
     attach,
     delay = 0,
     duration,

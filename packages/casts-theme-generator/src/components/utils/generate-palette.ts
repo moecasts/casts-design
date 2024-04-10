@@ -195,48 +195,39 @@ export const namings = {
 
 export const neutral = (reverse = false) => {
   const shades = [
-    '#ffffff',
-    '#fcfcfc',
-    '#f9f9f9',
-    '#f5f5f5',
-    '#f1f1f1',
-    '#ededed',
-    '#e9e9e9',
-    '#cfcfcf',
-    '#ababab',
-    '#818181',
-    '#575757',
-    '#333333',
-    '#191919',
-    '#08090a',
-    '#000000',
+    '0, 0%, 100%',
+    '0, 0%, 99%',
+    '0, 0%, 97%',
+    '0, 0%, 95%',
+    '0, 0%, 93%',
+    '0, 0%, 90%',
+    '0, 0%, 60%',
+    '0, 0%, 40%',
+    '0, 0%, 28%',
+    '0, 0%, 18%',
+    '0, 0%, 6%',
+    '0, 0%, 0%',
   ];
 
   const invertedShades = [
-    '#000000',
-    '#010508',
-    '#060a0f',
-    '#090e13',
-    '#0c1217',
-    '#11161b',
-    '#161b20',
-    '#282d32',
-    '#3f4448',
-    '#73797f',
-    '#aab0b6',
-    '#c4c8cd',
-    '#d9dcdf',
-    '#edeef0',
-    '#ffffff',
+    '0, 0%, 0%',
+    '0, 0%, 3%',
+    '0, 0%, 6%',
+    '0, 0%, 10%',
+    '0, 0%, 13%',
+    '0, 0%, 18%',
+    '0, 0%, 35%',
+    '0, 0%, 70%',
+    '0, 0%, 75%',
+    '0, 0%, 86%',
+    '0, 0%, 93%',
+    '0, 0%, 100%',
   ];
 
   const naming = [
     '0',
     '50',
     '100',
-    '125',
-    '150',
-    '175',
     '200',
     '300',
     '400',
@@ -251,9 +242,7 @@ export const neutral = (reverse = false) => {
   const finalShades = reverse ? invertedShades : shades;
 
   const namedShades = naming.reduce((namedShadesAcc, step, index) => {
-    const color = new TinyColor(finalShades[index]);
-
-    const hsl = color.toHslString().replace('hsl(', '').replace(')', '');
+    const hsl = finalShades[index];
     return {
       ...namedShadesAcc,
       [step]: {
