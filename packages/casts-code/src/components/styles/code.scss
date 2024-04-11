@@ -27,6 +27,10 @@ $code-prefix-cls: #{$prefix-cls}-code;
   .token-line {
     display: table-row;
     background-color: inherit;
+
+    & > *:first-child {
+      padding-left: $code-line-number-space-left;
+    }
   }
 
   .token-line-num {

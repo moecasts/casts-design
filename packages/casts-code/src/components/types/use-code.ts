@@ -1,5 +1,5 @@
 import { BaseComponentProps } from '@casts/common';
-import { themes } from 'prism-react-renderer/dist/index.js';
+import { PrismTheme, themes } from 'prism-react-renderer/dist/index.js';
 
 export type UseCodeProps = BaseComponentProps & {
   /**
@@ -20,5 +20,5 @@ export type UseCodeProps = BaseComponentProps & {
    * code color theme
    * @default github
    */
-  theme?: keyof typeof themes;
+  theme?: keyof typeof themes | PrismTheme;
 };

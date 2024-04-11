@@ -11,6 +11,12 @@ order: 1
 
 # Button
 
+## Intsall
+
+```bash
+$ pnpm add @casts/button
+```
+
 ## Variant
 
 <code src="../examples/different-variant-buttons" />

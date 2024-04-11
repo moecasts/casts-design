@@ -4,7 +4,9 @@ import { useConfig } from '@casts/config-provider';
 import { Heading, HeadingProps, Text } from '@casts/typography';
 import { Components } from '@mdx-js/react/lib';
 import clsx from 'clsx';
+import { Highlight } from 'prism-react-renderer';
 
+import { CodeTheme } from '../theme/code';
 import { Api } from './api';
 import { Code } from './playground/code';
 import { Toc } from './toc';
@@ -80,6 +82,34 @@ const getTableComponents = (): Components => {
 export const components: Components = {
   ...getHeadingComponents(),
   ...getTableComponents(),
+  pre: ({ children }) => {
+    console.log('debug1', children);
+    const codeBlock = children?.props?.children?.trim() || '';
+    return (
+      <Highlight theme={CodeTheme} code={codeBlock} language="tsx">
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre style={style}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                <span>{i + 1}</span>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    );
+
+    // return (
+    //   <BaseCode
+    //     showLineNumber={false}
+    //     source={children?.props?.children?.trim() || ''}
+    //     theme={CodeTheme}
+    //   ></BaseCode>
+    // );
+  },
   code: ({ children }) => <Text code>{children}</Text>,
   API: Api,
   Code: Code,

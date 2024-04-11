@@ -1,3 +1,4 @@
+import { isString } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 // NOTE: The `js` file is loaded first, as the `mjs` file requires additional webpack configuration
@@ -23,8 +24,10 @@ export const useCode = (props: UseCodeProps) => {
 
   const styles = style;
 
+  const prismTheme = isString(theme) ? themes[theme] : theme;
+
   const element = (
-    <Highlight theme={themes[theme]} code={props.source} language={language}>
+    <Highlight theme={prismTheme} code={props.source} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
           {tokens.map((line, i) => (
