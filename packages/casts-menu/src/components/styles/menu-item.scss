@@ -1,0 +1,52 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/menu';
+@import '@casts/theme/styles/scss/vars/menu';
+
+@import '@casts/theme/styles/plugins/helper/overflow';
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+@import './vars';
+
+.#{$menu-item-prefix-cls} {
+  flex-shrink: 0;
+  margin: $menu-item-space-outer 0;
+  list-style: none;
+  border-radius: $radius-medium;
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  &-inner {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+
+    @include button-style(#{$menu-item-prefix-cls}-inner);
+    @include button-color(
+      #{$menu-item-prefix-cls}-inner,
+      $with-background: true,
+      $color-surface-disabled: transparent
+    );
+
+    @include button-space();
+
+    .#{$menu-item-prefix-cls}-content {
+      display: inline-block;
+      flex: 1;
+
+      @include text-ellipsis();
+    }
+
+    .#{$menu-item-prefix-cls}-prefix-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}
