@@ -1,0 +1,265 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/input';
+@import '@casts/theme/styles/scss/vars/input';
+
+@import '@casts/theme/styles/plugins/helper/theme';
+
+$input-prefix-cls: #{$prefix-cls}-input;
+
+@mixin input-size($size: 'medium') {
+  $font-size: if(
+    $size == 'small',
+    $input-font-size-small,
+    $input-font-size-medium
+  );
+  $line-height: if(
+    $size == 'small',
+    $input-line-height-small,
+    $input-line-height-medium
+  );
+
+  height: map-get($input-tokens, input-size-#{$size});
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+$sizes: 'small', 'medium', 'large';
+
+$statuses: 'success', 'warning', 'error';
+
+@mixin input-color($status, $disabled: false) {
+  $theme: get-theme-by-status($status);
+  $disabled-selector: '.#{$input-prefix-cls}-wrap--disabled .#{$input-prefix-cls}';
+
+  & {
+    $color-suffix: if($disabled ==true, 'disabled', 'default');
+    color: map-get($core-tokens, color-shape-#{$theme}-#{$color-suffix});
+    background-color: map-get(
+      $core-tokens,
+      color-surface-#{$theme}-#{$color-suffix}
+    );
+
+    &:hover:not(#{$disabled-selector}) {
+      background-color: map-get($core-tokens, color-surface-#{$theme}-hover);
+    }
+
+    &--focused:not(#{$disabled-selector}),
+    &:focus:not(#{$disabled-selector}) {
+      background-color: transparent !important;
+      border-color: map-get($core-tokens, color-border-#{$theme}-default);
+      outline: $input-outline-width solid
+        map-get($input-tokens, input-color-outline-#{$theme}-default);
+    }
+  }
+}
+
+.#{$input-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-right: $space-05-x;
+  padding-left: $space-05-x;
+  overflow: hidden;
+  cursor: text;
+  background-color: $color-surface-component-default;
+  border-color: transparent;
+  border-style: solid;
+  border-width: $input-border-width;
+  border-radius: $input-radius;
+  transition:
+    background-color $motion-duration-rapid #{$motion-easing-in-out},
+    border-color $motion-duration-rapid #{$motion-easing-in-out},
+    outline-color-color $motion-duration-rapid #{$motion-easing-in-out};
+
+  &:hover:not(&-wrap--disabled &) {
+    background-color: $color-surface-component-hover;
+  }
+
+  &--focused:not(&-wrap--disabled &),
+  &:focus:not(&-wrap--disabled &) {
+    background-color: transparent !important;
+    border-color: $color-border-brand-default;
+    outline: $input-outline-width solid $input-color-outline-brand-default;
+  }
+
+  &--bordered {
+    border-color: $color-border-neutral-default;
+
+    &:hover {
+      border-color: $color-border-neutral-hover;
+    }
+  }
+
+  // size
+  @each $size in $sizes {
+    &--#{$size} {
+      @include input-size($size);
+    }
+  }
+
+  // shape
+  &--circle {
+    padding-right: $space-075-x;
+    padding-left: $space-075-x;
+    border-radius: 999px;
+  }
+
+  &--square {
+    border-radius: 0px;
+  }
+
+  &-wrap {
+    display: inline-block;
+    width: 100%;
+
+    @at-root #{&}#{&}--auto-width {
+      width: fit-content;
+      min-width: 60px;
+      max-width: 100%;
+    }
+
+    @each $status in $statuses {
+      &--#{$status} {
+        .#{$input-prefix-cls}-tips {
+          $theme: get-theme-by-status($status);
+          color: map-get($input-tokens, input-color-text-#{$theme}-default);
+        }
+
+        .#{$input-prefix-cls} {
+          @include input-color($status, false);
+        }
+      }
+    }
+
+    &--disabled {
+      .#{$input-prefix-cls}-tips {
+        color: $color-text-disabled;
+      }
+
+      .#{$input-prefix-cls} {
+        cursor: not-allowed;
+      }
+
+      @each $status in $statuses {
+        @at-root &.#{$input-prefix-cls}-wrap--#{$status} {
+          .#{$input-prefix-cls}-tips {
+            $theme: get-theme-by-status($status);
+            color: map-get($input-tokens, input-color-text-#{$theme}-disabled);
+          }
+
+          .#{$input-prefix-cls} {
+            cursor: not-allowed;
+            @include input-color($status, true);
+          }
+        }
+      }
+
+      .#{$input-prefix-cls}-inner {
+        &::placeholder {
+          color: $color-text-disabled;
+        }
+      }
+    }
+  }
+
+  &-max-length,
+  &-prefix,
+  &-suffix,
+  &-clear {
+    display: inline-flex;
+    align-items: center;
+    font-size: inherit;
+
+    svg {
+      font-size: inherit;
+      fill: currentColor;
+    }
+  }
+
+  &-clear {
+    position: relative;
+    width: 0;
+    height: fit-content;
+    padding: 0px;
+    font-size: inherit;
+    color: $color-text-secondary;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0px;
+    opacity: 0;
+    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+
+    svg {
+      position: relative;
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: '';
+      border-radius: $radius-circle;
+      transition: background-color $motion-duration-rapid $motion-easing-in-out;
+      transform: scale(1.3);
+    }
+
+    &:hover {
+      &::before {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &:hover:not(&-wrap--disabled &) {
+    background-color: $color-surface-component-hover;
+
+    .#{$input-prefix-cls}-clear {
+      width: fit-content;
+      opacity: 1;
+    }
+  }
+
+  & > *:not(:last-child) {
+    margin-right: $space-025-x;
+  }
+
+  &-inner {
+    flex: 1;
+    min-width: 0;
+
+    max-width: 100%;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    color: $color-text-primary;
+
+    cursor: inherit;
+    background-color: transparent;
+
+    border: 0;
+    outline: 0;
+
+    &::placeholder {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &-pre {
+    position: absolute;
+    white-space: nowrap;
+    visibility: hidden;
+  }
+
+  &-tips {
+    padding-right: $space-0125-x;
+    padding-left: $space-0125-x;
+    margin-top: $space-0125-x;
+    font-size: #{$font-size-small};
+    color: $color-text-tertiary;
+  }
+}
