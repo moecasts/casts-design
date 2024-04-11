@@ -1,0 +1,14 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$checkbox-group-prefix-cls: #{$prefix-cls}-checkbox-group;
+
+.#{$checkbox-group-prefix-cls} {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-075-x;
+
+  &--vertical {
+    flex-direction: column;
+  }
+}
