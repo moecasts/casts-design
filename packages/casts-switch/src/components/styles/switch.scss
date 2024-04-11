@@ -1,0 +1,199 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/switch';
+@import '@casts/theme/styles/scss/vars/switch';
+
+$switch-prefix-cls: #{$prefix-cls}-switch;
+
+$sizes: 'small', 'medium', 'large';
+
+$shapes: 'pill', 'round';
+
+.#{$switch-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+
+  touch-action: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    .#{$switch-prefix-cls}-indicator {
+      outline: $border-width-small solid $color-outline-brand-default;
+      outline-offset: $border-width-xsmall;
+    }
+  }
+
+  &--pressed {
+    &:not(.#{$switch-prefix-cls}--disabled, .#{$switch-prefix-cls}--loading) {
+      .#{$switch-prefix-cls}-indicator {
+        &-handle {
+          max-width: 1.5em;
+        }
+      }
+    }
+  }
+
+  /* --------------------------------- size start ---------------------------------------- */
+  @each $size in $sizes {
+    &--#{$size} {
+      font-size: map-get(
+        $map: $switch-tokens,
+        $key: switch-indicator-font-size-#{$size}
+      );
+      line-height: map-get(
+        $map: $switch-tokens,
+        $key: switch-indicator-font-size-#{$size}
+      );
+    }
+  }
+  /* --------------------------------- size end ---------------------------------------- */
+
+  /* --------------------------------- shape start ---------------------------------------- */
+  &--pill {
+    .#{$switch-prefix-cls}-indicator {
+      &,
+      &-handle {
+        border-radius: map-get($map: $switch-tokens, $key: switch-radius-pill);
+      }
+    }
+  }
+
+  &--round {
+    @each $size in $sizes {
+      &.#{$switch-prefix-cls}--#{$size} {
+        .#{$switch-prefix-cls}-indicator {
+          &,
+          &-handle {
+            border-radius: map-get(
+              $map: $switch-tokens,
+              $key: switch-radius-round-#{$size}
+            );
+          }
+        }
+      }
+    }
+  }
+  /* --------------------------------- shape end ---------------------------------------- */
+
+  &-indicator {
+    position: relative;
+    display: inline-flex;
+
+    align-content: center;
+    min-width: 2.5em;
+    height: calc(1em + $switch-indicator-space * 2);
+
+    padding: $switch-indicator-space;
+    overflow: hidden;
+    user-select: none;
+
+    background-color: $switch-color-surface-default;
+    outline-color: transparent;
+    transition-timing-function: ease;
+    transition-duration: $motion-duration-rapid;
+
+    transition-property: background-color, outline-color;
+
+    &-handle {
+      position: absolute;
+      top: $switch-indicator-space;
+      right: $switch-indicator-space;
+      left: $switch-indicator-space;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1em;
+
+      max-width: 1em;
+      height: 1em;
+
+      content: '';
+      background-color: #fff;
+      box-shadow: $shadow-level-1;
+      transition: all $motion-duration-rapid ease;
+
+      &-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.75);
+      }
+
+      &-icon-loading {
+        font-size: inherit;
+      }
+
+      .#{$switch-prefix-cls}-indicator-start {
+        position: absolute;
+        right: 0;
+      }
+
+      .#{$switch-prefix-cls}-indicator-end {
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    &-placeholder {
+      display: inline-flex;
+      flex-direction: column;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    &-start,
+    &-end {
+      display: inline-flex;
+      align-items: center;
+      padding: $switch-indicator-space;
+      color: $switch-indicator-color-text;
+      white-space: nowrap;
+    }
+
+    &-start {
+      padding-right: calc(1.5em + $switch-indicator-space);
+    }
+
+    &-end {
+      padding-left: calc(1.5em + $switch-indicator-space);
+    }
+  }
+
+  &-label {
+    margin-left: $switch-space;
+  }
+
+  &--checked {
+    .#{$switch-prefix-cls}-indicator {
+      background-color: $switch-color-surface-active;
+
+      &-handle {
+        left: calc(100% - 1em - $switch-indicator-space);
+      }
+    }
+
+    &.#{$switch-prefix-cls}--pressed {
+      &:not(.#{$switch-prefix-cls}--disabled, .#{$switch-prefix-cls}--loading) {
+        .#{$switch-prefix-cls}-indicator {
+          &-handle {
+            left: calc(100% - 1.5em - $switch-indicator-space);
+          }
+        }
+      }
+    }
+  }
+
+  &--loading {
+    cursor: not-allowed;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    .#{$switch-prefix-cls}-indicator {
+      opacity: $opacity-60;
+    }
+  }
+}
