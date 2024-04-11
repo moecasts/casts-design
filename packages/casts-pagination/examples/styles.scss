@@ -1,0 +1,9 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+$layout-prefix-cls: #{$prefix-cls}-layout;
+
+.demo-pagination-scope {
+  .#{$prefix-cls}-pagination {
+    width: 100%;
+  }
+}
