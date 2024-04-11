@@ -1,0 +1,111 @@
+@import '@casts/theme/styles/scss/vars/core';
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/anchor';
+@import '@casts/theme/styles/scss/anchor';
+
+.#{$prefix-cls}-anchor {
+  position: sticky;
+  top: 0px;
+  flex-shrink: 0;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  color: $color-text-primary;
+
+  list-style: none;
+
+  &::before {
+    position: absolute;
+    left: 0px;
+    display: block;
+    width: $anchor-border-width;
+    height: 100%;
+    content: '';
+    background-color: $color-border-component-default;
+    border-radius: $radius-medium;
+  }
+
+  &,
+  ul {
+    padding-left: $anchor-space-indent;
+    margin: 0px;
+    list-style: none;
+  }
+
+  &-link {
+    overflow: hidden;
+    font-size: $anchor-link-font-size;
+    line-height: $anchor-link-line-height;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &--active {
+      color: $anchor-link-color-text-active;
+    }
+
+    .#{$prefix-cls}-anchor-link-children {
+      color: $anchor-link-color-text-default;
+    }
+
+    .#{$prefix-cls}-anchor-link-title {
+      display: block;
+      width: 100%;
+
+      padding: $anchor-link-title-space-inset-vertical
+        $anchor-link-title-space-inset-horizontal;
+      margin-top: $anchor-link-title-space-outset-vertical;
+      margin-bottom: $anchor-link-title-space-outset-vertical;
+      overflow: hidden;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      border-radius: $anchor-radius;
+
+      transition: color $motion-duration-rapid $motion-easing-in-out;
+
+      &,
+      &:visited {
+        color: inherit;
+      }
+
+      &:hover {
+        color: $anchor-link-color-text-hover;
+      }
+
+      &:active {
+        color: $anchor-link-color-text-active;
+      }
+    }
+  }
+
+  &-cursor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: $anchor-border-width;
+    height: $anchor-border-width;
+
+    background-color: $anchor-cursor-color;
+    border-radius: $anchor-radius;
+
+    transition:
+      top $motion-duration-rapid $motion-easing-in-out,
+      left $motion-duration-rapid $motion-easing-in-out,
+      height $motion-duration-rapid $motion-easing-in-out,
+      width $motion-duration-rapid $motion-easing-in-out;
+  }
+
+  &--horizontal {
+    display: flex;
+    padding-bottom: $anchor-space-indent;
+    padding-left: 0;
+
+    &::before {
+      position: absolute;
+      bottom: 0px;
+      left: unset;
+      width: 100%;
+      height: $anchor-border-width;
+    }
+  }
+}
