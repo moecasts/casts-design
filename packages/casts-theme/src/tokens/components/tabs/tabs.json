@@ -1,0 +1,79 @@
+{
+  "tabs": {
+    "color": {
+      "border": {
+        "value": "{color.border.divider.default}"
+      }
+    },
+    "bar": {
+      "size": {
+        "small": {
+          "value": "{size.large}"
+        },
+        "medium": {
+          "value": "{size.xlarge}"
+        },
+        "large": {
+          "value": "{size.xxlarge}"
+        }
+      },
+      "item": {
+        "font": {
+          "size": {
+            "small": {
+              "attributes": {
+                "category": "size"
+              },
+
+              "value": "{font.size.xsmall}"
+            },
+            "medium": {
+              "attributes": {
+                "category": "size"
+              },
+
+              "value": "{font.size.small}"
+            },
+            "large": {
+              "attributes": {
+                "category": "size"
+              },
+
+              "value": "{font.size.medium}"
+            }
+          }
+        },
+        "size": {
+          "small": {
+            "value": "{size.small}"
+          },
+          "medium": {
+            "value": "{size.medium}"
+          },
+          "large": {
+            "value": "{size.large}"
+          }
+        },
+        "space": {
+          "vertical": {
+            "value": "{space.025-x}"
+          },
+          "outer": {
+            "value": "{space.025-x}"
+          },
+          "inset": {
+            "small": {
+              "value": "{space.05-x}"
+            },
+            "medium": {
+              "value": "{space.075-x}"
+            },
+            "large": {
+              "value": "{space.1-x}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

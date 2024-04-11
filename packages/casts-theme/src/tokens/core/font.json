@@ -1,0 +1,76 @@
+{
+  "font": {
+    "weight": {
+      "thin": {
+        "value": 200
+      },
+      "normal": {
+        "value": 400
+      },
+      "bold": {
+        "value": 600
+      }
+    },
+    "family": {
+      "default": {
+        "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+      },
+      "code": {
+        "value": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace"
+      },
+      "mono": {
+        "value": "'Roboto Mono', monospace"
+      }
+    },
+    "size": {
+      "xsmall": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "12px"
+      },
+      "small": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "14px"
+      },
+      "medium": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "16px"
+      },
+      "large": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "20px"
+      },
+      "xlarge": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "24px"
+      },
+      "xxlarge": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "36px"
+      },
+      "xxxlarge": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "48px"
+      },
+      "xxxxlarge": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "72px"
+      }
+    }
+  }
+}

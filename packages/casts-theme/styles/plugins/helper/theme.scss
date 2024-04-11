@@ -1,0 +1,10 @@
+/* get theme name by status
+ * eg:
+ * error => danger
+ */
+@function get-theme-by-status($status) {
+  @if $status == 'error' {
+    @return 'danger';
+  }
+  @return $status;
+}

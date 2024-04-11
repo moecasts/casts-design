@@ -1,0 +1,50 @@
+{
+  "dialog": {
+    "color": {
+      "surface": {
+        "value": "{color.surface.container.default}"
+      }
+    },
+    "space": {
+      "section": {
+        "horizontal": {
+          "value": "{space.1025-x}"
+        },
+        "vertical": {
+          "value": "{space.1-x}"
+        }
+      },
+      "header": {
+        "vertical": {
+          "value": "{space.05-x}"
+        }
+      }
+    },
+    "mask": {
+      "color": {
+        "surface": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.neutral.1000}, {opacity.38})"
+        }
+      }
+    },
+    "shadow": {
+      "value": "{shadow.level.4}"
+    },
+    "header": {
+      "size": {
+        "value": "{size.xlarge}"
+      },
+      "font": {
+        "size": {
+          "value": "{font.size.medium}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.medium}"
+      }
+    }
+  }
+}

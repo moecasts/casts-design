@@ -1,0 +1,30 @@
+{
+  "border": {
+    "width": {
+      "xsmall": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "1px"
+      },
+      "small": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "2px"
+      },
+      "medium": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "4px"
+      },
+      "large": {
+        "attributes": {
+          "category": "size"
+        },
+        "value": "8px"
+      }
+    }
+  }
+}

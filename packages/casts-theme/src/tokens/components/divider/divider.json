@@ -1,0 +1,34 @@
+{
+  "divider": {
+    "size": {
+      "vertical": {
+        "value": "{size.xsmall}"
+      },
+      "horizontal": {
+        "max": {
+          "value": "{size.large}"
+        }
+      }
+    },
+    "border": {
+      "width": {
+        "value": "{border.width.xsmall}"
+      }
+    },
+    "color": {
+      "border": {
+        "default": {
+          "value": "{color.border.component.default}"
+        }
+      }
+    },
+    "space": {
+      "horizontal": {
+        "value": "{space.075-x}"
+      },
+      "vertical": {
+        "value": "{space.1-x}"
+      }
+    }
+  }
+}
