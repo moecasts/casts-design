@@ -1,0 +1,89 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/tabs';
+@import '@casts/theme/styles/scss/vars/tabs';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+$tabs-prefix-cls: #{$prefix-cls}-tabs;
+
+$sizes: 'small', 'medium', 'large';
+
+.#{$tabs-prefix-cls} {
+  &-bar {
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y;
+
+    &,
+    &-container {
+      display: flex;
+      gap: $space-05-x;
+      align-items: center;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: calc(0px - $border-width-xsmall);
+      display: block;
+      width: 100%;
+      content: '';
+      border: $border-width-xsmall solid $tabs-color-border;
+    }
+
+    &-container {
+      padding: $space-025-x;
+      white-space: nowrap;
+
+      scrollbar-width: 0;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    }
+
+    &-item {
+      @include button-style(#{$tabs-prefix-cls}-bar-item);
+      @include button-color(#{$tabs-prefix-cls}-bar-item);
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+
+      @include button-space();
+    }
+  }
+
+  &-content {
+    padding: $space-05-x;
+  }
+
+  @each $size in $sizes {
+    &--#{$size} {
+      .#{$tabs-prefix-cls}-bar {
+        height: map-get($tabs-tokens, tabs-bar-size-#{$size});
+
+        &-item {
+          @include button-size(
+            $element: 'tabs-bar-item',
+            $size: $size,
+            $tokens: $tabs-tokens
+          );
+
+          &-inner {
+            @include button-space(
+              $space-inset:
+                map-get($tabs-tokens, tabs-bar-item-space-inset-#{$size})
+            );
+          }
+        }
+      }
+    }
+  }
+}
