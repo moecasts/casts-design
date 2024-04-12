@@ -1,0 +1,57 @@
+{
+  "message": {
+    "color": {
+      "shape": {
+        "brand": {
+          "default": {
+            "value": "{color.shape.brand.default}"
+          }
+        },
+        "info": {
+          "default": {
+            "value": "{color.shape.info.default}"
+          }
+        },
+        "success": {
+          "default": {
+            "value": "{color.shape.success.default}"
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "{color.shape.warning.default}"
+          }
+        },
+        "danger": {
+          "default": {
+            "value": "{color.shape.danger.default}"
+          }
+        }
+      }
+    },
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "space": {
+      "inset": {
+        "value": "{space.05-x} {space.1-x}"
+      }
+    },
+    "shadow": {
+      "value": "{shadow.level.4}"
+    },
+    "elevation": {
+      "zIndex": {
+        "value": "{elevation.zIndex.top}"
+      }
+    }
+  }
+}

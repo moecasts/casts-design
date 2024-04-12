@@ -1,0 +1,146 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+@mixin button-style(
+  $selector,
+  $radius: $radius-medium,
+  $motion-easing: $motion-easing-in-out,
+  $motion-duration: $motion-duration-rapid,
+  $cursor: pointer
+) {
+  list-style-type: none;
+  border-radius: $radius;
+  border-width: $border-width-xsmall;
+  border-style: solid;
+  border-color: 0;
+  cursor: $cursor;
+  transition-timing-function: $motion-easing;
+  transition-duration: $motion-duration;
+  transition-property: background-color, color, border-color, padding;
+
+  &.#{$selector}--disabled {
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-color(
+  $selector,
+  $with-background: true,
+  $wrap-able: false,
+
+  $color-surface-default: transparent,
+  $color-surface-hover: $color-surface-neutral-hover,
+  $color-surface-active: $color-surface-brand-default,
+  $color-surface-disabled: transparent,
+
+  $color-outline-default: $color-outline-brand-default,
+
+  $color-text-default: $color-text-neutral-default,
+  $color-text-hover: $color-text-neutral-hover,
+  $color-text-active: $color-text-brand-default,
+  $color-text-disabled: $color-text-neutral-disabled
+) {
+  color: $color-text-default;
+  background-color: transparent;
+  outline-color: transparent;
+
+  border-width: $border-width-xsmall;
+  border-style: solid;
+  border-color: transparent;
+
+  @if ($wrap-able ==false) {
+    white-space: nowrap;
+  }
+
+  @if ($with-background) {
+    background-color: $color-surface-default;
+    border-color: $color-surface-default;
+  }
+
+  &:focus-visible {
+    outline: $border-width-small solid $color-outline-default;
+    outline-offset: $border-width-xsmall;
+  }
+
+  &:hover:not(.#{$selector}--active):not(.#{$selector}--disabled):not(
+      .#{$selector}--selected
+    ) {
+    @if ($with-background) {
+      background-color: $color-surface-hover;
+      color: $color-text-hover;
+    }
+  }
+
+  &.#{$selector}--active,
+  &.#{$selector}--selected {
+    color: $color-text-active;
+
+    @if ($with-background) {
+      background-color: $color-surface-active;
+      border-color: $color-surface-active;
+    }
+  }
+
+  &.#{$selector}--disabled {
+    color: $color-text-disabled;
+    cursor: not-allowed;
+
+    @if ($with-background) {
+      background-color: $color-surface-disabled;
+      border-color: $color-surface-disabled;
+    }
+  }
+}
+
+@mixin button-border(
+  $selector,
+  $border-style: solid,
+  $color-border-default: $color-border-neutral-default,
+  $color-border-hover: $color-border-neutral-hover,
+  $color-border-active: $color-border-neutral-active,
+  $color-border-disabled: $color-border-neutral-disabled
+) {
+  border-width: $border-width-xsmall;
+  border-style: $border-style;
+  border-color: $color-border-default;
+
+  &:hover:not(.#{$selector}--active):not(.#{$selector}--disabled):not(
+      .#{$selector}--selected
+    ) {
+    border-color: $color-border-hover;
+  }
+
+  &.#{$selector}--active,
+  &.#{$selector}--selected {
+    border-color: $color-border-active;
+  }
+
+  &.#{$selector}--disabled {
+    border-color: $color-border-disabled;
+  }
+}
+
+@mixin button-size(
+  $element,
+  $size: 'medium',
+  $tokens: $core-tokens,
+  $wrap-able: false
+) {
+  font-size: map-get($tokens, #{$element}-font-size-#{$size});
+
+  @if ($wrap-able) {
+    min-height: map-get($tokens, #{$element}-size-#{$size});
+    line-height: map-get($tokens, #{$element}-line-height-#{$size});
+  } @else {
+    height: map-get($tokens, #{$element}-size-#{$size});
+    line-height: map-get($tokens, #{$element}-size-#{$size});
+  }
+}
+
+@mixin button-space($gap: $space-0375-x, $space-inset: $space-075-x) {
+  padding: 0 $space-inset 0 var(--padding-indent, $space-inset);
+
+  & > [class^='#{$prefix-cls}-']:not(:first-child) {
+    margin-left: $gap;
+    margin-inline-start: $gap;
+  }
+}

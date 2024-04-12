@@ -1,0 +1,96 @@
+{
+  "select": {
+    "arrow": {
+      "color": {
+        "default": {
+          "value": "{color.text.secondary}"
+        }
+      }
+    },
+    "list": {
+      "space": {
+        "value": "{space.0375-x}"
+      }
+    },
+    "option": {
+      "font": {
+        "size": {
+          "small": {
+            "attributes": {
+              "category": "size"
+            },
+
+            "value": "{font.size.xsmall}"
+          },
+          "medium": {
+            "attributes": {
+              "category": "size"
+            },
+
+            "value": "{font.size.small}"
+          },
+          "large": {
+            "attributes": {
+              "category": "size"
+            },
+
+            "value": "{font.size.small}"
+          }
+        }
+      },
+      "lineHeight": {
+        "small": {
+          "attributes": {
+            "category": "size"
+          },
+
+          "value": "{lineHeight.xsmall}"
+        },
+        "medium": {
+          "attributes": {
+            "category": "size"
+          },
+
+          "value": "{lineHeight.small}"
+        },
+        "large": {
+          "attributes": {
+            "category": "size"
+          },
+
+          "value": "{lineHeight.medium}"
+        }
+      },
+      "size": {
+        "small": {
+          "value": "{size.xsmall}"
+        },
+        "medium": {
+          "value": "{size.small}"
+        },
+        "large": {
+          "value": "{size.medium}"
+        }
+      },
+      "space": {
+        "vertical": {
+          "value": "{space.025-x}"
+        },
+        "outer": {
+          "value": "{space.0125-x}"
+        },
+        "inset": {
+          "small": {
+            "value": "{space.025-x}"
+          },
+          "medium": {
+            "value": "{space.05-x}"
+          },
+          "large": {
+            "value": "{space.075-x}"
+          }
+        }
+      }
+    }
+  }
+}

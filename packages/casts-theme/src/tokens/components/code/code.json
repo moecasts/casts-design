@@ -1,0 +1,28 @@
+{
+  "code": {
+    "font": {
+      "size": {
+        "value": "{font.size.xsmall}"
+      },
+      "family": {
+        "value": "{font.family.code}"
+      }
+    },
+    "space": {
+      "value": "{space.05-x}"
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "lineNumber": {
+      "space": {
+        "left": {
+          "value": "{space.05-x}"
+        },
+        "right": {
+          "value": "{space.1-x}"
+        }
+      }
+    }
+  }
+}
