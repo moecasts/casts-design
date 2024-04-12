@@ -1,4 +1,4 @@
-import { GetPrefixCls, type useSetState } from '@casts/common';
+import { GetPrefixCls } from '@casts/common';
 import { Locale } from '@casts/locale';
 
 export type Theme = {
@@ -14,11 +14,11 @@ export type Config = {
   prefixCls?: string;
   getPrefixCls: GetPrefixCls;
   locale: Locale;
-  themeMode: 'default' | 'dark';
-};
-
-export type ConfigWithUpdater = Config & {
-  setConfig: ReturnType<typeof useSetState<Config>>[1];
+  themeMode: 'default' | 'dark' | 'custom';
+  /**
+   * private flag, to check is the root ConfigProvider
+   */
+  _root: boolean;
 };
 
 export type ConfigProviderProps = Partial<Config> & {

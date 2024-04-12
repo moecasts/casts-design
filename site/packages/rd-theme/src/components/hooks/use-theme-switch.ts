@@ -1,15 +1,16 @@
 import { RefObject } from 'react';
 import { useCircleTransition } from '@casts/common';
-import { useConfig } from '@casts/config-provider';
+
+import { useAppContext } from '../context';
 
 export const useThemeSwitch = (themeSwitchRef: RefObject<HTMLElement>) => {
-  const { themeMode, setConfig } = useConfig();
+  const { themeMode, setAppContext } = useAppContext();
 
   const { circleTransition } = useCircleTransition();
 
   const update = () => {
     const newThemeMode = themeMode === 'dark' ? 'default' : 'dark';
-    setConfig({ themeMode: newThemeMode });
+    setAppContext({ themeMode: newThemeMode });
   };
 
   const toggleThemeMode = async () => {

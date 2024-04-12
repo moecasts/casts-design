@@ -1,13 +1,16 @@
 import { FC, useEffect } from 'react';
-import { useSetState } from '@casts/common';
+import { merge } from '@casts/common';
 
 import { ConfigContext, defaultConfig } from './context';
 import { setGlobalConfig } from './global-config';
-import { ConfigProviderProps, ConfigWithUpdater } from './types';
+import { useConfig } from './hooks';
+import { ConfigProviderProps } from './types';
 import { getCompletePrefixCls } from './utils';
 
 export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
   const { children, ...globalConfig } = props;
+
+  const parentConfig = useConfig();
 
   if (globalConfig.prefixCls && !globalConfig.getPrefixCls) {
     globalConfig.getPrefixCls = (suffixCls, customizePrefixCls) =>
@@ -17,28 +20,25 @@ export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
       });
   }
 
-  const [config, setConfig] = useSetState<ConfigWithUpdater>(() => {
-    return Object.assign({}, defaultConfig, globalConfig);
+  const config = merge({}, defaultConfig, parentConfig, globalConfig, {
+    _root: !parentConfig._root,
   });
 
-  useEffect(() => {
-    setGlobalConfig(config);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [config]);
+  const isRootConfigProvider = config._root;
 
   useEffect(() => {
-    if (!config.themeMode) {
+    // only set global config when it is root config provider
+    if (!isRootConfigProvider) {
       return;
     }
 
-    document.documentElement.setAttribute('theme-mode', config.themeMode);
-  }, [config.themeMode]);
+    setGlobalConfig(config);
+  }, [isRootConfigProvider, config]);
 
   return (
     <ConfigContext.Provider
       value={{
         ...config,
-        setConfig,
       }}
     >
       {children}

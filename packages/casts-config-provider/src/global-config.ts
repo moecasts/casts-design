@@ -1,5 +1,5 @@
 import { defaultConfig } from './context';
-import { ConfigWithUpdater } from './types';
+import { Config } from './types';
 
 /**
  * Components such as Dialog that are rendered using another render
@@ -13,9 +13,9 @@ import { ConfigWithUpdater } from './types';
  *
  * NOTE: component would not watch the changes for the vanilla store.
  */
-let globalConfig: ConfigWithUpdater = defaultConfig;
+let globalConfig: Config = defaultConfig;
 
-export const setGlobalConfig = (config: Partial<ConfigWithUpdater> = {}) => {
+export const setGlobalConfig = (config: Partial<Config> = {}) => {
   globalConfig = { ...globalConfig, ...config };
 };
 
