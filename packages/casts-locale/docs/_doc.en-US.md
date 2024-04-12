@@ -1,0 +1,18 @@
+---
+title: @casts/locale
+group:
+  title: General
+nav:
+  title: Components
+  path: /components
+---
+
+# @casts/locale
+
+## Installation
+
+```bash
+$ pnpm add @casts/locale
+```
+
+TODO
