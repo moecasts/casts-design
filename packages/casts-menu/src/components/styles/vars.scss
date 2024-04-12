@@ -1,0 +1,15 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+$head-menu-prefix-cls: #{$prefix-cls}-head-menu;
+
+$menu-prefix-cls: #{$prefix-cls}-menu;
+
+$menu-group-prefix-cls: #{$prefix-cls}-menu-group;
+
+$menu-item-prefix-cls: #{$prefix-cls}-menu-item;
+$sub-menu-prefix-cls: #{$prefix-cls}-sub-menu;
+
+$overflow-wrap: #{$prefix-cls}-overflow-wrap;
+$overflow-wrap-collapse: #{$prefix-cls}-overflow-wrap-collapse;
+
+$sizes: 'small', 'medium', 'large';
