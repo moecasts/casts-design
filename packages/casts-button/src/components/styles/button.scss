@@ -1,0 +1,417 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/button';
+@import '@casts/theme/styles/scss/vars/button';
+
+$button-prefix-cls: #{$prefix-cls}-button;
+
+@mixin button-size($size: 'medium', $selector: none) {
+  height: map-get($button-tokens, button-size-#{$size});
+  padding: 0 map-get($button-tokens, button-space-#{$size});
+  font-size: map-get($button-tokens, button-font-size-#{$size});
+
+  @if $selector !=none {
+    @at-root #{$selector}.#{$button-prefix-cls}--only-icon {
+      width: map-get($button-tokens, button-size-#{$size});
+      height: map-get($button-tokens, button-size-#{$size});
+      padding: 0;
+    }
+  }
+}
+
+@mixin button-color($text, $background, $border) {
+  @if ($text !=none) {
+    color: $text;
+  }
+
+  @if ($border !=none) {
+    border-color: $border;
+  }
+
+  @if ($background !=none) {
+    background-color: $background;
+  }
+}
+
+$button-sizes: 'small', 'medium', 'large';
+
+.#{$button-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 100%;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: $border-width-xsmall solid transparent;
+  -webkit-tap-highlight-color: transparent;
+
+  border-width: $border-width-xsmall;
+  outline-color: transparent;
+  fill: currentColor;
+
+  transition:
+    color $motion-duration-rapid $motion-easing-in-out,
+    opacity $motion-duration-rapid $motion-easing-in-out,
+    outline-color $motion-duration-rapid $motion-easing-in-out,
+    box-shadow $motion-duration-rapid $motion-easing-in-out,
+    border-color $motion-duration-rapid $motion-easing-in-out,
+    background-color $motion-duration-rapid $motion-easing-in-out;
+
+  // size
+  @each $size in $button-sizes {
+    &--#{$size} {
+      @include button-size($size, #{&});
+    }
+  }
+
+  // shape
+  &--square {
+    border-radius: 0;
+  }
+
+  &--round {
+    @each $size in $button-sizes {
+      &.#{$button-prefix-cls}--#{$size} {
+        &,
+        &::before {
+          border-radius: map-get($button-tokens, button-radius-#{$size});
+        }
+      }
+    }
+  }
+
+  &--pill {
+    border-radius: $button-radius-pill;
+  }
+
+  $button-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
+
+  @each $color in $button-colors {
+    &.#{$button-prefix-cls}--#{$color} {
+      &:focus-visible {
+        outline: $border-width-small
+          solid
+          map-get($button-tokens, button-color-outline-#{$color}-default);
+        outline-offset: $border-width-xsmall;
+      }
+    }
+  }
+
+  // variant
+  &--contained {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        $text-color: $color-palette-white;
+        @if $color == 'neutral' {
+          $text-color: $color-text-anti;
+        }
+        @include button-color(
+          $text-color,
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-solid
+          ),
+          map-get(
+            $button-tokens,
+            button-color-border-#{$color}-default-on-solid
+          )
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible {
+          @include button-color(
+            $text-color,
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-solid
+            ),
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-hover-on-solid
+            )
+          );
+        }
+
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            $text-color,
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-solid
+            ),
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-active-on-solid
+            )
+          );
+        }
+      }
+    }
+  }
+
+  // pastel contained button style
+  &--contained.#{$button-prefix-cls}--theme-pastel {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-pastel
+          ),
+          map-get(
+            $button-tokens,
+            button-color-surface-#{$color}-default-on-pastel
+          )
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-pastel
+            ),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-hover-on-pastel
+            )
+          );
+        }
+
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            ),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            )
+          );
+        }
+      }
+    }
+
+    &.#{$button-prefix-cls}--bordered {
+      @each $color in $button-colors {
+        &.#{$button-prefix-cls}--#{$color} {
+          @include button-color(
+            none,
+            none,
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-default-on-pastel
+            )
+          );
+
+          &:hover:not(.#{$button-prefix-cls}--disabled),
+          &:focus-visible {
+            @include button-color(
+              none,
+              none,
+              map-get(
+                $button-tokens,
+                button-color-border-#{$color}-hover-on-pastel
+              )
+            );
+          }
+
+          &:active:not(.#{$button-prefix-cls}--disabled) {
+            @include button-color(
+              none,
+              none,
+              map-get(
+                $button-tokens,
+                button-color-border-#{$color}-active-on-pastel
+              )
+            );
+          }
+        }
+      }
+    }
+  }
+
+  &--outline,
+  &--dashed {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          none,
+          map-get(
+            $button-tokens,
+            button-color-border-#{$color}-default-on-solid
+          )
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            none,
+            map-get(
+              $button-tokens,
+              button-color-border-#{$color}-hover-on-solid
+            )
+          );
+        }
+
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            none,
+            map-get($button-tokens, button-color-#{$color}-active-on-solid)
+          );
+        }
+      }
+    }
+  }
+
+  &--dashed {
+    border-style: dashed;
+  }
+
+  &--text {
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          none,
+          transparent
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-default-on-pastel
+            ),
+            none
+          );
+        }
+
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            map-get(
+              $button-tokens,
+              button-color-surface-#{$color}-active-on-pastel
+            ),
+            none
+          );
+        }
+      }
+    }
+  }
+
+  &--link {
+    // color: $button-color-text-brand-default;
+
+    &:not(.#{$button-prefix-cls}--disabled) {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+      text-underline-offset: $space-025-x;
+    }
+
+    // &:hover:not(.#{$button-prefix-cls}--disabled),
+    // // &:focus-visible:not(.#{$button-prefix-cls}--disabled) {
+    // &:focus-visible {
+    //   color: $button-color-text-brand-hover;
+    // }
+    //
+    // &:active:not(.#{$button-prefix-cls}--disabled) {
+    //   color: $button-color-text-brand-active;
+    // }
+
+    @each $color in $button-colors {
+      &.#{$button-prefix-cls}--#{$color} {
+        @include button-color(
+          map-get($button-tokens, button-color-text-#{$color}-default),
+          none,
+          transparent
+        );
+
+        &:hover:not(.#{$button-prefix-cls}--disabled),
+        &:focus-visible {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-hover),
+            none,
+            none
+          );
+        }
+
+        &:active:not(.#{$button-prefix-cls}--disabled) {
+          @include button-color(
+            map-get($button-tokens, button-color-text-#{$color}-active),
+            none,
+            none
+          );
+        }
+      }
+    }
+  }
+
+  // Block
+  &--block {
+    display: flex;
+    width: 100%;
+  }
+
+  &--disabled,
+  &--loading {
+    cursor: not-allowed;
+    opacity: $opacity-38;
+  }
+
+  &--loading {
+    & > *:not(.#{$prefix-cls}-loading) {
+      color: transparent;
+    }
+  }
+
+  &-text {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .#{$prefix-cls}-icon {
+    font-size: inherit;
+  }
+
+  &:not(&--only-icon) > .#{$prefix-cls}-icon {
+    margin-right: $space-025-x;
+  }
+
+  @keyframes loadingCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .#{$prefix-cls}-loading {
+    position: absolute;
+    display: inline-block;
+    line-height: 0;
+    transition:
+      width $motion-duration-fast $motion-easing-in-out,
+      opacity $motion-duration-fast $motion-easing-in-out;
+    animation: loadingCircle $motion-duration-deliberate infinite linear;
+  }
+}
