@@ -1,0 +1,31 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$input-number-prefix-cls: #{$prefix-cls}-input-number;
+
+.#{$input-number-prefix-cls} {
+  &-handler {
+    position: absolute;
+    right: 0px;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: $space-0125-x;
+    background-color: $color-surface-component-default;
+
+    .#{$prefix-cls}-button {
+      height: 12px;
+      line-height: 12px;
+    }
+  }
+
+  &:hover {
+    .#{$input-number-prefix-cls}-handler {
+      display: inline-flex;
+    }
+  }
+}
