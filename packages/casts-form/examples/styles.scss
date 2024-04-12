@@ -1,0 +1,15 @@
+.demo-form {
+  width: 100%;
+  margin: auto;
+
+  &:not(.cds-form--inline) {
+    width: 100%;
+    max-width: 400px;
+
+    .cds-form-item {
+      &-control {
+        // min-width: 200px;
+      }
+    }
+  }
+}
