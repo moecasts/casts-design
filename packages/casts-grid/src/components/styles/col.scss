@@ -1,0 +1,38 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/plugins/helper/grid';
+
+$col-prefix-cls: #{$prefix-cls}-col;
+
+.#{$col-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+
+  max-width: 100%;
+  min-height: 1px;
+}
+
+@include gen-grid();
+
+@include gen-grid(-xsmall);
+
+@media (min-width: $breakpoint-small) {
+  @include gen-grid(-small);
+}
+
+@media (min-width: $breakpoint-medium) {
+  @include gen-grid(-medium);
+}
+
+@media (min-width: $breakpoint-large) {
+  @include gen-grid(-large);
+}
+
+@media (min-width: $breakpoint-xlarge) {
+  @include gen-grid(-xlarge);
+}
+
+@media (min-width: $breakpoint-xxlarge) {
+  @include gen-grid(-xxlarge);
+}
