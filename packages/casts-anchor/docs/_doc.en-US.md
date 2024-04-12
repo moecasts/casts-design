@@ -1,0 +1,18 @@
+---
+title: @casts/anchor
+group:
+  title: General
+nav:
+  title: Components
+  path: /components
+---
+
+# @casts/anchor
+
+## Installation
+
+```bash
+$ pnpm add @casts/anchor
+```
+
+TODO
