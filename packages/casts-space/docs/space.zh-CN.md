@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 空间通常用于创建和管理页面元素之间的间距，以提供良好的视觉层次感和美观的布局。
 ---
 
 ## 安装

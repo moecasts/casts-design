@@ -41,6 +41,15 @@ html {
   background-color: inherit;
   box-shadow: 0px 0px 12px -2px hsla(0, 0%, 0%, 0.08);
   will-change: change;
+
+  .#{$rd-prefix-cls}-logo {
+    display: inline-flex;
+  }
+
+  .#{$rd-prefix-cls}-aside-collapse-button {
+    margin-right: $space-075-x;
+    font-size: $font-size-large;
+  }
 }
 
 .#{$rd-prefix-cls}-navbar {
@@ -78,7 +87,7 @@ html {
   }
 
   &-overlay {
-    @media screen and (max-width: $breakpoint-medium) {
+    @media screen and (max-width: calc($breakpoint-medium - 1px)) {
       position: fixed;
       top: 0;
       bottom: 0;
@@ -108,7 +117,7 @@ html {
   }
 
   // aside animation
-  @media screen and (max-width: $breakpoint-medium) {
+  @media screen and (max-width: calc($breakpoint-medium - 1px)) {
     width: 0px;
 
     &.is-hide {
@@ -158,6 +167,7 @@ html {
     margin: 0 auto;
 
     .markdown {
+      position: relative;
       box-sizing: border-box;
       flex: 1;
       width: 0;

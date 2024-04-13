@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 工具提示是一种用户界面，用于在用户悬停或聚焦于某个元素时显示额外的信息或提示。
 ---
 
 ## 安装

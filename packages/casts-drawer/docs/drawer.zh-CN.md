@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 抽屉是一种侧边弹出的界面元素，通常用于显示额外的内容或工具。
 ---
 
 ## 安装

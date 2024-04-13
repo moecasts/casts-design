@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 标签用于表示分类、状态或额外的信息标记。
 ---
 
 ## 安装

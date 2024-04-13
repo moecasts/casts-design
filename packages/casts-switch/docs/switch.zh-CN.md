@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 开关是一种表单元素，用于表示开/关或真/假的状态。
 ---
 
 ## 安装

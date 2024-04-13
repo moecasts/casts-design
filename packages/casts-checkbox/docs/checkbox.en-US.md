@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Checkboxes are form elements that allow users to select multiple options.
 ---
 
 ## Installation

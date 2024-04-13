@@ -1,20 +1,21 @@
 import { FC, MouseEvent, useMemo, useRef } from 'react';
 import { Button } from '@casts/button';
-import { last, map } from '@casts/common';
-import { useConfig } from '@casts/config-provider';
-import { Translate2 } from '@casts/icons';
+import { isEmpty, last, map } from '@casts/common';
+import { MenuFoldLine, MenuUnfoldLine, Translate2 } from '@casts/icons';
 import { Layout } from '@casts/layout';
 import { HeadMenu } from '@casts/menu';
 import { useLocaleLocation } from '@casts/rd-vite/client/hooks/use-locale-location';
 import { useRd } from '@casts/rd-vite/client/hooks/use-rd';
 import { localeCodes } from '@casts/rd-vite/common';
+import { TokenCdsColorTextPrimary } from '@casts/theme';
 import clsx from 'clsx';
 import { Link, To, useNavigate } from 'react-router-dom';
 
 // @ts-ignore svgr component
 import { ReactComponent as Brand } from '../../../../../src/brand.svg';
-import { getPrefixCls } from '../../common';
+import { getPrefixCls, prefixCls } from '../../common';
 import { isLinkClick } from '../../utils';
+import { useAppContext } from '../hooks/use-app-context';
 import { useThemeSwitch } from '../hooks/use-theme-switch';
 
 import '@theme-toggles/react/css/Around.css';
@@ -40,7 +41,7 @@ const navToMenuData = (data: any): any[] => {
 };
 
 export const Header: FC<HeaderProps> = () => {
-  const { nav = [], matches } = useRd();
+  const { nav = [], matches, menu } = useRd();
   const navigate = useNavigate();
 
   const active = useMemo(
@@ -61,26 +62,38 @@ export const Header: FC<HeaderProps> = () => {
     return `${baseRoute}/`.replace(/\/(\/)+/g, '/');
   }, [matches]);
 
-  const { themeMode } = useConfig();
-
   const themeSwitchRef = useRef<HTMLButtonElement>(null);
 
   const { toggleThemeMode } = useThemeSwitch(themeSwitchRef);
+
+  const { themeMode, isAsideShouldFloat, asideVisible, toggleAsideVisible } =
+    useAppContext();
 
   return (
     <Layout.Header className={`${getPrefixCls('header')}`}>
       <HeadMenu
         className={`${getPrefixCls('navbar')}`}
+        prefix={
+          !isEmpty(menu) &&
+          isAsideShouldFloat && (
+            <Button
+              className={`${getPrefixCls('aside-collapse-button')}`}
+              icon={asideVisible ? <MenuFoldLine /> : <MenuUnfoldLine />}
+              onClick={toggleAsideVisible}
+              variant="text"
+              theme="neutral"
+            ></Button>
+          )
+        }
         logo={
           <Link
             to={indexRoute}
             onClick={() => {
               navigate(indexRoute);
             }}
+            className={`${prefixCls}-logo`}
           >
-            <Brand
-              style={{ width: '96px', fill: 'var(--cds-color-text-primary)' }}
-            />
+            <Brand style={{ width: '96px', fill: TokenCdsColorTextPrimary }} />
           </Link>
         }
         value={active}

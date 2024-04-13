@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 表单用于收集和处理用户输入的数据。
 ---
 
 ## 安装

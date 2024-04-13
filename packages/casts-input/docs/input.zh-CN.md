@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 输入框是一种基本的表单元素，用于接收用户输入的文本内容。
 ---
 
 ## 安装

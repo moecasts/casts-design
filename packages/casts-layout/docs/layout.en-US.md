@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Layout is used to create the overall structure of a page, typically including a header, sidebar, main content area, and footer.
 ---
 
 ## Installation

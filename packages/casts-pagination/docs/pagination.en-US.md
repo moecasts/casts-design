@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Pagination is used to provide page navigation in long lists or data sets.
 ---
 
 ## Installation

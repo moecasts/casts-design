@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 徽章是一种用于显示计数、状态或提示的小型视觉元素，通常与其他结合使用。
 ---
 
 ## 安装

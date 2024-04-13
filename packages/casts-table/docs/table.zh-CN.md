@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 表格用于展示行列数据，支持排序、筛选、分页等交互功能。
 ---
 
 ## 安装

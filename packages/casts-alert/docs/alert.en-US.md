@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Alert is used to display warning messages, typically to draw user attention or to prompt user confirmation for actions.
 ---
 
 ## Installation

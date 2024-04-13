@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 进度用于展示任务的进度状态，例如加载进度、步骤进度条等。
 ---
 
 ## 安装

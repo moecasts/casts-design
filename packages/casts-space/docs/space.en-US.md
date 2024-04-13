@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Space is commonly used to create and manage the spacing between page elements, providing a good sense of visual hierarchy and an aesthetically pleasing layout.
 ---
 
 ## Installation

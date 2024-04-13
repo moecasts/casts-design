@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Switch is a form element used to represent an on/off or true/false state.
 ---
 
 ## Installation

@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 单选按钮是一种表单元素，允许用户从一组选项中选择一个。
 ---
 
 ## 安装

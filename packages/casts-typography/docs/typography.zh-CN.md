@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 排版是关于文字和字体的艺术和技巧。
 ---
 
 ## 安装

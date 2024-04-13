@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Anchor is used for in-page jump links, often combined with content headings or tables of contents to provide quick navigation.
 ---
 
 ## Installation

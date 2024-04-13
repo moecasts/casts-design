@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 消息用于在页面中显示临时的信息提示，通常用于反馈用户的操作结果或显示系统消息。
 ---
 
 ## 安装

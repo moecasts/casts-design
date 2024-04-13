@@ -14,8 +14,9 @@ export type UseHeadMenuProps = BaseComponentProps & {
   collapse?: boolean;
 };
 
-export type HeadMenuProps = HTMLAttributes<HTMLDivElement> &
+export type HeadMenuProps = Omit<HTMLAttributes<HTMLDivElement>, 'prefix'> &
   UseHeadMenuProps & {
+    prefix?: ReactNode;
     logo?: ReactNode;
     operations?: ReactNode;
 

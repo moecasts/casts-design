@@ -1,10 +1,13 @@
 import { FC, ReactNode, useEffect } from 'react';
 import { useSetState } from '@casts/common';
 
+import { useAside } from '../hooks';
 import { AppContext, AppContextValue, defaultAppContextValue } from './context';
 
 export const AppProvider: FC<{ children: ReactNode }> = (props) => {
   const { children } = props;
+
+  const asideHook = useAside();
 
   const [appContext, setAppContext] = useSetState<AppContextValue>(
     defaultAppContextValue,
@@ -23,6 +26,7 @@ export const AppProvider: FC<{ children: ReactNode }> = (props) => {
     <AppContext.Provider
       value={{
         ...appContext,
+        ...asideHook,
         setAppContext,
       }}
     >

@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Message is used to display temporary message prompts on a page, often used to provide feedback on user actions or display system messages.
 ---
 
 ## Installation

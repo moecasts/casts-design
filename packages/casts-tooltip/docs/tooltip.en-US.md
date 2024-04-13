@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Tooltips are user interface components that display additional information or hints when a user hovers over or focuses on an element.
 ---
 
 ## Installation

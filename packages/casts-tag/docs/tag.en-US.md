@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Tag is used to represent categories, status, or additional information markers.
 ---
 
 ## Installation

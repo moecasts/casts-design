@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Link is used to create in-page jump links or hyperlinks to navigate to external resources.
 ---
 
 ## Installation

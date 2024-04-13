@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 分隔线是一种界面元素，用于视觉上区分内容或信息，提高内容的可读性和组织性。
 ---
 
 ## 安装

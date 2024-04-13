@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Drawer is a side-panel interface element, typically used to display additional content or tools.
 ---
 
 ## Installation

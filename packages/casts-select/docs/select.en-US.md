@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Select is used to choose one or more options from a drop-down list.
 ---
 
 ## Installation

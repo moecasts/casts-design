@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Menu is used to create navigation bars or drop-down menus, providing a list of options for user operations.
 ---
 
 ## Installation

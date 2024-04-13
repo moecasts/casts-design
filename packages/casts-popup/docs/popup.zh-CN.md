@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 弹出是一种用于创建弹出窗口或模态对话框的通用，它可以包含多种形式的内容。
 ---
 
 ## 安装

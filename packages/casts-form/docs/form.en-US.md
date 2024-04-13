@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Form is used to collect and process user-entered data.
 ---
 
 ## Installation

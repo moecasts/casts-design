@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Table is used to display grid data, supporting interactive features such as sorting, filtering, and pagination.
 ---
 
 ## Installation

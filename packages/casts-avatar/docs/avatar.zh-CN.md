@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 头像用于展示用户或其他实体的图像标识。
 ---
 
 ## 安装

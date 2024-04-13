@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Badge is a small visual element used to display counts, status, or notifications, often used in conjunction with other components.
 ---
 
 ## Installation

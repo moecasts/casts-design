@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: InputNumber is a form element used to receive numeric input from the user.
 ---
 
 ## Installation

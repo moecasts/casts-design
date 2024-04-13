@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Input is a basic form element used to receive text input from the user.
 ---
 
 ## Installation

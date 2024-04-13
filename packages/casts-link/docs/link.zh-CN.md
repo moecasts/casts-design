@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 链接用于创建页面内的跳转链接或导航到外部资源的超链接。
 ---
 
 ## 安装

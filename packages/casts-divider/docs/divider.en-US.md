@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Divider is an interface element used to visually distinguish content or information, enhancing the readability and organization of the content.
 ---
 
 ## Installation

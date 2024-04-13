@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 代码用于在界面中展示代码片段或标记语言的文本。
 ---
 
 ## 安装

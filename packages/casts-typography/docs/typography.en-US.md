@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Typography is art and technique of arranging text and fonts.
 ---
 
 ## Installation

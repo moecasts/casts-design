@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 警告用于显示警告信息，通常用于提示用户注意或需要用户确认的操作。
 ---
 
 ## 安装

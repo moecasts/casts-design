@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: The Grid system is a layout tool that creates responsive page layouts through a combination of columns and rows.
 ---
 
 ## Installation

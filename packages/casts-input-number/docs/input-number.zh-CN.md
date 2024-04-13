@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 数字输入框是一种表单元素，用于接收用户输入的数字。
 ---
 
 ## 安装

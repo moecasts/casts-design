@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Tabs is used to create multiple tabs on a page, allowing users to switch and view different content areas.
 ---
 
 ## Installation

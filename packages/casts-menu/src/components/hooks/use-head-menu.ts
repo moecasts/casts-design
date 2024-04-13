@@ -15,6 +15,7 @@ export const useHeadMenu = (props: UseHeadMenuProps) => {
     [`${prefixCls}--${size}`]: size,
   });
   const styles: CSSProperties = { ...style };
+  const prefixClasses = `${prefixCls}-prefix`;
   const logoClasses = `${prefixCls}-logo`;
 
   const contentClasses = `${prefixCls}-content`;
@@ -24,6 +25,7 @@ export const useHeadMenu = (props: UseHeadMenuProps) => {
     classes,
     styles,
 
+    prefixClasses,
     logoClasses,
     contentClasses,
     operationsClasses,

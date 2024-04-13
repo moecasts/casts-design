@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 网格系统是一种布局工具，通过列和行的组合来创建响应式的页面布局。
 ---
 
 ## 安装

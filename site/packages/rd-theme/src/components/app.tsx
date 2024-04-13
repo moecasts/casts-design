@@ -1,12 +1,10 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useRef } from 'react';
-import { Button } from '@casts/button';
-import { isEmpty } from '@casts/common';
+import { isEmpty, scrollTo } from '@casts/common';
 import {
   ConfigProvider,
   type ConfigProviderProps,
 } from '@casts/config-provider';
-import { MenuFoldLine, MenuUnfoldLine } from '@casts/icons';
 import { Layout } from '@casts/layout';
 import { enUS } from '@casts/locale';
 import { useRd } from '@casts/rd-vite/client/hooks/use-rd';
@@ -17,7 +15,6 @@ import { CSSTransition } from 'react-transition-group';
 import { getPrefixCls } from '../common';
 import { DocBanner } from './doc-features/doc-banner';
 import { FloatButton } from './doc-features/float-button';
-import { useAside } from './hooks';
 import { SiteContent } from './layout/content';
 import { SiteFooter } from './layout/footer';
 import { Header } from './layout/header';
@@ -39,13 +36,20 @@ export const App: FC<Partial<ConfigProviderProps>> = (props) => {
 };
 
 export const InternalApp: FC<Partial<ConfigProviderProps>> = () => {
-  const { menu } = useRd();
+  const { menu, matches } = useRd();
 
-  const { isAsideShouldFloat, asideVisible, toggleAsideVisible } = useAside();
   const asideContentRef = useRef<HTMLDivElement>(null);
   const asideOverlayRef = useRef<HTMLDivElement>(null);
 
-  const { themeMode } = useAppContext();
+  const { themeMode, asideVisible, toggleAsideVisible } = useAppContext();
+
+  /**
+   * scroll to top when route change
+   */
+  const currentRoute = matches?.[matches.length - 1].route;
+  useEffect(() => {
+    scrollTo(0);
+  }, [currentRoute]);
 
   return (
     <ConfigProvider locale={enUS} themeMode={themeMode}>
@@ -58,16 +62,6 @@ export const InternalApp: FC<Partial<ConfigProviderProps>> = () => {
                 'is-hide': !asideVisible,
               })}
             >
-              {isAsideShouldFloat && (
-                <Button
-                  className={`${getPrefixCls('aside-collapse-button')}`}
-                  icon={asideVisible ? <MenuFoldLine /> : <MenuUnfoldLine />}
-                  onClick={toggleAsideVisible}
-                  shape="square"
-                  pastel
-                  theme="neutral"
-                ></Button>
-              )}
               <CSSTransition
                 in={asideVisible}
                 mountOnEnter

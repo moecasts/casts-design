@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Radio buttons are form elements that allow users to select one option from a group.
 ---
 
 ## Installation

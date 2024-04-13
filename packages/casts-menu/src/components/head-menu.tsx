@@ -16,6 +16,7 @@ export const HeadMenu = forwardRef(
   (props: HeadMenuProps, ref: ForwardedRef<HTMLDivElement>) => {
     const propsWithDefault = useDefaultProps(props, defaultHeadMenuProps);
     const {
+      prefix,
       children,
       logo,
       operations,
@@ -33,8 +34,14 @@ export const HeadMenu = forwardRef(
       ...restProps
     } = propsWithDefault;
 
-    const { classes, styles, logoClasses, contentClasses, operationsClasses } =
-      useHeadMenu(propsWithDefault);
+    const {
+      classes,
+      styles,
+      logoClasses,
+      contentClasses,
+      operationsClasses,
+      prefixClasses,
+    } = useHeadMenu(propsWithDefault);
 
     const providerProps = {
       value,
@@ -56,6 +63,7 @@ export const HeadMenu = forwardRef(
           style={styles}
           {...omit(restProps, ['className', 'style', 'width'])}
         >
+          {prefix && <div className={prefixClasses}>{prefix}</div>}
           {logo && <div className={logoClasses}>{logo}</div>}
           <ul className={contentClasses}>
             <OverflowWrap

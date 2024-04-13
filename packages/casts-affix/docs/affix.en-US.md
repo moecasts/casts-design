@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Affix is used to fix elements on a page, keeping them in a specific position within the viewport as the page is scrolled.
 ---
 
 ## Installation

@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 选择框用于从下拉列表中选择一个或多个选项。
 ---
 
 ## 安装

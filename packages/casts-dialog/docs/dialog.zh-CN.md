@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 对话框是一种模态窗口，用于与用户进行交互，通常包含标题、内容和操作按钮。
 ---
 
 ## 安装

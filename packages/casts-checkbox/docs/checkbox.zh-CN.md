@@ -6,6 +6,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 复选框是一种表单元素，允许用户选择多个选项。
 ---
 
 ## 安装

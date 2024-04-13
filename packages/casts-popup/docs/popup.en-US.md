@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Popup component is a general-purpose used to create pop-up windows or modal dialogs, which can contain various forms of content.
 ---
 
 ## Installation

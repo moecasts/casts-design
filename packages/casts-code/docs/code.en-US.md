@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Code is used to display code snippets or text in a markup language within an interface.
 ---
 
 ## Installation

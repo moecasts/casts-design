@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 菜单用于创建导航栏或下拉菜单，提供用户操作的选项列表。
 ---
 
 ## 安装

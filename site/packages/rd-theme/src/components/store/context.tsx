@@ -3,6 +3,10 @@ import { noop, useSetState } from '@casts/common';
 
 export type AppContextValue = {
   themeMode: 'default' | 'dark' | 'custom';
+
+  isAsideShouldFloat: boolean;
+  asideVisible: boolean;
+  toggleAsideVisible: () => void;
 };
 
 export type AppContextValueWithUpdater = AppContextValue & {
@@ -12,6 +16,11 @@ export type AppContextValueWithUpdater = AppContextValue & {
 export const defaultAppContextValue: AppContextValueWithUpdater = {
   themeMode: 'default',
   setAppContext: noop,
+
+  /** aside hook returns */
+  isAsideShouldFloat: false,
+  asideVisible: false,
+  toggleAsideVisible: noop,
 };
 
 export const AppContext = createContext<AppContextValueWithUpdater>(

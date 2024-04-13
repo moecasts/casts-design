@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Notification is used to display important information in the corners of a page or other locations, usually with a higher priority.
 ---
 
 ## Installation

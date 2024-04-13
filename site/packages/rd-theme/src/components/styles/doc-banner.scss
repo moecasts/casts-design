@@ -1,4 +1,6 @@
 @import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/plugins/helper/overflow';
+
 @import './vars';
 
 .#{$rd-prefix-cls}-doc-banner {
@@ -22,12 +24,19 @@
     &--sticky {
       position: sticky;
       top: $header-height;
-      z-index: $elevation-z-index-top;
-      margin-top: -76px;
+      z-index: $elevation-z-index-sticky;
+      margin-top: -77px;
+      visibility: hidden;
       opacity: 0;
 
       &.#{$rd-prefix-cls}-doc-banner-container--fixed {
+        visibility: visible;
         opacity: 1;
+      }
+
+      .#{$rd-prefix-cls}-doc-banner-title {
+        text-overflow: ellipsis;
+        @include text-ellipsis();
       }
     }
   }

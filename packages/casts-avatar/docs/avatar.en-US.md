@@ -6,6 +6,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Avatar is used to display image identifiers for users or other entities.
 ---
 
 ## Installation

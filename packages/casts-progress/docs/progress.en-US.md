@@ -5,6 +5,7 @@ group:
 nav:
   title: Components
   path: /components
+description: Progress is used to display the progress status of tasks, such as loading progress or step progress bars.
 ---
 
 ## Installation

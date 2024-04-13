@@ -5,6 +5,7 @@ group:
 nav:
   title: 组件
   path: /components
+description: 通知用于在页面的角落或其他位置显示重要信息，通常具有更高的优先级。
 ---
 
 ## 安装
