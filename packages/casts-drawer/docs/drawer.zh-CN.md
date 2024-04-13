@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Drawer 抽屉
-
 ## 安装
 
 ```bash

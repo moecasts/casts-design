@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Input
-
 ## Installation
 
 ```bash
@@ -39,8 +37,6 @@ $ pnpm add @casts/input
 ## Different status
 
 <code src="../examples/different-status" />
-
-# Disabled
 
 ## Installation
 

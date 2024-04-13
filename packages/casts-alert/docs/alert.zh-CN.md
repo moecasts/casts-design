@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Alert 警告提示
-
 ## 安装
 
 ```bash

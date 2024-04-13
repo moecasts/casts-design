@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Layout 布局
-
 ## 安装
 
 ```bash

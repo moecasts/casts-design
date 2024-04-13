@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# <%= componentNamePascalCase %>
-
 ## 安装
 
 ```bash

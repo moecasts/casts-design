@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Tooltip 文字提示
-
 ## 安装
 
 ```bash

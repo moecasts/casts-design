@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Affix
-
 ## Installation
 
 ```bash

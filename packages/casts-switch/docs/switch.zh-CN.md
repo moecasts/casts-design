@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Switch 开关
-
 ## 安装
 
 ```bash

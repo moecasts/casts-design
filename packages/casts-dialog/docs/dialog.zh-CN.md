@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Dialog 对话框
-
 ## 安装
 
 ```bash

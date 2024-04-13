@@ -7,15 +7,11 @@ nav:
   path: /components
 ---
 
-# Typography 排版
-
 ## 安装
 
 ```bash
 $ pnpm add @casts/typography
 ```
-
-# Demo
 
 ## 安装
 

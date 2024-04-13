@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# InputNumber 数字输入框
-
 ## 安装
 
 ```bash

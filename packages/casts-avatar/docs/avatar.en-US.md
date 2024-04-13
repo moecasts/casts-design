@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Avatar
-
 ## Installation
 
 ```bash

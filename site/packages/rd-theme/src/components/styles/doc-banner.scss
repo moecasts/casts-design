@@ -12,15 +12,19 @@
     position: relative;
     background-color: $color-surface-container-default;
     border-bottom: $border-width-xsmall solid $color-border-component-default;
+    opacity: 1;
+    transition: opacity $motion-duration-immediate $motion-easing-in-out;
+
+    &--fixed {
+      opacity: 0;
+    }
 
     &--sticky {
-
       position: sticky;
       top: $header-height;
       z-index: $elevation-z-index-top;
       margin-top: -76px;
       opacity: 0;
-      transition: opacity $motion-duration-immediate $motion-easing-in-out;
 
       &.#{$rd-prefix-cls}-doc-banner-container--fixed {
         opacity: 1;

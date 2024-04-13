@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Pagination 分页器
-
 ## 安装
 
 ```bash

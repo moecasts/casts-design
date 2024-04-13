@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Divider 分割线
-
 ## 安装
 
 ```bash

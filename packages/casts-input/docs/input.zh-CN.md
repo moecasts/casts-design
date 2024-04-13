@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Input 输入框
-
 ## 安装
 
 ```bash
@@ -39,8 +37,6 @@ $ pnpm add @casts/input
 ## 不同状态
 
 <code src="../examples/different-status" />
-
-# 禁用
 
 ## 安装
 

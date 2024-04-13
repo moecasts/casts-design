@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# @casts/toast
-
 ## 安装
 
 ```bash

@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Switch
-
 ## Installation
 
 ```bash

@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Affix 固钉
-
 ## 安装
 
 ```bash

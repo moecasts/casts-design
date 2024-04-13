@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Icon 图标
-
 ## 安装
 
 ```bash

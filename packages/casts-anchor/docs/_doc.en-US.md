@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# @casts/anchor
-
 ## Installation
 
 ```bash

@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# ThemeGenerator
-
 ## 安装
 
 ```bash

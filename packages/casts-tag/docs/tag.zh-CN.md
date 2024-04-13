@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Tag 标签
-
 ## 安装
 
 ```bash

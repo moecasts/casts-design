@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Form 表单
-
 ## 安装
 
 ```bash

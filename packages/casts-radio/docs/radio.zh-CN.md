@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Radio 单选框
-
 ## 安装
 
 ```bash

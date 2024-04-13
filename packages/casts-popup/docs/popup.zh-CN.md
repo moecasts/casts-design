@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Popup 弹出层
-
 ## 安装
 
 ```bash

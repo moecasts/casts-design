@@ -26,28 +26,37 @@ export const DocBanner = () => {
       return;
     }
 
+    const rect = element.getBoundingClientRect();
+
     // 获取元素的顶部偏移量
-    const top = element.offsetTop;
+    const top = rect.top;
 
     // 获取元素的高度
-    const height = element.offsetHeight;
+    const height = rect.height;
 
     // 获取文档的滚动顶部偏移量
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     // 计算元素底边距离滚动顶部的距离
     // 元素的顶部偏移量 + 元素的高度 - 当前滚动的顶部偏移量
-    return top + height - scrollTop;
+    return top + height + scrollTop;
   };
 
-  const stickyOffsetTop = getStickyBottomOffsetTop(containerRef.current);
+  const stickyOffsetTop =
+    (getStickyBottomOffsetTop(containerRef.current) || 0) - 76 - 64;
+
+  const isFixed =
+    stickyOffsetTop > 0 && scroll?.top && scroll.top > stickyOffsetTop;
+
+  const classes = clsx(`${prefixCls}-container`, {
+    [`${prefixCls}-container--fixed`]: isFixed,
+  });
 
   const stickyClasses = clsx(
     `${prefixCls}-container`,
     `${prefixCls}-container--sticky`,
     {
-      [`${prefixCls}-container--fixed`]:
-        stickyOffsetTop && (scroll?.top || 0) > stickyOffsetTop,
+      [`${prefixCls}-container--fixed`]: isFixed,
     },
   );
 
@@ -57,7 +66,7 @@ export const DocBanner = () => {
 
   return (
     <>
-      <div className={`${prefixCls}-container`} ref={containerRef}>
+      <div className={classes} ref={containerRef}>
         <div className={prefixCls}>
           <Heading level={1} className={`${prefixCls}-title`}>
             {meta.title}

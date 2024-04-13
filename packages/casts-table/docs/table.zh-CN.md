@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Table 表格
-
 ## 安装
 
 ```bash

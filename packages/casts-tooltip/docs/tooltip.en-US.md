@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Tooltip
-
 ## Installation
 
 ```bash

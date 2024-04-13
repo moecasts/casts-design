@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Menu
-
 ## Installation
 
 ```bash

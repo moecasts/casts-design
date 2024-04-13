@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Grid 栅格
-
 ## 安装
 
 ```bash

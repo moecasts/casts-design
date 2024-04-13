@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Space 间距
-
 ## 安装
 
 ```bash

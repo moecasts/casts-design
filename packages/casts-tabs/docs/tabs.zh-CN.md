@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Tabs 选项卡
-
 ## 安装
 
 ```bash

@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Badge 徽标数
-
 ## 安装
 
 ```bash

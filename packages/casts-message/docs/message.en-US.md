@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Message 全局提示
-
 ## Installation
 
 ```bash

@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Tag
-
 ## Installation
 
 ```bash

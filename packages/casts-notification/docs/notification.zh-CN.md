@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Notification 通知
-
 ## 安装
 
 ```bash

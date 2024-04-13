@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# Code 代码
-
 ## 安装
 
 ```bash

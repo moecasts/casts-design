@@ -8,8 +8,6 @@ nav:
   path: /components
 ---
 
-# Select 选择框
-
 ## 安装
 
 ```bash

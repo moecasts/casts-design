@@ -7,8 +7,6 @@ nav:
   path: /components
 ---
 
-# @casts/portal
-
 ## 安装
 
 ```bash
