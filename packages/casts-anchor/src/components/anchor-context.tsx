@@ -7,9 +7,19 @@ import {
   useRef,
   useState,
 } from 'react';
-import { filter, getScroll, isEmpty, scrollTo } from '@casts/common';
+import {
+  filter,
+  getOffsetTop,
+  getScroll,
+  isEmpty,
+  scrollTo,
+} from '@casts/common';
 
-import { AnchorContextValue, AnchorProviderProps } from './types';
+import {
+  AnchorContextValue,
+  AnchorProviderProps,
+  UseAnchorProviderProps,
+} from './types';
 
 export const AnchorContext = createContext<AnchorContextValue>({} as any);
 
@@ -18,7 +28,7 @@ export const useAnchorContext = () => useContext(AnchorContext);
 export const AnchorProvider: FC<AnchorProviderProps> = (props) => {
   const { children } = props;
 
-  const value = useAnchorProvider();
+  const value = useAnchorProvider(props);
 
   return (
     <AnchorContext.Provider value={value}>{children}</AnchorContext.Provider>
@@ -27,7 +37,9 @@ export const AnchorProvider: FC<AnchorProviderProps> = (props) => {
 
 const linkRegex = /#([\S ]+)$/;
 
-export const useAnchorProvider = () => {
+export const useAnchorProvider = (props: UseAnchorProviderProps) => {
+  const { scrollOffsetY = 0 } = props;
+
   const container = window;
   const [links, setLinks] = useState<string[]>([]);
 
@@ -82,7 +94,7 @@ export const useAnchorProvider = () => {
     const y = scrollTop + elementOffsetTop;
 
     animatingRef.current = true;
-    scrollTo(y, {
+    scrollTo(y + scrollOffsetY, {
       getContainer: () => window,
       callback: () => {
         animatingRef.current = false;
@@ -107,7 +119,7 @@ export const useAnchorProvider = () => {
         return;
       }
 
-      const top = getOffsetTop(target, container);
+      const top = getOffsetTop(target, container) + scrollOffsetY;
 
       if (top >= offsetTop + bounds) {
         return;
@@ -124,27 +136,6 @@ export const useAnchorProvider = () => {
       curr.top > prev.top ? curr : prev,
     );
     return maxSection.link;
-  };
-
-  const getOffsetTop = (
-    element: HTMLElement,
-    container: HTMLElement | Window,
-  ): number => {
-    if (!element.getClientRects().length) {
-      return 0;
-    }
-
-    const rect = element.getBoundingClientRect();
-
-    if (rect.width || rect.height) {
-      if (container === window) {
-        container = element.ownerDocument!.documentElement!;
-        return rect.top - container.clientTop;
-      }
-      return rect.top - (container as HTMLElement).getBoundingClientRect().top;
-    }
-
-    return rect.top;
   };
 
   useEffect(() => {

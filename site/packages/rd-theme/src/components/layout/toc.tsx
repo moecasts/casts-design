@@ -25,7 +25,7 @@ export const Toc: FC<TocProps> = (props) => {
 
   const children = (
     <div className={classes}>
-      <Anchor items={data} />
+      <Anchor scrollOffsetY={-160} items={data} />
     </div>
   );
   return createPortal(children, containerRef.current);

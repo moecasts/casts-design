@@ -19,7 +19,7 @@ const _Anchor: FC<AnchorProps> = (props) => {
       let children: ReactNode[] | undefined = undefined;
       if (direction === 'horizontal') {
         log.warn(
-          'Anchor.Link children` is not supported when `Anchor` direction is horizontal',
+          'AnchorLink children` is not supported when `Anchor` direction is horizontal',
         );
       } else {
         children = getAnchorLinks(
@@ -47,7 +47,7 @@ const _Anchor: FC<AnchorProps> = (props) => {
 };
 
 export const Anchor: FC<AnchorProps> = (props: any) => (
-  <AnchorProvider>
+  <AnchorProvider {...props}>
     <_Anchor {...props} />
   </AnchorProvider>
 );

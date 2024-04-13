@@ -236,7 +236,6 @@ html {
 }
 
 .#{$rd-prefix-cls}-toc {
-
   position: sticky;
   top: 150px;
   height: fit-content;
@@ -272,4 +271,8 @@ html {
   font-size: $font-size-medium;
   color: $color-text-primary;
   transition: color $motion-duration-rapid $motion-easing-in-out;
+}
+
+:root {
+  scroll-padding-top: 160px;
 }

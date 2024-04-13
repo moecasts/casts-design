@@ -9,7 +9,14 @@ export type AnchorContextValue = {
   removeLink: (link: string) => void;
 };
 
-export type AnchorProviderProps = BaseComponentProps;
+export type UseAnchorProviderProps = {
+  /**
+   * The offset of the scroll position to trigger the active link change.
+   */
+  scrollOffsetY?: number;
+};
+
+export type AnchorProviderProps = BaseComponentProps & UseAnchorProviderProps;
 
 export type AnchorLinkProps = BaseComponentProps & {
   title: ReactNode;
@@ -20,6 +27,10 @@ export type AnchorLinkProps = BaseComponentProps & {
 export type UseAnchorProps = BaseComponentProps & {
   direction?: Direction;
   items?: Partial<AnchorLinkProps>[];
+  /**
+   * The offset of the scroll position to trigger the active link change.
+   */
+  scrollOffsetY?: number;
 };
 
 export type AnchorProps = UseAnchorProps;
