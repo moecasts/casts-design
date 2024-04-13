@@ -7,9 +7,8 @@ nav:
   title: Components
   path: /components
 order: 1
+description: Buttons are used to start a closed-loop operation task, such as "Delete" an object, "Buy" a product etc.
 ---
-
-# Button
 
 ## Installation
 

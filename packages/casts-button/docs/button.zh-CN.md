@@ -7,6 +7,7 @@ nav:
   title: 组件
   path: /components
 order: 1
+description: 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
 ---
 
 # Button 按钮

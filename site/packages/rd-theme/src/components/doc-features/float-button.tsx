@@ -3,9 +3,9 @@ import { Button } from '@casts/button';
 import { BrushLine } from '@casts/icons';
 import { MainColor, ThemeGenerator, ThemeMode } from '@casts/theme-generator';
 
-import { getPrefixCls } from '../common';
-import { themeStorage } from '../storage/theme';
-import { defaultMainColors } from '../theme';
+import { getPrefixCls } from '../../common';
+import { themeStorage } from '../../storage/theme';
+import { defaultMainColors } from '../../theme';
 
 export const FloatButton = () => {
   const prefixCls = getPrefixCls('float-button');

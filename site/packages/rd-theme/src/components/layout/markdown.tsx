@@ -6,8 +6,8 @@ import { Heading, HeadingProps, Text } from '@casts/typography';
 import { Components } from '@mdx-js/react/lib';
 import clsx from 'clsx';
 
-import { Api } from './api';
-import { Code } from './playground/code';
+import { Api } from '../doc-features/api';
+import { Code } from '../playground/code';
 import { Toc } from './toc';
 
 export const getHeadingComponents = (): Components => {

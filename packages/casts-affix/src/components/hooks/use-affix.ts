@@ -1,4 +1,4 @@
-import { CSSProperties, useCallback, useEffect, useRef } from 'react';
+import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import {
   formatSizeUnit,
   isFunction,
@@ -43,13 +43,17 @@ const updateAffixStyles = (dom: HTMLElement, styles: CSSProperties = {}) => {
 
 export const useAffix = (props: UseAffixProps) => {
   // eslint-disable-next-line no-empty-pattern
-  const { style, offsetTop = 10, offsetBottom = 10 } = props;
+  const { className, style, offsetTop = 10, offsetBottom = 10 } = props;
 
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('affix');
 
+  const [isFixed, setIsFixed] = useState(false);
   /* --------------------------------- classes and styles ---------------------------------------- */
-  const classes = clsx(prefixCls);
+  const wrapClasses = clsx(`${prefixCls}-wrap`, className);
+  const classes = clsx(prefixCls, {
+    [`${prefixCls}--fixed`]: isFixed,
+  });
   const placeholderClasses = `${prefixCls}-placeholder`;
   const styles: CSSProperties = { ...style };
 
@@ -70,7 +74,9 @@ export const useAffix = (props: UseAffixProps) => {
     scrollContainerRef.current = window;
   }, [props.container]);
 
-  const isFixedRef = useRef(false);
+  const handleFixedChange = (fixed: boolean) => {
+    setIsFixed(fixed);
+  };
 
   /* --------------------------------- scroll handlers ---------------------------------------- */
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -99,11 +105,7 @@ export const useAffix = (props: UseAffixProps) => {
           placeholderRef.current.remove();
           placeholderRef.current = undefined;
         }
-        isFixedRef.current = false;
-        return;
-      }
-
-      if (isFixedRef.current) {
+        handleFixedChange(false);
         return;
       }
 
@@ -122,7 +124,7 @@ export const useAffix = (props: UseAffixProps) => {
         width: affixWrapRect.width,
       });
 
-      isFixedRef.current = true;
+      handleFixedChange(true);
     }, 0),
     [],
   );
@@ -148,6 +150,7 @@ export const useAffix = (props: UseAffixProps) => {
 
   return {
     /** classes and styles */
+    wrapClasses,
     classes,
     styles,
     placeholderClasses,

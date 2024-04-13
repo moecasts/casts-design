@@ -8,11 +8,15 @@ import '@casts/theme/styles/scss/core.scss';
 import './styles/typography.scss';
 
 export const Typography: FC<TypographyProps> = (props) => {
-  const { children } = props;
+  const { children, className, ...rest } = props;
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('typography');
 
-  const classes = clsx(prefixCls);
+  const classes = clsx(prefixCls, className);
 
-  return <article className={classes}>{children}</article>;
+  return (
+    <article className={classes} {...rest}>
+      {children}
+    </article>
+  );
 };

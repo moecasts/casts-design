@@ -1,7 +1,7 @@
 @import '../../scss/vars/core.scss';
 
-$scrollbar-color: $color-palette-neutral-200;
-$scrollbar-hover-color: rgba(0, 0, 0, 0.3);
+$scrollbar-color: $color-palette-neutral-300;
+$scrollbar-hover-color: $color-palette-neutral-400;
 $scroll-track-color: #fff;
 
 @mixin scrollbar($size: 8px, $borderSize: 2px, $only-show-on-hover: false) {

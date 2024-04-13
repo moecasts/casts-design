@@ -2,7 +2,7 @@ import { Suspense, useRef } from 'react';
 import { CircularProgress } from '@casts/progress';
 import { MDXProvider } from '@mdx-js/react';
 
-import { getPrefixCls } from '../common';
+import { getPrefixCls } from '../../common';
 import { components } from './markdown';
 import { Routes } from './routes';
 

@@ -21,6 +21,10 @@ html {
   }
 }
 
+.demo-full {
+  width: 100%;
+}
+
 .#{$rd-prefix-cls}-root-layout {
   min-height: 100vh;
   min-height: 100dvh;
@@ -30,6 +34,15 @@ html {
   flex: 1;
 }
 
+.#{$rd-prefix-cls}-header {
+  position: sticky;
+  top: 0;
+  z-index: $elevation-z-index-sticky;
+  background-color: inherit;
+  box-shadow: 0px 0px 12px -2px hsla(0, 0%, 0%, 0.08);
+  will-change: change;
+}
+
 .#{$rd-prefix-cls}-navbar {
   position: relative;
   z-index: $elevation-z-index-sticky;
@@ -37,9 +50,10 @@ html {
 }
 
 .#{$rd-prefix-cls}-aside {
-  $aside-width: 232px;
+  $aside-width: 240px;
   position: relative;
   z-index: $elevation-z-index-low;
+  flex-shrink: 0;
 
   & &-collapse-button {
     position: fixed;
@@ -59,7 +73,7 @@ html {
 
   &-content {
     position: sticky;
-    top: 0px;
+    top: $header-height;
     width: $aside-width;
   }
 
@@ -79,10 +93,10 @@ html {
     position: relative;
     z-index: $elevation-z-index-sticky;
     height: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    max-height: 100vh;
-    max-height: 100dvh;
+    min-height: calc(100vh - $header-height);
+    min-height: calc(100dvh - $header-height);
+    max-height: calc(100vh - $header-height);
+    max-height: calc(100dvh - $header-height);
     padding-bottom: 64px;
 
     overflow-y: auto;
@@ -134,19 +148,22 @@ html {
   position: relative;
   z-index: 0;
   flex: 1;
-  max-width: 1120px;
   margin: 0 auto;
-  overflow: hidden;
 
   .#{$rd-prefix-cls}-main-content {
     display: flex;
+    max-width: $content-max-width;
     min-height: 100vh;
     min-height: 100dvh;
+    margin: 0 auto;
 
     .markdown {
+      box-sizing: border-box;
       flex: 1;
+      width: 0;
+      min-width: 0;
       max-width: 100%;
-      padding: $space-1-x $space-3-x;
+      padding: $space-1-x $space-2-x;
       overflow: hidden;
 
       & > .#{$prefix-cls}-code {
@@ -154,48 +171,48 @@ html {
         margin-bottom: $space-1-x;
       }
     }
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    &.#{$prefix-cls}-typography {
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin-top: $space-2-x;
-      margin-bottom: $space-105-x;
-    }
-
-    .#{$rd-prefix-cls}-heading-link {
-      position: absolute;
-      display: inline-flex;
-      align-items: center;
-      padding-right: $space-025-x;
-      opacity: 0;
-      transition: opacity $motion-duration-rapid $motion-easing-in-out;
-      transform: translateX(-100%);
-
-      &-icon {
-        width: 1em;
-        height: 1em;
-        fill: currentColor;
-        transform: scale(0.84);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &.#{$prefix-cls}-typography {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: $space-2-x;
+        margin-bottom: $space-105-x;
       }
-    }
 
-    &:hover {
       .#{$rd-prefix-cls}-heading-link {
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        padding-right: $space-025-x;
+        opacity: 0;
+        transition: opacity $motion-duration-rapid $motion-easing-in-out;
+        transform: translateX(-100%);
+
+        &-icon {
+          width: 1em;
+          height: 1em;
+          fill: currentColor;
+          transform: scale(0.84);
+        }
+      }
+
+      &:hover {
+        .#{$rd-prefix-cls}-heading-link {
+          opacity: 1;
+        }
+      }
+
+      .#{$rd-prefix-cls}-heading-link:focus-visible {
+        outline: none;
         opacity: 1;
       }
-    }
-
-    .#{$rd-prefix-cls}-heading-link:focus-visible {
-      outline: none;
-      opacity: 1;
     }
   }
 }
@@ -219,16 +236,24 @@ html {
 }
 
 .#{$rd-prefix-cls}-toc {
+
+  position: sticky;
+  top: 150px;
   height: fit-content;
   min-height: 1px;
+  max-height: calc(100vh - 240px);
   padding-top: 10px;
-  padding-right: $space-3-x;
+  padding-right: $space-2-x;
+  overflow-y: auto;
+  overflow-y: overlay;
+
+  @include scrollbar();
 
   @media screen and (max-width: $breakpoint-large) {
     display: none;
   }
 
-  .#{$rd-prefix-cls}-anchor {
+  .#{$prefix-cls}-anchor {
     width: 168px;
   }
 }
@@ -247,8 +272,4 @@ html {
   font-size: $font-size-medium;
   color: $color-text-primary;
   transition: color $motion-duration-rapid $motion-easing-in-out;
-}
-
-.demo-full {
-  width: 100%;
 }

@@ -1,6 +1,8 @@
 export type SourceMeta = {
   [key: string]: string | number | Record<string, any>;
 } & {
+  title?: boolean;
+  description?: string;
   absPath?: string;
   nav?: Record<string, any>;
   group?: Record<string, any>;

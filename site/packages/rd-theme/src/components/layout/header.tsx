@@ -12,10 +12,10 @@ import clsx from 'clsx';
 import { Link, To, useNavigate } from 'react-router-dom';
 
 // @ts-ignore svgr component
-import { ReactComponent as Brand } from '../../../../src/brand.svg';
-import { getPrefixCls } from '../common';
-import { isLinkClick } from '../utils';
-import { useThemeSwitch } from './hooks/use-theme-switch';
+import { ReactComponent as Brand } from '../../../../../src/brand.svg';
+import { getPrefixCls } from '../../common';
+import { isLinkClick } from '../../utils';
+import { useThemeSwitch } from '../hooks/use-theme-switch';
 
 import '@theme-toggles/react/css/Around.css';
 
@@ -68,7 +68,7 @@ export const Header: FC<HeaderProps> = () => {
   const { toggleThemeMode } = useThemeSwitch(themeSwitchRef);
 
   return (
-    <Layout.Header>
+    <Layout.Header className={`${getPrefixCls('header')}`}>
       <HeadMenu
         className={`${getPrefixCls('navbar')}`}
         logo={
@@ -138,7 +138,6 @@ export const Header: FC<HeaderProps> = () => {
               }
               variant="link"
               theme="neutral"
-              href={firstDiffLocaleLocation}
               onClick={toggleThemeMode}
             ></Button>
           </>

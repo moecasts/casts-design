@@ -1,11 +1,10 @@
 import { FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Affix } from '@casts/affix';
 import { Anchor, AnchorProps } from '@casts/anchor';
 import { BaseComponentProps } from '@casts/common';
 import clsx from 'clsx';
 
-import { getPrefixCls } from '../common';
+import { getPrefixCls } from '../../common';
 
 export type TocProps = BaseComponentProps & {
   data?: AnchorProps['items'];
@@ -26,9 +25,7 @@ export const Toc: FC<TocProps> = (props) => {
 
   const children = (
     <div className={classes}>
-      <Affix>
-        <Anchor items={data} />
-      </Affix>
+      <Anchor items={data} />
     </div>
   );
   return createPortal(children, containerRef.current);

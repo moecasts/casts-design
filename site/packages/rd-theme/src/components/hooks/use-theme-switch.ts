@@ -1,7 +1,7 @@
 import { RefObject } from 'react';
 import { useCircleTransition } from '@casts/common';
 
-import { useAppContext } from '../context';
+import { useAppContext } from '../store/context';
 
 export const useThemeSwitch = (themeSwitchRef: RefObject<HTMLElement>) => {
   const { themeMode, setAppContext } = useAppContext();

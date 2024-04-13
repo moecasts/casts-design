@@ -9,6 +9,7 @@ export const Affix = forwardRef((props: AffixProps, ref) => {
   const {
     classes,
     styles,
+    wrapClasses,
 
     affixWrapRef,
     affixRef,
@@ -17,7 +18,7 @@ export const Affix = forwardRef((props: AffixProps, ref) => {
   useImperativeHandle(ref, () => ({}));
 
   return (
-    <div ref={affixWrapRef}>
+    <div ref={affixWrapRef} className={wrapClasses}>
       <div className={classes} style={styles} ref={affixRef}>
         {children}
       </div>

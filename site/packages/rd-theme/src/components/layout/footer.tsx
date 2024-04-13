@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 
-import { getPrefixCls } from '../common';
+import { getPrefixCls } from '../../common';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type SiteFooterProps = {};

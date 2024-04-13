@@ -15,14 +15,15 @@ import clsx from 'clsx';
 import { CSSTransition } from 'react-transition-group';
 
 import { getPrefixCls } from '../common';
-import { SiteContent } from './content';
-import { useAppContext } from './context';
-import { FloatButton } from './float-button';
-import { SiteFooter } from './footer';
-import { Header } from './header';
+import { DocBanner } from './doc-features/doc-banner';
+import { FloatButton } from './doc-features/float-button';
 import { useAside } from './hooks';
-import { AppProvider } from './provider';
-import { Sidebar } from './sidebar';
+import { SiteContent } from './layout/content';
+import { SiteFooter } from './layout/footer';
+import { Header } from './layout/header';
+import { Sidebar } from './layout/sidebar';
+import { useAppContext } from './store/context';
+import { AppProvider } from './store/provider';
 
 import '@casts/theme/styles/scss/core.scss';
 import './styles/app.scss';
@@ -102,6 +103,7 @@ export const InternalApp: FC<Partial<ConfigProviderProps>> = () => {
           )}
           <Layout className={`${getPrefixCls('content-layout')}`}>
             <Content className={`${getPrefixCls('content')}`}>
+              <DocBanner />
               <SiteContent />
             </Content>
             <Footer className={`${getPrefixCls('footer')}`}>
