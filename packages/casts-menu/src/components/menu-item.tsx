@@ -5,7 +5,8 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import { useDefaultProps, useRipple } from '@casts/common';
+import { noop, useDefaultProps, useLinkProps, useRipple } from '@casts/common';
+import { useLink } from '@casts/config-provider';
 
 import { defaultMenuItemProps } from './default-props';
 import { useMenuItem } from './hooks';
@@ -38,14 +39,21 @@ export const MenuItem = forwardRef(
       menuItemRef,
     ]);
 
+    const linkProps = useLinkProps(propsWithDefault);
+    const { handleLinkClick } = useLink({
+      ...propsWithDefault,
+      onClick: noop,
+    });
     const innerTag = href ? 'a' : 'span';
 
     const inner = createElement(
       innerTag,
       {
+        ...linkProps,
         tabIndex: focusable ? 0 : -1,
         className: innerClasses,
         href,
+        onClick: handleLinkClick,
       },
       <>
         {prefixIcon && <span className={prefixIconClasses}>{prefixIcon}</span>}

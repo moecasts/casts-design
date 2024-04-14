@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -302,10 +298,10 @@ importers:
         version: mirrors.tencent.com/tslib@2.6.2
       vite:
         specifier: ^4.4.9
-        version: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+        version: 4.5.2(@types/node@20.5.8)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.5.8)(jsdom@22.1.0)
+        version: 1.3.1(@types/node@20.5.8)
       webpack-chain:
         specifier: ^6.5.1
         version: 6.5.1
@@ -585,6 +581,58 @@ importers:
         specifier: ^1.3.1
         version: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
 
+  packages/casts-breadcrumb:
+    dependencies:
+      '@casts/common':
+        specifier: workspace:^0.0.1
+        version: link:../casts-common
+      '@casts/config-provider':
+        specifier: workspace:^0.0.1
+        version: link:../casts-config-provider
+      '@casts/theme':
+        specifier: workspace:^0.0.1
+        version: link:../casts-theme
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
+      react:
+        specifier: '>=17'
+        version: 18.2.0
+    devDependencies:
+      '@casts/standard':
+        specifier: workspace:^0.0.1
+        version: link:../casts-standard
+      '@swc/core':
+        specifier: ^1.3.82
+        version: 1.3.82
+      '@testing-library/jest-dom':
+        specifier: ^6.1.2
+        version: 6.1.2(vitest@1.3.1)
+      '@testing-library/react':
+        specifier: ^14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@vitest/coverage-v8':
+        specifier: ^1.3.1
+        version: 1.3.1(vitest@1.3.1)
+      father:
+        specifier: ^4.3.2
+        version: 4.3.2(@types/node@20.11.20)(styled-components@6.1.8)(webpack@5.90.3)
+      jsdom:
+        specifier: ^22.1.0
+        version: 22.1.0
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@swc/core@1.3.82)(@types/node@20.11.20)(typescript@5.0.4)
+      typescript:
+        specifier: ~5.0.4
+        version: 5.0.4
+      vite:
+        specifier: ^4.4.9
+        version: 4.5.2(@types/node@20.11.20)
+      vitest:
+        specifier: ^1.3.1
+        version: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
+
   packages/casts-button:
     dependencies:
       '@casts/common':
@@ -766,16 +814,16 @@ importers:
         version: 1.3.1(vitest@1.3.1)
       father:
         specifier: ^4.3.2
-        version: 4.3.2(@types/node@20.5.8)(styled-components@6.1.8)(webpack@5.90.3)
+        version: 4.3.2(styled-components@6.1.8)(webpack@5.90.3)
       jsdom:
         specifier: ^22.1.0
         version: mirrors.tencent.com/jsdom@22.1.0
       vite:
         specifier: ^4.4.9
-        version: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+        version: 4.5.2
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.5.8)(jsdom@22.1.0)
+        version: 1.3.1(jsdom@22.1.0)
 
   packages/casts-code:
     dependencies:
@@ -918,7 +966,7 @@ importers:
         version: 4.5.2(@types/node@20.11.20)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
+        version: 1.3.1(@types/node@20.11.20)
 
   packages/casts-config-provider:
     dependencies:
@@ -928,6 +976,9 @@ importers:
       '@casts/locale':
         specifier: workspace:^0.0.1
         version: link:../casts-locale
+      '@react-aria/utils':
+        specifier: ^3.23.2
+        version: 3.23.2(react@18.2.0)
       react:
         specifier: '>=16.8'
         version: 18.2.0
@@ -961,7 +1012,7 @@ importers:
         version: 4.5.2(@types/node@20.11.20)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
+        version: 1.3.1(@types/node@20.11.20)
 
   packages/casts-dialog:
     dependencies:
@@ -2249,13 +2300,13 @@ importers:
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
       '@umijs/lint':
         specifier: ^4.0.79
-        version: mirrors.tencent.com/@umijs/lint@4.0.79(eslint@8.48.0)(postcss-scss@4.0.7)(styled-components@6.1.8)(stylelint@15.10.3)(typescript@5.0.4)
+        version: mirrors.tencent.com/@umijs/lint@4.0.79(eslint@8.48.0)(styled-components@6.1.8)(stylelint@15.10.3)(typescript@5.0.4)
       father:
         specifier: ^4.3.2
         version: 4.3.2(@types/node@20.11.20)(styled-components@6.1.8)(webpack@5.90.3)
       ts-node:
         specifier: ^10.9.1
-        version: mirrors.tencent.com/ts-node@10.9.1(@swc/core@1.3.82)(@types/node@20.11.20)(typescript@5.0.4)
+        version: mirrors.tencent.com/ts-node@10.9.1(@types/node@20.11.20)(typescript@5.0.4)
       tslib:
         specifier: ^2.6.2
         version: mirrors.tencent.com/tslib@2.6.2
@@ -2264,7 +2315,7 @@ importers:
         version: mirrors.tencent.com/typescript@5.0.4
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
+        version: 1.3.1(@types/node@20.11.20)
 
   packages/casts-switch:
     dependencies:
@@ -2530,10 +2581,10 @@ importers:
         version: 4.3.2(@types/node@20.5.8)(styled-components@6.1.8)(webpack@5.90.3)
       vite:
         specifier: ^4.4.9
-        version: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+        version: 4.5.2(@types/node@20.5.8)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.5.8)(jsdom@22.1.0)
+        version: 1.3.1(@types/node@20.5.8)
 
   packages/casts-theme-generator:
     dependencies:
@@ -2778,6 +2829,9 @@ importers:
       '@casts/badge':
         specifier: workspace:^0.0.1
         version: link:../packages/casts-badge
+      '@casts/breadcrumbs':
+        specifier: workspace:^0.0.1
+        version: link:../packages/casts-breadcrumbs
       '@casts/button':
         specifier: workspace:^0.0.1
         version: link:../packages/casts-button
@@ -2912,7 +2966,7 @@ importers:
         version: mirrors.tencent.com/estree-jsx@0.0.1
       father:
         specifier: 4.3.2
-        version: 4.3.2(@types/node@20.5.8)(styled-components@6.1.8)(webpack@5.90.3)
+        version: 4.3.2(styled-components@6.1.8)(webpack@5.90.3)
       lodash-es:
         specifier: ^4.17.21
         version: mirrors.tencent.com/lodash-es@4.17.21
@@ -3102,7 +3156,7 @@ importers:
         version: mirrors.tencent.com/unist-util-visit@5.0.0
       vite:
         specifier: ^4.4.9
-        version: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+        version: 4.5.2(sass@1.66.1)
       vite-plugin-dynamic-import:
         specifier: ^1.5.0
         version: mirrors.tencent.com/vite-plugin-dynamic-import@1.5.0
@@ -4646,6 +4700,15 @@ packages:
       - supports-color
     dev: false
 
+  /@microsoft/api-extractor-model@7.27.5:
+    resolution: {integrity: sha512-9/tBzYMJitR+o+zkPr1lQh2+e8ClcaTF6eZo7vZGDqRt2O5XmXWPbYJZmxyM3wb5at6lfJNEeGZrQXLjsQ0Nbw==}
+    dependencies:
+      '@microsoft/tsdoc': 0.14.2
+      '@microsoft/tsdoc-config': 0.16.2
+      '@rushstack/node-core-library': 3.59.6
+    transitivePeerDependencies:
+      - '@types/node'
+
   /@microsoft/api-extractor-model@7.27.5(@types/node@20.11.20):
     resolution: {integrity: sha512-9/tBzYMJitR+o+zkPr1lQh2+e8ClcaTF6eZo7vZGDqRt2O5XmXWPbYJZmxyM3wb5at6lfJNEeGZrQXLjsQ0Nbw==}
     dependencies:
@@ -4662,6 +4725,26 @@ packages:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
       '@rushstack/node-core-library': 3.59.6(@types/node@20.5.8)
+    transitivePeerDependencies:
+      - '@types/node'
+    dev: true
+
+  /@microsoft/api-extractor@7.36.3:
+    resolution: {integrity: sha512-u0H6362AQq+r55X8drHx4npgkrCfJnMzRRHfQo8PMNKB8TcBnrTLfXhXWi+xnTM6CzlU/netEN8c4bq581Rnrg==}
+    hasBin: true
+    dependencies:
+      '@microsoft/api-extractor-model': 7.27.5
+      '@microsoft/tsdoc': 0.14.2
+      '@microsoft/tsdoc-config': 0.16.2
+      '@rushstack/node-core-library': 3.59.6
+      '@rushstack/rig-package': 0.4.0
+      '@rushstack/ts-command-line': 4.15.1
+      colors: 1.2.5
+      lodash: 4.17.21
+      resolve: 1.22.4
+      semver: 7.5.4
+      source-map: 0.6.1
+      typescript: 5.0.4
     transitivePeerDependencies:
       - '@types/node'
 
@@ -4703,6 +4786,7 @@ packages:
       typescript: 5.0.4
     transitivePeerDependencies:
       - '@types/node'
+    dev: true
 
   /@microsoft/tsdoc-config@0.16.2:
     resolution: {integrity: sha512-OGiIzzoBLgWWR0UdRJX98oYO+XKGf7tiK4Zk6tQ/E4IJqGCe7dvkTvgDZV5cFJUzLGDOjeAXrnZoA6QkVySuxw==}
@@ -4791,6 +4875,46 @@ packages:
       react: 18.2.0
       react-dom: mirrors.tencent.com/react-dom@18.2.0(react@18.2.0)
     dev: true
+
+  /@react-aria/ssr@3.9.2(react@18.2.0):
+    resolution: {integrity: sha512-0gKkgDYdnq1w+ey8KzG9l+H5Z821qh9vVjztk55rUg71vTk/Eaebeir+WtzcLLwTjw3m/asIjx8Y59y1lJZhBw==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.5.9
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/utils@3.23.2(react@18.2.0):
+    resolution: {integrity: sha512-yznR9jJ0GG+YJvTMZxijQwVp+ahP66DY0apZf7X+dllyN+ByEDW+yaL1ewYPIpugxVzH5P8jhnBXsIyHKN411g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/ssr': 3.9.2(react@18.2.0)
+      '@react-stately/utils': 3.9.1(react@18.2.0)
+      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@swc/helpers': 0.5.9
+      clsx: 2.0.0
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/utils@3.9.1(react@18.2.0):
+    resolution: {integrity: sha512-yzw75GE0iUWiyps02BOAPTrybcsMIxEJlzXqtvllAb01O9uX5n0i3X+u2eCpj2UoDF4zS08Ps0jPgWxg8xEYtA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.5.9
+      react: 18.2.0
+    dev: false
+
+  /@react-types/shared@3.22.1(react@18.2.0):
+    resolution: {integrity: sha512-PCpa+Vo6BKnRMuOEzy5zAZ3/H5tnQg1e80khMhK2xys0j6ZqzkgQC+fHMNZ7VDFNLqqNMj/o0eVeSBDh2POjkw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@rollup/pluginutils@5.0.4(rollup@3.28.1):
     resolution: {integrity: sha512-0KJnIoRI8A+a1dqOYLxH8vBf8bphDmty5QvIm2hqm7oFCFYKCAZWWd2hXgMibaPsNDhI0AtpYfQZJG47pt/k4g==}
@@ -4897,6 +5021,22 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@rushstack/node-core-library@3.59.6:
+    resolution: {integrity: sha512-bMYJwNFfWXRNUuHnsE9wMlW/mOB4jIwSUkRKtu02CwZhQdmzMsUbxE0s1xOLwTpNIwlzfW/YT7OnOHgDffLgYg==}
+    peerDependencies:
+      '@types/node': '*'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+    dependencies:
+      colors: 1.2.5
+      fs-extra: 7.0.1
+      import-lazy: 4.0.0
+      jju: 1.4.0
+      resolve: 1.22.4
+      semver: 7.5.4
+      z-schema: 5.0.5
+
   /@rushstack/node-core-library@3.59.6(@types/node@20.11.20):
     resolution: {integrity: sha512-bMYJwNFfWXRNUuHnsE9wMlW/mOB4jIwSUkRKtu02CwZhQdmzMsUbxE0s1xOLwTpNIwlzfW/YT7OnOHgDffLgYg==}
     peerDependencies:
@@ -4931,6 +5071,7 @@ packages:
       resolve: 1.22.4
       semver: 7.5.4
       z-schema: 5.0.5
+    dev: true
 
   /@rushstack/rig-package@0.4.0:
     resolution: {integrity: sha512-FnM1TQLJYwSiurP6aYSnansprK5l8WUK8VG38CmAaZs29ZeL1msjK0AP1VS4ejD33G0kE/2cpsPsS9jDenBMxw==}
@@ -5474,6 +5615,12 @@ packages:
       '@swc/core-win32-x64-msvc': 1.3.82
     dev: true
 
+  /@swc/helpers@0.5.9:
+    resolution: {integrity: sha512-XI76sLwMJoLjJTOK5RblBZkouOJG3X3hjxLCzLnyN1ifAiKQc6Hck3uvnU4Z/dV/Dyk36Ffj8FLvDLV2oWvKTw==}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /@swc/types@0.1.4:
     resolution: {integrity: sha512-z/G02d+59gyyUb7KYhKi9jOhicek6QD2oMaotUyG+lUkybpXoV49dY9bj7Ah5Q+y7knK2jU67UTX9FyfGzaxQg==}
     dev: true
@@ -5580,6 +5727,7 @@ packages:
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
+    dev: true
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -6311,7 +6459,7 @@ packages:
       std-env: 3.7.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
-      vitest: 1.3.1(@types/node@20.5.8)(jsdom@22.1.0)(sass@1.66.1)
+      vitest: 1.3.1(jsdom@22.1.0)(sass@1.66.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6450,6 +6598,7 @@ packages:
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     deprecated: Use your platform's native atob() and btoa() methods instead
+    dev: true
 
   /accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
@@ -6495,6 +6644,7 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /agentkeepalive@3.5.2:
     resolution: {integrity: sha512-e0L/HNe6qkQ7H19kTlRRqUibEAwDK5AFk6y3PtMsuut2VAH6+Q4xZml1tNDJD7kSAyqmbG/K08K5WEJYtUrSlQ==}
@@ -6702,6 +6852,7 @@ packages:
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: true
 
   /atomic-sleep@1.0.0:
     resolution: {integrity: sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==}
@@ -6996,7 +7147,7 @@ packages:
     engines: {node: '>=6'}
 
   /camelcase@4.1.0:
-    resolution: {integrity: sha512-FxAv7HpHrXbh3aPo4o2qxHay2lkLY3x5Mw3KeE4KQE8ysVfziWeRZDwcjauvwBSGEC/nXUPzZy8zeh4HokqOnw==}
+    resolution: {integrity: sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=}
     engines: {node: '>=4'}
     dev: true
 
@@ -7239,6 +7390,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: true
 
   /commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -7308,7 +7460,6 @@ packages:
 
   /core-js@3.6.5:
     resolution: {integrity: sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==}
-    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
     dev: true
 
@@ -7740,6 +7891,7 @@ packages:
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: true
 
   /dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
@@ -8436,6 +8588,43 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: true
+
+  /father@4.3.2(styled-components@6.1.8)(webpack@5.90.3):
+    resolution: {integrity: sha512-u5aDgKD/ecbqub3BqgxltduVcJfujl8IyOh4tBpZbEXJvaq/kSrkV6ZRGHzvi6/vqxyqd6+pPMkU+CqsvxnmAQ==}
+    hasBin: true
+    dependencies:
+      '@microsoft/api-extractor': 7.36.3
+      '@umijs/babel-preset-umi': 4.0.79(styled-components@6.1.8)
+      '@umijs/bundler-utils': 4.0.79
+      '@umijs/bundler-webpack': 4.0.79(styled-components@6.1.8)(typescript@5.0.4)(webpack@5.90.3)
+      '@umijs/case-sensitive-paths-webpack-plugin': 1.0.1
+      '@umijs/core': 4.0.79
+      '@umijs/utils': 4.0.79
+      '@vercel/ncc': 0.33.3
+      babel-plugin-dynamic-import-node: 2.3.3
+      babel-plugin-module-resolver: 4.1.0
+      babel-plugin-transform-define: 2.0.1
+      enhanced-resolve: 5.9.3
+      fast-glob: 3.2.12
+      file-system-cache: 2.0.0
+      loader-runner: 4.2.0
+      minimatch: 3.1.2
+      tsconfig-paths: 4.0.0
+      typescript: 5.0.4
+      typescript-transform-paths: 3.4.6(typescript@5.0.4)
+      v8-compile-cache: 2.3.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@types/webpack'
+      - sockjs-client
+      - styled-components
+      - supports-color
+      - type-fest
+      - webpack
+      - webpack-dev-server
+      - webpack-hot-middleware
+      - webpack-plugin-serve
 
   /figures@2.0.0:
     resolution: {integrity: sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==}
@@ -9007,6 +9196,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: 2.1.2
+    dev: true
 
   /icss-utils@5.1.0(postcss@8.4.38):
     resolution: {integrity: sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==}
@@ -10285,7 +10475,7 @@ packages:
     engines: {node: '>=4'}
 
   /ms@2.0.0:
-    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
     dev: true
 
   /ms@2.1.2:
@@ -10372,7 +10562,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   /normalize-url@1.9.1:
-    resolution: {integrity: sha512-A48My/mtCklowHBlI8Fq2jFWK4tX4lJ5E6ytFsSOq1fzpvT0SQSgKhSg7lN5c2uYFOrUAOQp6zhhJnpp1eMloQ==}
+    resolution: {integrity: sha1-LMDWazHqIwNkWENuNiDYWVTGbDw=}
     engines: {node: '>=4'}
     dependencies:
       object-assign: 4.1.1
@@ -11616,6 +11806,7 @@ packages:
 
   /psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
+    dev: true
 
   /public-encrypt@4.0.3:
     resolution: {integrity: sha512-zVpa8oKZSz5bTMTFClc1fQOnyyEzpl5ozpi1B5YcvBrdohMjH2rfsBtyXcuNuwjsDIXmBYlF2N5FlJYhR29t8Q==}
@@ -11685,6 +11876,7 @@ packages:
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    dev: true
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -12077,6 +12269,7 @@ packages:
 
   /requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+    dev: true
 
   /reselect@4.1.8:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
@@ -12197,6 +12390,7 @@ packages:
 
   /rrweb-cssom@0.6.0:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
+    dev: true
 
   /run-async@2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
@@ -12248,6 +12442,7 @@ packages:
     engines: {node: '>=v12.22.7'}
     dependencies:
       xmlchars: 2.2.0
+    dev: true
 
   /scheduler@0.19.1:
     resolution: {integrity: sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==}
@@ -12905,6 +13100,7 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       punycode: 2.3.0
+    dev: true
 
   /traverse@0.3.9:
     resolution: {integrity: sha512-iawgk0hLP3SxGKDfnDJf8wTz4p2qImnyihM5Hh/sGvQ3K37dPi/w8sRhdNIxYA1TwFwc5mDhIJq+O0RsvXBKdQ==}
@@ -13067,6 +13263,7 @@ packages:
   /universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
     engines: {node: '>= 4.0.0'}
+    dev: true
 
   /universalify@2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
@@ -13108,6 +13305,7 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    dev: true
 
   /url@0.11.1:
     resolution: {integrity: sha512-rWS3H04/+mzzJkv0eZ7vEDGiQbgquI1fGfOad6zKvgYQi1SzMmhl7c/DdRGxhaWrVH6z0qWITo8rpnxK/RfEhA==}
@@ -13179,6 +13377,27 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  /vite-node@1.3.1:
+    resolution: {integrity: sha512-azbRrqRxlWTJEVbzInZCTchx0X69M/XPTCz4H+TLvlTcR/xH/3hkRqhOakT41fMJCMzXTu4UvegkZiEoJAWvng==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    dependencies:
+      cac: 6.7.14
+      debug: 4.3.4
+      pathe: 1.1.2
+      picocolors: 1.0.0
+      vite: 5.1.4
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
   /vite-node@1.3.1(@types/node@20.11.20):
     resolution: {integrity: sha512-azbRrqRxlWTJEVbzInZCTchx0X69M/XPTCz4H+TLvlTcR/xH/3hkRqhOakT41fMJCMzXTu4UvegkZiEoJAWvng==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -13220,7 +13439,7 @@ packages:
       - terser
     dev: true
 
-  /vite-node@1.3.1(@types/node@20.5.8)(sass@1.66.1):
+  /vite-node@1.3.1(sass@1.66.1):
     resolution: {integrity: sha512-azbRrqRxlWTJEVbzInZCTchx0X69M/XPTCz4H+TLvlTcR/xH/3hkRqhOakT41fMJCMzXTu4UvegkZiEoJAWvng==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -13229,7 +13448,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.1.4(@types/node@20.5.8)(sass@1.66.1)
+      vite: 5.1.4(sass@1.66.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -13276,6 +13495,41 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /vite@4.5.2:
+    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.18.20
+      postcss: 8.4.38
+      rollup: 3.29.4
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
   /vite@4.5.2(@types/node@20.11.20):
     resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -13311,7 +13565,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vite@4.5.2(@types/node@20.5.8)(sass@1.66.1):
+  /vite@4.5.2(@types/node@20.5.8):
     resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -13343,9 +13597,79 @@ packages:
       esbuild: 0.18.20
       postcss: 8.4.35
       rollup: 3.29.4
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /vite@4.5.2(sass@1.66.1):
+    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.18.20
+      postcss: 8.4.38
+      rollup: 3.29.4
       sass: mirrors.tencent.com/sass@1.66.1
     optionalDependencies:
       fsevents: 2.3.3
+
+  /vite@5.1.4:
+    resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.19.12
+      postcss: 8.4.35
+      rollup: 4.12.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
 
   /vite@5.1.4(@types/node@20.11.20):
     resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
@@ -13418,7 +13742,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.1.4(@types/node@20.5.8)(sass@1.66.1):
+  /vite@5.1.4(sass@1.66.1):
     resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -13446,7 +13770,6 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node@20.5.8
       esbuild: 0.19.12
       postcss: 8.4.35
       rollup: 4.12.0
@@ -13509,7 +13832,6 @@ packages:
       - sugarss
       - supports-color
       - terser
-    dev: false
 
   /vitest@1.3.1(@types/node@20.11.20)(jsdom@22.1.0):
     resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
@@ -13566,8 +13888,9 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
 
-  /vitest@1.3.1(@types/node@20.5.8)(jsdom@22.1.0):
+  /vitest@1.3.1(@types/node@20.5.8):
     resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -13602,7 +13925,6 @@ packages:
       chai: 4.4.1
       debug: 4.3.4
       execa: 8.0.1
-      jsdom: mirrors.tencent.com/jsdom@22.1.0
       local-pkg: 0.5.0
       magic-string: 0.30.7
       pathe: 1.1.2
@@ -13624,7 +13946,7 @@ packages:
       - terser
     dev: true
 
-  /vitest@1.3.1(@types/node@20.5.8)(jsdom@22.1.0)(sass@1.66.1):
+  /vitest@1.3.1(jsdom@22.1.0):
     resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -13649,7 +13971,6 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': mirrors.tencent.com/@types/node@20.5.8
       '@vitest/expect': 1.3.1
       '@vitest/runner': 1.3.1
       '@vitest/snapshot': 1.3.1
@@ -13668,8 +13989,64 @@ packages:
       strip-literal: 2.0.0
       tinybench: 2.6.0
       tinypool: 0.8.2
-      vite: 5.1.4(@types/node@20.5.8)(sass@1.66.1)
-      vite-node: 1.3.1(@types/node@20.5.8)(sass@1.66.1)
+      vite: 5.1.4
+      vite-node: 1.3.1
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest@1.3.1(jsdom@22.1.0)(sass@1.66.1):
+    resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@types/node': ^18.0.0 || >=20.0.0
+      '@vitest/browser': 1.3.1
+      '@vitest/ui': 1.3.1
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@types/node':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+    dependencies:
+      '@vitest/expect': 1.3.1
+      '@vitest/runner': 1.3.1
+      '@vitest/snapshot': 1.3.1
+      '@vitest/spy': 1.3.1
+      '@vitest/utils': 1.3.1
+      acorn-walk: 8.3.2
+      chai: 4.4.1
+      debug: 4.3.4
+      execa: 8.0.1
+      jsdom: mirrors.tencent.com/jsdom@22.1.0
+      local-pkg: 0.5.0
+      magic-string: 0.30.7
+      pathe: 1.1.2
+      picocolors: 1.0.0
+      std-env: 3.7.0
+      strip-literal: 2.0.0
+      tinybench: 2.6.0
+      tinypool: 0.8.2
+      vite: 5.1.4(sass@1.66.1)
+      vite-node: 1.3.1(sass@1.66.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -13716,6 +14093,7 @@ packages:
   /webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
+    dev: true
 
   /webpack-chain@6.5.1:
     resolution: {integrity: sha512-7doO/SRtLu8q5WM0s7vPKPWX580qhi0/yBHkOxNkv50f6qB76Zy9o2wRTrrPULqYTvQlVHuvbA8v+G5ayuUDsA==}
@@ -13813,10 +14191,12 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       iconv-lite: 0.6.3
+    dev: true
 
   /whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
     engines: {node: '>=12'}
+    dev: true
 
   /whatwg-url@12.0.1:
     resolution: {integrity: sha512-Ed/LrqB8EPlGxjS+TrsXcpUond1mhccS3pchLhzSgPCnTimUCKj3IZE75pAs5m6heB2U2TMerKFUXheyHY+VDQ==}
@@ -13824,6 +14204,7 @@ packages:
     dependencies:
       tr46: 4.1.1
       webidl-conversions: 7.0.0
+    dev: true
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
@@ -13938,9 +14319,11 @@ packages:
   /xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
+    dev: true
 
   /xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
+    dev: true
 
   /xtend@4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
@@ -15470,7 +15853,7 @@ packages:
       dom-accessibility-api: mirrors.tencent.com/dom-accessibility-api@0.5.16
       lodash: mirrors.tencent.com/lodash@4.17.21
       redent: mirrors.tencent.com/redent@3.0.0
-      vitest: 1.3.1(@types/node@20.11.20)(jsdom@22.1.0)
+      vitest: 1.3.1(@types/node@20.11.20)
 
   mirrors.tencent.com/@tsconfig/node10@1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/@tsconfig/node10/-/node10-1.0.9.tgz}
@@ -15727,6 +16110,7 @@ packages:
     resolution: {integrity: sha512-eajsR9aeljqNhK028VG0Wuw+OaY5LLxYmxeoXynIoE6jannr9/Ucd1LL0hSSoafk5LTYG+FfqsyGt81Q6Zkybw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/@types/node/-/node-20.5.8.tgz}
     name: '@types/node'
     version: 20.5.8
+    dev: true
 
   mirrors.tencent.com/@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz}
@@ -16119,6 +16503,38 @@ packages:
       - typescript
     dev: true
 
+  mirrors.tencent.com/@umijs/lint@4.0.79(eslint@8.48.0)(styled-components@6.1.8)(stylelint@15.10.3)(typescript@5.0.4):
+    resolution: {integrity: sha512-76N1lBGUIokscwLKVlqNNfqb+sxLEU9wjcBMXYIBo+nuuu982PFBmb+n2ik8vcmhO9ZRv4GrKsmiQu4CHDQrEA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/@umijs/lint/-/lint-4.0.79.tgz}
+    id: mirrors.tencent.com/@umijs/lint/4.0.79
+    name: '@umijs/lint'
+    version: 4.0.79
+    dependencies:
+      '@babel/core': 7.21.0
+      '@babel/eslint-parser': 7.22.11(@babel/core@7.21.0)(eslint@8.48.0)
+      '@stylelint/postcss-css-in-js': mirrors.tencent.com/@stylelint/postcss-css-in-js@0.38.0(postcss-syntax@0.36.2)(postcss@8.4.29)
+      '@typescript-eslint/eslint-plugin': mirrors.tencent.com/@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.48.0)(typescript@5.0.4)
+      '@typescript-eslint/parser': mirrors.tencent.com/@typescript-eslint/parser@5.62.0(eslint@8.48.0)(typescript@5.0.4)
+      '@umijs/babel-preset-umi': mirrors.tencent.com/@umijs/babel-preset-umi@4.0.79(styled-components@6.1.8)
+      eslint-plugin-jest: mirrors.tencent.com/eslint-plugin-jest@27.2.3(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.48.0)(typescript@5.0.4)
+      eslint-plugin-react: 7.33.2(eslint@8.48.0)
+      eslint-plugin-react-hooks: mirrors.tencent.com/eslint-plugin-react-hooks@4.6.0(eslint@8.48.0)
+      postcss: 8.4.29
+      postcss-syntax: mirrors.tencent.com/postcss-syntax@0.36.2(postcss@8.4.29)
+      stylelint-config-standard: mirrors.tencent.com/stylelint-config-standard@25.0.0(stylelint@15.10.3)
+    transitivePeerDependencies:
+      - eslint
+      - jest
+      - postcss-html
+      - postcss-jsx
+      - postcss-less
+      - postcss-markdown
+      - postcss-scss
+      - styled-components
+      - stylelint
+      - supports-color
+      - typescript
+    dev: true
+
   mirrors.tencent.com/@umijs/plugin-esbuild@1.4.2(umi@3.5.41)(webpack@5.90.3):
     resolution: {integrity: sha512-K/0nZ1wNFg11xF3zx5E8jQQkY4d6SDNNhB16Ngp77i5ZUexWyfiRC+StN0KpYOAIorajNTMxHRnthRFV3dZbPA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/@umijs/plugin-esbuild/-/plugin-esbuild-1.4.2.tgz}
     id: mirrors.tencent.com/@umijs/plugin-esbuild/1.4.2
@@ -16281,7 +16697,7 @@ packages:
       vite: ^4
     dependencies:
       '@swc/core': 1.3.82
-      vite: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+      vite: 4.5.2(sass@1.66.1)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -16317,7 +16733,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': mirrors.tencent.com/@babel/plugin-transform-react-jsx-self@7.22.5(@babel/core@7.22.11)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.11)
       react-refresh: mirrors.tencent.com/react-refresh@0.14.0
-      vite: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+      vite: 4.5.2(sass@1.66.1)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -16348,6 +16764,7 @@ packages:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/abab/-/abab-2.0.6.tgz}
     name: abab
     version: 2.0.6
+    dev: true
 
   mirrors.tencent.com/acorn-jsx@5.3.2(acorn@8.11.3):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/acorn-jsx/-/acorn-jsx-5.3.2.tgz}
@@ -17456,6 +17873,7 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       rrweb-cssom: 0.6.0
+    dev: true
 
   mirrors.tencent.com/csv-generate@3.4.3:
     resolution: {integrity: sha512-w/T+rqR0vwvHqWs/1ZyMDWtHHSJaN06klRqJXBEpDJaM/+dZkso0OKh1VcuuYvK3XM53KysVNq8Ko/epCK8wOw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/csv-generate/-/csv-generate-3.4.3.tgz}
@@ -17536,6 +17954,7 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 3.0.0
       whatwg-url: 12.0.1
+    dev: true
 
   mirrors.tencent.com/datauri@3.0.0:
     resolution: {integrity: sha512-NeDFuUPV1YCpCn8MUIcDk1QnuyenUHs7f4Q5P0n9FFA0neKFrfEH9esR+YMW95BplbYfdmjbs0Pl/ZGAaM2QHQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/datauri/-/datauri-3.0.0.tgz}
@@ -17582,6 +18001,7 @@ packages:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/decimal.js/-/decimal.js-10.4.3.tgz}
     name: decimal.js
     version: 10.4.3
+    dev: true
 
   mirrors.tencent.com/decode-named-character-reference@1.0.2:
     resolution: {integrity: sha512-O8x12RzrUF8xyVcY0KJowWsmaJxQbmy0/EtnNtHRpsOcT7dFk5W598coHqBVpmWo1oQQfsCqfCmkZN5DJrZVdg==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/decode-named-character-reference/-/decode-named-character-reference-1.0.2.tgz}
@@ -17759,6 +18179,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       webidl-conversions: 7.0.0
+    dev: true
 
   mirrors.tencent.com/dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/dot-case/-/dot-case-3.0.4.tgz}
@@ -18732,6 +19153,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: true
 
   mirrors.tencent.com/formdata-polyfill@4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz}
@@ -19483,6 +19905,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       whatwg-encoding: 2.0.0
+    dev: true
 
   mirrors.tencent.com/html-minifier-terser@6.1.0:
     resolution: {integrity: sha512-YXxSlJBZTP7RS3tWnQw74ooKa6L9b9i9QYXY21eUEvhZ3u9XLfv6OnFsQq6RxkhHygsaUMvYsZRV5rU/OVNZxw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz}
@@ -19581,6 +20004,7 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   mirrors.tencent.com/https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz}
@@ -19592,6 +20016,7 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   mirrors.tencent.com/human-id@1.0.2:
     resolution: {integrity: sha512-UNopramDEhHJD+VR+ehk8rOslwSfByxPIZyJRfV739NDhN5LF1fa1MqnzKm2lGTQRjNrjK19Q5fhkgIfjlVUKw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/human-id/-/human-id-1.0.2.tgz}
@@ -19914,6 +20339,7 @@ packages:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/is-potential-custom-element-name/-/is-potential-custom-element-name-1.0.1.tgz}
     name: is-potential-custom-element-name
     version: 1.0.1
+    dev: true
 
   mirrors.tencent.com/is-redirect@1.0.0:
     resolution: {integrity: sha1-HQPd7VO9jbDzDCbk+V02/HyH3CQ=, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/is-redirect/-/is-redirect-1.0.0.tgz}
@@ -20177,6 +20603,7 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    dev: true
 
   mirrors.tencent.com/json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/json-buffer/-/json-buffer-3.0.1.tgz}
@@ -21618,6 +22045,7 @@ packages:
     resolution: {integrity: sha512-ub5E4+FBPKwAZx0UwIQOjYWGHTEq5sPqHQNRN8Z9e4A7u3Tj1weLJsL59yH9vmvqEtBHaOmT6cYQKIZOxp35FQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/nwsapi/-/nwsapi-2.2.7.tgz}
     name: nwsapi
     version: 2.2.7
+    dev: true
 
   mirrors.tencent.com/object.entries@1.1.7:
     resolution: {integrity: sha512-jCBs/0plmPsOnrKAfFQXRG2NFjlhZgjjcBLSmTnEhU8U6vVTsVe8ANeQJCHTl3gSsI4J+0emOoCgoKlmQPMgmA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/object.entries/-/object.entries-1.1.7.tgz}
@@ -21835,6 +22263,7 @@ packages:
     version: 7.1.2
     dependencies:
       entities: 4.5.0
+    dev: true
 
   mirrors.tencent.com/parseley@0.12.1:
     resolution: {integrity: sha512-e6qHKe3a9HWr0oMRVDTRhKce+bRO8VGQR3NyVwcjwrbhMmFCX9KszEV35+rn4AdilFAq9VPxP/Fe1wC9Qjd2lw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/parseley/-/parseley-0.12.1.tgz}
@@ -22056,6 +22485,33 @@ packages:
     dependencies:
       postcss: 8.4.38
       postcss-scss: mirrors.tencent.com/postcss-scss@4.0.7(postcss@8.4.38)
+    dev: true
+
+  mirrors.tencent.com/postcss-syntax@0.36.2(postcss@8.4.29):
+    resolution: {integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/postcss-syntax/-/postcss-syntax-0.36.2.tgz}
+    id: mirrors.tencent.com/postcss-syntax/0.36.2
+    name: postcss-syntax
+    version: 0.36.2
+    peerDependencies:
+      postcss: '>=5.0.0'
+      postcss-html: '*'
+      postcss-jsx: '*'
+      postcss-less: '*'
+      postcss-markdown: '*'
+      postcss-scss: '*'
+    peerDependenciesMeta:
+      postcss-html:
+        optional: true
+      postcss-jsx:
+        optional: true
+      postcss-less:
+        optional: true
+      postcss-markdown:
+        optional: true
+      postcss-scss:
+        optional: true
+    dependencies:
+      postcss: 8.4.29
     dev: true
 
   mirrors.tencent.com/postcss-value-parser@4.2.0:
@@ -23037,6 +23493,7 @@ packages:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/rrweb-cssom/-/rrweb-cssom-0.6.0.tgz}
     name: rrweb-cssom
     version: 0.6.0
+    dev: true
 
   mirrors.tencent.com/run-applescript@5.0.0:
     resolution: {integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/run-applescript/-/run-applescript-5.0.0.tgz}
@@ -23833,6 +24290,7 @@ packages:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/symbol-tree/-/symbol-tree-3.2.4.tgz}
     name: symbol-tree
     version: 3.2.4
+    dev: true
 
   mirrors.tencent.com/synckit@0.8.5:
     resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/synckit/-/synckit-0.8.5.tgz}
@@ -24006,6 +24464,7 @@ packages:
       punycode: 2.3.0
       universalify: 0.2.0
       url-parse: 1.5.10
+    dev: true
 
   mirrors.tencent.com/transformation-matrix@2.15.0:
     resolution: {integrity: sha512-HN3kCvvH4ug3Xm/ycOfCFQOOktg5htxlC4Ih1Z7Wb6BMtQho+q+irOdGo10ARRKpqkRBXgBzQFw/AVmR0oIf0g==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/transformation-matrix/-/transformation-matrix-2.15.0.tgz}
@@ -24055,6 +24514,40 @@ packages:
     dependencies:
       '@cspotcode/source-map-support': mirrors.tencent.com/@cspotcode/source-map-support@0.8.1
       '@swc/core': mirrors.tencent.com/@swc/core@1.3.82
+      '@tsconfig/node10': mirrors.tencent.com/@tsconfig/node10@1.0.9
+      '@tsconfig/node12': mirrors.tencent.com/@tsconfig/node12@1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': mirrors.tencent.com/@tsconfig/node16@1.0.4
+      '@types/node': 20.11.20
+      acorn: 8.10.0
+      acorn-walk: mirrors.tencent.com/acorn-walk@8.2.0
+      arg: mirrors.tencent.com/arg@4.1.3
+      create-require: mirrors.tencent.com/create-require@1.1.1
+      diff: mirrors.tencent.com/diff@4.0.2
+      make-error: mirrors.tencent.com/make-error@1.3.6
+      typescript: mirrors.tencent.com/typescript@5.0.4
+      v8-compile-cache-lib: mirrors.tencent.com/v8-compile-cache-lib@3.0.1
+      yn: mirrors.tencent.com/yn@3.1.1
+    dev: true
+
+  mirrors.tencent.com/ts-node@10.9.1(@types/node@20.11.20)(typescript@5.0.4):
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/ts-node/-/ts-node-10.9.1.tgz}
+    id: mirrors.tencent.com/ts-node/10.9.1
+    name: ts-node
+    version: 10.9.1
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': mirrors.tencent.com/@cspotcode/source-map-support@0.8.1
       '@tsconfig/node10': mirrors.tencent.com/@tsconfig/node10@1.0.9
       '@tsconfig/node12': mirrors.tencent.com/@tsconfig/node12@1.0.11
       '@tsconfig/node14': 1.0.3
@@ -24703,7 +25196,7 @@ packages:
       '@rollup/pluginutils': 5.0.4(rollup@3.28.1)
       '@svgr/core': mirrors.tencent.com/@svgr/core@7.0.0
       '@svgr/plugin-jsx': 7.0.0
-      vite: 4.5.2(@types/node@20.5.8)(sass@1.66.1)
+      vite: 4.5.2(sass@1.66.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -24716,6 +25209,7 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       xml-name-validator: 4.0.0
+    dev: true
 
   mirrors.tencent.com/wcwidth@1.0.1:
     resolution: {integrity: sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/wcwidth/-/wcwidth-1.0.1.tgz}
@@ -24741,6 +25235,7 @@ packages:
     name: webidl-conversions
     version: 7.0.0
     engines: {node: '>=12'}
+    dev: true
 
   mirrors.tencent.com/webpack-sources@2.3.1:
     resolution: {integrity: sha512-y9EI9AO42JjEcrTJFOYmVywVZdKVUfOvDUPsJea5GIr1JOEGFVqwlY2K098fFoIjOkDzHn2AjRvM8dsBZu+gCA==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/webpack-sources/-/webpack-sources-2.3.1.tgz}
@@ -24766,12 +25261,14 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       iconv-lite: 0.6.3
+    dev: true
 
   mirrors.tencent.com/whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/whatwg-mimetype/-/whatwg-mimetype-3.0.0.tgz}
     name: whatwg-mimetype
     version: 3.0.0
     engines: {node: '>=12'}
+    dev: true
 
   mirrors.tencent.com/whatwg-url@12.0.1:
     resolution: {integrity: sha512-Ed/LrqB8EPlGxjS+TrsXcpUond1mhccS3pchLhzSgPCnTimUCKj3IZE75pAs5m6heB2U2TMerKFUXheyHY+VDQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/whatwg-url/-/whatwg-url-12.0.1.tgz}
@@ -24781,6 +25278,7 @@ packages:
     dependencies:
       tr46: 4.1.1
       webidl-conversions: 7.0.0
+    dev: true
 
   mirrors.tencent.com/which-module@2.0.1:
     resolution: {integrity: sha512-iBdZ57RDvnOR9AGBhML2vFZf7h8vmBjhoaZqODJBFWHVtKkDmKuHai3cx5PgVMrX5YDNp27AofYbAwctSS+vhQ==, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/which-module/-/which-module-2.0.1.tgz}
@@ -24898,6 +25396,7 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: true
 
   mirrors.tencent.com/xml-lexer@0.2.2:
     resolution: {integrity: sha1-UYGTpKozTVj8fSSLVJB5uJkH4EY=, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/xml-lexer/-/xml-lexer-0.2.2.tgz}
@@ -24912,6 +25411,7 @@ packages:
     name: xml-name-validator
     version: 4.0.0
     engines: {node: '>=12'}
+    dev: true
 
   mirrors.tencent.com/xml-reader@2.4.3:
     resolution: {integrity: sha1-n4EMr3xCWlqvuEixxFEDyecddTA=, registry: https://registry.npmjs.org/, tarball: https://mirrors.tencent.com/npm/xml-reader/-/xml-reader-2.4.3.tgz}
@@ -25068,3 +25568,7 @@ packages:
       which: mirrors.tencent.com/which@3.0.1
       yaml: mirrors.tencent.com/yaml@2.3.2
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

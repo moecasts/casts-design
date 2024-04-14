@@ -8,8 +8,6 @@ nav:
   order: 2
 ---
 
-# Colors
-
 ## Palettes
 
 import Palette from './examples/palette.tsx';

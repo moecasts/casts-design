@@ -1,14 +1,13 @@
 import {
   forwardRef,
-  KeyboardEvent,
   MouseEvent,
   Ref,
   useContext,
   useImperativeHandle,
   useRef,
 } from 'react';
-import { isKeyboardConfirm, useDefaultProps, useRipple } from '@casts/common';
-import { useConfig } from '@casts/config-provider';
+import { useDefaultProps, useLinkProps, useRipple } from '@casts/common';
+import { useConfig, useLink } from '@casts/config-provider';
 import { Loader3Line } from '@casts/icons';
 import clsx from 'clsx';
 
@@ -78,17 +77,15 @@ export const Button = forwardRef(
       if (loading || disabled) {
         return;
       }
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onClick?.(event as any);
     };
 
-    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-      if (!isKeyboardConfirm(event.code)) {
-        return;
-      }
-
-      handleClick(event as unknown as MouseEvent<HTMLAnchorElement>);
-    };
+    const { handleLinkClick } = useLink({
+      ...propsWithDefault,
+      onClick: handleClick,
+    });
 
     const loadingClasses = getPrefixCls('loading');
     const loadingNode = loading && (
@@ -97,17 +94,20 @@ export const Button = forwardRef(
       </span>
     );
 
+    const linkProps = useLinkProps(propsWithDefault);
+
     if (variant === 'link') {
       return (
         <a
+          {...rest}
+          {...linkProps}
+          href={linkProps.href}
           role="button"
           className={classes}
-          onClick={handleClick}
-          onKeyDown={handleKeyDown}
+          onClick={handleLinkClick}
           aria-disabled={loading || disabled}
           tabIndex={loading || disabled ? -1 : 0}
           ref={buttonRef as Ref<HTMLAnchorElement>}
-          {...rest}
         >
           {icon}
           {loadingNode}
@@ -118,12 +118,12 @@ export const Button = forwardRef(
 
     return (
       <button
+        {...rest}
         className={classes}
         ref={buttonRef as Ref<HTMLButtonElement>}
         aria-disabled={loading || disabled}
         onClick={handleClick}
         tabIndex={loading || disabled ? -1 : 0}
-        {...rest}
       >
         {icon}
         {loadingNode}

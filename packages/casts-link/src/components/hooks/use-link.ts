@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { useConfig } from '@casts/config-provider';
+import { useConfig, useLink as useLinkBase } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
 import { UseLinkProps } from '../types';
@@ -17,9 +17,12 @@ export const useLink = (props: UseLinkProps) => {
   });
   const styles: CSSProperties = { ...style };
 
+  const { handleLinkClick } = useLinkBase(props);
+
   return {
+    ...rest,
     classes,
     styles,
-    ...rest,
+    onClick: handleLinkClick,
   };
 };
