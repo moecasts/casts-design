@@ -8,8 +8,8 @@ nav:
   order: 2
 ---
 
-# 色彩
-
 ## 色板
 
-<code src="./examples/palette.tsx" />
+import Palette from './examples/palette.tsx';
+
+<Palette />

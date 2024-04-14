@@ -41,6 +41,14 @@
     }
   }
 
+  &-breadcrumbs {
+    width: fit-content;
+    padding: $space-05-x $space-075-x;
+    margin-bottom: $space-105-x;
+    background-color: $color-surface-neutral-default;
+    border-radius: $radius-medium;
+  }
+
   &-subtitle {
     margin-top: $space-1-x;
     margin-bottom: 0;

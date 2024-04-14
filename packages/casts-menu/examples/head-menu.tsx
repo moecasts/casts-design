@@ -80,7 +80,11 @@ export const HeadMenuDemo = () => {
       <MenuItem prefixIcon={<ShieldFlashLine />} value={5}>
         Menu 5
       </MenuItem>
-      <MenuItem prefixIcon={<ShieldFlashLine />} value={6} href="./menu">
+      <MenuItem
+        prefixIcon={<ShieldFlashLine />}
+        value={6}
+        href="https:///wwww.tore.moe"
+      >
         Link 1
       </MenuItem>
       <MenuItem prefixIcon={<ShieldFlashLine />} value={7} href="#">

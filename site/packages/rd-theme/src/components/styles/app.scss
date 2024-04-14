@@ -15,6 +15,10 @@ html {
   height: 100%;
 }
 
+:root {
+  scroll-padding-top: 160px;
+}
+
 :root[theme-mode='default'] {
   body {
     background-color: $color-surface-container-default;
@@ -175,10 +179,21 @@ html {
       max-width: 100%;
       padding: $space-1-x $space-2-x;
       overflow: hidden;
+      font-size: $font-size-small;
+
+      .#{$prefix-cls}-typography {
+        font-size: inherit;
+      }
 
       & > .#{$prefix-cls}-code {
         margin-top: $space-05-x;
         margin-bottom: $space-1-x;
+      }
+
+      .#{$prefix-cls}-code {
+        pre {
+          border: 0px;
+        }
       }
     }
 
@@ -281,8 +296,4 @@ html {
   font-size: $font-size-medium;
   color: $color-text-primary;
   transition: color $motion-duration-rapid $motion-easing-in-out;
-}
-
-:root {
-  scroll-padding-top: 160px;
 }

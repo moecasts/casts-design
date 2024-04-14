@@ -9,15 +9,26 @@
 
 .#{$sub-menu-prefix-cls} {
   &-inner {
+    margin: 0;
     @include button-style(#{$sub-menu-prefix-cls}-inner);
     @include button-color(
       #{$sub-menu-prefix-cls}-inner,
       $with-background: false
     );
-    margin: 0;
+
+    &--active {
+      &:hover {
+        $color-surface-hover: $color-surface-brand-default;
+        background-color: $color-surface-hover;
+      }
+
+      .#{$menu-item-prefix-cls}-inner {
+        background-color: transparent !important;
+      }
+    }
 
     .#{$menu-item-prefix-cls}-inner {
-      color: inherit;
+      color: inherit !important;
     }
   }
 

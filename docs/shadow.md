@@ -8,8 +8,6 @@ nav:
   order: 2
 ---
 
-# Shadow
-
 ## Level
 
 import Shadows from './examples/shadows.tsx';

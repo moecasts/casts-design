@@ -106,7 +106,6 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
   a {
     color: $color-text-brand-default;
     text-decoration: none;
-    vertical-align: middle;
 
     &:hover,
     &:focus-visible {

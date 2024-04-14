@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useMemo, useRef } from 'react';
+import { FC, useMemo, useRef } from 'react';
 import { Button } from '@casts/button';
 import { isEmpty, last, map } from '@casts/common';
 import { MenuFoldLine, MenuUnfoldLine, Translate2 } from '@casts/icons';
@@ -9,12 +9,11 @@ import { useRd } from '@casts/rd-vite/client/hooks/use-rd';
 import { localeCodes } from '@casts/rd-vite/common';
 import { TokenCdsColorTextPrimary } from '@casts/theme';
 import clsx from 'clsx';
-import { Link, To, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // @ts-ignore svgr component
 import { ReactComponent as Brand } from '../../../../../src/brand.svg';
 import { getPrefixCls, prefixCls } from '../../common';
-import { isLinkClick } from '../../utils';
 import { useAppContext } from '../hooks/use-app-context';
 import { useThemeSwitch } from '../hooks/use-theme-switch';
 
@@ -98,14 +97,6 @@ export const Header: FC<HeaderProps> = () => {
         }
         value={active}
         size="large"
-        onChange={(value) => {
-          navigate(value as To);
-        }}
-        onClickCapture={(e: MouseEvent<HTMLDivElement>) => {
-          if (isLinkClick(e)) {
-            e.nativeEvent.preventDefault();
-          }
-        }}
         items={navToMenuData(nav)}
         operations={
           <>
@@ -114,7 +105,6 @@ export const Header: FC<HeaderProps> = () => {
               variant="link"
               theme="neutral"
               href={firstDiffLocaleLocation}
-              onClick={() => navigate(firstDiffLocaleLocation)}
             ></Button>
 
             <Button

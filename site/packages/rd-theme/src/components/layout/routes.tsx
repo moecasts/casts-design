@@ -22,7 +22,7 @@ export const Routes: FC<RoutesProps> = (props) => {
       return;
     }
 
-    const target = containerRef.current.querySelector(hash);
+    const target = containerRef.current.querySelector(decodeURIComponent(hash));
     if (!target) {
       return;
     }

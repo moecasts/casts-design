@@ -77,7 +77,13 @@ export const Code: FC<CodeProps> = (props) => {
   return (
     <div className={`${prefixCls}`}>
       <div className={`${prefixCls}-previewer`}>
-        <Suspense fallback={<CircularProgress size={32} />}>
+        <Suspense
+          fallback={
+            <div className={`${prefixCls}-loading`}>
+              <CircularProgress size={32} />
+            </div>
+          }
+        >
           {component}
         </Suspense>
       </div>

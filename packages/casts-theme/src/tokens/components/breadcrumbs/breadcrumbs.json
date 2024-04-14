@@ -1,0 +1,42 @@
+{
+  "breadcrumbs": {
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "color": {
+      "default": {
+        "value": "{color.text.tertiary}"
+      },
+      "hover": {
+        "value": "{color.text.secondary}"
+      },
+      "active": {
+        "value": "{color.text.primary}"
+      }
+    },
+    "space": {
+      "vertical": {
+        "value": "{space.025-x}"
+      }
+    },
+    "separator": {
+      "space": {
+        "outer": {
+          "value": "{space.025-x}"
+        }
+      }
+    },
+    "item": {
+      "space": {
+        "inner": {
+          "value": "{space.025-x}"
+        }
+      }
+    }
+  }
+}
