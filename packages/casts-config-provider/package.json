@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "@casts/common": "workspace:^0.0.1",
-    "@casts/locale": "workspace:^0.0.1"
+    "@casts/locale": "workspace:^0.0.1",
+    "@react-aria/utils": "^3.23.2"
   },
   "sideEffects": [
     "**/*.{css,scss,sass}"

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import { useScroll } from '@casts/common';
+import { Breadcrumbs } from '@casts/breadcrumbs';
+import { identity, isEmpty, useScroll } from '@casts/common';
 import { useRd } from '@casts/rd-vite/client';
 import { Heading } from '@casts/typography';
 import clsx from 'clsx';
@@ -60,6 +61,20 @@ export const DocBanner = () => {
     },
   );
 
+  const path = [
+    meta?.nav && {
+      label: meta.nav?.title,
+      href: meta.nav?.path,
+    },
+    meta?.group && {
+      label: meta.group?.title,
+      href: meta.group?.path,
+    },
+    meta?.title && {
+      label: meta?.title,
+    },
+  ].filter(identity);
+
   if (!meta?.title) {
     return null;
   }
@@ -68,6 +83,12 @@ export const DocBanner = () => {
     <>
       <div className={classes} ref={containerRef}>
         <div className={prefixCls}>
+          {!isEmpty(path) && (
+            <Breadcrumbs
+              className={`${prefixCls}-breadcrumbs`}
+              items={path as any}
+            />
+          )}
           <Heading level={1} className={`${prefixCls}-title`}>
             {meta.title}
           </Heading>

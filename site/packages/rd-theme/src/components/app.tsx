@@ -10,6 +10,7 @@ import { enUS } from '@casts/locale';
 import { useRd } from '@casts/rd-vite/client/hooks/use-rd';
 import { CdsMotionDurationRapid } from '@casts/theme';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { getPrefixCls } from '../common';
@@ -30,18 +31,20 @@ const { Content, Footer, Aside } = Layout;
 export const App: FC<Partial<ConfigProviderProps>> = (props) => {
   return (
     <AppProvider>
-      <InternalApp {...props} />
+      <_App {...props} />
     </AppProvider>
   );
 };
 
-export const InternalApp: FC<Partial<ConfigProviderProps>> = () => {
+const _App: FC<Partial<ConfigProviderProps>> = () => {
   const { menu, matches } = useRd();
 
   const asideContentRef = useRef<HTMLDivElement>(null);
   const asideOverlayRef = useRef<HTMLDivElement>(null);
 
   const { themeMode, asideVisible, toggleAsideVisible } = useAppContext();
+
+  const navigate = useNavigate();
 
   /**
    * scroll to top when route change
@@ -52,7 +55,7 @@ export const InternalApp: FC<Partial<ConfigProviderProps>> = () => {
   }, [currentRoute]);
 
   return (
-    <ConfigProvider locale={enUS} themeMode={themeMode}>
+    <ConfigProvider locale={enUS} themeMode={themeMode} navigate={navigate}>
       <Layout className={`${getPrefixCls('root-layout')}`}>
         <Header />
         <Layout className={`${getPrefixCls('sub-layout')}`}>

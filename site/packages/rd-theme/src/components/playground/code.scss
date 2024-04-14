@@ -12,6 +12,13 @@ $playground-prefix-cls: rd-code-block;
   border: $border-width-xsmall solid $color-border-component-default;
   border-radius: $radius-medium;
 
+  &-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
   &-previewer {
     padding: $space-3-x $space-1025-x;
     overflow: auto;

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { merge } from '@casts/common';
+import { merge, RouterProvider } from '@casts/common';
 
 import { ConfigContext, defaultConfig } from './context';
 import { setGlobalConfig } from './global-config';
@@ -7,7 +7,7 @@ import { useConfig } from './hooks';
 import { ConfigProviderProps } from './types';
 import { getCompletePrefixCls } from './utils';
 
-export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
+export const _ConfigProvider: FC<ConfigProviderProps> = (props) => {
   const { children, ...globalConfig } = props;
 
   const parentConfig = useConfig();
@@ -44,4 +44,16 @@ export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
       {children}
     </ConfigContext.Provider>
   );
+};
+
+export const ConfigProvider: FC<ConfigProviderProps> = (props) => {
+  if (props.navigate) {
+    return (
+      <RouterProvider navigate={props.navigate}>
+        <_ConfigProvider {...props} />
+      </RouterProvider>
+    );
+  }
+
+  return <_ConfigProvider {...props} />;
 };

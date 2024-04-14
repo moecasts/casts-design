@@ -7,7 +7,7 @@ import { UseMenuItemProps } from '../types';
 import { useMenuContext, useSubMenuContext } from './use-menu-context';
 
 export const useMenuItem = (props: UseMenuItemProps) => {
-  const { className, value, onClick, activatable } = props;
+  const { className, value, onClick, activatable, onKeyDown } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -21,8 +21,6 @@ export const useMenuItem = (props: UseMenuItemProps) => {
 
   const classes = clsx(`${prefixCls}`, className, {
     [`${prefixCls}--${size}`]: size,
-    // [`${prefixCls}--active`]: active === value,
-    // [`${prefixCls}--disabled`]: disabled,
   });
 
   const innerClasses = clsx(`${prefixCls}-inner`, {
@@ -52,6 +50,8 @@ export const useMenuItem = (props: UseMenuItemProps) => {
     props.focusable ?? (subMenuContext.open !== false && !disabled);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    onKeyDown?.({ e: event });
+
     if (!isKeyboardConfirm(event.code)) {
       return;
     }

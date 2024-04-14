@@ -1,23 +1,24 @@
 import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, LinkDOMProps } from '@casts/common';
 
 import { MenuValue } from './common';
 
-export type UseMenuItemProps = BaseComponentProps & {
-  disabled?: boolean;
+export type UseMenuItemProps = BaseComponentProps &
+  LinkDOMProps & {
+    disabled?: boolean;
 
-  value?: MenuValue;
+    value?: MenuValue;
 
-  onClick?: (context: { e: MouseEvent<HTMLElement> }) => void;
+    onClick?: (context: { e: MouseEvent<HTMLElement> }) => void;
 
-  onKeyDown?: (context: { e: KeyboardEvent<HTMLElement> }) => void;
+    onKeyDown?: (context: { e: KeyboardEvent<HTMLElement> }) => void;
 
-  activatable?: boolean;
+    activatable?: boolean;
 
-  focusable?: boolean;
+    focusable?: boolean;
 
-  label?: ReactNode;
-};
+    label?: ReactNode;
+  };
 
 export type MenuItemProps = UseMenuItemProps & {
   prefixIcon?: ReactNode;

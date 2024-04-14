@@ -15,6 +15,10 @@ html {
   height: 100%;
 }
 
+:root {
+  scroll-padding-top: 160px;
+}
+
 :root[theme-mode='default'] {
   body {
     background-color: $color-surface-container-default;
@@ -180,6 +184,12 @@ html {
         margin-top: $space-05-x;
         margin-bottom: $space-1-x;
       }
+
+      .#{$prefix-cls}-code {
+        pre {
+          border: 0px;
+        }
+      }
     }
 
     h1,
@@ -281,8 +291,4 @@ html {
   font-size: $font-size-medium;
   color: $color-text-primary;
   transition: color $motion-duration-rapid $motion-easing-in-out;
-}
-
-:root {
-  scroll-padding-top: 160px;
 }

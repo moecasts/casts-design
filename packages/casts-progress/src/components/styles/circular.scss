@@ -36,6 +36,7 @@
   width: 1em;
   height: 1em;
   font-size: 40px;
+  line-height: 0;
   color: $progress-color-brand-default;
 
   .#{$prefix-cls}-circular-progress {

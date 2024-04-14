@@ -1,5 +1,6 @@
 import { GetPrefixCls } from '@casts/common';
 import { Locale } from '@casts/locale';
+import { type RouterProvider } from '@react-aria/utils';
 
 export type Theme = {
   brandColor?: string;
@@ -21,6 +22,11 @@ export type Config = {
   _root: boolean;
 };
 
-export type ConfigProviderProps = Partial<Config> & {
+export type ConfigProviderProps = Partial<Omit<Config, 'navigate'>> & {
+  /**
+   * Provides a client side router to all nested components such as
+   * Link, Menu, Tabs, Table, etc.
+   */
+  navigate?: Parameters<typeof RouterProvider>[0]['navigate'];
   children: React.ReactNode;
 };
