@@ -86,7 +86,7 @@ export const DocBanner = () => {
           {!isEmpty(path) && (
             <Breadcrumbs
               className={`${prefixCls}-breadcrumbs`}
-              items={path as any}
+              routes={path as any}
             />
           )}
           <Heading level={1} className={`${prefixCls}-title`}>

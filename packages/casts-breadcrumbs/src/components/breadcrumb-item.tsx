@@ -1,7 +1,9 @@
 import { forwardRef, Ref, useImperativeHandle } from 'react';
-import { useLinkProps } from '@casts/common';
+import { useDefaultProps, useLinkProps } from '@casts/common';
 import { Tooltip } from '@casts/tooltip';
 
+import { BreadcrumbSeparator } from './breadcrumb-separator';
+import { defaultBreadcrumbItemProps } from './default-props';
 import { useBreadcrumbItem } from './hooks';
 import { BreadcrumbItemProps } from './types';
 
@@ -10,6 +12,8 @@ import './styles/breadcrumb.scss';
 
 export const BreadcrumbItem = forwardRef(
   (props: BreadcrumbItemProps, ref: Ref<HTMLLIElement>) => {
+    const propsWithDefault = useDefaultProps(props, defaultBreadcrumbItemProps);
+
     const {
       classes,
       styles,
@@ -21,7 +25,9 @@ export const BreadcrumbItem = forwardRef(
       handleLinkClick,
       breadcrumbItemRef,
       isOverflow,
-    } = useBreadcrumbItem(props);
+      separator,
+      shouldRenderSeparator,
+    } = useBreadcrumbItem(propsWithDefault);
 
     const linkProps = useLinkProps(props);
 
@@ -48,11 +54,16 @@ export const BreadcrumbItem = forwardRef(
     useImperativeHandle(ref, () => breadcrumbItemRef.current as HTMLLIElement);
 
     return (
-      <Tooltip content={children} disabled={!isOverflow}>
-        <li className={classes} style={styles} ref={breadcrumbItemRef}>
-          {content}
-        </li>
-      </Tooltip>
+      <>
+        <Tooltip content={children} disabled={!isOverflow}>
+          <li className={classes} style={styles} ref={breadcrumbItemRef}>
+            {content}
+          </li>
+        </Tooltip>
+        {shouldRenderSeparator && (
+          <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>
+        )}
+      </>
     );
   },
 );

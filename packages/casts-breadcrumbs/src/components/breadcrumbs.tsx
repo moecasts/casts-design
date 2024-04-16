@@ -1,46 +1,111 @@
-import { forwardRef, Ref } from 'react';
-import { arrayInsertInterval, isArray } from '@casts/common';
-import { ArrowRightSLine } from '@casts/icons';
+import {
+  Children,
+  cloneElement,
+  forwardRef,
+  ReactElement,
+  Ref,
+  useMemo,
+} from 'react';
+import { log, useDefaultProps } from '@casts/common';
+import { MoreLine } from '@casts/icons';
 
-import { BreadcrumbSeparator } from './breadcrumb-separator';
+import { BreadcrumbItem } from './breadcrumb-item';
 import { BreadcrumbsProvider } from './breadcrumbs-context';
-import { useBreadcrumb } from './hooks';
+import { defaultBreadcrumbsProps } from './default-props';
+import { useBreadcrumbs } from './hooks';
 import { useBreadcrumbElements } from './hooks/use-breadcrumb-elements';
-import { BreadcrumbProps } from './types';
+import { BreadcrumbItemProps, BreadcrumbsProps } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
 import './styles/breadcrumb.scss';
 
 const _Breadcrumbs = forwardRef(
-  (props: BreadcrumbProps, ref: Ref<HTMLOListElement>) => {
-    const { classes, styles, items, children, separator } =
-      useBreadcrumb(props);
+  (props: BreadcrumbsProps, ref: Ref<HTMLOListElement>) => {
+    const {
+      classes,
+      styles,
+      routes,
+      children,
+      maxCount = 0,
+      countAfterCollapse = 0,
+      countBeforeCollapse = 0,
+      collapseClasses,
+    } = useBreadcrumbs(props);
 
-    const getBreadcrumbItems = (items?: any) => {
-      const elements = arrayInsertInterval(
-        items,
-        (idx: number) => (
-          <BreadcrumbSeparator key={`breadcrumb-separator-${idx}`}>
-            {separator ?? <ArrowRightSLine />}
-          </BreadcrumbSeparator>
-        ),
-        1,
-      );
-      return elements;
-    };
+    const { elements } = useBreadcrumbElements(routes);
 
-    const { elements } = useBreadcrumbElements(items);
+    const content = useMemo(() => {
+      const getItems = () => {
+        let items = (elements || Children.toArray(children)) as unknown as
+          | ReactElement<BreadcrumbItemProps>[]
+          | undefined;
 
-    const content =
-      (children && (isArray(children) ? children : [children])) ||
-      elements ||
-      [];
+        const itemsCount = items?.length || 0;
 
-    const breadcrumbItems = getBreadcrumbItems(content);
+        if (!items || !maxCount) {
+          return items;
+        }
+
+        if (maxCount >= itemsCount) {
+          return items;
+        }
+
+        if (
+          maxCount &&
+          (countAfterCollapse || 0) + (countBeforeCollapse || 0) >= maxCount
+        ) {
+          log.warn(
+            `You have provided an invalid combination of props to the Breadcrumbs. maxCount={${maxCount}} <= countBeforeCollapse={${countBeforeCollapse}} + countAfterCollapse={${countAfterCollapse}}`,
+          );
+
+          return items;
+        }
+
+        const startCount = countBeforeCollapse;
+        const endCount = countAfterCollapse;
+
+        items = [
+          ...items.slice(0, startCount),
+          <BreadcrumbItem
+            key={'breadcrumbs-collapse'}
+            className={collapseClasses}
+          >
+            <MoreLine />
+          </BreadcrumbItem>,
+          ...items.slice(itemsCount - endCount),
+        ];
+
+        return items;
+      };
+
+      let items = getItems();
+      const lastItemIdx = (items?.length || 0) - 1;
+
+      items = items?.map((child, idx) => {
+        const isLast = idx === lastItemIdx;
+        const key = child?.key || idx;
+
+        return cloneElement(child, {
+          key,
+          shouldRenderSeparator: isLast
+            ? false
+            : child.props.shouldRenderSeparator,
+        });
+      });
+
+      return items;
+    }, [
+      children,
+      elements,
+      maxCount,
+      countAfterCollapse,
+      countBeforeCollapse,
+      collapseClasses,
+    ]);
 
     return (
       <ol className={classes} style={styles} ref={ref}>
-        {breadcrumbItems}
+        {content}
       </ol>
     );
   },
@@ -49,10 +114,12 @@ const _Breadcrumbs = forwardRef(
 _Breadcrumbs.displayName = '_Breadcrumbs';
 
 export const Breadcrumbs = forwardRef(
-  (props: BreadcrumbProps, ref: Ref<HTMLOListElement>) => {
+  (props: BreadcrumbsProps, ref: Ref<HTMLOListElement>) => {
+    const propsWithDefault = useDefaultProps(props, defaultBreadcrumbsProps);
+
     return (
-      <BreadcrumbsProvider {...props}>
-        <_Breadcrumbs {...props} ref={ref} />
+      <BreadcrumbsProvider {...propsWithDefault}>
+        <_Breadcrumbs {...propsWithDefault} ref={ref} />
       </BreadcrumbsProvider>
     );
   },

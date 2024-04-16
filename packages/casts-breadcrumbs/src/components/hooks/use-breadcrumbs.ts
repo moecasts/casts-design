@@ -2,14 +2,16 @@ import { CSSProperties } from 'react';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
-import { UseBreadcrumbProps } from '../types';
+import { UseBreadcrumbsProps } from '../types';
 
-export const useBreadcrumb = (props: UseBreadcrumbProps) => {
+export const useBreadcrumbs = (props: UseBreadcrumbsProps) => {
   const { className, style, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
-  const prefixCls = getPrefixCls('breadcrumb');
+  const prefixCls = getPrefixCls('breadcrumbs');
+
+  const collapsePrefixCls = getPrefixCls('breadcrumb-collapse');
 
   /* --------------------------------- classes and styles ---------------------------------------- */
   const classes = clsx(prefixCls, className);
@@ -17,9 +19,12 @@ export const useBreadcrumb = (props: UseBreadcrumbProps) => {
     ...style,
   };
 
+  const collapseClasses = collapsePrefixCls;
+
   return {
     classes,
     styles,
+    collapseClasses,
     ...rest,
   };
 };

@@ -3,12 +3,16 @@ import { BaseComponentProps } from '@casts/common';
 
 import { BreadcrumbItemProps } from './breadcrumb-item';
 
-export type UseBreadcrumbProps = BaseComponentProps & {
+export type UseBreadcrumbsProps = BaseComponentProps & {
   maxItemWidth?: number | string;
 
   separator?: ReactNode;
 
-  items?: BreadcrumbItemProps[];
+  routes?: BreadcrumbItemProps[];
+
+  maxCount?: number;
+  countBeforeCollapse?: number;
+  countAfterCollapse?: number;
 };
 
-export type BreadcrumbProps = UseBreadcrumbProps;
+export type BreadcrumbsProps = UseBreadcrumbsProps;

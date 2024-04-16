@@ -3,7 +3,7 @@ import { createElement, useMemo } from 'react';
 import { BreadcrumbItem } from '../breadcrumb-item';
 import { BreadcrumbItemProps } from '../types';
 
-export const useBreadcrumbElements = (items?: any) => {
+export const useBreadcrumbElements = (items?: BreadcrumbItemProps[]) => {
   const elements = useMemo(() => {
     if (!items) {
       return undefined;

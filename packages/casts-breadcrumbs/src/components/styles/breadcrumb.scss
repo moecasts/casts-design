@@ -5,18 +5,17 @@
 $breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
 
 .#{$breadcrumb-prefix-cls} {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
+  &s {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 
-  font-size: $font-size-small;
-  color: $color-text-tertiary;
-  list-style: none;
-
-  // border-radius: $radius-medium;
-  // background-color: $color-surface-neutral-default;
-  // padding: $space-025-x $space-05-x;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    color: $color-text-tertiary;
+    list-style: none;
+  }
 
   &-separator {
     display: inline-flex;
@@ -27,8 +26,12 @@ $breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
     text-align: center;
     user-select: none;
 
+    &:last-child {
+      display: none;
+    }
+
     .#{$prefix-cls}-icon {
-      transform: scale(1.25);
+      transform: scale(1.2);
     }
   }
 
@@ -36,7 +39,7 @@ $breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
     display: inline-flex;
     align-items: center;
 
-    &:last-child {
+    @at-root .#{$breadcrumb-prefix-cls}s &:last-of-type {
       color: $color-text-primary;
       cursor: text;
     }
@@ -47,7 +50,7 @@ $breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
       margin-right: $space-025-x;
     }
 
-    &-link {
+    & &-link {
       display: inline-flex;
       align-items: center;
       overflow: hidden;
@@ -69,6 +72,13 @@ $breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
       .#{$breadcrumb-prefix-cls}-item-content {
         @include text-ellipsis();
       }
+    }
+  }
+
+  &-collapse {
+    .#{$breadcrumb-prefix-cls}-item-content {
+      display: inline-flex;
+      align-items: center;
     }
   }
 }

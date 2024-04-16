@@ -1,11 +1,15 @@
-import { createContext, FC } from 'react';
+import { createContext, createElement, FC, ReactNode } from 'react';
 import { BaseComponentProps } from '@casts/common';
+import { ArrowRightSLine } from '@casts/icons';
 
 export type BreadcrumbsContextValue = {
   maxItemWidth?: number | string;
+  separator?: ReactNode;
 };
 
-export const defaultBreadcrumbsContextValue = {};
+export const defaultBreadcrumbsContextValue: BreadcrumbsContextValue = {
+  separator: createElement(ArrowRightSLine),
+};
 
 export const BreadcrumbsContext = createContext<BreadcrumbsContextValue>(
   defaultBreadcrumbsContextValue,

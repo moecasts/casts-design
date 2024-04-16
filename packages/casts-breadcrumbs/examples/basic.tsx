@@ -1,14 +1,14 @@
 // @ts-ignore example should import React
 import React from 'react';
 import { BreadcrumbItem, Breadcrumbs } from '@casts/breadcrumbs';
-import { Home2Fill } from '@casts/icons';
+import { ExpandRightLine, Home2Fill } from '@casts/icons';
 import { Space } from '@casts/space';
 
 const BreadcrumbsBasicDemo = () => {
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" size={40}>
       <Breadcrumbs>
-        <BreadcrumbItem href="/" icon={<Home2Fill />}>
+        <BreadcrumbItem href="#" icon={<Home2Fill />}>
           Casts Design
         </BreadcrumbItem>
         <BreadcrumbItem>Components</BreadcrumbItem>
@@ -17,7 +17,7 @@ const BreadcrumbsBasicDemo = () => {
       </Breadcrumbs>
 
       <Breadcrumbs separator={'/'}>
-        <BreadcrumbItem href="/" icon={<Home2Fill />}>
+        <BreadcrumbItem href="#" icon={<Home2Fill />}>
           Casts Design
         </BreadcrumbItem>
         <BreadcrumbItem>Components</BreadcrumbItem>
@@ -25,8 +25,28 @@ const BreadcrumbsBasicDemo = () => {
         <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
       </Breadcrumbs>
 
+      <Breadcrumbs>
+        <BreadcrumbItem href="#" icon={<Home2Fill />}>
+          Casts Design
+        </BreadcrumbItem>
+        <BreadcrumbItem separator={<ExpandRightLine />}>
+          Components
+        </BreadcrumbItem>
+        <BreadcrumbItem separator="~">Navigator</BreadcrumbItem>
+        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
+      </Breadcrumbs>
+
       <Breadcrumbs maxItemWidth={80}>
-        <BreadcrumbItem href="/" icon={<Home2Fill />} maxItemWidth={100}>
+        <BreadcrumbItem href="#" icon={<Home2Fill />} maxItemWidth={100}>
+          Casts Design
+        </BreadcrumbItem>
+        <BreadcrumbItem>Components</BreadcrumbItem>
+        <BreadcrumbItem>Navigator</BreadcrumbItem>
+        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
+      </Breadcrumbs>
+
+      <Breadcrumbs maxCount={3} countBeforeCollapse={1} countAfterCollapse={1}>
+        <BreadcrumbItem href="#" icon={<Home2Fill />}>
           Casts Design
         </BreadcrumbItem>
         <BreadcrumbItem>Components</BreadcrumbItem>

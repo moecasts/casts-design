@@ -7,7 +7,13 @@ import { UseBreadcrumbItemProps } from '../types';
 import { useBreadcrumbsContext } from './use-breadcrumbs-context';
 
 export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
-  const { className, style, maxItemWidth: propMaxItemWidth, ...rest } = props;
+  const {
+    className,
+    style,
+    maxItemWidth: propMaxItemWidth,
+    separator: propSeparator,
+    ...rest
+  } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -17,18 +23,22 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
 
   const breadcrumbItemRef = useRef<HTMLLIElement>(null);
 
-  const { maxItemWidth: parentMaxItemWidth } = useBreadcrumbsContext();
+  const { maxItemWidth: parentMaxItemWidth, separator: parentSeparator } =
+    useBreadcrumbsContext();
 
   const maxItemWidth = propMaxItemWidth || parentMaxItemWidth;
 
   const [isOverflow, setIsOverflow] = useState(false);
+
+  const separator = propSeparator || parentSeparator;
 
   /* --------------------------------- classes and styles ---------------------------------------- */
   const classes = clsx(prefixCls, className, {
     [`${prefixCls}--overflow`]: isOverflow,
   });
   const styles: CSSProperties = {
-    maxWidth: isOverflow && maxItemWidth && formatSizeUnit(maxItemWidth),
+    maxWidth:
+      (isOverflow && maxItemWidth && formatSizeUnit(maxItemWidth)) || undefined,
     ...style,
   };
 
@@ -45,6 +55,7 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
   }, [breadcrumbItemRef]);
 
   return {
+    ...rest,
     classes,
     styles,
     linkClasses,
@@ -53,7 +64,7 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
     handleLinkClick,
     breadcrumbItemRef,
     isOverflow,
-    ...rest,
+    separator,
   };
 };
 

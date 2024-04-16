@@ -6,6 +6,8 @@ export type UseBreadcrumbItemProps = BaseComponentProps &
     label?: ReactNode;
     icon?: ReactNode;
     maxItemWidth?: number | string;
+    separator?: ReactNode;
+    shouldRenderSeparator?: boolean;
   };
 
 export type BreadcrumbItemProps = UseBreadcrumbItemProps;
