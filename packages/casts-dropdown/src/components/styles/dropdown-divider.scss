@@ -1,0 +1,18 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+// @import '@casts/theme/styles/scss/dropdown';
+@import '@casts/theme/styles/scss/vars/dropdown';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+@import '@casts/theme/styles/plugins/helper/overflow';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$dropdown-divider-prefix-cls: #{$prefix-cls}-dropdown-divider;
+
+.#{$dropdown-divider-prefix-cls} {
+  width: auto;
+  margin: $dropdown-item-space-outer calc(0 - $dropdown-menu-space);
+}

@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, ReactNode, RefObject } from 'react';
+import { CSSProperties, ReactNode, RefObject } from 'react';
 import { BaseComponentProps } from '@casts/common';
 import { Placement, UseFloatingReturn } from '@floating-ui/react';
 
@@ -18,7 +18,7 @@ export type UsePopupProps = {
   /**
    * trigger node
    */
-  children: ReactElement;
+  children: ReactNode;
   /**
    * popup controlled visible
    */
