@@ -30,7 +30,7 @@ Limit the maximum width of `BreadcrumbItem`. By default, for elements that are t
 
 ## Tooltip
 
-You can manually control the `Tooltip `property of `BreadcrumbItem `to achieve a customized effect.
+You can manually control the `Tooltip` property of `BreadcrumbItem` to achieve a customized effect.
 
 <code src="../examples/item-tooltip.tsx" />
 

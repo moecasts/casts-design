@@ -2,6 +2,7 @@ import {
   CSSProperties,
   FocusEventHandler,
   InputHTMLAttributes,
+  MouseEventHandler,
   PointerEventHandler,
   ReactNode,
 } from 'react';
@@ -31,6 +32,7 @@ export type InputProps = Omit<
   onCompositionEnd?: ChangeEventHandler;
   onCompositionStart?: ChangeEventHandler;
   onFocus?: FocusEventHandler<HTMLInputElement>;
+  onClick?: MouseEventHandler<HTMLElement>;
   placeholder?: string;
   prefix?: ReactNode;
   shape?: InputShape;

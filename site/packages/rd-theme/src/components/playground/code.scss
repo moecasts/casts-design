@@ -50,8 +50,11 @@ $playground-prefix-cls: rd-code-block;
     border-top: $border-width-xsmall dashed $color-border-component-default;
 
     .#{$prefix-cls}-code {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      &,
+      pre {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
     }
 
     .#{$prefix-cls}-tabs {

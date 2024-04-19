@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { formatSizeUnit, useDefaultProps } from '@casts/common';
+import { formatSizeUnit, raf, useDefaultProps } from '@casts/common';
 import { FlipVerticalArrowLine } from '@casts/icons';
 import { Input } from '@casts/input';
 import { Popup, PopupRef } from '@casts/popup';
@@ -92,7 +92,10 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
             <FlipVerticalArrowLine flip={open} className={arrowClasses} />
           }
           onClick={() => {
-            handleOpenChange?.(true);
+            // in order to fix when click input, the `SelectList` useClickAway will fire if is sync
+            raf(() => {
+              handleOpenChange?.(!open);
+            });
           }}
           ref={inputRef}
         />

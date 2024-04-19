@@ -17,6 +17,19 @@ const BasicDemo = () => (
     >
       <Button>Hover me</Button>
     </Popup>
+
+    <Popup
+      visible={true}
+      content={
+        <div>
+          <span>Popup title</span>
+          <br />
+          <span>Popup content</span>
+        </div>
+      }
+    >
+      <Button>Hover me</Button>
+    </Popup>
   </Space>
 );
 export default BasicDemo;

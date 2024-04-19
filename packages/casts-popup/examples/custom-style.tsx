@@ -3,13 +3,14 @@ import React from 'react';
 import { Button } from '@casts/button';
 import { Popup } from '@casts/popup';
 import { Space } from '@casts/space';
+import { TokenCdsColorPaletteInfo500 } from '@casts/theme';
 
-const CustomStylesDemo = () => (
+const PopupCustomStylesDemo = () => (
   <Space wrap>
     <Popup
-      theme="dark"
+      theme="anti"
       className="custom-popup-class"
-      style={{ backgroundColor: 'hsl(209.17,96.43%,56.08%)' }}
+      style={{ backgroundColor: TokenCdsColorPaletteInfo500 }}
       content={
         <div>
           <span>Popup title</span>
@@ -22,4 +23,4 @@ const CustomStylesDemo = () => (
     </Popup>
   </Space>
 );
-export default CustomStylesDemo;
+export default PopupCustomStylesDemo;

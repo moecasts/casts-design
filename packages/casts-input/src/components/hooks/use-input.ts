@@ -4,6 +4,7 @@ import {
   CSSProperties,
   FocusEventHandler,
   MouseEvent,
+  MouseEventHandler,
   PointerEventHandler,
   ReactNode,
   useEffect,
@@ -36,6 +37,7 @@ export type UseInputProps = {
   onCompositionEnd?: ChangeEventHandler;
   onCompositionStart?: ChangeEventHandler;
   onFocus?: FocusEventHandler<HTMLInputElement>;
+  onClick?: MouseEventHandler<HTMLElement>;
   placeholder?: string;
   prefix?: ReactNode;
   shape?: InputShape;

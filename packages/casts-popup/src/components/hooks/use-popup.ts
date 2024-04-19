@@ -1,6 +1,5 @@
-import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
-import { getTargetElement, noop, useUpdateEffect } from '@casts/common';
-import { isUndefined } from '@casts/common';
+import { CSSProperties, useCallback, useEffect, useRef } from 'react';
+import { getTargetElement, noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import {
   arrow,
@@ -37,8 +36,6 @@ export const usePopup = (props: UsePopupProps) => {
   const {
     className,
     style,
-    defaultVisible = false,
-    visible = false,
     trigger = 'hover',
     arrowSize = ARROW_SIZE,
     shadow = true,
@@ -52,28 +49,12 @@ export const usePopup = (props: UsePopupProps) => {
   } = props;
 
   /* --------------------------------- open state ---------------------------------------- */
-  const [open, setOpen] = useState(
-    isUndefined(props.visible) ? defaultVisible : visible,
-  );
+  const [open, setOpen] = useControlled(props, 'visible', onVisibleChange);
 
-  useEffect(() => {
-    // uncontrolled visible should not sync open state
-    if (isUndefined(props.visible) || visible === open) {
-      return;
-    }
-    setOpen(visible);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible]);
-
-  useUpdateEffect(() => {
-    onVisibleChange?.(open);
-  }, [open]);
-
+  /* --------------------------------- classes ---------------------------------------- */
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('popup');
   const rootId = `${prefixCls}-root`;
-
-  /* --------------------------------- classes ---------------------------------------- */
   const classes = clsx(prefixCls, className, {
     [`${prefixCls}--shadow`]: shadow,
     [`${prefixCls}--${theme}`]: theme,

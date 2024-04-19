@@ -1,4 +1,9 @@
-import { ForwardedRef, forwardRef, useImperativeHandle } from 'react';
+import {
+  ForwardedRef,
+  forwardRef,
+  MouseEvent,
+  useImperativeHandle,
+} from 'react';
 import { useDefaultProps } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { CloseLine } from '@casts/icons';
@@ -48,6 +53,7 @@ export const Input = forwardRef(
       wrapClasses,
       wrapStyles,
       clearValue,
+      onClick,
       ...rest
     } = useInput({
       getPrefixCls,
@@ -58,8 +64,8 @@ export const Input = forwardRef(
       inputRef,
     ]);
 
-    const focusInput = () => {
-      inputRef.current?.click();
+    const focusInput = (e: MouseEvent<HTMLElement>) => {
+      onClick?.(e);
       inputRef.current?.focus();
     };
 
@@ -67,12 +73,7 @@ export const Input = forwardRef(
 
     return (
       <div className={wrapClasses} style={wrapStyles}>
-        <div
-          role="presentation"
-          className={classes}
-          onClick={focusInput}
-          onKeyDown={focusInput}
-        >
+        <div role="presentation" className={classes} onClick={focusInput}>
           {autoWidth && (
             <span
               className={`${prefixCls}-pre`}

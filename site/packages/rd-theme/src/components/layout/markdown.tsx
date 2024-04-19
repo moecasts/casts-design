@@ -31,12 +31,14 @@ export const getHeadingComponents = (): Components => {
 export const Table: FC<BaseComponentProps> = (props) => {
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('table');
+  const typographyCls = getPrefixCls('typography');
   const classes = clsx(
     prefixCls,
     `${prefixCls}--bordered`,
     `${prefixCls}--cell-bordered`,
     `${prefixCls}--round`,
     `${prefixCls}--header-fixed`,
+    typographyCls,
   );
 
   return (

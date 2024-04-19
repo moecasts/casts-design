@@ -181,13 +181,13 @@ html {
       overflow: hidden;
       font-size: $font-size-small;
 
-      .#{$prefix-cls}-typography {
-        font-size: inherit;
-      }
-
       & > .#{$prefix-cls}-code {
         margin-top: $space-05-x;
         margin-bottom: $space-1-x;
+      }
+
+      p > .#{$prefix-cls}-typography {
+        font-size: inherit;
       }
 
       .#{$prefix-cls}-code {
