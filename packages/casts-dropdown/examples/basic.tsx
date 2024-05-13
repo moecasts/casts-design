@@ -120,8 +120,10 @@ const DropdownBasicDemo = () => {
         maxColumnWidth={150}
         renderContent={() => (
           <DropdownMenu>
+            <span>test</span>
             <DropdownItem value={1}>Option 1</DropdownItem>
             <DropdownItem value={2}>Option 2</DropdownItem>
+            <DropdownDivider />
             <DropdownItem value={3}>Option 3</DropdownItem>
             <DropdownItem value={4}>Option 4</DropdownItem>
             <DropdownItem value={5}>Option 5</DropdownItem>

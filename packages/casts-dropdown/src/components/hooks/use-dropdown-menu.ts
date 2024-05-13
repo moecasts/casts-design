@@ -1,11 +1,15 @@
-import { CSSProperties } from 'react';
+import { Children, CSSProperties, isValidElement } from 'react';
 import { useConfig } from '@casts/config-provider';
+import { Popup } from '@casts/popup';
 import { clsx } from 'clsx';
 
+import { DropdownDivider } from '../dropdown-divider';
+import { DropdownItem } from '../dropdown-item';
+import { DropdownMenu } from '../dropdown-menu';
 import { UseDropdownProps as UseDropdownMenuProps } from '../types';
 
 export const useDropdownMenu = (props: UseDropdownMenuProps) => {
-  const { className, style, ...rest } = props;
+  const { className, style, children: propChildren, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -17,9 +21,27 @@ export const useDropdownMenu = (props: UseDropdownMenuProps) => {
     ...style,
   };
 
+  const children = Children.map(props.children, (child) => {
+    if (!isValidElement(child)) {
+      return null;
+    }
+
+    if (
+      child.type === DropdownItem ||
+      child.type === DropdownMenu ||
+      child.type === DropdownDivider ||
+      child.type === Popup
+    ) {
+      return child;
+    }
+
+    return null;
+  });
+
   return {
     ...rest,
     classes,
     styles,
+    children,
   };
 };

@@ -14,5 +14,8 @@ $dropdown-divider-prefix-cls: #{$prefix-cls}-dropdown-divider;
 
 .#{$dropdown-divider-prefix-cls} {
   width: auto;
-  margin: $dropdown-item-space-outer calc(0 - $dropdown-menu-space);
+  margin-top: $dropdown-divider-space-outer;
+  margin-right: calc(0px - $dropdown-menu-space);
+  margin-bottom: $dropdown-divider-space-outer;
+  margin-left: calc(0px - $dropdown-menu-space);
 }

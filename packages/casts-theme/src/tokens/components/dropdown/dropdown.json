@@ -91,6 +91,14 @@
           }
         }
       }
+    },
+
+    "divider": {
+      "space": {
+        "outer": {
+          "value": "{space.025-x}"
+        }
+      }
     }
   }
 }
