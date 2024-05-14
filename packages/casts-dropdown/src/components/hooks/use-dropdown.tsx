@@ -4,7 +4,6 @@ import { Popup } from '@casts/popup';
 import { clsx } from 'clsx';
 
 import { DropdownItem } from '../dropdown-item';
-import { DropdownMenu } from '../dropdown-menu';
 import { DropdownOption, UseDropdownProps } from '../types';
 
 export const useDropdown = (props: UseDropdownProps) => {
@@ -63,11 +62,7 @@ export const useDropdown = (props: UseDropdownProps) => {
         );
       };
 
-      return (
-        <DropdownMenu>
-          {options?.map((option) => renderItem(option))}
-        </DropdownMenu>
-      );
+      return <>{options?.map((option) => renderItem(option))}</>;
     };
 
     return renderOptions(options);

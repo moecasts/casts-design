@@ -9,7 +9,7 @@ import { DropdownMenu } from '../dropdown-menu';
 import { UseDropdownProps as UseDropdownMenuProps } from '../types';
 
 export const useDropdownMenu = (props: UseDropdownMenuProps) => {
-  const { className, style, children: propChildren, ...rest } = props;
+  const { className, style, options: _propOptions, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -21,7 +21,7 @@ export const useDropdownMenu = (props: UseDropdownMenuProps) => {
     ...style,
   };
 
-  const children = Children.map(props.children, (child) => {
+  const options = Children.map(props.options, (child) => {
     if (!isValidElement(child)) {
       return null;
     }
@@ -42,6 +42,6 @@ export const useDropdownMenu = (props: UseDropdownMenuProps) => {
     ...rest,
     classes,
     styles,
-    children,
+    options,
   };
 };

@@ -1,8 +1,8 @@
 import { forwardRef, Ref, useImperativeHandle } from 'react';
 import { pick } from '@casts/common';
-import { Popup } from '@casts/popup';
 
 import { DropdownProvider } from './dropdown-context';
+import { DropdownMenu } from './dropdown-menu';
 import { useDropdown } from './hooks';
 import { DropdownProps } from './types';
 
@@ -25,14 +25,15 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
 
   return (
     <DropdownProvider {...contextValue}>
-      <Popup
-        content={content}
-        placement="bottom-start"
-        showArrow={false}
-        className={popupClasses}
-      >
-        {children}
-      </Popup>
+      {/* <Popup */}
+      {/*   content={content} */}
+      {/*   placement="bottom-start" */}
+      {/*   showArrow={false} */}
+      {/*   className={popupClasses} */}
+      {/* > */}
+      {/*   {children} */}
+      {/* </Popup> */}
+      <DropdownMenu options={content}>{children}</DropdownMenu>
     </DropdownProvider>
   );
 });
