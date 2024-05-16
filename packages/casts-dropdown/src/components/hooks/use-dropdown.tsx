@@ -1,18 +1,13 @@
 import { isFunction } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
-import { Popup } from '@casts/popup';
 import { clsx } from 'clsx';
 
 import { DropdownItem } from '../dropdown-item';
+import { DropdownMenu } from '../dropdown-menu';
 import { DropdownOption, UseDropdownProps } from '../types';
 
 export const useDropdown = (props: UseDropdownProps) => {
-  const {
-    options,
-    renderContent: propRenderContent,
-    size = 'medium',
-    ...rest
-  } = props;
+  const { options, renderContent: propRenderContent, size, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -39,30 +34,26 @@ export const useDropdown = (props: UseDropdownProps) => {
       }
 
       const renderItem = (option: DropdownOption) => {
-        if (option.children) {
-          return (
-            <Popup
-              content={renderOptions(option.children)}
-              placement="right-start"
-              showArrow={false}
-              className={popupClasses}
-              key={option.value}
-            >
-              <DropdownItem key={option.value} value={option.value}>
-                {option.label}
-              </DropdownItem>
-            </Popup>
-          );
-        }
+        const renderChildren = option.children
+          ? () => renderOptions(option.children)
+          : undefined;
 
         return (
-          <DropdownItem key={option.value} value={option.value}>
+          <DropdownItem
+            key={option.value}
+            value={option.value}
+            renderChildren={renderChildren}
+          >
             {option.label}
           </DropdownItem>
         );
       };
 
-      return <>{options?.map((option) => renderItem(option))}</>;
+      return (
+        <DropdownMenu>
+          {options?.map((option) => renderItem(option))}
+        </DropdownMenu>
+      );
     };
 
     return renderOptions(options);
@@ -70,6 +61,7 @@ export const useDropdown = (props: UseDropdownProps) => {
 
   return {
     ...rest,
+    size,
     popupClasses,
 
     renderContent,

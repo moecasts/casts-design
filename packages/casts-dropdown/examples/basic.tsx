@@ -15,9 +15,10 @@ const DropdownBasicDemo = () => {
   return (
     <Space size={100} wrap>
       <Dropdown
+        maxColumnWidth={200}
         options={[
           {
-            label: 'Option 1',
+            label: 'Option 1 Option 1 Option 1 Option 1 Option 1',
             value: '1',
             children: [
               {

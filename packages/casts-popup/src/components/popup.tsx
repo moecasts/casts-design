@@ -1,4 +1,10 @@
-import { cloneElement, forwardRef, Ref, useImperativeHandle } from 'react';
+import {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  Ref,
+  useImperativeHandle,
+} from 'react';
 import { has, useDefaultProps } from '@casts/common';
 import {
   FloatingNode,
@@ -66,12 +72,18 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
     setReference(el);
   };
 
+  const childrenElement = isValidElement(children) ? (
+    children
+  ) : (
+    <span>{children}</span>
+  );
+
   return (
     <FloatingNode id={nodeId}>
       {cloneElement(
-        children,
+        childrenElement,
         getReferenceProps({
-          ...children.props,
+          ...childrenElement.props,
           ref: !disabled ? setReferenceRef : undefined,
         }),
       )}

@@ -29,23 +29,27 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
   }
 
   &-item {
-    @include text-ellipsis();
-
     @include button-style($selector: #{$dropdown-prefix-cls}-item);
-    @include button-color($selector: #{$dropdown-prefix-cls}-item);
+    @include button-color(
+      $selector: #{$dropdown-prefix-cls}-item,
+      // $color-surface-active: $color-surface-neutral-hover,
+      // $color-text-active: $color-text-neutral-hover,
+      $color-surface-active: transparent
+    );
 
     @include button-space(
       $space-inset: map-get($dropdown-tokens, dropdown-item-space-inset-medium)
     );
 
-    // display: inline-flex;
-    // align-items: center;
-    // gap: $space-05-x;
+    display: inline-flex;
+    align-items: center;
 
     &-content {
+      @include text-ellipsis();
     }
 
     &-arrow {
+      flex-shrink: 0;
       transform: rotate(-90deg);
     }
   }

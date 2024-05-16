@@ -1,6 +1,7 @@
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { useRipple } from '@casts/common';
+import { isFunction, useRipple } from '@casts/common';
 import { FlipVerticalArrowLine } from '@casts/icons';
+import { Popup } from '@casts/popup';
 
 import { useDropdownItem } from './hooks';
 import { DropdownItemProps } from './types';
@@ -17,22 +18,44 @@ export const DropdownItem = forwardRef(
       contentClasses,
       arrowClasses,
       hasChildren,
+      popupClasses,
+      renderChildren,
+      visible,
+      setVisible,
     } = useDropdownItem(props);
 
     const listRef = useRef<HTMLLIElement>(null);
 
-    useRipple(listRef);
+    useRipple(listRef, {
+      disabled: Boolean(hasChildren || renderChildren),
+    });
 
     useImperativeHandle(ref, () => listRef.current as HTMLLIElement);
 
-    const list = (
+    const item = (
       <li ref={listRef} className={classes} style={styles}>
         <span className={contentClasses}>{children}</span>
-        {hasChildren && <FlipVerticalArrowLine className={arrowClasses} />}
+        {(hasChildren || renderChildren) && (
+          <FlipVerticalArrowLine className={arrowClasses} />
+        )}
       </li>
     );
 
-    return list;
+    if (isFunction(renderChildren)) {
+      return (
+        <Popup
+          showArrow={false}
+          content={renderChildren()}
+          className={popupClasses}
+          visible={visible}
+          onVisibleChange={(visible) => setVisible(visible)}
+        >
+          {item}
+        </Popup>
+      );
+    }
+
+    return item;
   },
 );
 

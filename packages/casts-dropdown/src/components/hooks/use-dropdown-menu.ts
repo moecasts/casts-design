@@ -21,7 +21,7 @@ export const useDropdownMenu = (props: UseDropdownMenuProps) => {
     ...style,
   };
 
-  const options = Children.map(props.options, (child) => {
+  const options = Children.map(props.children, (child) => {
     if (!isValidElement(child)) {
       return null;
     }

@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
@@ -14,8 +15,17 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
 
   const contextValue = useDropdownContext();
 
+  const [visible, setVisible] = useControlled<boolean>(
+    props,
+    'visible',
+    noop,
+    false,
+  );
+
   /* --------------------------------- classes and styles ---------------------------------------- */
-  const classes = clsx(prefixCls, className);
+  const classes = clsx(prefixCls, className, {
+    [`${prefixCls}--active`]: visible,
+  });
   const styles: CSSProperties = {
     minWidth: contextValue?.minColumnWidth,
     maxWidth: contextValue?.maxColumnWidth,
@@ -25,11 +35,19 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
   const contentClasses = `${prefixCls}-content`;
   const arrowClasses = `${prefixCls}-arrow`;
 
+  const popupPrefixCls = getPrefixCls('dropdown-popup');
+  const popupClasses = clsx(popupPrefixCls, {
+    [`${popupPrefixCls}--${contextValue.size}`]: contextValue.size,
+  });
+
   return {
     ...rest,
     classes,
     styles,
     contentClasses,
     arrowClasses,
+    popupClasses,
+    visible,
+    setVisible,
   };
 };
