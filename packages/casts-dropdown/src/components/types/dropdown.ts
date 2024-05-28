@@ -19,6 +19,10 @@ export type UseDropdownProps = BaseComponentProps & {
   maxColumnWidth?: string | number;
   visible?: boolean;
   popupProps?: Partial<PopupProps>;
+  trigger?: PopupProps['trigger'];
+  open?: PopupProps['visible'];
+  defaultOpen?: PopupProps['defaultVisible'];
+  onOpenChange?: PopupProps['onVisibleChange'];
 };
 
 export type DropdownProps = UseDropdownProps;

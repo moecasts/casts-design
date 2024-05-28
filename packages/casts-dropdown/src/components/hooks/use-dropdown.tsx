@@ -1,4 +1,4 @@
-import { isFunction } from '@casts/common';
+import { isFunction, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
@@ -12,6 +12,14 @@ export const useDropdown = (props: UseDropdownProps) => {
   const { getPrefixCls } = useConfig();
 
   const prefixCls = getPrefixCls('dropdown');
+
+  /* --------------------------------- states ---------------------------------------- */
+  const [open, setOpen] = useControlled<boolean>(
+    props,
+    'open',
+    props.onOpenChange,
+    false,
+  );
 
   /* --------------------------------- classes and styles ---------------------------------------- */
   const popupClasses = clsx(`${prefixCls}-popup`, {
@@ -59,11 +67,17 @@ export const useDropdown = (props: UseDropdownProps) => {
     return renderOptions(options);
   };
 
+  const handleOpenChange = (open: boolean) => {
+    console.trace(open);
+    setOpen(open);
+  };
+
   return {
     ...rest,
     size,
     popupClasses,
-
     renderContent,
+    open,
+    handleOpenChange,
   };
 };

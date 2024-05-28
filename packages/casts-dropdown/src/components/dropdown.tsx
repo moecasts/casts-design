@@ -12,19 +12,30 @@ import './styles/dropdown.scss';
 
 export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
   const propsWithDefault = useDefaultProps(props, defaultDropdownProps);
-  const { children, renderContent, popupClasses, ...restProps } =
-    useDropdown(propsWithDefault);
+  const {
+    children,
+    renderContent,
+    popupClasses,
+    trigger,
+    open,
+    handleOpenChange,
+    ...restProps
+  } = useDropdown(propsWithDefault);
 
   const content = renderContent();
 
   useImperativeHandle(ref, () => ({}));
 
-  const contextValue = pick(restProps, [
-    'size',
-    'maxHeight',
-    'minColumnWidth',
-    'maxColumnWidth',
-  ]);
+  const contextValue = {
+    open,
+    handleOpenChange,
+    ...pick(restProps, [
+      'size',
+      'maxHeight',
+      'minColumnWidth',
+      'maxColumnWidth',
+    ]),
+  };
 
   return (
     <DropdownProvider {...contextValue}>
@@ -34,6 +45,9 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
         showArrow={false}
         className={popupClasses}
         nestedPlacement="left-start"
+        trigger={trigger}
+        visible={open}
+        onVisibleChange={handleOpenChange}
       >
         {children}
       </Popup>

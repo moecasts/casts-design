@@ -65,7 +65,7 @@
     }
 
     /* --------------------------------- menu item size ---------------------------------------- */
-    .#{$menu-item-prefix-cls} {
+    @at-root .#{$menu-item-prefix-cls} {
       &--#{$size} {
         @include button-size(
           $element: 'menu-item',

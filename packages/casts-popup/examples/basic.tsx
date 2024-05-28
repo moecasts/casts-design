@@ -7,6 +7,7 @@ import { Space } from '@casts/space';
 const BasicDemo = () => (
   <Space wrap>
     <Popup
+      trigger="click"
       content={
         <div>
           <span>Popup title</span>
@@ -14,6 +15,9 @@ const BasicDemo = () => (
           <span>Popup content</span>
         </div>
       }
+      onVisibleChange={(visible) => {
+        console.trace('visible change', visible);
+      }}
     >
       <Button>Hover me</Button>
     </Popup>

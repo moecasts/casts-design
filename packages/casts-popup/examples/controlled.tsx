@@ -12,6 +12,9 @@ const ControlledDemo = () => {
         placement="bottom"
         visible={visible}
         trigger="manual"
+        onVisibleChange={(visible) => {
+          console.log('visible change', visible);
+        }}
         content={
           <div>
             <span>Popup title</span>

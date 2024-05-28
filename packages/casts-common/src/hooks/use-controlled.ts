@@ -10,7 +10,7 @@ export interface ChangeHandler<T, P extends any[]> {
 export const useControlled = <T, P extends any[] = any[]>(
   props: Record<PropertyKey, any> = {},
   valueKey: string,
-  onChange: ChangeHandler<T, P>,
+  onChange?: ChangeHandler<T, P>,
   /**
    * use fallbackDefaultValue when defaultValue is not exist
    */

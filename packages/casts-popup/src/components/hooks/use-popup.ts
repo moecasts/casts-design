@@ -111,7 +111,7 @@ export const usePopup = (props: UsePopupProps) => {
     }),
     useFocus(context, {
       enabled: isNotManualTrigger && !duration,
-      visibleOnly: false,
+      visibleOnly: true,
     }),
     useDismiss(context, {
       enabled: isNotManualTrigger && !duration,

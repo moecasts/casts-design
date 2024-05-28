@@ -44,6 +44,7 @@ export const DropdownItem = forwardRef(
     if (isFunction(renderChildren)) {
       return (
         <Popup
+          overlayOffset={-2}
           showArrow={false}
           content={renderChildren()}
           className={popupClasses}
