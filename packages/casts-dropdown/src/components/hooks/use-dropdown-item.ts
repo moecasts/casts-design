@@ -40,6 +40,11 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
     [`${popupPrefixCls}--${contextValue.size}`]: contextValue.size,
   });
 
+  const handleClick = (event) => {
+    contextValue?.onClick?.();
+    onclick?.({}, event);
+  };
+
   return {
     ...rest,
     classes,
@@ -49,5 +54,6 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
     popupClasses,
     visible,
     setVisible,
+    handleClick,
   };
 };

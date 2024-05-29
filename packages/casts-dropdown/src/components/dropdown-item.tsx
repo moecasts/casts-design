@@ -1,5 +1,10 @@
 import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { isFunction, useRipple } from '@casts/common';
+import {
+  getKeyboardEvents,
+  isFunction,
+  KEYCODE_CONFIRM,
+  useRipple,
+} from '@casts/common';
 import { FlipVerticalArrowLine } from '@casts/icons';
 import { Popup } from '@casts/popup';
 
@@ -22,6 +27,7 @@ export const DropdownItem = forwardRef(
       renderChildren,
       visible,
       setVisible,
+      handleClick,
     } = useDropdownItem(props);
 
     const listRef = useRef<HTMLLIElement>(null);
@@ -33,7 +39,14 @@ export const DropdownItem = forwardRef(
     useImperativeHandle(ref, () => listRef.current as HTMLLIElement);
 
     const item = (
-      <li ref={listRef} className={classes} style={styles}>
+      <li
+        role="menuitem"
+        ref={listRef}
+        className={classes}
+        style={styles}
+        onClick={handleClick}
+        onKeyDown={getKeyboardEvents([[KEYCODE_CONFIRM, handleClick]])}
+      >
         <span className={contentClasses}>{children}</span>
         {(hasChildren || renderChildren) && (
           <FlipVerticalArrowLine className={arrowClasses} />

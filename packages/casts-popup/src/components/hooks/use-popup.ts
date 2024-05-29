@@ -49,7 +49,19 @@ export const usePopup = (props: UsePopupProps) => {
   } = props;
 
   /* --------------------------------- open state ---------------------------------------- */
-  const [open, setOpen] = useControlled(props, 'visible', onVisibleChange);
+  const [open, _setOpen] = useControlled(props, 'visible', onVisibleChange);
+
+  // FIX: in order to avoid fire onVisibleChange when open state is not changed
+  const setOpen = useCallback(
+    (newOpen: boolean) => {
+      if (open === newOpen) {
+        return;
+      }
+
+      return _setOpen(newOpen);
+    },
+    [_setOpen, open],
+  );
 
   /* --------------------------------- classes ---------------------------------------- */
   const { getPrefixCls } = useConfig();

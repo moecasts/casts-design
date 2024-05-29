@@ -72,6 +72,10 @@ export const useDropdown = (props: UseDropdownProps) => {
     setOpen(open);
   };
 
+  const handleClick = () => {
+    handleOpenChange(false);
+  };
+
   return {
     ...rest,
     size,
@@ -79,5 +83,6 @@ export const useDropdown = (props: UseDropdownProps) => {
     renderContent,
     open,
     handleOpenChange,
+    handleClick,
   };
 };

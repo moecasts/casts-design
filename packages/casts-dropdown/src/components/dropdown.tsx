@@ -19,6 +19,7 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
     trigger,
     open,
     handleOpenChange,
+    handleClick,
     ...restProps
   } = useDropdown(propsWithDefault);
 
@@ -28,6 +29,7 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
 
   const contextValue = {
     open,
+    handleClick,
     handleOpenChange,
     ...pick(restProps, [
       'size',
