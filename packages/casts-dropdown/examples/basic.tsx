@@ -16,6 +16,7 @@ const DropdownBasicDemo = () => {
     <Space size={100} wrap>
       <Dropdown
         maxColumnWidth={200}
+        trigger="hover"
         options={[
           {
             label: 'Option 1 Option 1 Option 1 Option 1 Option 1',

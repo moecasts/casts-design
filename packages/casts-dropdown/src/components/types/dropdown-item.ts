@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { BaseComponentProps } from '@casts/common';
+import { PopupProps } from '@casts/popup';
 
-import { DropdownValue } from './dropdown';
+import { DropdownClickHandler, DropdownValue } from './common';
 
 export type UseDropdownItemProps = BaseComponentProps & {
   value: DropdownValue;
@@ -10,7 +11,11 @@ export type UseDropdownItemProps = BaseComponentProps & {
 
   renderChildren?: () => ReactNode;
 
-  onClick?: (option: DropdownValue, event: React.MouseEvent) => void;
+  onClick?: DropdownClickHandler;
+
+  open?: PopupProps['visible'];
+  defaultOpen?: PopupProps['defaultVisible'];
+  onOpenChange?: PopupProps['onVisibleChange'];
 };
 
 export type DropdownItemProps = UseDropdownItemProps;

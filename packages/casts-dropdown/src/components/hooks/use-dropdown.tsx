@@ -4,10 +4,20 @@ import { clsx } from 'clsx';
 
 import { DropdownItem } from '../dropdown-item';
 import { DropdownMenu } from '../dropdown-menu';
-import { DropdownOption, UseDropdownProps } from '../types';
+import {
+  DropdownClickHandler,
+  DropdownOption,
+  UseDropdownProps,
+} from '../types';
 
 export const useDropdown = (props: UseDropdownProps) => {
-  const { options, renderContent: propRenderContent, size, ...rest } = props;
+  const {
+    options,
+    renderContent: propRenderContent,
+    size,
+    onClick,
+    ...rest
+  } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -68,12 +78,12 @@ export const useDropdown = (props: UseDropdownProps) => {
   };
 
   const handleOpenChange = (open: boolean) => {
-    console.trace(open);
     setOpen(open);
   };
 
-  const handleClick = () => {
-    handleOpenChange(false);
+  const handleClick: DropdownClickHandler = (value, context) => {
+    onClick?.(value, context);
+    setOpen(false);
   };
 
   return {

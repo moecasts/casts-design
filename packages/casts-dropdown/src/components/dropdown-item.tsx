@@ -25,8 +25,8 @@ export const DropdownItem = forwardRef(
       hasChildren,
       popupClasses,
       renderChildren,
-      visible,
-      setVisible,
+      open,
+      setOpen,
       handleClick,
     } = useDropdownItem(props);
 
@@ -61,8 +61,10 @@ export const DropdownItem = forwardRef(
           showArrow={false}
           content={renderChildren()}
           className={popupClasses}
-          visible={visible}
-          onVisibleChange={(visible) => setVisible(visible)}
+          visible={open}
+          onVisibleChange={(open) => {
+            setOpen(open);
+          }}
         >
           {item}
         </Popup>

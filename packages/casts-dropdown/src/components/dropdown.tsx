@@ -20,6 +20,8 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
     open,
     handleOpenChange,
     handleClick,
+    placement,
+    nestedPlacement,
     ...restProps
   } = useDropdown(propsWithDefault);
 
@@ -43,10 +45,10 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
     <DropdownProvider {...contextValue}>
       <Popup
         content={content}
-        placement="bottom-start"
+        placement={placement}
+        nestedPlacement={nestedPlacement}
         showArrow={false}
         className={popupClasses}
-        nestedPlacement="left-start"
         trigger={trigger}
         visible={open}
         onVisibleChange={handleOpenChange}

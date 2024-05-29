@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
@@ -7,7 +7,16 @@ import { useDropdownContext } from '../dropdown-context';
 import { UseDropdownItemProps } from '../types';
 
 export const useDropdownItem = (props: UseDropdownItemProps) => {
-  const { className, style, ...rest } = props;
+  const {
+    className,
+    style,
+    value,
+    onClick,
+    hasChildren,
+    renderChildren,
+    onOpenChange = noop,
+    ...rest
+  } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -15,16 +24,17 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
 
   const contextValue = useDropdownContext();
 
-  const [visible, setVisible] = useControlled<boolean>(
+  const [_open, setOpen] = useControlled<boolean>(
     props,
-    'visible',
-    noop,
+    'open',
+    onOpenChange,
     false,
   );
+  const open = contextValue.open && _open;
 
   /* --------------------------------- classes and styles ---------------------------------------- */
   const classes = clsx(prefixCls, className, {
-    [`${prefixCls}--active`]: visible,
+    [`${prefixCls}--active`]: open,
   });
   const styles: CSSProperties = {
     minWidth: contextValue?.minColumnWidth,
@@ -40,20 +50,29 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
     [`${popupPrefixCls}--${contextValue.size}`]: contextValue.size,
   });
 
-  const handleClick = (event) => {
-    contextValue?.onClick?.();
-    onclick?.({}, event);
+  const isSubMenu = Boolean(hasChildren || renderChildren);
+
+  const handleClick = (event: KeyboardEvent | MouseEvent) => {
+    if (isSubMenu) {
+      return;
+    }
+    contextValue?.handleClick?.(value, {
+      event,
+    });
+    onClick?.(value, { event });
   };
 
   return {
     ...rest,
+    hasChildren,
+    renderChildren,
     classes,
     styles,
     contentClasses,
     arrowClasses,
     popupClasses,
-    visible,
-    setVisible,
+    open,
+    setOpen,
     handleClick,
   };
 };

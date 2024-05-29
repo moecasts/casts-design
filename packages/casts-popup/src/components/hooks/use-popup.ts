@@ -13,6 +13,7 @@ import {
   useFloating,
   useFloatingNodeId,
   useFloatingParentNodeId,
+  useFloatingTree,
   useFocus,
   useHover,
   useInteractions,
@@ -48,20 +49,15 @@ export const usePopup = (props: UsePopupProps) => {
     overlayOffset = 4,
   } = props;
 
+  /* --------------------------------- floating ui states ---------------------------------------- */
+  const arrowRef = useRef<HTMLDivElement | null>(null);
+  const nodeId = useFloatingNodeId();
+  const parentId = useFloatingParentNodeId();
+  const tree = useFloatingTree();
+  const isNested = parentId != null;
+
   /* --------------------------------- open state ---------------------------------------- */
   const [open, _setOpen] = useControlled(props, 'visible', onVisibleChange);
-
-  // FIX: in order to avoid fire onVisibleChange when open state is not changed
-  const setOpen = useCallback(
-    (newOpen: boolean) => {
-      if (open === newOpen) {
-        return;
-      }
-
-      return _setOpen(newOpen);
-    },
-    [_setOpen, open],
-  );
 
   /* --------------------------------- classes ---------------------------------------- */
   const { getPrefixCls } = useConfig();
@@ -76,10 +72,19 @@ export const usePopup = (props: UsePopupProps) => {
   const fadeClasses = clsx(getPrefixCls('fade'));
 
   /* --------------------------------- floating ui hook ---------------------------------------- */
-  const arrowRef = useRef<HTMLDivElement | null>(null);
-  const nodeId = useFloatingNodeId();
-  const parentId = useFloatingParentNodeId();
-  const isNested = parentId != null;
+
+  // FIX: in order to avoid fire onVisibleChange when open state is not changed
+  const setOpen = useCallback(
+    (newOpen: boolean) => {
+      if (open === newOpen) {
+        return;
+      }
+
+      tree?.events.emit('click');
+      return _setOpen(newOpen);
+    },
+    [_setOpen, open, tree?.events],
+  );
 
   const floatingReturn: any = useFloating({
     nodeId,
@@ -127,6 +132,7 @@ export const usePopup = (props: UsePopupProps) => {
     }),
     useDismiss(context, {
       enabled: isNotManualTrigger && !duration,
+      bubbles: true,
     }),
     useRole(context, { role: 'tooltip' }),
   ]);
@@ -194,5 +200,7 @@ export const usePopup = (props: UsePopupProps) => {
 
     floatingReturn,
     interactionsReturn,
+
+    isNested,
   };
 };

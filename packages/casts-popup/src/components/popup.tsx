@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { has, useDefaultProps } from '@casts/common';
 import {
+  FloatingFocusManager,
   FloatingNode,
   FloatingPortal,
   FloatingTree,
@@ -45,6 +46,7 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
     arrowRefCallback,
 
     nodeId,
+    isNested,
 
     floatingReturn,
     interactionsReturn: { getFloatingProps, getReferenceProps },
@@ -92,30 +94,37 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
           id={!attachElement ? rootId : undefined}
           root={attachElement as HTMLElement | undefined}
         >
-          <CSSTransition
-            in={open}
-            timeout={animationDuration}
-            classNames={fadeClasses}
-            unmountOnExit
-            nodeRef={refs.floating}
+          <FloatingFocusManager
+            context={floatingReturn.context}
+            modal={false}
+            initialFocus={isNested ? -1 : 0}
+            returnFocus={!isNested}
           >
-            <div
-              {...getFloatingProps({
-                ref: setFloating,
-                className: classes,
-                style: styles,
-              })}
+            <CSSTransition
+              in={open}
+              timeout={animationDuration}
+              classNames={fadeClasses}
+              unmountOnExit
+              nodeRef={refs.floating}
             >
-              <div className={contentClasses}>{content}</div>
-              {showArrow && (
-                <div
-                  className={arrowClasses}
-                  style={arrowStyles}
-                  ref={arrowRefCallback}
-                ></div>
-              )}
-            </div>
-          </CSSTransition>
+              <div
+                {...getFloatingProps({
+                  ref: setFloating,
+                  className: classes,
+                  style: styles,
+                })}
+              >
+                <div className={contentClasses}>{content}</div>
+                {showArrow && (
+                  <div
+                    className={arrowClasses}
+                    style={arrowStyles}
+                    ref={arrowRefCallback}
+                  ></div>
+                )}
+              </div>
+            </CSSTransition>
+          </FloatingFocusManager>
         </FloatingPortal>
       )}
     </FloatingNode>
