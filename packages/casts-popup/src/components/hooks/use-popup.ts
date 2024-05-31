@@ -13,6 +13,7 @@ import {
   useFloating,
   useFloatingNodeId,
   useFloatingParentNodeId,
+  UseFloatingReturn,
   useFloatingTree,
   useFocus,
   useHover,
@@ -86,7 +87,7 @@ export const usePopup = (props: UsePopupProps) => {
     [_setOpen, open, tree?.events],
   );
 
-  const floatingReturn: any = useFloating({
+  const floatingReturn: UseFloatingReturn = useFloating({
     nodeId,
     placement: isNested ? props.nestedPlacement : props.placement,
     open,

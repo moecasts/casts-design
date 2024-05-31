@@ -22,8 +22,8 @@ export const useLayout = (props: UseLayoutProps) => {
   });
 
   return {
+    ...rest,
     classes,
     children,
-    ...rest,
   };
 };

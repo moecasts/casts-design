@@ -126,6 +126,7 @@ export const useSwitch = (props: UseSwitchProps) => {
   };
 
   return {
+    ...rest,
     classes,
     styles,
 
@@ -152,6 +153,5 @@ export const useSwitch = (props: UseSwitchProps) => {
     handleBlur,
 
     renderHandleIcon,
-    ...rest,
   };
 };

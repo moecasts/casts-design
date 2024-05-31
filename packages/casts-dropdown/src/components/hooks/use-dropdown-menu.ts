@@ -9,7 +9,7 @@ import { DropdownMenu } from '../dropdown-menu';
 import { UseDropdownProps as UseDropdownMenuProps } from '../types';
 
 export const useDropdownMenu = (props: UseDropdownMenuProps) => {
-  const { className, style, options: _propOptions, ...rest } = props;
+  const { className, style, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 

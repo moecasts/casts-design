@@ -43,6 +43,8 @@ export const useSelect = (props: UseSelectProps) => {
   };
 
   return {
+    ...rest,
+
     classes,
     styles,
 
@@ -56,7 +58,5 @@ export const useSelect = (props: UseSelectProps) => {
     popupClasses,
 
     handleOutsideClick,
-
-    ...rest,
   };
 };

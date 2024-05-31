@@ -9,7 +9,7 @@ export const useHeader = (props: UseHeaderProps) => {
   const classes = clsx(prefixCls, className);
 
   return {
-    classes,
     ...rest,
+    classes,
   };
 };

@@ -57,6 +57,7 @@ export const useTabsBarItem = (props: UseTabsBarItemProps) => {
   };
 
   return {
+    ...rest,
     classes,
     styles,
     innerClasses,
@@ -64,6 +65,5 @@ export const useTabsBarItem = (props: UseTabsBarItemProps) => {
     handleKeyDown,
     disabled,
     isActive,
-    ...rest,
   };
 };

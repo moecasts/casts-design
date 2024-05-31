@@ -206,6 +206,7 @@ export const useTable = (props: UseTableProps) => {
   );
 
   return {
+    ...rest,
     classes,
     styles,
     contentClasses,
@@ -230,7 +231,5 @@ export const useTable = (props: UseTableProps) => {
     getRowClasses,
 
     getRowKey,
-
-    ...rest,
   };
 };

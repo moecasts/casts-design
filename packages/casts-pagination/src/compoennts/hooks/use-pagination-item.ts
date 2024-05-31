@@ -51,6 +51,7 @@ export const usePaginationItem = (props: UsePaginationItemProps) => {
   };
 
   return {
+    ...rest,
     classes,
     styles,
     page,
@@ -59,6 +60,5 @@ export const usePaginationItem = (props: UsePaginationItemProps) => {
 
     renderContent,
     disabled,
-    ...rest,
   };
 };

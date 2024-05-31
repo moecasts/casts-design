@@ -89,6 +89,7 @@ export const useSelectList = (props: UseSelectListProps) => {
   }, [scrollSelectedOptionIntoView]);
 
   return {
+    ...rest,
     classes,
     styles,
 
@@ -100,6 +101,5 @@ export const useSelectList = (props: UseSelectListProps) => {
     shouldEnableVirtual,
     virtual,
     virtualizer,
-    ...rest,
   };
 };

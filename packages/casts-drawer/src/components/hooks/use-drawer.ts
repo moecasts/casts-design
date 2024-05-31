@@ -88,6 +88,7 @@ export const useDrawer = (props: UseDrawerProps) => {
   });
 
   return {
+    ...rest,
     classes,
     styles,
 
@@ -107,7 +108,5 @@ export const useDrawer = (props: UseDrawerProps) => {
     handleCloseClick,
     handleMaskClick,
     handleKeyDown,
-
-    ...rest,
   };
 };

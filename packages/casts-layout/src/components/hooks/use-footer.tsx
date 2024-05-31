@@ -9,7 +9,7 @@ export const useFooter = (props: UseFooterProps) => {
   const classes = clsx(prefixCls, className);
 
   return {
-    classes,
     ...rest,
+    classes,
   };
 };

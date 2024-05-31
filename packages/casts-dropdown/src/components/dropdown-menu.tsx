@@ -1,12 +1,13 @@
 import { forwardRef, Ref } from 'react';
 
 import { useDropdownMenu } from './hooks';
+import { DropdownMenuProps } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
 import './styles/dropdown.scss';
 
 export const DropdownMenu = forwardRef(
-  (props: any, ref: Ref<HTMLUListElement>) => {
+  (props: DropdownMenuProps, ref: Ref<HTMLUListElement>) => {
     const { classes, styles, options } = useDropdownMenu(props);
 
     return (

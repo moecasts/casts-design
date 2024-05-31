@@ -22,9 +22,9 @@ export const useBreadcrumbs = (props: UseBreadcrumbsProps) => {
   const collapseClasses = collapsePrefixCls;
 
   return {
+    ...rest,
     classes,
     styles,
     collapseClasses,
-    ...rest,
   };
 };

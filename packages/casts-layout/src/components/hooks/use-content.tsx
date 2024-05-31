@@ -9,7 +9,7 @@ export const useContent = (props: UseContentProps) => {
   const classes = clsx(prefixCls, className);
 
   return {
-    classes,
     ...rest,
+    classes,
   };
 };

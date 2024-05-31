@@ -9,7 +9,7 @@ export const useAside = (props: UseAsideProps) => {
   const classes = clsx(prefixCls, className);
 
   return {
-    classes,
     ...rest,
+    classes,
   };
 };

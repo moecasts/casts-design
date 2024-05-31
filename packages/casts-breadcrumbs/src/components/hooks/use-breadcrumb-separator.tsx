@@ -18,8 +18,8 @@ export const useBreadcrumbSeparator = (props: UseBreadcrumbSeparatorProps) => {
   };
 
   return {
+    ...rest,
     classes,
     styles,
-    ...rest,
   };
 };

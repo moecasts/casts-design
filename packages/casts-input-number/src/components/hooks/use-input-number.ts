@@ -141,6 +141,7 @@ export const useInputNumber = (props: UseInputNumberProps) => {
   };
 
   return {
+    ...rest,
     classes,
     styles,
     value,
@@ -157,7 +158,5 @@ export const useInputNumber = (props: UseInputNumberProps) => {
     handleDecrease,
 
     handleBlur,
-
-    ...rest,
   };
 };
