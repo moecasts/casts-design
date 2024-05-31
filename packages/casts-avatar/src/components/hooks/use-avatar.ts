@@ -21,15 +21,45 @@ import { AvatarGroupContext } from './use-avatar-group';
 export type AvatarSize = Size | number;
 
 export type UseAvatarProps = {
+  /**
+   * getPrefixCls is a function that returns a prefix class based on the component name and a customize prefix.
+   */
   getPrefixCls: GetPrefixCls;
+  /**
+   * shape is an optional property that determines the shape of the avatar. It can be 'circle', 'round', or 'square'.
+   */
   shape?: 'circle' | 'round' | 'square';
+  /**
+   * src is an optional property that specifies the URL of the image to be used as the avatar.
+   */
   src?: string;
+  /**
+   * icon is an optional property that allows you to use a React element as the avatar.
+   */
   icon?: ReactElement;
+  /**
+   * children is an optional property that allows you to add child elements to the avatar.
+   */
   children?: ReactNode;
+  /**
+   * size is an optional property that determines the size of the avatar. It can be a specific size value or a predefined size string.
+   */
   size?: AvatarSize;
+  /**
+   * style is an optional property that allows you to add custom inline styles to the avatar.
+   */
   style?: CSSProperties;
+  /**
+   * onError is an optional property that specifies a function to be called when an error occurs while loading the avatar image.
+   */
   onError?: () => void;
+  /**
+   * avatarNodeRef is an optional property that allows you to pass a ref to the avatar element.
+   */
   avatarNodeRef?: RefObject<HTMLElement>;
+  /**
+   * gap is an optional property that specifies the gap between the avatar and the text.
+   */
   gap?: number;
 };
 
