@@ -12,6 +12,7 @@ $popup-themes: 'default', 'anti';
   z-index: $popup-elevation-z-index;
   font-size: $popup-font-size;
   border-radius: $popup-radius;
+  outline: none;
 
   @each $theme in $popup-themes {
     &.#{$prefix-cls}-popup--#{$theme} {
