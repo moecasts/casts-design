@@ -1,12 +1,16 @@
+import { useCallback } from 'react';
 import { isFunction, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 
+import { DropdownDivider } from '../dropdown-divider';
 import { DropdownItem } from '../dropdown-item';
 import { DropdownMenu } from '../dropdown-menu';
+import { DropdownSection } from '../dropdown-section';
 import {
   DropdownClickHandler,
   DropdownOption,
+  DropdownOptionItem,
   UseDropdownProps,
 } from '../types';
 
@@ -16,6 +20,7 @@ export const useDropdown = (props: UseDropdownProps) => {
     renderContent: propRenderContent,
     size,
     onClick,
+    hideAfterClick,
     ...rest
   } = props;
 
@@ -37,7 +42,7 @@ export const useDropdown = (props: UseDropdownProps) => {
   });
 
   /* --------------------------------- render ---------------------------------------- */
-  const renderContent = () => {
+  const renderContent = useCallback(() => {
     if (propRenderContent && isFunction(propRenderContent)) {
       return propRenderContent();
     }
@@ -51,14 +56,30 @@ export const useDropdown = (props: UseDropdownProps) => {
         return null;
       }
 
-      const renderItem = (option: DropdownOption) => {
+      const renderItem = (option: DropdownOption, index: number) => {
         const renderChildren = option.children
           ? () => renderOptions(option.children)
           : undefined;
 
+        const key = option.value || `idx-${index}`;
+
+        if (option.type === 'section') {
+          return (
+            <DropdownSection key={key} label={option.label}>
+              {(option.children as DropdownOptionItem[])?.map((child, idx) =>
+                renderItem(child, idx),
+              )}
+            </DropdownSection>
+          );
+        }
+
+        if (option.type === 'divider') {
+          return <DropdownDivider key={key} />;
+        }
+
         return (
           <DropdownItem
-            key={option.value}
+            key={key}
             value={option.value}
             renderChildren={renderChildren}
           >
@@ -66,16 +87,15 @@ export const useDropdown = (props: UseDropdownProps) => {
           </DropdownItem>
         );
       };
-
-      return (
-        <DropdownMenu>
-          {options?.map((option) => renderItem(option))}
-        </DropdownMenu>
+      const children = options?.map((option, index) =>
+        renderItem(option, index),
       );
+
+      return <DropdownMenu>{children}</DropdownMenu>;
     };
 
     return renderOptions(options);
-  };
+  }, [options, propRenderContent]);
 
   const handleOpenChange = (open: boolean) => {
     setOpen(open);
@@ -83,7 +103,9 @@ export const useDropdown = (props: UseDropdownProps) => {
 
   const handleClick: DropdownClickHandler = (value, context) => {
     onClick?.(value, context);
-    setOpen(false);
+    if (hideAfterClick) {
+      setOpen(false);
+    }
   };
 
   return {

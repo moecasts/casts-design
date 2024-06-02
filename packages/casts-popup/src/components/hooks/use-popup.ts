@@ -17,6 +17,7 @@ import {
   useFloatingTree,
   useFocus,
   useHover,
+  UseHoverProps,
   useInteractions,
   useRole,
 } from '@floating-ui/react';
@@ -118,12 +119,21 @@ export const usePopup = (props: UsePopupProps) => {
 
   const isNotManualTrigger = trigger !== 'manual';
 
+  const HOVER_DELAY_AT_LEAST = 1;
+  const hoverProps: UseHoverProps = {
+    restMs: delay,
+    enabled: trigger === 'hover',
+    handleClose: safePolygon(),
+    // FIX: delay at least 1ms to avoid repeated triggering of onOpenChange
+    delay: delay
+      ? {
+          close: HOVER_DELAY_AT_LEAST,
+        }
+      : HOVER_DELAY_AT_LEAST,
+  };
+
   const interactionsReturn = useInteractions([
-    useHover(context, {
-      restMs: delay,
-      enabled: trigger === 'hover',
-      handleClose: safePolygon(),
-    }),
+    useHover(context, hoverProps),
     useClick(context, {
       enabled: trigger === 'click',
     }),

@@ -70,6 +70,11 @@ export type UseDropdownProps = BaseComponentProps & {
    * The click handler for the dropdown
    */
   onClick?: DropdownClickHandler;
+
+  /**
+   * Hide the overlay after clicking an option
+   */
+  hideAfterClick?: boolean;
 };
 
 /**

@@ -45,6 +45,7 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
     align-items: center;
 
     &-content {
+      flex: 1;
       @include text-ellipsis();
     }
 
@@ -56,15 +57,57 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
 
   $dropdown-sizes: 'small', 'medium', 'large';
 
+  &-section {
+    &-label {
+
+      padding: 0 $dropdown-section-label-space-inset-medium;
+
+      margin-top: $dropdown-section-label-space-outer;
+      margin-bottom: $dropdown-section-label-space-outer;
+      font-size: $dropdown-section-label-font-size;
+      line-height: $dropdown-section-label-line-height;
+      color: $dropdown-section-label-color;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: $dropdown-item-space-outer;
+    }
+  }
+
   @each $size in $dropdown-sizes {
     &-popup--#{$size} {
+      .#{$dropdown-prefix-cls}-section-label {
+        padding: 0
+          map-get(
+            $dropdown-tokens,
+            dropdown-section-label-space-inset-#{$size}
+          );
+      }
+
       .#{$dropdown-prefix-cls}-item {
         @include button-size(
           $element: dropdown-item,
           $size: $size,
           $tokens: $dropdown-tokens
         );
+
+        @include button-space(
+          $space-inset:
+            map-get($dropdown-tokens, dropdown-item-space-inset-#{$size})
+        );
       }
     }
   }
+}
+
+$dropdown-divider-prefix-cls: #{$prefix-cls}-dropdown-divider;
+
+.#{$dropdown-divider-prefix-cls} {
+  width: auto;
+  margin-top: $dropdown-divider-space-outer;
+  margin-right: calc(0px - $dropdown-menu-space);
+  margin-bottom: $dropdown-divider-space-outer;
+  margin-left: calc(0px - $dropdown-menu-space);
 }

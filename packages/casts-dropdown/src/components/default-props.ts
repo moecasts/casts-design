@@ -5,4 +5,5 @@ export const defaultDropdownProps = {
   trigger: 'click',
   placement: 'bottom-start',
   nestedPlacement: 'right-start',
+  hideAfterClick: true,
 } satisfies DropdownProps;

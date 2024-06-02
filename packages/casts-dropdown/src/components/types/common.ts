@@ -5,10 +5,7 @@ import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
  */
 export type DropdownValue = any;
 
-/**
- * Dropdown option type
- */
-export type DropdownOption = {
+export type DropdownOptionItem = {
   /**
    * The text to display for the option
    */
@@ -20,8 +17,43 @@ export type DropdownOption = {
   /**
    * The children options
    */
-  children?: DropdownOption[];
-} & Record<string, any>;
+  children?: DropdownOptionItem[];
+};
+
+export type DropdownOptionDivider = {
+  /**
+   * The type of the dropdown divider
+   */
+  type: 'divider';
+};
+
+export type DropdownOptionSection = {
+  /**
+   * The title of the dropdown section.
+   */
+  label: ReactNode;
+
+  /*&
+   * The type of the dropdown section
+   */
+  type: 'section';
+
+  /**
+   * The children options
+   */
+  children: DropdownOptionItem[];
+};
+
+/**
+ * Dropdown option type
+ */
+export type DropdownOption = (
+  | DropdownOptionSection
+  | DropdownOptionItem
+  | DropdownOptionDivider
+) &
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Record<string, any>;
 
 export type DropdownClickHandler = (
   option: DropdownValue,

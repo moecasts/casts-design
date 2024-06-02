@@ -1,4 +1,4 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef, Ref, useMemo } from 'react';
 
 import { useDropdownMenu } from './hooks';
 import { DropdownMenuProps } from './types';
@@ -8,7 +8,12 @@ import './styles/dropdown.scss';
 
 export const DropdownMenu = forwardRef(
   (props: DropdownMenuProps, ref: Ref<HTMLUListElement>) => {
-    const { classes, styles, options } = useDropdownMenu(props);
+    const { classes, styles, renderOptions } = useDropdownMenu(props);
+
+    const options = useMemo(
+      () => renderOptions(props.children),
+      [props.children, renderOptions],
+    );
 
     return (
       <ul className={classes} style={styles} ref={ref}>

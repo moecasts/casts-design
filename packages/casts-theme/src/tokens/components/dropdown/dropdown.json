@@ -7,11 +7,47 @@
         }
       }
     },
+    "section": {
+      "label": {
+        "color": {
+          "value": "{color.text.tertiary}"
+        },
+        "font": {
+          "size": {
+            "value": "{font.size.xsmall}"
+          }
+        },
+        "lineHeight": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "{lineHeight.xsmall}"
+        },
+        "space": {
+          "outer": {
+            "value": "{space.025-x}"
+          },
+          "inset": {
+            "small": {
+              "value": "{space.025-x}"
+            },
+            "medium": {
+              "value": "{space.05-x}"
+            },
+            "large": {
+              "value": "{space.075-x}"
+            }
+          }
+        }
+      }
+    },
+
     "menu": {
       "space": {
         "value": "{space.0375-x}"
       }
     },
+
     "item": {
       "font": {
         "size": {

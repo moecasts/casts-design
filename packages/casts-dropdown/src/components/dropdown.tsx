@@ -34,6 +34,7 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
     handleClick,
     handleOpenChange,
     ...pick(restProps, [
+      'hideAfterClick',
       'size',
       'maxHeight',
       'minColumnWidth',
