@@ -99,6 +99,7 @@ export const HeadMenuDemo = () => {
         defaultValue="0-2"
         size="small"
         logo={logoComponent}
+        hideAfterClick={false}
         operations={
           <>
             <Button

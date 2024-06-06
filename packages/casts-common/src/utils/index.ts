@@ -15,6 +15,7 @@ export * from './format-size-unit';
 export * from './get-attach';
 export * from './get-keyboard-events';
 export * from './get-offset-top';
+export * from './get-priority-value';
 export * from './get-scroll';
 export * from './get-slide-animation-name';
 export * from './get-style';

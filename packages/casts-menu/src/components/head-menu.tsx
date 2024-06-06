@@ -31,6 +31,8 @@ export const HeadMenu = forwardRef(
 
       items,
 
+      hideAfterClick,
+
       ...restProps
     } = propsWithDefault;
 
@@ -51,6 +53,7 @@ export const HeadMenu = forwardRef(
       popupPlacement,
       collapse,
       onChange,
+      hideAfterClick,
     };
 
     const { elements } = useMenuElements(items);
@@ -61,7 +64,12 @@ export const HeadMenu = forwardRef(
           className={classes}
           ref={ref}
           style={styles}
-          {...omit(restProps, ['className', 'style', 'width'])}
+          {...omit(restProps, [
+            'className',
+            'style',
+            'width',
+            'hideAfterClick',
+          ])}
         >
           {prefix && <div className={prefixClasses}>{prefix}</div>}
           {logo && <div className={logoClasses}>{logo}</div>}

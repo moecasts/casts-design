@@ -19,6 +19,14 @@ export type UseMenuProps = BaseComponentProps & {
    * Trigger when the activation menu item changes
    */
   onChange?: (value: MenuValue) => void;
+
+  /**
+   * Whether to hide the sub-menu after clicking the menu item
+   * only works when the sub-menu is in `popup `mode
+   *
+   * @default true
+   */
+  hideAfterClick?: boolean;
 };
 
 export type MenuProps = HTMLAttributes<HTMLDivElement> &

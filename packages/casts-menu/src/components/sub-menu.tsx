@@ -5,11 +5,17 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import { isKeyboardConfirm, isUndefined, useCollapse } from '@casts/common';
+import {
+  isKeyboardConfirm,
+  isUndefined,
+  useCollapse,
+  useDefaultProps,
+} from '@casts/common';
 import { FlipVerticalArrowLine } from '@casts/icons';
-import { Popup } from '@casts/popup';
+import { Popup, PopupProps } from '@casts/popup';
 import { CdsMotionDurationFast } from '@casts/theme';
 
+import { defaultSubMenuProps } from './default-props';
 import { useMenuContext, useSubMenu } from './hooks';
 import { SubMenuProvider } from './menu-context';
 import { MenuItem } from './menu-item';
@@ -22,11 +28,10 @@ export const DEFAULT_DURATION = parseFloat(CdsMotionDurationFast);
 
 export const SubMenu = forwardRef(
   (props: SubMenuProps, ref: Ref<HTMLDivElement>) => {
-    const { prefixIcon, label, children } = props;
+    const propsWithDefault = useDefaultProps(props, defaultSubMenuProps);
+    const { prefixIcon, label, children } = propsWithDefault;
 
     const duration = DEFAULT_DURATION;
-
-    const popupProps = { ...props.popupProps };
 
     const {
       classes,
@@ -41,7 +46,8 @@ export const SubMenu = forwardRef(
       disabled,
       focusable,
       level,
-    } = useSubMenu(props);
+      hideAfterClick,
+    } = useSubMenu(propsWithDefault);
 
     const menuContext = useMenuContext();
 
@@ -69,6 +75,11 @@ export const SubMenu = forwardRef(
             },
           }
         : {};
+
+    const popupProps: Partial<PopupProps> = { ...propsWithDefault.popupProps };
+    if (expandType === 'popup') {
+      popupProps.visible = open;
+    }
 
     const getFlip = () => {
       if (expandType !== 'popup') {
@@ -100,6 +111,7 @@ export const SubMenu = forwardRef(
         <Popup
           className={popupClasses}
           content={children}
+          visible={expandType === 'popup' && open}
           onVisibleChange={handleSubOpenChange}
           disabled={disabled || expandType !== 'popup'}
           attach={rootRef}
@@ -122,7 +134,14 @@ export const SubMenu = forwardRef(
     );
 
     return (
-      <SubMenuProvider open={open} disabled={disabled} level={level}>
+      <SubMenuProvider
+        open={open}
+        onOpenChange={handleSubOpenChange}
+        disabled={disabled}
+        level={level}
+        expandType={expandType}
+        hideAfterClick={hideAfterClick}
+      >
         <div className={classes} ref={rootRef}>
           {childComponent}
         </div>

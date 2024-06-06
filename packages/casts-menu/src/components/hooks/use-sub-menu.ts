@@ -1,5 +1,5 @@
 import { CSSProperties, useState } from 'react';
-import { formatSizeUnit } from '@casts/common';
+import { formatSizeUnit, getPriorityValue, has } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import clsx from 'clsx';
@@ -9,15 +9,28 @@ import { isExpandNormal, isSubMenuChildrenActive } from '../utils';
 import { useMenuContext, useSubMenuContext } from './use-menu-context';
 
 export const useSubMenu = (props: UseSubMenuProps) => {
-  const { className, children } = props;
+  const { className, children, ...rest } = props;
   const { getPrefixCls } = useConfig();
 
   const menuContext = useMenuContext();
   const { size, active, collapse } = menuContext;
 
+  const parentContext = useSubMenuContext();
+
+  const hideAfterClick = getPriorityValue(
+    props.hideAfterClick,
+    parentContext.hideAfterClick,
+    menuContext.hideAfterClick,
+  );
+
   const expandType = collapse ? 'popup' : menuContext.expandType;
 
-  const [open, setOpen] = useState(false);
+  const [_open, setOpen] = useState(false);
+
+  const open =
+    has(parentContext, 'open') && expandType === 'popup'
+      ? parentContext.open && _open
+      : _open;
 
   const prefixCls = getPrefixCls('sub-menu');
 
@@ -71,22 +84,25 @@ export const useSubMenu = (props: UseSubMenuProps) => {
 
   /* --------------------------------- popup ---------------------------------------- */
   const popupClasses = clsx(`${prefixCls}-popup`);
-  const handlePopupVisibleChange: PopupProps['onVisibleChange'] = (visible) => {
-    setOpen(visible);
-  };
 
-  const handleSubOpenChange = (open: boolean) => {
+  const handleSubOpenChange: PopupProps['onVisibleChange'] = (
+    open: boolean,
+  ) => {
     if (disabled) {
       return;
     }
 
     setOpen(open);
+    if (expandType === 'popup') {
+      parentContext.onOpenChange?.(open);
+    }
   };
 
   /* --------------------------------- arrow ---------------------------------------- */
   const arrowClasses = clsx(`${prefixCls}-arrow`);
 
   return {
+    ...rest,
     classes,
     subClasses,
     subStyles,
@@ -96,11 +112,12 @@ export const useSubMenu = (props: UseSubMenuProps) => {
     labelClasses,
     popupClasses,
     arrowClasses,
-    handlePopupVisibleChange,
     handleSubOpenChange,
     open,
     disabled,
     focusable,
     level,
+    expandType,
+    hideAfterClick,
   };
 };

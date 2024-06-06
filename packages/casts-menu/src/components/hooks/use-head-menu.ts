@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { UseHeadMenuProps } from '../types';
 
 export const useHeadMenu = (props: UseHeadMenuProps) => {
-  const { size, className, style } = props;
+  const { size, className, style, ...rest } = props;
 
   /* --------------------------------- classes ---------------------------------------- */
   const { getPrefixCls } = useConfig();
@@ -22,6 +22,7 @@ export const useHeadMenu = (props: UseHeadMenuProps) => {
   const operationsClasses = `${prefixCls}-operations`;
 
   return {
+    ...rest,
     classes,
     styles,
 

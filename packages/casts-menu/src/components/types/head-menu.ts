@@ -12,6 +12,14 @@ export type UseHeadMenuProps = BaseComponentProps & {
    * Whether menu automatically collapses when it overflows
    */
   collapse?: boolean;
+
+  /**
+   * Whether to hide the sub-menu after clicking the menu item
+   * only works when the sub-menu is in `popup `mode
+   *
+   * @default true
+   */
+  hideAfterClick?: boolean;
 };
 
 export type HeadMenuProps = Omit<HTMLAttributes<HTMLDivElement>, 'prefix'> &

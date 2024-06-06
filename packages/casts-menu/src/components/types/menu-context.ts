@@ -27,6 +27,8 @@ export type MenuContextProps = MenuState & {
    * Trigger when the activation menu item changes
    */
   onChange?: (value: MenuValue) => void;
+
+  hideAfterClick?: boolean;
 };
 
 export type UseMenuProviderProps = MenuContextProps &
@@ -41,9 +43,15 @@ export type MenuProviderProps = BaseComponentProps & UseMenuProviderProps;
 export type SubMenuContextProps = {
   open?: boolean;
 
+  onOpenChange?: (open: boolean) => void;
+
   disabled?: boolean;
 
   level?: number;
+
+  expandType?: SubMenuExpandType;
+
+  hideAfterClick?: boolean;
 };
 
 export type SubMenuProviderProps = BaseComponentProps & SubMenuContextProps;

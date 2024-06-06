@@ -99,6 +99,7 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
             modal={false}
             initialFocus={isNested ? -1 : 0}
             returnFocus={!isNested}
+            disabled={true}
           >
             <CSSTransition
               in={open}

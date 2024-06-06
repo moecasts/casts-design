@@ -49,7 +49,7 @@ export const Menu = forwardRef((props: MenuProps, ref: Ref<HTMLDivElement>) => {
         className={classes}
         ref={ref}
         style={styles}
-        {...omit(restProps, ['className', 'style', 'width'])}
+        {...omit(restProps, ['className', 'style', 'width', 'hideAfterClick'])}
       >
         {logo && <div className={logoClasses}>{logo}</div>}
         <ul className={contentClasses}>{children || elements}</ul>
