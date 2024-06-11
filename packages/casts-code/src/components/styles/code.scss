@@ -1,0 +1,45 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/code';
+@import '@casts/theme/styles/scss/vars/code';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$code-prefix-cls: #{$prefix-cls}-code;
+
+.#{$code-prefix-cls} {
+  overflow: hidden;
+  font-family: $code-font-family;
+  font-size: $code-font-size;
+  border-radius: $code-radius;
+
+  .prism-code {
+    padding: $code-space 0;
+    margin: 0;
+    overflow: auto;
+    overflow: overlay;
+    font-family: inherit;
+
+    @include scrollbar(8px, 2px);
+  }
+
+  .token-line {
+    display: table-row;
+    background-color: inherit;
+
+    & > *:first-child {
+      padding-left: $code-line-number-space-left;
+    }
+  }
+
+  .token-line-num {
+    display: table-cell;
+    padding-right: $code-line-number-space-right;
+    padding-left: $code-line-number-space-left;
+    color: $color-text-tertiary;
+    text-align: right;
+    user-select: none;
+    background-color: inherit;
+  }
+}
