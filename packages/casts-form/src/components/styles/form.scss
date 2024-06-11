@@ -1,0 +1,46 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/form';
+@import '@casts/theme/styles/scss/vars/form';
+
+$form-prefix-cls: #{$prefix-cls}-form;
+$form-item-prefix-cls: #{$form-prefix-cls}-item;
+
+.#{$form-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+
+  &--inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .#{$form-item-prefix-cls} {
+      display: flex;
+      margin-right: $space-105-x;
+      margin-bottom: $space-05-x;
+    }
+  }
+
+  &--horizontal {
+    .#{$form-item-prefix-cls} {
+      display: flex;
+    }
+  }
+
+  &--vertical {
+    .#{$form-item-prefix-cls}-label {
+      padding-right: 0;
+    }
+  }
+
+  &--vertical,
+  &--horizontal {
+    .#{$form-item-prefix-cls} {
+      margin-bottom: $space-1025-x;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
