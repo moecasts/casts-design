@@ -1,0 +1,31 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+.icons-demo-container {
+  width: 100%;
+}
+
+.docs-icon-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+
+  width: 100%;
+}
+
+.docs-icon-wrap {
+  width: 100%;
+  transition: color $motion-duration-rapid $motion-easing-in-out;
+
+  &:hover {
+    color: $color-shape-brand-hover;
+  }
+
+  .docs-icon {
+    font-size: $font-size-xlarge;
+  }
+
+  .docs-icon-code {
+    font-size: $font-size-xsmall;
+    font-weight: $font-weight-bold;
+  }
+}
