@@ -1,0 +1,251 @@
+{
+  "color": {
+    "shadow": {
+      "brand": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.brand.500}, 0.08)"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.brand.500}, 0.06)"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.brand.500}, 0.1)"
+        }
+      },
+      "info": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.info.500}, 0.08)"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.info.500}, 0.06)"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.info.500}, 0.1)"
+        }
+      },
+      "success": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.success.500}, 0.08)"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.success.500}, 0.06)"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.success.500}, 0.1)"
+        }
+      },
+      "warning": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.warning.500}, 0.08)"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.warning.500}, 0.06)"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.warning.500}, 0.1)"
+        }
+      },
+      "danger": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.danger.500}, 0.08)"
+        },
+        "hover": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.danger.500}, 0.06)"
+        },
+        "active": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.danger.500}, 0.1)"
+        }
+      },
+      "neutral": {
+        "default": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsla({color.palette.hsl.neutral.900}, 0.15)"
+        }
+      }
+    }
+  },
+  "opacity": {
+    "shadow": {
+      "border": {
+        "value": "0.24",
+        "darkValue": "0.48"
+      }
+    }
+  },
+  "shadow": {
+    "level": {
+      "1": {
+        "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "2px",
+            "blur": "4px",
+            "spread": "-2px",
+            "color": "hsla(0, 0%, 0%,0.12)"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "4px",
+            "blur": "4px",
+            "spread": "-2px",
+            "color": "hsla(0, 0%, 0%,0.08)"
+          }
+        ]
+      },
+      "2": {
+        "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "4px",
+            "blur": "6px",
+            "spread": "-4px",
+            "color": "hsla(0, 0%, 0%,0.12)"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "8px",
+            "blur": "8px",
+            "spread": "-4px",
+            "color": "hsla(0, 0%, 0%,0.08)"
+          }
+        ]
+      },
+      "3": {
+        "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "6px",
+            "blur": "12px",
+            "spread": "-6px",
+            "color": "hsla(0, 0%, 0%,0.12)"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "8px",
+            "blur": "24px",
+            "spread": "-4px",
+            "color": "hsla(0, 0%, 0%,0.08)"
+          }
+        ]
+      },
+      "4": {
+        "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "6px",
+            "blur": "14px",
+            "spread": "-6px",
+            "color": "hsla(0, 0%, 0%,0.12)"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "10px",
+            "blur": "32px",
+            "spread": "-4px",
+            "color": "hsla(0, 0%, 0%,0.1)"
+          }
+        ]
+      },
+      "5": {
+        "value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "hsla({color.palette.hsl.neutral.1000}, {opacity.shadow.border})"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "8px",
+            "blur": "28px",
+            "spread": "-6px",
+            "color": "hsla(0, 0%, 0%,0.12)"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "18px",
+            "blur": "88px",
+            "spread": "-4px",
+            "color": "hsla(0, 0%, 0%,0.14)"
+          }
+        ]
+      }
+    }
+  }
+}

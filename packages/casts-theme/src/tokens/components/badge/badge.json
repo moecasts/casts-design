@@ -1,0 +1,54 @@
+{
+  "badge": {
+    "color": {
+      "text": {
+        "default": {
+          "value": "{color.text.anti}"
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "{color.shape.danger.default}"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "{color.palette.white}"
+        }
+      }
+    },
+    "count": {
+      "font": {
+        "size": {
+          "value": "{font.size.xsmall}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.xsmall}"
+      }
+    },
+    "text": {
+      "font": {
+        "size": {
+          "value": "{font.size.small}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.small}"
+      }
+    },
+    "dot": {
+      "size": {
+        "default": {
+          "attributes": {
+            "category": "size"
+          },
+          "value": "8px"
+        }
+      }
+    },
+    "space": {
+      "value": "{space.05-x}"
+    }
+  }
+}
