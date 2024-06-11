@@ -1,0 +1,11 @@
+{
+  "extends": "@casts/standard/dist/cjs/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist/cjs",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "target": "ES2019"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["templates"]
+}
