@@ -1,10 +1,10 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: deploy static content to pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ['main', 'ci/site-deploy']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,37 +21,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  build-artifacts:
+    uses: ./.github/workflows/packages-build.yaml
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    needs: build-artifacts
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup-environment
+        uses: ./.github/actions/setup-environment
+
+      - name: restore build artifacts
+        uses: actions/cache/restore@v4
         with:
-          version: 7
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Build deps
-        run: pnpm --filter '@casts/*' build
-      - name: Build site
+          path: |
+            packages/*/dist
+          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/*/src/**/*,packages/*/package.json') }}
+
+      - name: build site
         run: pnpm --filter 'site' build && cp ./site/dist/index.html ./site/dist/404.html
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+
+      - name: setup pages
+        uses: actions/configure-pages@v5
+
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist repository
+          # upload dist repository
           path: './site/dist'
-      - name: Deploy to GitHub Pages
+
+      - name: deploy to github pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

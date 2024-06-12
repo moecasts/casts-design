@@ -1,0 +1,46 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: packages build
+
+on:
+  workflow_call:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup-environment
+        uses: ./.github/actions/setup-environment
+
+      # The icons package is too large, so it will be built separately and optimized with caching.
+      - name: cache build icon artifacts
+        id: cache-build-icons-artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/casts-icons/dist
+          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/casts-icons/src,packages/casts-icons/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-icons-artifacts-
+
+      - name: build icons package
+        if: steps.cache-build-icons-artifacts.outputs.cache-hit != 'true'
+        run: pnpm --filter '@casts/icons' build
+        shell: bash
+
+      - name: cache build artifacts
+        id: cache-build-artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/dist
+          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/*/src/**/*,packages/*/package.json') }}
+
+      - name: build all packages (expect built packages)
+        if: ${{ steps.cache-build-artifacts.outputs.cache-hit != 'true' }}
+        run: pnpm --filter "@casts/*" --filter=!'./packages/casts-icons' --filter=!'./packages/casts-(standard|cli|theme|common|config-provider|locale)'  build
+        shell: bash
