@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: packages build
+name: build-packages
 
 on:
   workflow_call:
@@ -17,15 +17,13 @@ jobs:
         uses: ./.github/actions/setup-environment
 
       # The icons package is too large, so it will be built separately and optimized with caching.
-      - name: cache build icon artifacts
+      - name: cache build icons artifacts
         id: cache-build-icons-artifacts
         uses: actions/cache@v4
         with:
           path: |
             packages/casts-icons/dist
-          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/casts-icons/src,packages/casts-icons/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-icons-artifacts-
+          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/casts-icons/src', 'packages/casts-icons/package.json') }}
 
       - name: build icons package
         if: steps.cache-build-icons-artifacts.outputs.cache-hit != 'true'
@@ -38,7 +36,7 @@ jobs:
         with:
           path: |
             packages/*/dist
-          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/*/src/**/*,packages/*/package.json') }}
+          key: ${{ runner.os }}-build-artifacts-${{ hashfiles('packages/*/src', 'packages/*/package.json') }}
 
       - name: build all packages (expect built packages)
         if: ${{ steps.cache-build-artifacts.outputs.cache-hit != 'true' }}

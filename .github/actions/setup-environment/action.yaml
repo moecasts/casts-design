@@ -35,7 +35,7 @@ runs:
           packages/casts-common/dist
           packages/casts-config-provider/dist
           packages/casts-locale/dist
-        key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/casts-standard/dist, packages/casts-standard/package.json, packages/casts-cli/dist, packages/casts-cli/package.json, packages/casts-theme/dist, packages/casts-theme/styles, packages/casts-theme/package.json, packages/casts-common/dist, packages/casts-common/package.json, packages/casts-config-provider/dist, packages/casts-config-provider/package.json, packages/casts-locale/dist, packages/casts-locale/package.json') }}
+        key: ${{ runner.os }}-build-base-artifacts-${{ hashfiles('packages/casts-standard/dist', 'packages/casts-standard/package.json', 'packages/casts-cli/dist', 'packages/casts-cli/package.json', 'packages/casts-theme/dist', 'packages/casts-theme/styles', 'packages/casts-theme/package.json', 'packages/casts-common/dist', 'packages/casts-common/package.json', 'packages/casts-config-provider/dist', 'packages/casts-config-provider/package.json', 'packages/casts-locale/dist', 'packages/casts-locale/package.json') }}
 
     - name: build base packages
       if: ${{ steps.cache-build-base-artifacts.outputs.cache-hit != 'true' }}

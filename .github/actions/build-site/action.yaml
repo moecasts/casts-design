@@ -1,0 +1,17 @@
+name: build site
+
+description: build site artifacts
+
+runs:
+  using: 'composite'
+  steps:
+    - name: restore build artifacts
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          packages/*/dist
+        key: ${{ runner.os }}-build-artifacts-${{ hashfiles('packages/*/src', 'packages/*/package.json') }}
+
+    - name: build site
+      run: pnpm --filter 'site' build && cp ./site/dist/index.html ./site/dist/404.html
+      shell: bash
