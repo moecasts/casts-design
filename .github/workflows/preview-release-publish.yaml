@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: deploy static content to pages
+name: preview release publish
 
 on:
   # Runs on pushes targeting the default branch
@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   build-artifacts:
-    uses: ./.github/workflows/packages-build.yaml
+    uses: ./.github/workflows/build-packages.yaml
 
   deploy:
     environment:
@@ -37,15 +37,8 @@ jobs:
       - name: setup-environment
         uses: ./.github/actions/setup-environment
 
-      - name: restore build artifacts
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            packages/*/dist
-          key: ${{ runner.os }}-build-icons-artifacts-${{ hashfiles('packages/*/src/**/*,packages/*/package.json') }}
-
       - name: build site
-        run: pnpm --filter 'site' build && cp ./site/dist/index.html ./site/dist/404.html
+        uses: ./.github/actions/build-site
 
       - name: setup pages
         uses: actions/configure-pages@v5
@@ -53,7 +46,6 @@ jobs:
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # upload dist repository
           path: './site/dist'
 
       - name: deploy to github pages
