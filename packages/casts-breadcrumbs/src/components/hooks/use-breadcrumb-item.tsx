@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { CSSProperties, useCallback, useRef, useState } from 'react';
 import { formatSizeUnit } from '@casts/common';
 import { useConfig, useLink } from '@casts/config-provider';
 import { clsx } from 'clsx';
@@ -22,7 +22,7 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
 
   const { handleLinkClick } = useLink(props);
 
-  const breadcrumbItemRef = useRef<HTMLLIElement>(null);
+  const breadcrumbItemRef = useRef<HTMLLIElement | null>(null);
 
   const {
     maxItemWidth: parentMaxItemWidth,
@@ -52,13 +52,25 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
   const iconClasses = clsx(`${prefixCls}-icon`);
   const contentClasses = clsx(`${prefixCls}-content`);
 
-  useEffect(() => {
-    const isOverflow =
-      breadcrumbItemRef.current?.offsetWidth &&
-      maxItemWidth &&
-      breadcrumbItemRef.current.offsetWidth > parseInt(String(maxItemWidth));
-    setIsOverflow(!!isOverflow);
-  }, [breadcrumbItemRef]);
+  const setBreadcrumbItemRef = useCallback(
+    (node: HTMLLIElement | null) => {
+      if (node === breadcrumbItemRef.current) {
+        return;
+      }
+
+      breadcrumbItemRef.current = node;
+
+      if (breadcrumbItemRef.current !== null) {
+        const isOverflow =
+          breadcrumbItemRef.current?.offsetWidth &&
+          maxItemWidth &&
+          breadcrumbItemRef.current.offsetWidth >
+            parseInt(String(maxItemWidth));
+        setIsOverflow(!!isOverflow);
+      }
+    },
+    [maxItemWidth],
+  );
 
   return {
     ...rest,
@@ -68,10 +80,11 @@ export const useBreadcrumbItem = (props: UseBreadcrumbItemProps) => {
     contentClasses,
     iconClasses,
     handleLinkClick,
-    breadcrumbItemRef,
     isOverflow,
     separator,
     tooltipProps,
+    breadcrumbItemRef,
+    setBreadcrumbItemRef,
   };
 };
 

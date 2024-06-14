@@ -2,7 +2,7 @@ import {
   Children,
   ForwardedRef,
   forwardRef,
-  useEffect,
+  useCallback,
   useImperativeHandle,
   useRef,
 } from 'react';
@@ -22,35 +22,41 @@ BScroll.use(MouseWheel);
 
 export const TabsBar = forwardRef(
   (props: TabsBarProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const barRef = useRef<HTMLDivElement>(null);
-    const barContainerRef = useRef<HTMLDivElement>(null);
+    const barRef = useRef<HTMLDivElement | null>(null);
     const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
     const barScrollRef = useRef<BScrollInstance>();
 
-    useEffect(() => {
-      if (!barRef.current || barScrollRef.current) {
+    const setBarRef = useCallback((node: HTMLDivElement | null) => {
+      if (node === barRef.current || barScrollRef.current) {
         return;
       }
 
-      barScrollRef.current = new BScroll(barRef.current, {
-        probeType: 3,
-        scrollY: false,
-        scrollX: true,
-        bounce: false,
-        click: true,
-        momentum: true,
-        swipeTime: parseFloat(CdsMotionDurationSustained),
-        swipeBounceTime: parseFloat(CdsMotionDurationImmediate),
-        disableTouch: false,
-        disableMouse: false,
-        mouseWheel: {
-          speed: 20,
-          invert: false,
-          easeTime: parseFloat(CdsMotionDurationRapid),
-        },
-      });
-    }, [barRef]);
+      barRef.current = node;
+
+      if (barRef.current !== null) {
+        barScrollRef.current = new BScroll(barRef.current, {
+          probeType: 3,
+          scrollY: false,
+          scrollX: true,
+          bounce: false,
+          click: true,
+          momentum: true,
+          swipeTime: parseFloat(CdsMotionDurationSustained),
+          swipeBounceTime: parseFloat(CdsMotionDurationImmediate),
+          disableTouch: false,
+          disableMouse: false,
+          mouseWheel: {
+            speed: 20,
+            invert: false,
+            easeTime: parseFloat(CdsMotionDurationRapid),
+          },
+        });
+        return;
+      }
+
+      barScrollRef.current = undefined;
+    }, []);
 
     const items = Children.map(props.items, (child, index) => {
       const { label, value, disabled } = child.props;
@@ -81,12 +87,10 @@ export const TabsBar = forwardRef(
         tabIndex={-1}
         className={classes}
         style={styles}
-        ref={barRef}
+        ref={setBarRef}
         onKeyDown={(e) => handleKeyDown({ e })}
       >
-        <div className={containerClasses} ref={barContainerRef}>
-          {items}
-        </div>
+        <div className={containerClasses}>{items}</div>
       </div>
     );
   },

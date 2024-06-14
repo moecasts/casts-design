@@ -83,7 +83,9 @@ export const useTabBar = (props: UseTabsBarProps) => {
   useEffect(() => {
     const barContainer = barContainerRef?.current;
     const activeTabItemElement = itemsRef.current?.[currentTabValueIndex];
-    if (!barContainer || !activeTabItemElement) {
+    const barScroll = barScrollRef?.current;
+
+    if (!barContainer || !activeTabItemElement || !barScroll) {
       return;
     }
 
@@ -96,7 +98,8 @@ export const useTabBar = (props: UseTabsBarProps) => {
     );
     const offsetTop = 0;
 
-    barScrollRef.current?.scrollTo(-1 * offsetLeft, -1 * offsetTop);
+    barScroll.scrollTo(-1 * offsetLeft, -1 * offsetTop);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [barContainerRef, barScrollRef, itemsRef, offset]);
 
   return {

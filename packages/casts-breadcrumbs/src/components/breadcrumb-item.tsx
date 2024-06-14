@@ -28,6 +28,7 @@ export const BreadcrumbItem = forwardRef(
       separator,
       shouldRenderSeparator,
       tooltipProps,
+      setBreadcrumbItemRef,
     } = useBreadcrumbItem(propsWithDefault);
 
     const linkProps = useLinkProps(props);
@@ -57,7 +58,7 @@ export const BreadcrumbItem = forwardRef(
     return (
       <>
         <Tooltip content={children} disabled={!isOverflow} {...tooltipProps}>
-          <li className={classes} style={styles} ref={breadcrumbItemRef}>
+          <li className={classes} style={styles} ref={setBreadcrumbItemRef}>
             {content}
           </li>
         </Tooltip>
