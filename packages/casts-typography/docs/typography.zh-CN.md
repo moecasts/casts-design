@@ -14,12 +14,6 @@ description: 排版是关于文字和字体的艺术和技巧。
 $ pnpm add @casts/typography
 ```
 
-## 安装
-
-```bash
-$ pnpm add @casts/typography
-```
-
 <code src="../examples/article.tsx" />
 
 ## Heading 标题

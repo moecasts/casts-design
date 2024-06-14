@@ -14,4 +14,6 @@ description: Icons are visual elements that provide intuitive symbolic represent
 $ pnpm add @casts/icons
 ```
 
-<code src="../examples/icons-demo" />
+import IconsDemo from '../examples/icons-demo.tsx'
+
+<IconsDemo />

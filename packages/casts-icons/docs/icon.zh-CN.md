@@ -14,4 +14,6 @@ description: 图标是视觉元素，用于提供直观的符号表示。
 $ pnpm add @casts/icons
 ```
 
-<code src="../examples/icons-demo" />
+import IconsDemo from '../examples/icons-demo.tsx'
+
+<IconsDemo />
