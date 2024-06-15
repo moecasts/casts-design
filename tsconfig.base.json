@@ -3,9 +3,9 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxFactory": "",
-    "baseUrl": ".",
+    "baseUrl": "./packages",
     "paths": {
-      "@casts/*": ["./packages/casts-*/src"]
+      "@casts/*": ["casts-*/src"]
     }
   },
   "exclude": ["node_modules", "dist", "example"],

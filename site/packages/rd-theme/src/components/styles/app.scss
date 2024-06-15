@@ -245,6 +245,7 @@ html {
 .#{$rd-prefix-cls}-footer {
   padding-top: $space-2-x;
   padding-bottom: $space-1-x;
+  border-top: 1px solid $color-border-divider-default;
 
   .#{$rd-prefix-cls}-copyright {
     color: $color-text-secondary;

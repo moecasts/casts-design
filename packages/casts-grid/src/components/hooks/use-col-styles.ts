@@ -8,7 +8,7 @@ import { BaseColProps, UseColStylesProps } from '../types';
 import { calcColGutterStyles, formatFlex } from '../utils';
 
 export const useColStyles = (props: UseColStylesProps) => {
-  const { span, offset, pull, push, order, style, flex } = props;
+  const { className, span, offset, pull, push, order, style, flex } = props;
   const { getPrefixCls } = useConfig();
   const { gutter, size } = useRowContext();
 
@@ -41,6 +41,7 @@ export const useColStyles = (props: UseColStylesProps) => {
 
   const classes = clsx(
     prefixCls,
+    className,
     {
       [`${prefixCls}-${span}`]: span !== undefined,
       [`${prefixCls}-offset-${offset}`]: offset !== undefined && offset >= 0,

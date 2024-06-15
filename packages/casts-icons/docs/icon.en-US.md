@@ -6,6 +6,7 @@ nav:
   title: Components
   path: /components
 description: Icons are visual elements that provide intuitive symbolic representation.
+toc: false
 ---
 
 ## Installation

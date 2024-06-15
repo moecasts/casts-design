@@ -1,7 +1,7 @@
 {
   "files": ["typings.d.ts", "typings/react-router-dom.d.ts"],
   "extends": "../tsconfig.json",
-  "include": ["src", "packages"],
+  "include": ["src", "packages", "../docs"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
