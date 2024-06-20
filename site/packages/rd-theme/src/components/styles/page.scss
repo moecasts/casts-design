@@ -1,9 +1,35 @@
 @import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/plugins/helper/overflow';
+
+@import './vars';
+
+.#{$rd-prefix-cls}-page {
+  max-width: $breakpoint-xxlarge;
+  padding: $space-2-x $space-105-x;
+  margin: auto;
+  overflow: hidden;
+}
 
 .rd-banner {
   &-container {
+    position: relative;
     display: flex;
     padding: $space-2-x 0;
+  }
+
+  &-bg {
+    position: absolute;
+    top: 0;
+    right: calc(0px - #{$space-105-x});
+    bottom: 0;
+    left: calc(0px - #{$space-105-x});
+    overflow: hidden;
+
+    svg {
+      position: absolute;
+      // z-index: -1;
+      bottom: 0;
+    }
   }
 
   &-content {
@@ -41,7 +67,7 @@
   &-image-container {
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding: $space-3-x;
   }
 
   &-logo {
@@ -49,6 +75,32 @@
     max-width: 320px;
     color: $color-shape-neutral-default;
     fill: currentColor;
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    &-container {
+      flex-direction: column-reverse;
+      padding-top: 0px;
+    }
+
+    &-hero {
+      font-size: $font-size-xxlarge;
+      line-height: $line-height-comfortable;
+    }
+
+    &-description {
+      margin: 0;
+      font-size: $font-size-xlarge;
+      line-height: $line-height-comfortable;
+    }
+
+    &-image-container {
+      padding: $space-1-x;
+    }
+
+    &-logo {
+      max-width: 160px;
+    }
   }
 }
 

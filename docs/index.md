@@ -1,24 +1,23 @@
 ---
 hero:
   title: Casts Design
-  desc: a design system based on react.
+  desc: Modern and easily extensible component libraries
   actions:
     - text: Getting Started
-      link: /components/button
+      link: /components
 features:
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
-    title: Feature 1
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
-    title: Feature 2
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
-    title: Feature 3
-    desc: Balabala
-footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org)
+  - icon: 🎨
+    title: Themeable
+    desc: Since it is developed based on css variables and scss, so you can
+      easily customize the theme.
+  - icon: 🛠️
+    title: Extensible
+    desc: Provides Component and React Hook , so you can implement your own UI
+      based on React Hook.
+  - icon: ⚛️
+    title: Atomic
+    desc: Divided into multiple packages, so you can install only the ones you
+      want. That is, you can control the version of a particular package.
 toc: false
+layout: page
 ---
-
-import { SiteHome } from './components/site-home.tsx';
-
-<SiteHome />

@@ -96,7 +96,7 @@ export const Button = forwardRef(
 
     const linkProps = useLinkProps(propsWithDefault);
 
-    if (variant === 'link') {
+    if (variant === 'link' || linkProps.href) {
       return (
         <a
           {...rest}

@@ -1,22 +1,20 @@
 ---
 hero:
   title: Casts Design
-  desc: 一个基于 React 的组件库。
+  desc: 现代且易扩展的组件库
   actions:
-    - text: 快速上手
-      link: /zh-CN/components/button
+    - text: 开始使用
+      link: /components
 features:
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
-    title: 特性 1
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
-    title: 特性 2
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
-    title: 特性 3
-    desc: Balabala
-footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org)
+  - icon: 🎨
+    title: 自定义主题
+    desc: 由于它是根据 CSS 变量和 SCSS 开发的，因此您可以轻松定制主题。
+  - icon: 🛠️
+    title: 可扩展
+    desc: 提供组件和 React Hook，因此您可以基于 React Hook 实现自己的用户界面。
+  - icon: ⚛️
+    title: 原子化
+    desc: 被划分为多个包，因此您可以只安装您需要的。也就是说，您可以控制特定包的版本。
 toc: false
+layout: page
 ---
-
-## Hello Casts Design!
