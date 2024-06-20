@@ -14,11 +14,10 @@ import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { getPrefixCls } from '../common';
-import { DocBanner } from './doc-features/doc-banner';
 import { FloatButton } from './doc-features/float-button';
-import { SiteContent } from './layout/content';
 import { SiteFooter } from './layout/footer';
 import { Header } from './layout/header';
+import { Router } from './layout/router';
 import { Sidebar } from './layout/sidebar';
 import { useAppContext } from './store/context';
 import { AppProvider } from './store/provider';
@@ -100,8 +99,7 @@ const _App: FC<Partial<ConfigProviderProps>> = () => {
           )}
           <Layout className={`${getPrefixCls('content-layout')}`}>
             <Content className={`${getPrefixCls('content')}`}>
-              <DocBanner />
-              <SiteContent />
+              <Router />
             </Content>
             <Footer className={`${getPrefixCls('footer')}`}>
               <SiteFooter />

@@ -6,6 +6,9 @@ export type SourceMeta = {
   absPath?: string;
   nav?: Record<string, any>;
   group?: Record<string, any>;
+  layout?: 'page' | 'componentDoc';
+  hero?: Record<string, any>;
+  features?: Array<Record<string, any>>;
 };
 
 export type SourceData = {

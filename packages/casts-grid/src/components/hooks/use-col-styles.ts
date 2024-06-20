@@ -14,7 +14,7 @@ export const useColStyles = (props: UseColStylesProps) => {
 
   const prefixCls = getPrefixCls('col');
 
-  const allSizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'];
+  const allSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'];
 
   const sizeClasses = allSizes.reduce((acc, currSize) => {
     const sizeProp = (props as Record<PropertyKey, any>)[currSize];
