@@ -25,12 +25,13 @@ export const useSubMenu = (props: UseSubMenuProps) => {
 
   const expandType = collapse ? 'popup' : menuContext.expandType;
 
-  const [_open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const open =
-    has(parentContext, 'open') && expandType === 'popup'
-      ? parentContext.open && _open
-      : _open;
+  const [_popupOpen, setPopupOpen] = useState(false);
+  const popupOpen =
+    has(parentContext, 'popupOpen') && expandType === 'popup'
+      ? parentContext.popupOpen && _popupOpen
+      : _popupOpen;
 
   const prefixCls = getPrefixCls('sub-menu');
 
@@ -92,10 +93,13 @@ export const useSubMenu = (props: UseSubMenuProps) => {
       return;
     }
 
-    setOpen(open);
     if (expandType === 'popup') {
+      setPopupOpen(open);
       parentContext.onOpenChange?.(open);
+      return;
     }
+
+    setOpen(open);
   };
 
   /* --------------------------------- arrow ---------------------------------------- */
@@ -113,6 +117,7 @@ export const useSubMenu = (props: UseSubMenuProps) => {
     popupClasses,
     arrowClasses,
     handleSubOpenChange,
+    popupOpen,
     open,
     disabled,
     focusable,

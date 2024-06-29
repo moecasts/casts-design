@@ -43,6 +43,8 @@ export type MenuProviderProps = BaseComponentProps & UseMenuProviderProps;
 export type SubMenuContextProps = {
   open?: boolean;
 
+  popupOpen?: boolean;
+
   onOpenChange?: (open: boolean) => void;
 
   disabled?: boolean;

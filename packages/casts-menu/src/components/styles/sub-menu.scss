@@ -55,5 +55,14 @@
     .#{$sub-menu-prefix-cls}-arrow {
       transform: rotate(-90deg) !important;
     }
+
+    .#{$prefix-cls}-popup-content {
+      > *:first-child {
+        margin-top: 0px;
+      }
+      > *:last-child {
+        margin-bottom: 0px;
+      }
+    }
   }
 }

@@ -43,6 +43,7 @@ export const SubMenu = forwardRef(
       arrowClasses,
       handleSubOpenChange,
       open,
+      popupOpen,
       disabled,
       focusable,
       level,
@@ -62,7 +63,7 @@ export const SubMenu = forwardRef(
     ]);
 
     const { collapseRef, collapseStyles } = useCollapse({
-      open: open,
+      open,
       duration,
     });
 
@@ -78,15 +79,15 @@ export const SubMenu = forwardRef(
 
     const popupProps: Partial<PopupProps> = { ...propsWithDefault.popupProps };
     if (expandType === 'popup') {
-      popupProps.visible = open;
+      popupProps.visible = popupOpen;
     }
 
     const getFlip = () => {
       if (expandType !== 'popup') {
-        return open;
+        return popupOpen;
       }
 
-      return !isUndefined(level) && level <= 1 && open;
+      return !isUndefined(level) && level <= 1 && popupOpen;
     };
 
     const innerComponent = (
@@ -106,12 +107,25 @@ export const SubMenu = forwardRef(
       </MenuItem>
     );
 
+    const getWholeSubStyles = () => {
+      const styles = {
+        ...subStyles,
+        ...collapseStyles,
+      };
+
+      if (expandType === 'popup') {
+        styles.display = 'none';
+      }
+
+      return styles;
+    };
+
     const childComponent = (
       <>
         <Popup
           className={popupClasses}
           content={children}
-          visible={expandType === 'popup' && open}
+          visible={popupOpen}
           onVisibleChange={handleSubOpenChange}
           disabled={disabled || expandType !== 'popup'}
           attach={rootRef}
@@ -120,22 +134,21 @@ export const SubMenu = forwardRef(
         >
           {innerComponent}
         </Popup>
-        {expandType === 'normal' && (
-          <ul
-            className={subClasses}
-            ref={collapseRef as Ref<HTMLUListElement>}
-            style={{ ...subStyles, ...collapseStyles }}
-            aria-hidden={!open || disabled}
-          >
-            {children}
-          </ul>
-        )}
+        <ul
+          className={subClasses}
+          ref={collapseRef as Ref<HTMLUListElement>}
+          style={getWholeSubStyles()}
+          aria-hidden={!open || disabled}
+        >
+          {children}
+        </ul>
       </>
     );
 
     return (
       <SubMenuProvider
         open={open}
+        popupOpen={popupOpen}
         onOpenChange={handleSubOpenChange}
         disabled={disabled}
         level={level}
