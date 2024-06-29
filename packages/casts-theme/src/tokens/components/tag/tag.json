@@ -333,7 +333,7 @@
               "value": "{color.text.neutral.disabled}"
             },
             "on-solid": {
-              "value": "{color.text.anti-disabled}"
+              "value": "{color.text.anti}"
             }
           }
         }

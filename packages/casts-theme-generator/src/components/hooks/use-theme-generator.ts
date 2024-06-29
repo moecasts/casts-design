@@ -50,7 +50,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
     props,
     'mode',
     props.onModeChange || noop,
-    'light',
+    'default',
   );
 
   const { circleTransition } = useCircleTransition();
@@ -66,14 +66,15 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   /* --------------------------------- events ---------------------------------------- */
 
   const debounceGeneratePalettes = useDebounceFn(
-    (mainColors: MainColor[], mode: ThemeMode = 'light') => {
+    (mainColors: MainColor[], mode: ThemeMode = 'default') => {
       const update = () => {
         const reverse = mode === 'dark' ? true : false;
 
         const palettes = generatePalettes(mainColors, reverse);
 
         const cssCodes = toCssVariables(palettes);
-        document.documentElement.setAttribute('theme-mode', 'custom');
+        document.documentElement.setAttribute('theme-mode', mode);
+        document.documentElement.setAttribute('theme-palette', 'custom');
         appendThemeVariablesToHead(cssCodes);
       };
 
@@ -104,7 +105,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   };
 
   const handleModeChange = (reverse: boolean) => {
-    const mode = reverse ? 'dark' : 'light';
+    const mode = reverse ? 'dark' : 'default';
     setMode(mode);
 
     debounceGeneratePalettes.run(mainColors, mode);

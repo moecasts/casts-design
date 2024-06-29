@@ -2,11 +2,11 @@ import { BaseComponentProps } from '@casts/common';
 
 import { MainColor } from './common';
 
-export type ThemeMode = 'light' | 'dark';
+export type ThemeMode = 'default' | 'dark';
 
 export type UseThemeGeneratorProps = BaseComponentProps & {
   /**
-   * mode switchable: light or dark
+   * mode switchable: default or dark
    */
   modeSwitchable?: boolean;
 

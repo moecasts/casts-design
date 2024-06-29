@@ -3,7 +3,7 @@
     "color": {
       "surface": {
         "disabled": {
-          "value": "{color.surface.container.disabled}"
+          "value": "{color.surface.component.disabled}"
         }
       },
       "border": {
@@ -46,7 +46,6 @@
           "disabled": {
             "value": "{color.shape.neutral.disabled}"
           },
-
           "text": {
             "active": {
               "value": "{color.text.anti}"

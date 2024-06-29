@@ -301,7 +301,7 @@ export const toCssVariables = (palettes: Palettes) => {
   };
 
   const cssVariables =
-    ':root[theme-mode="custom"] {\n' +
+    ':root[theme-palette="custom"] {\n' +
     reduce(
       palettes,
       (allCode, palette, category) => {

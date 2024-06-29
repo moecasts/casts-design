@@ -15,7 +15,7 @@ export const FloatButton = () => {
   const [themeGeneratorVisible, setThemeGeneratorVisible] = useState(false);
 
   const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
-    return themeStorage.get()?.mode || 'light';
+    return themeStorage.get()?.mode || 'default';
   });
 
   const [themeMainColors, setThemeMainColors] = useState<MainColor[]>(() => {

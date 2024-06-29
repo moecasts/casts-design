@@ -20,6 +20,7 @@ export const AppProvider: FC<{ children: ReactNode }> = (props) => {
     }
 
     document.documentElement.setAttribute('theme-mode', appContext.themeMode);
+    document.documentElement.removeAttribute('theme-palette');
   }, [appContext.themeMode]);
 
   return (

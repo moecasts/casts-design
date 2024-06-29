@@ -265,19 +265,23 @@
           },
           "100": {
             "value": "0, 0%, 97%",
-            "darkValue": "0, 0%, 6%"
+            "darkValue": "0, 0%, 5%"
+          },
+          "150": {
+            "value": "0, 0%, 96.5%",
+            "darkValue": "0, 0%, 8%"
           },
           "200": {
             "value": "0, 0%, 95%",
-            "darkValue": "0, 0%, 10%"
+            "darkValue": "0, 0%, 15%"
           },
           "300": {
             "value": "0, 0%, 93%",
-            "darkValue": "0, 0%, 13%"
+            "darkValue": "0, 0%, 18%"
           },
           "400": {
             "value": "0, 0%, 90%",
-            "darkValue": "0, 0%, 18%"
+            "darkValue": "0, 0%, 21%"
           },
           "500": {
             "value": "0, 0%, 60%",
@@ -285,19 +289,19 @@
           },
           "600": {
             "value": "0, 0%, 40%",
-            "darkValue": "0, 0%, 70%"
+            "darkValue": "0, 0%, 75%"
           },
           "700": {
             "value": "0, 0%, 28%",
-            "darkValue": "0, 0%, 75%"
+            "darkValue": "0, 0%, 78%"
           },
           "800": {
             "value": "0, 0%, 18%",
-            "darkValue": "0, 0%, 86%"
+            "darkValue": "0, 0%, 87%"
           },
           "900": {
             "value": "0, 0%, 6%",
-            "darkValue": "0, 0%, 93%"
+            "darkValue": "0, 0%, 95%"
           },
           "1000": {
             "value": "0, 0%, 0%",
@@ -695,6 +699,12 @@
             "category": "color"
           },
           "value": "hsl({color.palette.hsl.neutral.100})"
+        },
+        "150": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.150})"
         },
         "200": {
           "attributes": {

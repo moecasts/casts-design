@@ -9,7 +9,7 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
 
   const darkSelector = `${selector}[theme-mode="dark"]`;
 
-  const darkColors = formatHelpers
+  const darkTokens = formatHelpers
     .formattedVariables({
       format: 'css',
       dictionary: {
@@ -19,10 +19,15 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
             return token.darkValue;
           })
           .map((token) => {
-            const { value: _value, ...restToken } = token;
+            const { value: _value, darkValue, original, ...restToken } = token;
+
             return {
               ...restToken,
-              value: token.darkValue,
+              value: darkValue,
+              original: {
+                ...original,
+                value: original.darkValue,
+              },
             };
           }),
       },
@@ -30,8 +35,8 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
     })
     .replace(new RegExp(`--${prefix}`, 'g'), '--#{$prefix-cls}');
 
-  const darkColorsCss =
-    darkSelector && darkColors ? `${darkSelector} {\n${darkColors}\n}\n` : '';
+  const darkTokensCss =
+    darkSelector && darkTokens ? `${darkSelector} {\n${darkTokens}\n}\n` : '';
 
   return [
     formatHelpers.fileHeader({ file, commentStyle: 'short' }),
@@ -46,6 +51,6 @@ export const scssWithCssVariablesFormat: Formatter = (args) => {
         })
         .replace(new RegExp(`--${prefix}`, 'g'), '--#{$prefix-cls}') +
       '\n}\n',
-    darkColorsCss,
+    darkTokensCss,
   ].join('\n');
 };
