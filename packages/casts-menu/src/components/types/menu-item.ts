@@ -18,6 +18,8 @@ export type UseMenuItemProps = BaseComponentProps &
     focusable?: boolean;
 
     label?: ReactNode;
+
+    hideAfterClick?: boolean;
   };
 
 export type MenuItemProps = UseMenuItemProps & {

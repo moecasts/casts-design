@@ -101,6 +101,7 @@ export const SubMenu = forwardRef(
         focusable={focusable}
         className={innerClasses}
         style={innerStyles}
+        hideAfterClick={false}
         {...innerEvents}
       >
         {label}

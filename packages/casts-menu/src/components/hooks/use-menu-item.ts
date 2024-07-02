@@ -46,7 +46,7 @@ export const useMenuItem = (props: UseMenuItemProps) => {
     onClick?.({ e: event });
 
     if (
-      subMenuContext.hideAfterClick &&
+      (props.hideAfterClick ?? subMenuContext.hideAfterClick) &&
       subMenuContext.expandType === 'popup'
     ) {
       subMenuContext.onOpenChange?.(false);
