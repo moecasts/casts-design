@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useIsomorphicLayoutEffect } from 'ahooks';
 
-import { formatSizeUnit } from '../utils';
+import { formatSizeUnit, isCanUseDocument } from '../utils';
 
 export type UseScrollLockProps = {
   lock?: boolean;
@@ -14,7 +14,7 @@ export const useScrollLock = (props: UseScrollLockProps = {}) => {
   const {
     lock = false,
     scrollBarSize = 15,
-    container = document?.body,
+    container = isCanUseDocument() ? document?.body : undefined,
   } = props;
 
   const containerOriginStyles = useMemo(() => {

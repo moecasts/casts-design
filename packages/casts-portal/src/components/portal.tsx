@@ -15,6 +15,9 @@ export type PortalProps = {
 export const Portal = forwardRef((props: PortalProps, ref) => {
   const { children } = props;
   const container = useMemo(() => {
+    if (!isCanUseDocument()) {
+      return null;
+    }
     const node = document.createElement('div');
     node.classList.add('cds-portal');
     return node;

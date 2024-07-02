@@ -8,6 +8,7 @@ import {
 } from 'react';
 import BScroll, { BScrollInstance } from '@better-scroll/core';
 import MouseWheel from '@better-scroll/mouse-wheel';
+import { isCanUseDocument } from '@casts/common';
 import {
   CdsMotionDurationImmediate,
   CdsMotionDurationRapid,
@@ -18,7 +19,9 @@ import { useTabBar } from './hooks';
 import { TabsBarItem } from './tabs-bar-item';
 import { TabsBarProps } from './types';
 
-BScroll.use(MouseWheel);
+if (isCanUseDocument()) {
+  BScroll.use(MouseWheel);
+}
 
 export const TabsBar = forwardRef(
   (props: TabsBarProps, ref: ForwardedRef<HTMLDivElement>) => {
