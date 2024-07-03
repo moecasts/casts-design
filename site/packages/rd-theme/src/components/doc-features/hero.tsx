@@ -7,7 +7,7 @@ import { fallbackLocaleCode } from '@casts/rd-vite/common';
 import { Space } from '@casts/space';
 
 // @ts-ignore svgr component
-import { ReactComponent as Favicon } from '../../../../../public/favicon.svg';
+import { ReactComponent as Favicon } from '../../../../../src/assets/favicon.svg';
 // @ts-ignore svgr component
 import { ReactComponent as HomeBanner } from '../../../../../src/assets/home-banner.svg';
 import { prefixCls } from '../../common/constants';
