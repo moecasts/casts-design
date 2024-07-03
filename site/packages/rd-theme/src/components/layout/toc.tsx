@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Anchor, AnchorProps } from '@casts/anchor';
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, isCanUseDocument } from '@casts/common';
 import clsx from 'clsx';
 
 import { getPrefixCls } from '../../common';
@@ -17,7 +17,9 @@ export const Toc: FC<TocProps> = (props) => {
 
   const classes = clsx(prefixCls, className);
 
-  const containerRef = useRef(document.querySelector('.rd-main-content'));
+  const containerRef = useRef(
+    isCanUseDocument() ? document.querySelector('.rd-main-content') : null,
+  );
 
   if (!containerRef.current) {
     return null;

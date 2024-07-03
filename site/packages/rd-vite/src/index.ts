@@ -2,7 +2,7 @@ import { createFormatAwareProcessors } from '@mdx-js/mdx/lib/util/create-format-
 import { Options } from '@mdx-js/rollup';
 import { transformSync } from 'esbuild';
 import { readFileSync } from 'fs';
-import { find } from 'lodash-es';
+import { find, isEmpty } from 'lodash-es';
 import path from 'path';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -17,6 +17,7 @@ import { Locales, locales } from './common';
 import { detectMarkdowns, remarkReactApi } from './node';
 import { rehypeToc, remarkCodeBlock, remarkCodeBlockReplacer } from './node';
 import { getRuntimeImports } from './node/provider';
+import { generateRoutes } from './node/provider/sitemap';
 import { ResolveFunction, ResolverRef } from './types';
 import { customizeTOC } from './utils';
 
@@ -108,6 +109,8 @@ const createPlugin = (userConfig: RdConfig = {}) => {
 
   let alias: Alias[];
 
+  let routes: any[] = [];
+
   const plugin: PluginOption = {
     name: 'rd-vite',
     enforce: 'pre',
@@ -136,6 +139,8 @@ const createPlugin = (userConfig: RdConfig = {}) => {
         const providerContent = readFileSync(
           path.join(__dirname, './node/provider/virtual.ts'),
         );
+
+        routes = generateRoutes({ sources: markdownSources });
 
         const content = `
           ${providerContent.toString()};
@@ -239,6 +244,18 @@ const createPlugin = (userConfig: RdConfig = {}) => {
     // transformIndexHtml(html) {
     //   console.log('这里是transformIndexHtml钩子', { html });
     // },
+
+    generateBundle() {
+      if (isEmpty(routes)) {
+        return;
+      }
+
+      this.emitFile({
+        fileName: 'routes-manifest.json',
+        type: 'asset',
+        source: JSON.stringify(routes, undefined, 2),
+      });
+    },
   };
 
   return plugin;

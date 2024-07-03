@@ -1,27 +1,17 @@
-import { createElement, lazy } from 'react';
 import { find, isEmpty } from 'lodash-es';
 import { RouteObject } from 'react-router-dom';
 
-import { RuntimeImport, Source } from '../../types';
+import { ResolveFunction, Source } from '../../types';
+import { parsePath } from '../../utils';
 import { orderRoutes } from '../../utils/order-routes';
-import { ensureSlashStartPath, parsePath } from '../../utils/path';
 import { getNavFromSource } from './nav';
 
-const NonLeafRouteOutlet = lazy(() =>
-  import('../../client/components').then(({ NonLeafRouteOutlet }) => ({
-    default: NonLeafRouteOutlet,
-  })),
-);
-
-export type GenerateRoutesPayload = {
-  sources: Source[];
-  runtimeImports: Record<string, RuntimeImport>;
+export type DetectMarkdownsOptions = {
+  withMeta?: boolean;
+  resolve?: ResolveFunction;
 };
 
-export const getRoutes = ({
-  sources,
-  runtimeImports,
-}: GenerateRoutesPayload) => {
+export const generateRoutes = ({ sources }: { sources: Source[] }) => {
   const indexRE = /index$/;
   const routes: RouteObject[] = [];
 
@@ -38,14 +28,10 @@ export const getRoutes = ({
         ? paths.slice(0, -1).join('/') || '/'
         : paths.join('/');
 
-      const currentComponent =
-        runtimeImports[ensureSlashStartPath(item.path)].import;
-
       // NOTE: index route must be a leaf
       if (isLeaf) {
         const currentRoute: RouteObject = {
           path: isIndex ? absPath : p,
-          element: createElement(lazy(currentComponent)),
           index: isIndex,
           meta: {
             absPath,
@@ -70,7 +56,6 @@ export const getRoutes = ({
         const currentRoute: RouteObject = {
           path: p || '/',
           children,
-          element: createElement(NonLeafRouteOutlet),
         };
 
         currentLevelRoutes.push(currentRoute);
@@ -103,7 +88,6 @@ export const getRoutes = ({
             .replace('.tsx', '')
             .replace(/(\.)+\/?/g, '')
             .replace(/\//g, '-'),
-          element: createElement('span', {}, 'test'),
           meta: item.meta,
         };
 
