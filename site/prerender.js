@@ -17,10 +17,6 @@ const prerender = async () => {
   );
 
   const generate = async (route) => {
-    if (route === '/') {
-      return;
-    }
-
     try {
       const result = await render(route);
 

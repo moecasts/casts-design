@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "build:client": "vite build --manifest --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
+    "build:ssg": "tsc && vite build && vite build --outDir dist/server --ssr src/entry-server.tsx && node ./prerender.js && rm -rf dist/server",
     "preview": "vite preview"
   },
   "dependencies": {

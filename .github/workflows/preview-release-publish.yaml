@@ -4,7 +4,7 @@ name: preview release publish
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main', 'ci/site-deploy']
+    branches: ['main', 'ci/site-deploy', 'feature/ssg']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

@@ -14,5 +14,6 @@ runs:
         key: ${{ runner.os }}-build-artifacts-${{ hashfiles('packages/*/src', 'packages/*/package.json', '!packages/casts-theme/src/tokens/ts') }}
 
     - name: build site
-      run: pnpm --filter 'site' build && cp ./site/dist/index.html ./site/dist/404.html
+      # run: pnpm --filter 'site' build && cp ./site/dist/index.html ./site/dist/404.html
+      run: pnpm --filter 'site' build:ssg
       shell: bash
