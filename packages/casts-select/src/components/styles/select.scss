@@ -1,0 +1,105 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/select';
+@import '@casts/theme/styles/scss/vars/select';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+@import '@casts/theme/styles/plugins/helper/overflow';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$select-prefix-cls: #{$prefix-cls}-select;
+
+.#{$select-prefix-cls} {
+  display: inline-flex;
+
+  &-arrow {
+    color: $select-arrow-color-default;
+  }
+
+  &-popup {
+    .#{$prefix-cls}-popup-content {
+      padding: 0px;
+    }
+  }
+
+  @mixin list-style() {
+    display: flex;
+    flex-direction: column;
+    gap: $select-option-space-outer;
+  }
+
+  &-list {
+    @include list-style();
+    max-height: 300px;
+
+    padding: $select-list-space;
+    margin: 0;
+    overflow-y: auto;
+    overflow-y: overlay;
+    list-style: none;
+    @include scrollbar(8px, 2px);
+
+    &-virtual-scroll-container {
+      position: relative;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    &-virtual-scroll-list {
+      @include list-style();
+      position: absolute;
+
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      padding-bottom: $select-list-space;
+    }
+  }
+
+  &-option {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    cursor: pointer;
+
+    @include text-ellipsis();
+
+    @include button-style($selector: #{$select-prefix-cls}-option);
+    @include button-color($selector: #{$select-prefix-cls}-option);
+
+    @include button-space(
+      $space-inset: map-get($select-tokens, select-option-space-inset-medium)
+    );
+
+    .#{$prefix-cls}-checkbox-input {
+      margin-right: 0px;
+    }
+
+    &:hover {
+      .#{$prefix-cls}-checkbox-input {
+        border-color: $color-border-brand-hover;
+      }
+    }
+
+    &-label {
+      @include text-ellipsis();
+    }
+  }
+
+  $select-sizes: 'small', 'medium', 'large';
+
+  @each $size in $select-sizes {
+    &-popup--#{$size} {
+      .#{$select-prefix-cls}-option {
+        @include button-size(
+          $element: select-option,
+          $size: $size,
+          $tokens: $select-tokens
+        );
+      }
+    }
+  }
+}
