@@ -1,0 +1,177 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/vars/menu';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+@import './vars';
+
+.#{$menu-prefix-cls} {
+  display: flex;
+  flex-direction: column;
+  background-color: $menu-color-surface;
+
+  transition-timing-function: $motion-easing-in-out;
+  transition-duration: $motion-duration-rapid;
+  transition-property: width;
+
+  & &-logo {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $menu-space;
+    margin-bottom: 4px;
+    text-align: center;
+    border-bottom: $border-width-xsmall solid $color-border-component-default;
+
+    img {
+      height: 100%;
+      widows: 100%;
+    }
+  }
+
+  &-content {
+    flex: 1;
+    padding: $menu-space;
+    margin: 0;
+  }
+
+  &-operations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $menu-operations-space-gap;
+    padding: $menu-space;
+    border-top: $border-width-xsmall solid $color-border-component-default;
+  }
+
+  @each $size in $sizes {
+    /* --------------------------------- menu logo size ---------------------------------------- */
+    &--#{$size} {
+      .#{$menu-prefix-cls}-logo {
+        height: map-get($menu-tokens, menu-logo-size-#{$size});
+        font-size: map-get($menu-tokens, menu-logo-font-size-#{$size});
+        line-height: map-get($menu-tokens, menu-logo-size-#{$size});
+      }
+
+      .#{$menu-group-prefix-cls}-label {
+        @include button-size(
+          $element: 'menu-item',
+          $size: $size,
+          $tokens: $menu-tokens
+        );
+      }
+    }
+
+    /* --------------------------------- menu item size ---------------------------------------- */
+    @at-root .#{$menu-item-prefix-cls} {
+      &--#{$size} {
+        @include button-size(
+          $element: 'menu-item',
+          $size: $size,
+          $tokens: $menu-tokens
+        );
+      }
+    }
+
+    /* --------------------------------- sub menu size ---------------------------------------- */
+    .#{$sub-menu-prefix-cls} {
+      &--#{$size} {
+        .#{$sub-menu-prefix-cls}-inner {
+          @include button-size(
+            $element: 'menu-item',
+            $size: $size,
+            $tokens: $menu-tokens
+          );
+        }
+
+        .#{$sub-menu-prefix-cls}-arrow {
+          font-size: map-get($menu-tokens, sub-menu-arrow-font-size-#{$size});
+        }
+      }
+    }
+
+    &--collapse.#{$menu-prefix-cls}--#{$size} {
+      width: map-get($menu-tokens, menu-size-#{$size});
+    }
+  }
+
+  .#{$menu-item-prefix-cls} + .#{$menu-item-prefix-cls} {
+    margin-top: $menu-item-space-vertical;
+  }
+
+  .#{$sub-menu-prefix-cls}--popup {
+    .#{$sub-menu-prefix-cls}-arrow {
+      transform: rotate(-90deg) !important;
+    }
+  }
+
+  .#{$menu-item-prefix-cls} {
+    &--inner {
+      transition-timing-function: $motion-easing-in-out;
+      transition-duration: $motion-duration-rapid;
+      transition-property: padding;
+    }
+
+    &-content,
+    &-suffix-icon {
+      transition-timing-function: $motion-easing-in-out;
+      transition-duration: $motion-duration-rapid;
+      transition-property: opacity;
+    }
+  }
+
+  &--collapse {
+    .#{$menu-item-prefix-cls} {
+      &-content,
+      &-suffix-icon {
+        opacity: 0;
+      }
+
+      @each $size in $sizes {
+        /* --------------------------------- menu logo size ---------------------------------------- */
+        &--#{$size} {
+          .#{$menu-item-prefix-cls}-inner {
+            padding: 0
+              calc(
+                50% - map-get($menu-tokens, menu-item-font-size-#{$size}) / 2
+              );
+          }
+        }
+      }
+    }
+
+    .#{$menu-group-prefix-cls}-label {
+      font-size: 0;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        content: '';
+
+        border-bottom: $border-width-xsmall solid
+          $color-border-component-default;
+        transform: translateY(-50%);
+      }
+    }
+
+    .#{$sub-menu-prefix-cls}--popup {
+      .#{$prefix-cls}-popup-content {
+        .#{$menu-item-prefix-cls} {
+          &-inner {
+            padding: 0 $space-075-x 0 var(--padding-indent, $space-075-x);
+          }
+
+          &-content,
+          &-suffix-icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
