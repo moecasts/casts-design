@@ -1,0 +1,83 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/form';
+@import '@casts/theme/styles/scss/vars/form';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+@import '@casts/theme/styles/plugins/helper/theme';
+
+$form-prefix-cls: #{$prefix-cls}-form;
+$form-item-prefix-cls: #{$prefix-cls}-form-item;
+
+.#{$form-item-prefix-cls} {
+  &-label {
+    box-sizing: border-box;
+    min-height: $form-item-label-height;
+
+    padding-right: $space-1-x;
+
+    font-size: 14px;
+    line-height: $form-item-label-line-height;
+    vertical-align: middle;
+
+    &--required {
+      &::before {
+        margin-right: $space-025-x;
+        color: $color-text-danger-default;
+        vertical-align: middle;
+        content: '*';
+      }
+    }
+
+    &--colon {
+      &::after {
+        margin: 0 $space-0125-x;
+        content: ':';
+      }
+    }
+
+    /* --------------------------------- label align ---------------------------------------- */
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+
+  &-control {
+    .#{$form-item-prefix-cls} {
+      margin-bottom: 0;
+    }
+
+    &-content {
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+  }
+
+  /* --------------------------------- extra styles ---------------------------------------- */
+  .#{$form-item-prefix-cls}-extra {
+    overflow: hidden;
+    font-size: $form-item-extra-font-size;
+    line-height: $form-item-extra-line-height;
+  }
+
+  $statuses: 'success', 'warning', 'error';
+
+  @each $status in $statuses {
+    &--#{$status} {
+      &.#{$form-item-prefix-cls} {
+        margin-bottom: 0;
+      }
+
+      .#{$form-item-prefix-cls}-extra {
+        $theme: get-theme-by-status($status);
+        min-height: $form-item-extra-line-height;
+        color: map-get($core-tokens, color-text-#{$theme}-default);
+      }
+    }
+  }
+}
