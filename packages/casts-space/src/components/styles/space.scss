@@ -1,0 +1,10 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+.#{$prefix-cls}-space {
+  display: inline-flex;
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+}
