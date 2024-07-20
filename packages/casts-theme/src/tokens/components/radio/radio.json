@@ -1,0 +1,53 @@
+{
+  "radio": {
+    "color": {
+      "surface": {
+        "disabled": {
+          "value": "{color.surface.component.disabled}"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "{color.border.component.default}"
+        },
+        "hover": {
+          "value": "{color.shape.brand.hover}"
+        },
+        "active": {
+          "value": "{color.shape.brand.active}"
+        },
+        "disabled": {
+          "value": "{color.border.component.disabled}"
+        }
+      },
+      "outline": {
+        "default": {
+          "value": "{color.outline.brand.default}"
+        }
+      }
+    },
+    "font": {
+      "size": {
+        "value": "{font.size.small}"
+      }
+    },
+    "size": {
+      "value": "{size.xxxsmall}"
+    },
+    "lineHeight": {
+      "value": "{lineHeight.small}"
+    },
+    "input": {
+      "inner": {
+        "color": {
+          "active": {
+            "value": "{color.shape.brand.default}"
+          },
+          "disabled": {
+            "value": "{color.shape.neutral.disabled}"
+          }
+        }
+      }
+    }
+  }
+}

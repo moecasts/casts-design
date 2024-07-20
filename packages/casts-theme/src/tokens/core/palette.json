@@ -1,0 +1,784 @@
+{
+  "color": {
+    "palette": {
+      "hsl": {
+        "brand": {
+          "50": {
+            "value": "304, 100%, 97%",
+            "darkValue": "288, 25%, 12%"
+          },
+          "100": {
+            "value": "300, 100%, 97%",
+            "darkValue": "290, 33%, 18%"
+          },
+          "200": {
+            "value": "298, 100%, 94%",
+            "darkValue": "294, 33%, 23%"
+          },
+          "300": {
+            "value": "297, 73%, 81%",
+            "darkValue": "293, 37%, 31%"
+          },
+          "400": {
+            "value": "295, 68%, 70%",
+            "darkValue": "292, 41%, 42%"
+          },
+          "500": {
+            "value": "293, 64%, 60%",
+            "darkValue": "293, 46%, 52%"
+          },
+          "600": {
+            "value": "291, 49%, 47%",
+            "darkValue": "295, 51%, 64%"
+          },
+          "700": {
+            "value": "289, 55%, 35%",
+            "darkValue": "297, 58%, 77%"
+          },
+          "800": {
+            "value": "287, 62%, 25%",
+            "darkValue": "298, 70%, 91%"
+          },
+          "900": {
+            "value": "284, 62%, 15%",
+            "darkValue": "300, 58%, 95%"
+          }
+        },
+        "secondary": {
+          "50": {
+            "value": "4, 100%, 97%",
+            "darkValue": "351, 32%, 12%"
+          },
+          "100": {
+            "value": "4, 100%, 94%",
+            "darkValue": "354, 44%, 17%"
+          },
+          "200": {
+            "value": "2, 100%, 86%",
+            "darkValue": "355, 45%, 22%"
+          },
+          "300": {
+            "value": "0, 87%, 76%",
+            "darkValue": "356, 52%, 28%"
+          },
+          "400": {
+            "value": "358, 78%, 65%",
+            "darkValue": "356, 57%, 38%"
+          },
+          "500": {
+            "value": "356, 71%, 54%",
+            "darkValue": "356, 60%, 47%"
+          },
+          "600": {
+            "value": "354, 68%, 43%",
+            "darkValue": "358, 61%, 59%"
+          },
+          "700": {
+            "value": "352, 76%, 32%",
+            "darkValue": "0, 73%, 72%"
+          },
+          "800": {
+            "value": "350, 83%, 23%",
+            "darkValue": "2, 83%, 84%"
+          },
+          "900": {
+            "value": "349, 84%, 15%",
+            "darkValue": "4, 75%, 92%"
+          }
+        },
+        "info": {
+          "50": {
+            "value": "200, 100%, 96%",
+            "darkValue": "214, 41%, 12%"
+          },
+          "100": {
+            "value": "201, 100%, 88%",
+            "darkValue": "211, 56%, 17%"
+          },
+          "200": {
+            "value": "203, 100%, 81%",
+            "darkValue": "209, 58%, 22%"
+          },
+          "300": {
+            "value": "205, 100%, 73%",
+            "darkValue": "209, 65%, 29%"
+          },
+          "400": {
+            "value": "207, 100%, 65%",
+            "darkValue": "209, 72%, 39%"
+          },
+          "500": {
+            "value": "209, 96%, 56%",
+            "darkValue": "209, 75%, 48%"
+          },
+          "600": {
+            "value": "211, 85%, 45%",
+            "darkValue": "207, 78%, 59%"
+          },
+          "700": {
+            "value": "213, 94%, 35%",
+            "darkValue": "205, 85%, 69%"
+          },
+          "800": {
+            "value": "215, 100%, 26%",
+            "darkValue": "203, 87%, 78%"
+          },
+          "900": {
+            "value": "217, 100%, 19%",
+            "darkValue": "201, 85%, 87%"
+          }
+        },
+        "success": {
+          "50": {
+            "value": "108, 60%, 95%",
+            "darkValue": "120, 21%, 11%"
+          },
+          "100": {
+            "value": "107, 28%, 90%",
+            "darkValue": "118, 32%, 15%"
+          },
+          "200": {
+            "value": "111, 35%, 81%",
+            "darkValue": "115, 35%, 20%"
+          },
+          "300": {
+            "value": "112, 43%, 70%",
+            "darkValue": "117, 38%, 27%"
+          },
+          "400": {
+            "value": "114, 46%, 60%",
+            "darkValue": "116, 43%, 35%"
+          },
+          "500": {
+            "value": "116, 46%, 50%",
+            "darkValue": "116, 45%, 43%"
+          },
+          "600": {
+            "value": "118, 52%, 38%",
+            "darkValue": "114, 36%, 55%"
+          },
+          "700": {
+            "value": "120, 57%, 27%",
+            "darkValue": "112, 37%, 67%"
+          },
+          "800": {
+            "value": "122, 63%, 17%",
+            "darkValue": "111, 30%, 79%"
+          },
+          "900": {
+            "value": "125, 65%, 8%",
+            "darkValue": "107, 24%, 89%"
+          }
+        },
+        "warning": {
+          "50": {
+            "value": "27, 100%, 96%",
+            "darkValue": "13, 39%, 12%"
+          },
+          "100": {
+            "value": "25, 100%, 88%",
+            "darkValue": "15, 54%, 16%"
+          },
+          "200": {
+            "value": "23, 100%, 81%",
+            "darkValue": "18, 57%, 21%"
+          },
+          "300": {
+            "value": "21, 100%, 73%",
+            "darkValue": "17, 65%, 28%"
+          },
+          "400": {
+            "value": "19, 92%, 63%",
+            "darkValue": "17, 71%, 36%"
+          },
+          "500": {
+            "value": "17, 83%, 52%",
+            "darkValue": "17, 75%, 45%"
+          },
+          "600": {
+            "value": "15, 85%, 42%",
+            "darkValue": "19, 72%, 57%"
+          },
+          "700": {
+            "value": "13, 94%, 32%",
+            "darkValue": "21, 85%, 69%"
+          },
+          "800": {
+            "value": "11, 100%, 24%",
+            "darkValue": "23, 87%, 78%"
+          },
+          "900": {
+            "value": "9, 100%, 16%",
+            "darkValue": "26, 85%, 87%"
+          }
+        },
+        "danger": {
+          "50": {
+            "value": "4, 100%, 97%",
+            "darkValue": "349, 38%, 11%"
+          },
+          "100": {
+            "value": "4, 100%, 90%",
+            "darkValue": "353, 51%, 16%"
+          },
+          "200": {
+            "value": "1, 100%, 82%",
+            "darkValue": "355, 53%, 21%"
+          },
+          "300": {
+            "value": "359, 96%, 73%",
+            "darkValue": "355, 61%, 28%"
+          },
+          "400": {
+            "value": "357, 84%, 62%",
+            "darkValue": "355, 67%, 36%"
+          },
+          "500": {
+            "value": "355, 78%, 52%",
+            "darkValue": "355, 71%, 45%"
+          },
+          "600": {
+            "value": "353, 80%, 41%",
+            "darkValue": "357, 67%, 57%"
+          },
+          "700": {
+            "value": "351, 89%, 31%",
+            "darkValue": "359, 81%, 70%"
+          },
+          "800": {
+            "value": "349, 98%, 22%",
+            "darkValue": "1, 86%, 80%"
+          },
+          "900": {
+            "value": "347, 100%, 15%",
+            "darkValue": "4, 83%, 88%"
+          }
+        },
+        "neutral": {
+          "0": {
+            "value": "0, 0%, 100%",
+            "darkValue": "0, 0%, 0%"
+          },
+          "50": {
+            "value": "0, 0%, 99%",
+            "darkValue": "0, 0%, 3%"
+          },
+          "100": {
+            "value": "0, 0%, 97%",
+            "darkValue": "0, 0%, 9%"
+          },
+          "150": {
+            "value": "0, 0%, 96.5%",
+            "darkValue": "0, 0%, 13%"
+          },
+          "200": {
+            "value": "0, 0%, 95%",
+            "darkValue": "0, 0%, 18%"
+          },
+          "300": {
+            "value": "0, 0%, 93%",
+            "darkValue": "0, 0%, 21%"
+          },
+          "400": {
+            "value": "0, 0%, 90%",
+            "darkValue": "0, 0%, 26%"
+          },
+          "500": {
+            "value": "0, 0%, 60%",
+            "darkValue": "0, 0%, 35%"
+          },
+          "600": {
+            "value": "0, 0%, 40%",
+            "darkValue": "0, 0%, 75%"
+          },
+          "700": {
+            "value": "0, 0%, 28%",
+            "darkValue": "0, 0%, 78%"
+          },
+          "800": {
+            "value": "0, 0%, 18%",
+            "darkValue": "0, 0%, 87%"
+          },
+          "900": {
+            "value": "0, 0%, 6%",
+            "darkValue": "0, 0%, 95%"
+          },
+          "1000": {
+            "value": "0, 0%, 0%",
+            "darkValue": "0, 0%, 100%"
+          }
+        }
+      },
+      "brand": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.brand.900})"
+        }
+      },
+      "secondary": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.secondary.900})"
+        }
+      },
+      "info": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.info.900})"
+        }
+      },
+      "success": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.success.900})"
+        }
+      },
+      "warning": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.warning.900})"
+        }
+      },
+      "danger": {
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.100})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.danger.900})"
+        }
+      },
+      "neutral": {
+        "0": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.0})"
+        },
+        "50": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.50})"
+        },
+        "100": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.100})"
+        },
+        "150": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.150})"
+        },
+        "200": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.200})"
+        },
+        "300": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.300})"
+        },
+        "400": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.400})"
+        },
+        "500": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.500})"
+        },
+        "600": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.600})"
+        },
+        "700": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.700})"
+        },
+        "800": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.800})"
+        },
+        "900": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.900})"
+        },
+        "1000": {
+          "attributes": {
+            "category": "color"
+          },
+          "value": "hsl({color.palette.hsl.neutral.1000})"
+        }
+      },
+      "white": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "hsl(0, 0%, 100%)"
+      },
+      "black": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "hsl(0, 0%, 0%)"
+      },
+      "transparent": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "hsla(0, 0%, 0%, 0)"
+      }
+    }
+  }
+}

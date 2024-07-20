@@ -1,0 +1,48 @@
+{
+  "avatar": {
+    "font": {
+      "size": {
+        "small": {
+          "value": "{font.size.medium}"
+        },
+        "medium": {
+          "value": "{font.size.large}"
+        },
+        "large": {
+          "value": "{font.size.xlarge}"
+        }
+      }
+    },
+    "size": {
+      "small": {
+        "value": "{size.small}"
+      },
+      "medium": {
+        "value": "{size.medium}"
+      },
+      "large": {
+        "value": "{size.large}"
+      }
+    },
+    "color": {
+      "surface": {
+        "default": {
+          "value": "{color.palette.neutral.300}"
+        }
+      },
+      "shape": {
+        "default": {
+          "value": "{color.palette.white}"
+        }
+      }
+    },
+    "radius": {
+      "round": {
+        "value": "{radius.medium}"
+      },
+      "circle": {
+        "value": "{radius.circle}"
+      }
+    }
+  }
+}

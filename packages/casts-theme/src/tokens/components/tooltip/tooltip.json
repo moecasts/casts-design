@@ -1,0 +1,10 @@
+{
+  "tooltip": {
+    "space": {
+      "value": "{space.05-x}"
+    },
+    "radius": {
+      "value": "{radius.medium}"
+    }
+  }
+}
