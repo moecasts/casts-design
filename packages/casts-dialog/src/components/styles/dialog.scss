@@ -1,0 +1,106 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/dialog';
+@import '@casts/theme/styles/scss/vars/dialog';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+@import '@casts/theme/styles/plugins/motion/expand';
+
+$dialog-prefix-cls: #{$prefix-cls}-dialog;
+
+@mixin fullscreenStyles() {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.#{$dialog-prefix-cls} {
+  position: relative;
+
+  display: inline-block;
+  width: 100%;
+  max-width: 520px;
+  margin: 0;
+  background-color: $dialog-color-surface;
+  border-radius: $radius-large;
+  box-shadow: $dialog-shadow;
+
+  &-container {
+    @include fullscreenStyles();
+    z-index: $elevation-z-index-dialog;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: $space-105-x;
+
+    overflow: overlay;
+    overflow: auto;
+    text-align: center;
+
+    &--center {
+      padding-top: 0px;
+
+      &::before {
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+        content: '';
+      }
+
+      .#{$dialog-prefix-cls} {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-mask {
+    @include fullscreenStyles();
+    z-index: $elevation-z-index-overlay;
+
+    background-color: $dialog-mask-color-surface;
+  }
+
+  &-body,
+  &-footer {
+    padding: $dialog-space-section-vertical $dialog-space-section-horizontal;
+  }
+
+  &-header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: $dialog-header-size;
+    padding: $dialog-space-header-vertical $dialog-space-section-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    border-block-end: 1px solid $color-border-component-default;
+  }
+
+  &-body {
+    font-size: $font-size-medium;
+    line-height: $line-height-medium;
+  }
+
+  &-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-end;
+    border-block-start: 1px solid $color-border-component-default;
+  }
+
+  &--simple {
+    .#{$dialog-prefix-cls}-header {
+      border-block-end: none;
+    }
+
+    .#{$dialog-prefix-cls}-footer {
+      border-block-start: none;
+    }
+  }
+}
