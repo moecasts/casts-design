@@ -7,14 +7,14 @@ import {
   RowSelectionState,
 } from '@tanstack/react-table';
 
-export type UseTableProps = BaseComponentProps & {
+export type UseTableProps<T = object> = BaseComponentProps & {
   loading?: boolean;
 
   /** table columns */
-  columns: Column[];
+  columns: Column<T>[];
 
   /** table data */
-  data?: object[];
+  data?: Array<T>;
 
   /** Whether to show table bordered */
   bordered?: boolean;
@@ -74,7 +74,7 @@ export type UseTableProps = BaseComponentProps & {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type Row = {};
 
-export type Column = {
+export type Column<T = any, P = any> = {
   /** unique column key */
   key: string;
 
@@ -82,13 +82,11 @@ export type Column = {
   title?: ColumnDefTemplate<HeaderContext<any, unknown>>;
 
   /** column group children */
-  children?: Column[];
+  children?: Column<T>[];
 
   /** (IE not support) Set column to be fixed: true(same as left) 'left' 'right' */
   fixed?: boolean;
-
-  cell?: ColumnDef<any, any>['cell'];
-};
+} & Pick<ColumnDef<T, P>, 'cell' | 'size' | 'maxSize' | 'minSize'>;
 
 export type TableProps = UseTableProps & {
   renderEmpty?: () => ReactNode;

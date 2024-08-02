@@ -1,5 +1,6 @@
 // @ts-ignore example should import React
 import React, { useMemo } from 'react';
+import { Link } from '@casts/link';
 import { Table } from '@casts/table';
 
 const makeData = () => {
@@ -39,6 +40,21 @@ const TableBasicDemo = () => {
         { key: 'address', title: 'address' },
         { key: 'address2', title: 'address2' },
         { key: 'address3', title: 'address3' },
+        {
+          key: 'operate',
+          title: 'operate',
+          size: 100,
+          cell: () => (
+            <Link
+              underline={false}
+              onClick={() => {
+                console.log('click');
+              }}
+            >
+              View
+            </Link>
+          ),
+        },
       ]}
       round
       // rowRound

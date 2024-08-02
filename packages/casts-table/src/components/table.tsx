@@ -1,4 +1,5 @@
 import { forwardRef, Ref, useImperativeHandle } from 'react';
+import { isUndefined, pick, some } from '@casts/common';
 import { Empty } from '@casts/empty';
 import { Pagination } from '@casts/pagination';
 import { CircularProgress } from '@casts/progress';
@@ -57,7 +58,22 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th key={header.id} className={thClasses}>
+                  <th
+                    key={header.id}
+                    className={thClasses}
+                    style={{
+                      width: some(
+                        pick(header.column.columnDef.meta, [
+                          'size',
+                          'minSize',
+                          'maxSize',
+                        ]),
+                        (item) => !isUndefined(item),
+                      )
+                        ? header.getSize()
+                        : undefined,
+                    }}
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(

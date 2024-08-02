@@ -8,7 +8,7 @@ import {
 import { Checkbox } from '@casts/checkbox';
 import {
   formatSizeUnit,
-  identity,
+  isUndefined,
   pickBy,
   useControlledWithUpdater,
 } from '@casts/common';
@@ -42,8 +42,18 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
         header: column.title,
         cell: column.cell,
         footer: column.title,
+        size: column.size,
+        minSize: column.minSize,
+        maxSize: column.maxSize,
+
+        // store meta data to read original config
+        meta: {
+          size: column.size,
+          minSize: column.minSize,
+          maxSize: column.maxSize,
+        },
       },
-      identity,
+      (item) => !isUndefined(item),
     );
 
     if (key === 'row-select') {
