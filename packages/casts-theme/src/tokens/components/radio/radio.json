@@ -8,7 +8,7 @@
       },
       "border": {
         "default": {
-          "value": "{color.border.component.default}"
+          "value": "{color.palette.neutral.400}"
         },
         "hover": {
           "value": "{color.shape.brand.hover}"
