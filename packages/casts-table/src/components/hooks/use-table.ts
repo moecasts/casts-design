@@ -2,6 +2,7 @@ import {
   createElement,
   CSSProperties,
   useCallback,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -171,6 +172,15 @@ export const useTable = (props: UseTableProps) => {
     pageSize: propPagination?.pageSize ?? 10,
     total: propPagination?.total ?? data.length,
   });
+
+  useEffect(() => {
+    setPagination((prev) => ({
+      current: propPagination?.current ?? prev.current,
+      pageSize: propPagination?.pageSize ?? prev.pageSize,
+      total: propPagination?.total ?? prev.total,
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propPagination?.total, pagination?.pageSize, propPagination?.current]);
 
   // const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const [rowSelection, setRowSelection] =
