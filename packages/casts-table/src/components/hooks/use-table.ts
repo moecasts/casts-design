@@ -16,6 +16,7 @@ import {
 import { useConfig } from '@casts/config-provider';
 import { type PaginationProps } from '@casts/pagination';
 import {
+  Column as TanColumn,
   ColumnDef,
   createColumnHelper,
   getCoreRowModel,
@@ -167,6 +168,31 @@ export const useTable = (props: UseTableProps) => {
     [props.columns],
   );
 
+  const getCommonPinningStyles = useCallback(
+    (column: TanColumn<any, any>): CSSProperties => {
+      const isPinned = column.getIsPinned();
+      const isLastLeftPinnedColumn =
+        isPinned === 'left' && column.getIsLastColumn('left');
+      const isFirstRightPinnedColumn =
+        isPinned === 'right' && column.getIsFirstColumn('right');
+
+      return {
+        boxShadow: isLastLeftPinnedColumn
+          ? '-4px 0 4px -4px gray inset'
+          : isFirstRightPinnedColumn
+            ? '4px 0 4px -4px gray inset'
+            : undefined,
+        left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
+        right:
+          isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
+
+        position: isPinned ? 'sticky' : 'relative',
+        zIndex: isPinned ? 1 : 0,
+      };
+    },
+    [],
+  );
+
   const [pagination, setPagination] = useState({
     current: propPagination?.current ?? 1,
     pageSize: propPagination?.pageSize ?? 10,
@@ -205,6 +231,9 @@ export const useTable = (props: UseTableProps) => {
         pageIndex: (pagination.current || 1) - 1,
       },
       rowSelection: rowSelection,
+      columnPinning: {
+        right: ['address6', 'operate'],
+      },
     },
   });
 
@@ -259,5 +288,7 @@ export const useTable = (props: UseTableProps) => {
     getRowClasses,
 
     getRowKey,
+
+    getCommonPinningStyles,
   };
 };

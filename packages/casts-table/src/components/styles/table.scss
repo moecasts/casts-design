@@ -31,13 +31,16 @@ $table-prefix-cls: #{$prefix-cls}-table;
   }
 
   table {
-    width: 100%;
+    min-width: 100%;
     height: 100%;
 
     text-align: left;
+
+    table-layout: fixed;
     border-spacing: 0;
 
     tr {
+      background-color: inherit;
       transition: background-color $motion-duration-rapid $motion-easing-in-out;
     }
 
@@ -47,6 +50,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
       font-size: $table-font-size;
       font-weight: $table-font-weight;
       line-height: $table-line-height;
+      background-color: inherit;
 
       .#{$prefix-cls}-checkbox {
         vertical-align: text-bottom;
@@ -59,6 +63,10 @@ $table-prefix-cls: #{$prefix-cls}-table;
       font-weight: normal;
       color: $table-thead-color-text;
       background-color: $table-thead-color-surface;
+    }
+
+    tbody {
+      background-color: $color-surface-container-default;
     }
   }
 
@@ -155,7 +163,7 @@ $table-prefix-cls: #{$prefix-cls}-table;
       .#{$table-prefix-cls}-thead {
         position: sticky;
         top: 0;
-        z-index: $elevation-z-index-low;
+        z-index: 10;
       }
     }
   }

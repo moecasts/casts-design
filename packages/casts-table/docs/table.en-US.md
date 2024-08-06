@@ -14,6 +14,10 @@ description: Table is used to display grid data, supporting interactive features
 $ pnpm add @casts/table
 ```
 
+## Column pinning
+
+<code src="../examples/column-pinning.tsx" />
+
 ## Basic
 
 <code src="../examples/basic.tsx" />

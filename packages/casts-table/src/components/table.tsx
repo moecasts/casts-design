@@ -41,6 +41,8 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
     loadingClasses,
 
     getRowKey,
+
+    getCommonPinningStyles,
   } = useTable(props);
 
   useImperativeHandle(ref, () => ({}));
@@ -62,6 +64,7 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
                     key={header.id}
                     className={thClasses}
                     style={{
+                      ...getCommonPinningStyles(header.column),
                       width: some(
                         pick(header.column.columnDef.meta, [
                           'size',
@@ -90,7 +93,12 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
               <tr key={getRowKey(index)} className={getRowClasses(row)}>
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <td key={cell.id}>
+                    <td
+                      key={cell.id}
+                      style={{
+                        ...getCommonPinningStyles(cell.column),
+                      }}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),
