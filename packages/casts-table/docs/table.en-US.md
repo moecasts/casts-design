@@ -20,9 +20,13 @@ $ pnpm add @casts/table
 
 ## Manual pagination
 
-当 `manualPagination=true` 时，组件内部不会自动处理分页数据，适用于远程加载数据时的分页状态。
+When `manualPagination=true`, paging data is not automatically processed internally by the component, and applies to the paging state when data is loaded remotely.
 
 <code src="../examples/manual-pagination.tsx" />
+
+## Column pinning
+
+<code src="../examples/column-pinning.tsx" />
 
 ## Selection
 

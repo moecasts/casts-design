@@ -1,11 +1,13 @@
-import { forwardRef, Ref, useImperativeHandle } from 'react';
+import { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 import { isUndefined, pick, some } from '@casts/common';
 import { Empty } from '@casts/empty';
 import { Pagination } from '@casts/pagination';
 import { CircularProgress } from '@casts/progress';
 import { flexRender } from '@tanstack/react-table';
+import clsx from 'clsx';
 
 import { useTable } from './hooks';
+import { useTableColumnTablePinning } from './hooks/use-table-column-pinning';
 import { TableProps } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
@@ -43,6 +45,18 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
     getRowKey,
   } = useTable(props);
 
+  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const tableRef = useRef<HTMLTableElement>(null);
+  const thRefs = useRef<Record<string, HTMLTableHeaderCellElement>>({});
+
+  const { getColumnPinningStyles, getColumnPinningClasses } =
+    useTableColumnTablePinning({
+      columns: props.columns,
+      tableContainerRef,
+      columnsRef: thRefs,
+      tableRef,
+    });
+
   useImperativeHandle(ref, () => ({}));
 
   return (
@@ -52,16 +66,38 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
           <CircularProgress track />
         </div>
       )}
-      <div className={contentClasses} style={contentStyles}>
-        <table>
+      <div
+        className={contentClasses}
+        style={contentStyles}
+        ref={tableContainerRef}
+      >
+        <table ref={tableRef}>
           <thead className={theadClasses}>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className={thClasses}
+                    data-id={header.column.id}
+                    ref={(element) => {
+                      if (element) {
+                        thRefs.current[header.column.id] = element;
+                      } else {
+                        delete thRefs.current[header.column.id];
+                      }
+                    }}
+                    className={clsx(
+                      thClasses,
+                      getColumnPinningClasses({
+                        key: header.column.id,
+                        fixed: (header.column.columnDef.meta as any)?.fixed,
+                      }),
+                    )}
                     style={{
+                      ...getColumnPinningStyles({
+                        key: header.column.id,
+                        fixed: (header.column.columnDef.meta as any)?.fixed,
+                      }),
                       width: some(
                         pick(header.column.columnDef.meta, [
                           'size',
@@ -90,7 +126,21 @@ export const Table = forwardRef((props: TableProps, ref: Ref<any>) => {
               <tr key={getRowKey(index)} className={getRowClasses(row)}>
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <td key={cell.id}>
+                    <td
+                      key={cell.id}
+                      className={clsx(
+                        getColumnPinningClasses({
+                          key: cell.column.id,
+                          fixed: (cell.column.columnDef.meta as any)?.fixed,
+                        }),
+                      )}
+                      style={{
+                        ...getColumnPinningStyles({
+                          key: cell.column.id,
+                          fixed: (cell.column.columnDef.meta as any)?.fixed,
+                        }),
+                      }}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),

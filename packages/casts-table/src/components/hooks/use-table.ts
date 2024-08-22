@@ -49,6 +49,7 @@ const getColumns = (columns: Column[]): ColumnDef<any, unknown>[] => {
 
         // store meta data to read original config
         meta: {
+          fixed: column.fixed,
           size: column.size,
           minSize: column.minSize,
           maxSize: column.maxSize,
@@ -205,6 +206,9 @@ export const useTable = (props: UseTableProps) => {
         pageIndex: (pagination.current || 1) - 1,
       },
       rowSelection: rowSelection,
+      // columnPinning: {
+      //   right: ['address5', 'operate'],
+      // },
     },
   });
 

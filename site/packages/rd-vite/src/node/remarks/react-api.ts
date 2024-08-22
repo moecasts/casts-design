@@ -11,7 +11,9 @@ import {
   isEmpty,
   isUndefined,
   map,
+  orderBy,
   reduce,
+  toPairs,
   uniq,
   zipObject,
 } from 'lodash-es';
@@ -148,7 +150,11 @@ export const remarkReactApi: Plugin<
           },
         });
 
-        const apisMarkdown = map(apiData, (apis, name) => {
+        const apiDataArray = orderBy(toPairs(apiData), (pair) => {
+          return pair[0].startsWith('use') ? 'z' : pair[0];
+        });
+
+        const apisMarkdown = map(apiDataArray, ([name, apis]) => {
           return `### ${name}\n${getApiTableMarkdown(apis)}`;
         }).join('\n');
 
