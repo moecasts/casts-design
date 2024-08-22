@@ -85,7 +85,7 @@ export type Column<T = any, P = any> = {
   children?: Column<T>[];
 
   /** (IE not support) Set column to be fixed: true(same as left) 'left' 'right' */
-  fixed?: boolean;
+  fixed?: 'left' | 'right';
 } & Pick<ColumnDef<T, P>, 'cell' | 'size' | 'maxSize' | 'minSize'>;
 
 export type TableProps = UseTableProps & {

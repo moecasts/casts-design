@@ -108,6 +108,11 @@
           },
           "value": "hsla({color.palette.hsl.neutral.900}, 0.15)"
         }
+      },
+      "level": {
+        "1": {
+          "value": "hsla({color.palette.hsl.neutral.1000}, 0.04)"
+        }
       }
     }
   },

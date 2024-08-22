@@ -24,6 +24,10 @@ $ pnpm add @casts/table
 
 <code src="../examples/manual-pagination.tsx" />
 
+## 固定列
+
+<code src="../examples/column-pinning.tsx" />
+
 ## 可选择
 
 <code src="../examples/row-select.tsx" />
