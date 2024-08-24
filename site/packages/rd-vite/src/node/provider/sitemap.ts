@@ -116,7 +116,10 @@ export const generateSitemap = async (payload: {
     const dfs = (routes: RouteObject[]) => {
       for (const route of routes) {
         if (route?.meta?.absPath) {
-          sitemap.write({ url: route?.meta?.absPath, lastmod: new Date() });
+          sitemap.write({
+            url: `${route?.meta?.absPath}/`.replace(/\/\//g, '/'),
+            lastmod: new Date(),
+          });
         }
 
         if (route.children && route.children?.length > 0) {
