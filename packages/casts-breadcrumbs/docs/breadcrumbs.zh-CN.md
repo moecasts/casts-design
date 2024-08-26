@@ -1,5 +1,5 @@
 ---
-title: Breadcrumbs
+title: Breadcrumbs 面包屑
 group:
   title: 导航
 nav:

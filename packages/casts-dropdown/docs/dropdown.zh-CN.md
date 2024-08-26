@@ -1,5 +1,5 @@
 ---
-title: Dropdown
+title: Dropdown 下拉菜单
 group:
   title: 导航
 nav:
