@@ -39,11 +39,7 @@ $ pnpm add @casts/input
 
 <code src="../examples/different-status" />
 
-## Installation
-
-```bash
-$ pnpm add @casts/input
-```
+## Disabled
 
 <code src="../examples/disabled" />
 

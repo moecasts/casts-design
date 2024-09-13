@@ -39,11 +39,7 @@ $ pnpm add @casts/input
 
 <code src="../examples/different-status" />
 
-## 安装
-
-```bash
-$ pnpm add @casts/input
-```
+## 禁用状态
 
 <code src="../examples/disabled" />
 

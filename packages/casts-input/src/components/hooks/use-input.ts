@@ -12,8 +12,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { noop, omit, useControlled } from '@casts/common';
-import { GetPrefixCls } from '@casts/common';
+import { GetPrefixCls, noop, omit, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
 
@@ -162,6 +161,7 @@ export const useInput = (props: UseInputProps) => {
   };
 
   return {
+    ...omit(rest, 'getPrefixCls'),
     clearValue,
     value,
     onChange,
@@ -179,6 +179,5 @@ export const useInput = (props: UseInputProps) => {
     handleChange,
     handleCompositionStart,
     handleCompositionEnd,
-    ...omit(rest, 'getPrefixCls'),
   };
 };

@@ -38,7 +38,6 @@ export const Input = forwardRef(
 
     const {
       classes,
-      composingRef,
       composingRefValue,
       handleBlur,
       handleChange,
@@ -69,7 +68,7 @@ export const Input = forwardRef(
       inputRef.current?.focus();
     };
 
-    const innerValue = composingRef.current ? composingRefValue : value ?? '';
+    const innerValue = (composingRefValue || value) ?? '';
 
     return (
       <div className={wrapClasses} style={wrapStyles}>
