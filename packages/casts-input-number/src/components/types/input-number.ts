@@ -1,11 +1,27 @@
+import { ChangeEvent, CompositionEvent, MouseEvent } from 'react';
 import { BaseComponentProps } from '@casts/common';
 import { InputProps, UseInputProps } from '@casts/input';
 
+export type InputNumberValue = number;
+
+export type ChangeEventContext = {
+  type?: 'input';
+  e?:
+    | ChangeEvent<HTMLInputElement>
+    | CompositionEvent<HTMLInputElement>
+    | MouseEvent<HTMLElement>;
+};
+
+export type ChangeEventHandler<T = InputNumberValue | undefined> = (
+  value: T,
+  context: ChangeEventContext,
+) => void;
+
 export type UseInputNumberProps = BaseComponentProps &
   Omit<UseInputProps, 'value' | 'defaultValue' | 'onChange'> & {
-    value?: number;
+    value?: InputNumberValue;
 
-    defaultValue?: number;
+    defaultValue?: InputNumberValue;
 
     decimal?: number;
 
@@ -20,7 +36,7 @@ export type UseInputNumberProps = BaseComponentProps &
      */
     controls?: boolean;
 
-    onChange?: (value: number | undefined) => void;
+    onChange?: (value: InputNumberValue | undefined) => void;
   };
 
 export type InputNumberProps = Omit<

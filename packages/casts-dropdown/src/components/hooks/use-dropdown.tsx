@@ -29,7 +29,7 @@ export const useDropdown = (props: UseDropdownProps) => {
   const prefixCls = getPrefixCls('dropdown');
 
   /* --------------------------------- states ---------------------------------------- */
-  const [open, setOpen] = useControlled<boolean>(
+  const [open, setOpen] = useControlled(
     props,
     'open',
     props.onOpenChange,

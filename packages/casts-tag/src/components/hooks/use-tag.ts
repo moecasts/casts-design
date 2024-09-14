@@ -19,7 +19,7 @@ export const useTag = (props: UseTagProps) => {
     bordered,
   } = props;
 
-  const [checked, setChecked] = useControlled<boolean>(
+  const [checked, setChecked] = useControlled(
     props,
     'checked',
     onChangeFromProps,

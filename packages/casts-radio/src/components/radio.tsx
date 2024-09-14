@@ -126,7 +126,7 @@ export const Radio = forwardRef((props: RadioProps, ref) => {
         aria-checked={!!checked}
       />
       {isFunction(children) ? (
-        children({ checked })
+        children({ checked: !!checked })
       ) : (
         <>
           <span className={`${prefixCls}-input`}></span>

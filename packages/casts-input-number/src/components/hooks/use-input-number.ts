@@ -7,16 +7,19 @@ import {
   useControlled,
 } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
-import { ChangeEventHandler } from '@casts/input';
 import { clsx } from 'clsx';
 
 import { defaultInputNumberProps } from '../default-props';
-import { UseInputNumberProps } from '../types';
+import {
+  ChangeEventHandler,
+  InputNumberValue,
+  UseInputNumberProps,
+} from '../types';
 import {
   add,
   formatNumber,
   isDecimalOverflow,
-  isIllegalNumber,
+  isLegalNumber,
   subtract,
 } from '../utils';
 
@@ -48,11 +51,11 @@ export const useInputNumber = (props: UseInputNumberProps) => {
    * Safe change event handler to prevent illegal number
    */
   const safeOnChange: ChangeEventHandler = (value, context = {}) => {
-    if (isIllegalNumber(value)) {
+    if (!isLegalNumber(value)) {
       return;
     }
 
-    const getValue = (value: string) => {
+    const getValue = (value: InputNumberValue) => {
       if (String(value) === '-') {
         return value;
       }
@@ -98,7 +101,7 @@ export const useInputNumber = (props: UseInputNumberProps) => {
 
   /* --------------------------------- events ---------------------------------------- */
   const handleChange: ChangeEventHandler = (value, context = {}) => {
-    if (isIllegalNumber(value)) {
+    if (!isLegalNumber(value)) {
       return;
     }
 
@@ -112,7 +115,11 @@ export const useInputNumber = (props: UseInputNumberProps) => {
       return;
     }
 
-    const newValue = add(Number(value || 0), step);
+    const newValue = add(
+      Number(value || 0),
+      step,
+    ) as unknown as InputNumberValue;
+
     handleChange(newValue, {});
   };
 
@@ -121,7 +128,10 @@ export const useInputNumber = (props: UseInputNumberProps) => {
       return;
     }
 
-    const newValue = subtract(Number(value || 0), step);
+    const newValue = subtract(
+      Number(value || 0),
+      step,
+    ) as unknown as InputNumberValue;
     handleChange(newValue, {});
   };
 
@@ -133,7 +143,9 @@ export const useInputNumber = (props: UseInputNumberProps) => {
       return;
     }
 
-    const newValue = String(formatNumber(value, { decimal, min, max }));
+    const newValue = String(
+      formatNumber(value, { decimal, min, max }),
+    ) as unknown as InputNumberValue;
 
     if (value !== newValue) {
       handleChange(newValue, {});

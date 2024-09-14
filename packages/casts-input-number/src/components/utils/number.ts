@@ -26,10 +26,14 @@ export const add = (a: number, b: number) =>
 export const subtract = (a: number, b: number) =>
   math.format(math.subtract(a, b), formatOptions);
 
-export const isIllegalNumber = (value: number | string) =>
-  !isValueEmpty(value) &&
-  isNaN(value as unknown as number) &&
-  String(value) !== '-';
+export const isLegalNumber = (
+  value: number | string | undefined,
+): value is number =>
+  !(
+    !isValueEmpty(value) &&
+    isNaN(value as unknown as number) &&
+    String(value) !== '-'
+  );
 
 export const formatNumber = (
   value: number | string,

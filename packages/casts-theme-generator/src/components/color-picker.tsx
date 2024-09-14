@@ -17,7 +17,7 @@ export type ColorPickerProps = UseColorPickerProps;
 
 export const useColorPicker = (props: UseColorPickerProps) => {
   const { onChange = noop, ...rest } = props;
-  const [color, setColor] = useControlled<string>(props, 'color', onChange);
+  const [color, setColor] = useControlled(props, 'color', onChange);
 
   const handleChange = (iColor: IColor) => {
     setColor(iColor.hex);

@@ -105,7 +105,7 @@ export const Checkbox = forwardRef((props: CheckboxProps, ref) => {
         name={name}
       />
       {isFunction(children) ? (
-        children({ checked })
+        children({ checked: !!checked })
       ) : (
         <>
           <span className={`${prefixCls}-input`}>

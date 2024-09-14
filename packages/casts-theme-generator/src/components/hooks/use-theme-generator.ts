@@ -18,7 +18,7 @@ import {
 export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   const { className, style, addThemeCodeOnMounted } = props;
 
-  const [visible, onVisibleChange] = useControlled<boolean>(
+  const [visible, onVisibleChange] = useControlled(
     props,
     'visible',
     props.onVisibleChange || noop,
@@ -46,7 +46,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   const pickerTextClasses = `${pickerClasses}-text`;
 
   /* --------------------------------- states ---------------------------------------- */
-  const [mode, setMode] = useControlled<ThemeMode>(
+  const [mode, setMode] = useControlled(
     props,
     'mode',
     props.onModeChange || noop,
@@ -56,7 +56,7 @@ export const useThemeGenerator = (props: UseThemeGeneratorProps) => {
   const { circleTransition } = useCircleTransition();
   const generatorRef = useRef<HTMLElement>(null);
 
-  const [mainColors, setMainColors] = useControlled<MainColor[]>(
+  const [mainColors, setMainColors] = useControlled(
     props,
     'mainColors',
     props.onMainColorsChange || noop,

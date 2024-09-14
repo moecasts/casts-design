@@ -24,12 +24,7 @@ export const useDropdownItem = (props: UseDropdownItemProps) => {
 
   const contextValue = useDropdownContext();
 
-  const [_open, setOpen] = useControlled<boolean>(
-    props,
-    'open',
-    onOpenChange,
-    false,
-  );
+  const [_open, setOpen] = useControlled(props, 'open', onOpenChange, false);
   const open = contextValue.open && _open;
 
   /* --------------------------------- classes and styles ---------------------------------------- */

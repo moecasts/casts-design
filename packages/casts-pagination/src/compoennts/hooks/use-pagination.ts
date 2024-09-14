@@ -74,7 +74,7 @@ export const usePagination = (props: UsePaginationProps) => {
   };
 
   /* --------------------------------- states ---------------------------------------- */
-  const [current, setCurrent] = useControlled<number>(
+  const [current, setCurrent] = useControlled(
     props,
     'current',
     onCurrentChangeWithCallback,

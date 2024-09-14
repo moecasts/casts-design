@@ -1,6 +1,6 @@
 import { ChangeEvent, CompositionEvent, MouseEvent } from 'react';
 
-export type InputValue = string;
+export type InputValue = string | number;
 
 export type ChangeEventContext = {
   type?: 'input';
@@ -10,7 +10,7 @@ export type ChangeEventContext = {
     | MouseEvent<HTMLElement>;
 };
 
-export type ChangeEventHandler = (
-  value: InputValue,
+export type ChangeEventHandler<T = InputValue> = (
+  value: T,
   context: ChangeEventContext,
 ) => void;

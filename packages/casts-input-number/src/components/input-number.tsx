@@ -47,8 +47,10 @@ export const InputNumber = forwardRef(
         <Input
           {...rest}
           defaultValue={defaultValue as unknown as string}
-          value={value as string}
-          onChange={handleChange}
+          value={value as unknown as string}
+          onChange={(value, context) =>
+            handleChange(value as unknown as number, context)
+          }
           onBlur={handleBlur}
           className={classes}
           style={styles}

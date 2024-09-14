@@ -837,7 +837,7 @@
         "attributes": {
           "category": "color"
         },
-        "value": "{color.palette.neutral.500}"
+        "value": "{color.palette.neutral.400}"
       },
       "anti": {
         "attributes": {

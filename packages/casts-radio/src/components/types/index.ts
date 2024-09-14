@@ -13,6 +13,7 @@ export type ChangeEventHandler = (
 ) => void;
 
 export type RadioGroupProps = {
+  value?: RadioValue;
   defaultValue?: RadioValue;
   children?: ReactNode;
   className?: string;

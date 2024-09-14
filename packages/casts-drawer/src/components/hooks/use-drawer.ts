@@ -26,11 +26,7 @@ export const useDrawer = (props: UseDrawerProps) => {
     ...rest
   } = props;
 
-  const [visible, setVisible] = useControlled<boolean>(
-    props,
-    'visible',
-    onChange,
-  );
+  const [visible, setVisible] = useControlled(props, 'visible', onChange);
 
   const { getPrefixCls } = useConfig();
 

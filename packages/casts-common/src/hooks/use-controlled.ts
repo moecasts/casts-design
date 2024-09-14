@@ -6,23 +6,29 @@ export interface ChangeHandler<T, P extends any[]> {
   (value: T, ...args: P): void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useControlled = <T, P extends any[] = any[]>(
-  props: Record<PropertyKey, any> = {},
-  valueKey: string,
-  onChange?: ChangeHandler<T, P>,
+export const useControlled = <
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  P extends any[],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  R extends Record<string, any>,
+  K extends keyof R,
+>(
+  props: R,
+  valueKey: K,
+  onChange?: ChangeHandler<Exclude<R[K], undefined>, P>,
   /**
    * use fallbackDefaultValue when defaultValue is not exist
    */
-  fallbackDefaultValue?: T,
-): [T, ChangeHandler<T, P>] => {
+  fallbackDefaultValue?: Exclude<R[K], undefined>,
+): [Exclude<R[K], undefined>, ChangeHandler<Exclude<R[K], undefined>, P>] => {
   // is controlled mode when valueKey is exist in props
   const controlled = Reflect.has(props, valueKey);
-  // controlled prop
+  // control as unknown prop
   const value = props[valueKey];
   // The uncontrolled key for a controlled attribute is defaultXxx.
-  const defaultValue =
-    props[`default${upperFirst(valueKey)}`] ?? fallbackDefaultValue;
+  const defaultValue: any =
+    props[`default${upperFirst(valueKey as unknown as string)}`] ??
+    fallbackDefaultValue;
 
   // maintain an internal variable regardless of whether it is controlled, the default value is controlled by defaultValue
   const [internalValue, setInternalValue] = useState(defaultValue);

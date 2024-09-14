@@ -29,11 +29,7 @@ export const useSwitch = (props: UseSwitchProps) => {
   const prefixCls = getPrefixCls('switch');
 
   /* --------------------------------- states ---------------------------------------- */
-  const [checked, setChecked] = useControlled<boolean>(
-    props,
-    'checked',
-    onChange,
-  );
+  const [checked, setChecked] = useControlled(props, 'checked', onChange);
 
   const [pressed, setPressed] = useState(false);
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from 'react';
+import { ChangeEvent, CompositionEvent, MouseEvent } from 'react';
 import { noop } from 'lodash-es';
 
 import { useControlled } from './use-controlled';
@@ -6,11 +6,16 @@ import { useControlled } from './use-controlled';
 export type Value = boolean | string | number;
 
 export type ChangeEventContext = {
-  e?: ChangeEvent<HTMLElement> | MouseEvent<HTMLElement>;
+  action?: 'clear';
+
+  e?:
+    | ChangeEvent<HTMLElement>
+    | MouseEvent<HTMLElement>
+    | CompositionEvent<HTMLInputElement>;
 };
 
-export type ChangeEventHandler = (
-  value: Value,
+export type ChangeEventHandler<T = Value> = (
+  value: T,
   context: ChangeEventContext,
 ) => void;
 
