@@ -1,0 +1,19 @@
+---
+title: DatePicker
+group:
+  title: Data Entry
+  order: 2
+nav:
+  title: Components
+  path: /components
+---
+
+## Installation
+
+```bash
+$ pnpm add @casts/date-picker
+```
+
+## Basic
+
+<code src="../examples/basic.tsx" />
