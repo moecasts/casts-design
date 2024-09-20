@@ -53,6 +53,7 @@ export const Dropdown = forwardRef((props: DropdownProps, ref: Ref<any>) => {
         trigger={trigger}
         visible={open}
         onVisibleChange={handleOpenChange}
+        nestable
       >
         {children}
       </Popup>

@@ -99,6 +99,10 @@ export type UsePopupProps = {
    * @default false
    */
   disabledAutoPlacement?: boolean;
+  /**
+   * wether popup is nestable
+   */
+  nestable?: boolean;
 };
 
 export type PopupProps = BaseComponentProps & UsePopupProps;

@@ -23,8 +23,11 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
     display: flex;
     flex-direction: column;
     gap: $dropdown-item-space-outer;
+    max-height: 300px;
     padding: $dropdown-menu-space;
     margin: 0px;
+    overflow-y: auto;
+    overflow-y: overlay;
     @include scrollbar(8px, 2px);
   }
 

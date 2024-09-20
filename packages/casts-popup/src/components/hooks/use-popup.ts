@@ -22,7 +22,8 @@ import {
 } from '@floating-ui/react';
 import clsx from 'clsx';
 
-import { defaultPopupProps } from '../default-props';
+import { DEFAULT_PLACEMENT, defaultPopupProps } from '../default-props';
+import { useNestedPopupContext } from '../nested-popup-context';
 import { UsePopupProps } from '../types';
 import { UseFloatingReturn } from '../types/floating';
 
@@ -49,14 +50,23 @@ export const usePopup = (props: UsePopupProps) => {
     disabledAutoPlacement,
     onVisibleChange = noop,
     overlayOffset = 4,
+    ...rest
   } = props;
 
   /* --------------------------------- floating ui states ---------------------------------------- */
   const arrowRef = useRef<HTMLDivElement | null>(null);
-  const nodeId = useFloatingNodeId();
   const parentId = useFloatingParentNodeId();
+  // const nodeId = useFloatingNodeId(parentId || undefined);
+  const nodeId = useFloatingNodeId();
   const tree = useFloatingTree();
   const isNested = parentId != null;
+
+  const parentContext = useNestedPopupContext();
+
+  const initialPlacement =
+    isNested && parentContext
+      ? props.nestedPlacement || parentContext.nestedPlacement
+      : props.placement || parentContext?.placement || DEFAULT_PLACEMENT;
 
   /* --------------------------------- open state ---------------------------------------- */
   const [open, _setOpen] = useControlled(props, 'visible', onVisibleChange);
@@ -90,7 +100,7 @@ export const usePopup = (props: UsePopupProps) => {
 
   const floatingReturn: UseFloatingReturn = useFloating({
     nodeId,
-    placement: isNested ? props.nestedPlacement : props.placement,
+    placement: initialPlacement,
     open,
     onOpenChange: setOpen,
     middleware: [
@@ -188,6 +198,7 @@ export const usePopup = (props: UsePopupProps) => {
   }, [open, duration, trigger, setOpen]);
 
   return {
+    ...rest,
     rootId,
     attachElement,
 

@@ -31,4 +31,7 @@ export const defaultMenuItemProps = {
 
 export const defaultSubMenuProps = {
   // hideAfterClick: true,
+  popupProps: {
+    nestedPlacement: 'right-start',
+  },
 } satisfies SubMenuProps;
