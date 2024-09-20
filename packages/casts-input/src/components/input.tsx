@@ -4,7 +4,7 @@ import {
   MouseEvent,
   useImperativeHandle,
 } from 'react';
-import { useDefaultProps } from '@casts/common';
+import { omit, useDefaultProps } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { CloseLine } from '@casts/icons';
 
@@ -90,7 +90,7 @@ export const Input = forwardRef(
           {prefix && <span className={`${prefixCls}-prefix`}>{prefix}</span>}
           <input
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            {...(rest as any)}
+            {...omit(rest as any, 'composingRef')}
             className={`${prefixCls}-inner`}
             value={innerValue}
             placeholder={placeholder}

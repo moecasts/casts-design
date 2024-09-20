@@ -17,6 +17,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { defaultPopupProps } from './default-props';
 import { usePopup } from './hooks';
+import { NestedPopupProvider } from './nested-popup-context';
 import { PopupProps, PopupRef } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
@@ -51,6 +52,7 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
     floatingReturn,
     interactionsReturn: { getFloatingProps, getReferenceProps },
     refs,
+    nestable,
   } = usePopup(props);
 
   const { setReference, setFloating } = refs;
@@ -80,8 +82,8 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
     <span>{children}</span>
   );
 
-  return (
-    <FloatingNode id={nodeId}>
+  const renderContent = () => (
+    <>
       {cloneElement(
         childrenElement,
         getReferenceProps({
@@ -128,8 +130,21 @@ const _Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
           </FloatingFocusManager>
         </FloatingPortal>
       )}
-    </FloatingNode>
+    </>
   );
+
+  if (nestable) {
+    return (
+      <NestedPopupProvider
+        placement={props.placement}
+        nestedPlacement={props.nestedPlacement}
+      >
+        <FloatingNode id={nodeId}>{renderContent()}</FloatingNode>
+      </NestedPopupProvider>
+    );
+  }
+
+  return <FloatingNode id={nodeId}>{renderContent()}</FloatingNode>;
 });
 
 _Popup.displayName = '_Popup';
@@ -138,7 +153,7 @@ export const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
   const parentId = useFloatingParentNodeId();
   const propsWithDefault = useDefaultProps(props, defaultPopupProps);
 
-  if (parentId === null) {
+  if (parentId === null && props.nestable) {
     return (
       <FloatingTree>
         <_Popup {...propsWithDefault} ref={ref} />

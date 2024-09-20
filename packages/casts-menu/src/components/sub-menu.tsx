@@ -131,6 +131,7 @@ export const SubMenu = forwardRef(
           disabled={disabled || expandType !== 'popup'}
           attach={rootRef}
           placement={popupPlacement}
+          nestable
           {...popupProps}
         >
           {innerComponent}

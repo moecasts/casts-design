@@ -81,6 +81,7 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
       trigger="manual"
       placement="bottom-start"
       showArrow={false}
+      nestable
     >
       <div className={classes} style={styles} ref={wrapRef}>
         <Input

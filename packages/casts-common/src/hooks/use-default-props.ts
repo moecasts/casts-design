@@ -1,18 +1,28 @@
 import { useMemo } from 'react';
+import { isUndefined } from 'lodash-es';
 
-// Function Component defaultProps will deprecate at 18.3.0, so use a custom hook to be comptiable
+// Function Component defaultProps will deprecate at 18.3.0, so use a custom hook to be compatible
 // https://github.com/facebook/react/pull/16210
-export function useDefaultProps<T>(
-  originalProps: T,
-  defaultProps: Record<PropertyKey, any>,
-): T {
+export function useDefaultProps<
+  T extends Record<string, any>,
+  P extends Partial<T>,
+>(originalProps: T, defaultProps: P): T {
   return useMemo<T>(() => {
-    // eslint-disable-next-line
-    const props: Record<PropertyKey, any> = Object.assign({}, originalProps);
+    const props: T = Object.assign({}, originalProps) as T;
+
     Object.keys(defaultProps).forEach((key) => {
-      // https://github.com/facebook/react/blob/main/packages/react/src/ReactElement.js#L328-L330
-      if (props[key] === undefined) {
-        props[key] = defaultProps[key];
+      if (
+        props[key as keyof T] === undefined &&
+        !isUndefined(defaultProps[key])
+      ) {
+        props[key as keyof T] = defaultProps[key];
+      }
+
+      if (typeof defaultProps[key] === 'object' && defaultProps[key] !== null) {
+        props[key as keyof T] = {
+          ...defaultProps[key],
+          ...props[key],
+        };
       }
     });
     return props;
