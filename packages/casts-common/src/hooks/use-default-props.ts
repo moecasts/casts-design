@@ -18,7 +18,12 @@ export function useDefaultProps<
         props[key as keyof T] = defaultProps[key];
       }
 
-      if (typeof defaultProps[key] === 'object' && defaultProps[key] !== null) {
+      if (
+        typeof props[key] === 'object' &&
+        props[key] !== null &&
+        typeof defaultProps[key] === 'object' &&
+        defaultProps[key] !== null
+      ) {
         props[key as keyof T] = {
           ...defaultProps[key],
           ...props[key],

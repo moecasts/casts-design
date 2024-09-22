@@ -6,7 +6,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import { formatSizeUnit, raf, useDefaultProps } from '@casts/common';
+import {
+  formatSizeUnit,
+  isUndefined,
+  raf,
+  useDefaultProps,
+} from '@casts/common';
 import { FlipVerticalArrowLine } from '@casts/icons';
 import { Input } from '@casts/input';
 import { Popup, PopupRef } from '@casts/popup';
@@ -23,7 +28,7 @@ import './styles/select.scss';
 const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
   const propsWithDefault = useDefaultProps(props, defaultSelectProps);
 
-  const { size } = propsWithDefault;
+  const { size, showFlipArrow, inputProps } = propsWithDefault;
 
   const {
     classes,
@@ -38,6 +43,7 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
     virtual,
 
     handleOutsideClick,
+    width,
   } = useSelect(propsWithDefault);
 
   const { open, handleOpenChange, valueDisplay } = useSelectContext();
@@ -48,19 +54,22 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
 
   const inputRef = useRef(null);
 
-  const [popupContentWidth, setPopupContentWidth] = useState<string>('auto');
+  const [popupContentWidth, setPopupContentWidth] = useState<string>('');
 
   useEffect(() => {
-    if (!wrapRef.current || !popupRef.current) {
-      return;
-    }
+    const calculateWrapWidth = () => {
+      if (!wrapRef.current || !popupRef.current) {
+        return '';
+      }
+      const wrap = wrapRef.current;
 
-    const wrap = wrapRef.current;
+      const wrapWidth = wrap.offsetWidth;
+      return wrapWidth;
+    };
 
-    const wrapWidth = wrap.offsetWidth;
-
-    setPopupContentWidth(formatSizeUnit(wrapWidth));
-  }, []);
+    const popupContentWidth = isUndefined(width) ? calculateWrapWidth() : width;
+    setPopupContentWidth(formatSizeUnit(popupContentWidth));
+  }, [width]);
 
   useImperativeHandle(ref, () => wrapRef.current as HTMLDivElement);
 
@@ -90,7 +99,9 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
           value={valueDisplay}
           size={size}
           suffix={
-            <FlipVerticalArrowLine flip={open} className={arrowClasses} />
+            showFlipArrow ? (
+              <FlipVerticalArrowLine flip={open} className={arrowClasses} />
+            ) : undefined
           }
           onClick={() => {
             // in order to fix when click input, the `SelectList` useClickAway will fire if is sync
@@ -99,6 +110,7 @@ const _Select = forwardRef((props: SelectProps, ref: Ref<HTMLDivElement>) => {
             });
           }}
           ref={inputRef}
+          {...inputProps}
         />
       </div>
     </Popup>

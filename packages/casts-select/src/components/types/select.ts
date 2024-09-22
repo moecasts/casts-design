@@ -1,4 +1,5 @@
 import { BaseComponentProps, Size } from '@casts/common';
+import { InputProps } from '@casts/input';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SelectValue = any;
@@ -26,6 +27,12 @@ export type UseSelectProps = BaseComponentProps & {
   onChange?: (value: SelectValue) => void;
 
   options?: SelectOption[];
+
+  /**
+   * width of the select content
+   * @default same as the trigger
+   */
+  width?: number | string;
 
   /**
    * controlled select dropdown visible
@@ -62,4 +69,8 @@ export type UseSelectProps = BaseComponentProps & {
   size?: SelectSize;
 };
 
-export type SelectProps = UseSelectProps;
+export type SelectProps = UseSelectProps & {
+  showFlipArrow?: boolean;
+
+  inputProps?: Partial<InputProps>;
+};

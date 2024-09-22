@@ -2,10 +2,8 @@ import { forwardRef, Ref } from 'react';
 import { Calendar2Line } from '@casts/icons';
 import { Popup } from '@casts/popup';
 import { RangeInput } from '@casts/range-input';
-import { zhCN } from 'date-fns/locale';
-import { DayPicker } from 'react-day-picker';
 
-import { getDayPickerComponents } from './day-picker-customize-ui';
+import { Calendar } from './calendar';
 import { useDatePicker } from './hooks';
 import { DatePickerProps } from './types';
 
@@ -28,20 +26,7 @@ export const DatePicker = forwardRef(
       <div className={classes} style={styles} ref={ref}>
         <Popup
           visible
-          content={
-            <DayPicker
-              captionLayout="dropdown"
-              locale={zhCN}
-              mode="range"
-              endMonth={new Date(9999, 11)}
-              // mode="range"
-              selected={value as any}
-              onSelect={handleSelect}
-              classNames={dayPickerClassNames}
-              fixedWeeks
-              components={getDayPickerComponents()}
-            />
-          }
+          content={<Calendar />}
           trigger="focus"
           placement="bottom-start"
         >

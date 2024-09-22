@@ -1,6 +1,9 @@
-import type {
+import {
+  endOfDecade,
   FormatOptions as DateFnsFormatOptions,
   Locale as DateFnsLocale,
+  setDefaultOptions,
+  startOfDecade,
 } from 'date-fns';
 import { GenericDateConstructor } from 'date-fns';
 import { addDays } from 'date-fns/addDays';
@@ -22,6 +25,7 @@ import { isDate } from 'date-fns/isDate';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { isSameYear } from 'date-fns/isSameYear';
+import { zhCN } from 'date-fns/locale';
 import { max } from 'date-fns/max';
 import { min } from 'date-fns/min';
 import { setMonth } from 'date-fns/setMonth';
@@ -42,6 +46,21 @@ export type LabelOptions = DateFnsFormatOptions;
 export type Locale = DateFnsLocale;
 
 export type { Month as DateFnsMonth } from 'date-fns';
+
+setDefaultOptions({ locale: zhCN });
+
+/**
+ * Checks if two dates are in the same decade.
+ *
+ * @param {Date} dateLeft - The first date to compare.
+ * @param {Date} dateRight - The second date to compare.
+ * @returns {boolean} Returns true if the dates are in the same decade, false otherwise.
+ */
+export const isSameDecade = (dateLeft: Date, dateRight: Date): boolean => {
+  const decadeLeft = Math.floor(dateLeft.getFullYear() / 10) * 10;
+  const decadeRight = Math.floor(dateRight.getFullYear() / 10) * 10;
+  return decadeLeft === decadeRight;
+};
 
 /**
  * The default date library to use with the date picker.
@@ -80,4 +99,7 @@ export const dateLib = {
   startOfMonth,
   startOfWeek,
   startOfYear,
+  startOfDecade,
+  endOfDecade,
+  isSameDecade,
 };

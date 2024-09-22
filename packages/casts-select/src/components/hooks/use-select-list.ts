@@ -28,7 +28,6 @@ export const useSelectList = (props: UseSelectListProps) => {
 
   /* --------------------------------- virtual scroll ---------------------------------------- */
   const virtual = getVirtual(props.virtual);
-
   const shouldEnableVirtual = virtual && options.length >= virtual.threshold;
 
   const virtualizer = useVirtualizer({

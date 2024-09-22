@@ -48,13 +48,13 @@
     "@casts/config-provider": "workspace:^0.0.1",
     "@casts/icons": "workspace:^",
     "@casts/input": "workspace:^",
-    "@casts/range-input": "workspace:^",
     "@casts/popup": "workspace:^",
+    "@casts/range-input": "workspace:^",
     "@casts/theme": "workspace:^0.0.1",
     "clsx": "^2.0.0",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.13",
-    "react-day-picker": "^9.0.8"
+    "react-day-picker": "^9.1.1"
   },
   "sideEffects": [
     "**/*.{css,scss,sass}"
