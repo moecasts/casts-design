@@ -15,9 +15,9 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
   }
 
   &-day-button {
-    padding-left: $space-025-x;
-    padding-right: $space-025-x;
     min-width: 32px;
+    padding-right: $space-025-x;
+    padding-left: $space-025-x;
   }
 
   &-outside {
@@ -50,6 +50,16 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
         line-height: 32px;
       }
 
+      &-years-dropdown,
+      &-months-dropdown {
+        .#{$prefix-cls}-input-wrap.#{$prefix-cls}-input-wrap--auto-width {
+          min-width: auto;
+        }
+        .#{$prefix-cls}-input {
+          background-color: transparent;
+        }
+      }
+
       &-weekdays {
         height: 32px;
       }
@@ -71,18 +81,18 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
         padding: 2px;
 
         &::before {
-          border-radius: 0px;
           position: absolute;
-          display: block;
-          content: '';
           top: 2px;
-          left: 2px;
           bottom: 2px;
+          left: 2px;
+          display: block;
           width: 4px;
-          transform: translateX(-100%);
+          content: '';
           background-color: transparent;
+          border-radius: 0px;
           transition: background-color $motion-duration-rapid
             $motion-easing-in-out;
+          transform: translateX(-100%);
         }
 
         &.#{$date-picker-prefix-cls}-outside {
