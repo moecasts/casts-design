@@ -1,5 +1,5 @@
 ---
-title: InputNumber 数字输入框
+title: Input Number 数字输入框
 group:
   title: 数据录入
   order: 2

@@ -1,5 +1,5 @@
 ---
-title: RangeInput
+title: Range Input
 group:
   title: Data Entry
 nav:

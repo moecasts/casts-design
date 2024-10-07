@@ -1,4 +1,4 @@
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, useDefaultProps } from '@casts/common';
 
 import { CalendarMode, CalendarMonth, useCalendar } from './hooks';
 
@@ -20,12 +20,15 @@ import { CalendarProvider } from './calendar-context';
 import { CalendarDayCell } from './calendar-day-cell';
 import { CalendarMonthCell } from './calendar-month-cell';
 import { CalendarYearCell } from './calendar-year-cell';
+import { defaultCalendarProps } from './default-props';
 
 import '@casts/theme/styles/scss/date-picker.scss';
 import './styles/calendar.scss';
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
   (props, ref) => {
+    const propsWithDefault = useDefaultProps(props, defaultCalendarProps);
+
     const {
       headerClasses,
       classes,
@@ -55,7 +58,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       date,
       value,
       handleChange,
-    } = useCalendar(props);
+    } = useCalendar(propsWithDefault);
 
     const renderYears = (year: Date) => {
       const years = calendar.eachYearOfDecade(year);

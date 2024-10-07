@@ -7,7 +7,7 @@
 $calendar-prefix-cls: #{$prefix-cls}-calendar;
 
 .#{$calendar-prefix-cls} {
-  min-width: 238px;
+  // min-width: 238px;
 
   &-header {
     display: flex;
@@ -32,6 +32,7 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     & &-prev,
     & &-next {
       color: $calendar-navigator-button-color;
+
       svg {
         transform: scale(1.5);
       }
@@ -42,6 +43,7 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     border-collapse: collapse;
 
     td {
+      padding: 0px;
       text-align: center;
     }
   }
@@ -58,14 +60,35 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     min-height: $calendar-day-cell-min-height;
     padding-right: $calendar-day-cell-padding-horizontal;
     padding-left: $calendar-day-cell-padding-horizontal;
+    margin: 1px;
 
     @include button-style($selector: #{$calendar-prefix-cls}-day-cell);
-    @include button-color(
-      $selector: #{$calendar-prefix-cls}-day-cell,
+    @include button-color($selector: #{$calendar-prefix-cls}-day-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
     );
+
+    &.#{$calendar-prefix-cls}-day-cell--outside {
+      opacity: $opacity-60;
+
+      &:hover {
+        background-color: transparent !important;
+      }
+    }
+
+    &.#{$calendar-prefix-cls}-day-cell--between {
+      color: $color-text-brand-default !important;
+      background-color: $color-surface-brand-default !important;
+
+      border-radius: 0;
+    }
+
+    &.#{$calendar-prefix-cls}-day-cell--start,
+    &.#{$calendar-prefix-cls}-day-cell--end {
+      color: $color-palette-white !important;
+      background-color: $color-shape-brand-default !important;
+    }
   }
 
   &-years {
@@ -80,14 +103,13 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     padding-left: $calendar-year-cell-padding-horizontal;
 
     @include button-style($selector: #{$calendar-prefix-cls}-year-cell);
-    @include button-color(
-      $selector: #{$calendar-prefix-cls}-year-cell,
+    @include button-color($selector: #{$calendar-prefix-cls}-year-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
     );
 
-    & > * {
+    &>* {
       width: 100%;
     }
   }
@@ -104,14 +126,13 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     padding-left: $calendar-month-cell-padding-horizontal;
 
     @include button-style($selector: #{$calendar-prefix-cls}-month-cell);
-    @include button-color(
-      $selector: #{$calendar-prefix-cls}-month-cell,
+    @include button-color($selector: #{$calendar-prefix-cls}-month-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
     );
 
-    & > * {
+    &>* {
       width: 100%;
     }
   }

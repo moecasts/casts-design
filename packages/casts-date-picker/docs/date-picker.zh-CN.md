@@ -1,5 +1,5 @@
 ---
-title: DatePicker 日期选择器
+title: Date Picker 日期选择器
 group:
   title: 数据录入
   order: 2
