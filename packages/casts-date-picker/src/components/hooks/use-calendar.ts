@@ -12,26 +12,33 @@ import {
 import { dateLib as defaultDateLib } from '../helpers';
 import { DateValue } from '../types';
 
-export enum CalendarMode {
-  Year,
-  Month,
-  Week,
-  Day,
+export enum CalendarType {
+  Single = 'single',
+  Multiple = 'multiple',
+  Range = 'range',
 }
 
-export interface CalendarProps {
+export enum CalendarMode {
+  Year = 'year',
+  Month = 'month',
+  Week = 'week',
+  Day = 'day',
+}
+
+export type CalendarProps = {
   date?: Date;
   defaultDate?: Date;
   value?: DateValue;
   defaultValue?: DateValue;
   onChange?: (value: DateValue) => void;
-  mode?: CalendarMode;
+  mode?: `${CalendarMode}`;
+  type?: `${CalendarType}`;
   disabled?: Date[] | ((date: Date) => boolean);
   minDate?: Date;
   maxDate?: Date;
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   dateLib?: typeof defaultDateLib;
-}
+};
 
 export interface Week {
   days: Date[];
@@ -81,6 +88,7 @@ export const useCalendar = (props: CalendarProps = {}) => {
     minDate,
     maxDate,
     weekStartsOn = 0,
+    type,
     dateLib = defaultDateLib,
   } = props;
 
@@ -250,7 +258,13 @@ export const useCalendar = (props: CalendarProps = {}) => {
   };
 
   const handleChange = (value: DateValue) => {
-    setValue(value);
+    if (type === CalendarType.Single) {
+      setValue(value);
+    }
+
+    if (type === CalendarType.Multiple) {
+      setValue(value);
+    }
   };
 
   return {

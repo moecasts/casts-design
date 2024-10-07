@@ -1,5 +1,5 @@
 ---
-title: InputNumber
+title: Input Number
 group:
   title: Data Entry
   order: 2

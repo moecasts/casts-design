@@ -1,7 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { Badge } from '@casts/badge';
 import { useRipple } from '@casts/common';
-import { isSameDay } from 'date-fns';
 
 import { useCalendarDayCell, UseCalendarDayCellProps } from './hooks';
 
@@ -17,7 +16,7 @@ export const CalendarDayCell = forwardRef<
   const cellRef = useRef<HTMLButtonElement>(null);
 
   useRipple(cellRef, {
-    disabled: modifiers.disabled,
+    disabled: modifiers.disabled || modifiers.outside,
   });
 
   useImperativeHandle(ref, () => cellRef.current as HTMLButtonElement);
@@ -34,8 +33,12 @@ export const CalendarDayCell = forwardRef<
     </button>
   );
 
-  if (isSameDay(day, new Date())) {
-    return <Badge dot>{content}</Badge>;
+  if (modifiers.today) {
+    return (
+      <Badge dot placement={[-1, -1]}>
+        {content}
+      </Badge>
+    );
   }
 
   return content;

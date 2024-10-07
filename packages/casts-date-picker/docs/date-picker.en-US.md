@@ -1,5 +1,5 @@
 ---
-title: DatePicker
+title: Date Picker
 group:
   title: Data Entry
   order: 2

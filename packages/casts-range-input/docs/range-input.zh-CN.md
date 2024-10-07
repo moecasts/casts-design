@@ -1,5 +1,5 @@
 ---
-title: RangeInput 范围输入框
+title: Range Input 范围输入框
 group:
   title: 数据录入
 nav:

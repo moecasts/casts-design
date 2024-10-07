@@ -5,4 +5,4 @@ export type DateRange = {
   to?: DateType | undefined;
 };
 
-export type DateValue = DateType | DateRange[];
+export type DateValue = DateType | DateType[] | DateRange;
