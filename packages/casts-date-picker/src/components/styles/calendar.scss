@@ -56,6 +56,7 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
   }
 
   &-day-cell {
+    position: relative;
     min-width: $calendar-day-cell-min-width;
     min-height: $calendar-day-cell-min-height;
     padding-right: $calendar-day-cell-padding-horizontal;
@@ -63,7 +64,8 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     margin: 1px;
 
     @include button-style($selector: #{$calendar-prefix-cls}-day-cell);
-    @include button-color($selector: #{$calendar-prefix-cls}-day-cell,
+    @include button-color(
+      $selector: #{$calendar-prefix-cls}-day-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
@@ -72,9 +74,9 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     &.#{$calendar-prefix-cls}-day-cell--outside {
       opacity: $opacity-60;
 
-      &:hover {
-        background-color: transparent !important;
-      }
+      // &:hover {
+      //   background-color: transparent !important;
+      // }
     }
 
     &.#{$calendar-prefix-cls}-day-cell--between {
@@ -84,6 +86,20 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
       border-radius: 0;
     }
 
+    &.#{$calendar-prefix-cls}-day-cell--end,
+    &.#{$calendar-prefix-cls}-day-cell--between {
+      &::before {
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -4px;
+        display: inline-block;
+        width: 4px;
+        content: '';
+        // background-color: $color-surface-brand-default;
+      }
+    }
+
     &.#{$calendar-prefix-cls}-day-cell--start,
     &.#{$calendar-prefix-cls}-day-cell--end {
       color: $color-palette-white !important;
@@ -91,9 +107,21 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     }
   }
 
+  &-month {
+    tr {
+      td:first-child {
+        .#{$calendar-prefix-cls}-day-cell {
+          &::before {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+
   &-years {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: $calendar-years-space-gap;
   }
 
@@ -103,13 +131,14 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     padding-left: $calendar-year-cell-padding-horizontal;
 
     @include button-style($selector: #{$calendar-prefix-cls}-year-cell);
-    @include button-color($selector: #{$calendar-prefix-cls}-year-cell,
+    @include button-color(
+      $selector: #{$calendar-prefix-cls}-year-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
     );
 
-    &>* {
+    & > * {
       width: 100%;
     }
   }
@@ -126,13 +155,14 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     padding-left: $calendar-month-cell-padding-horizontal;
 
     @include button-style($selector: #{$calendar-prefix-cls}-month-cell);
-    @include button-color($selector: #{$calendar-prefix-cls}-month-cell,
+    @include button-color(
+      $selector: #{$calendar-prefix-cls}-month-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       // $color-surface-active: transparent
     );
 
-    &>* {
+    & > * {
       width: 100%;
     }
   }

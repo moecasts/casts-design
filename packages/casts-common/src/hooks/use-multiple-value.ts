@@ -1,6 +1,7 @@
 import { ChangeEvent, CompositionEvent, MouseEvent } from 'react';
 import { noop } from 'lodash-es';
 
+import { createMultipleValueActions } from '../utils/create-multiple-value-actions';
 import { useControlled } from './use-controlled';
 
 export type Value = boolean | string | number;
@@ -33,45 +34,11 @@ export const useMultipleValue = (props: UseMultipleValueProps) => {
     onChangeFromProps,
   );
 
-  /** Returns whether the given value is selected. */
-  const isSelected = (value: Value) => {
-    return values.includes(value);
-  };
-
-  /** Adds a value to the set of selected values. */
-  const addValue = (value: Value, context: ChangeEventContext = {}) => {
-    if (isSelected(value)) {
-      return;
-    }
-    onChange(values.concat(value), context);
-  };
-
-  /** Removes a value from the set of selected values. */
-  const removeValue = (value: Value, context: ChangeEventContext = {}) => {
-    if (!isSelected(value)) {
-      return;
-    }
-    onChange(
-      values.filter((selectedValue: Value) => value !== selectedValue),
-      context,
-    );
-  };
-
-  /** Toggles a value in the set of selected values. */
-  const toggleValue = (value: Value, context: ChangeEventContext = {}) => {
-    if (isSelected(value)) {
-      removeValue(value, context);
-      return;
-    }
-    addValue(value, context);
-  };
+  const actions = createMultipleValueActions(values, onChange);
 
   return {
     value: values,
     onChange,
-    isSelected,
-    addValue,
-    removeValue,
-    toggleValue,
+    ...actions,
   };
 };

@@ -1,16 +1,23 @@
-import { useMemo } from 'react';
-import { noop, useControlled } from '@casts/common';
+import { useMemo, useRef } from 'react';
+import {
+  createMultipleValueActions,
+  isArray,
+  noop,
+  useControlled,
+} from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { clsx } from 'clsx';
 import {
   eachMonthOfInterval,
   eachYearOfInterval,
+  isAfter,
+  isSameDay,
   setYear,
   WeekOptions,
 } from 'date-fns';
 
 import { dateLib as defaultDateLib } from '../helpers';
-import { DateValue } from '../types';
+import { DateRange, DateType, DateValue } from '../types';
 
 export enum CalendarType {
   Single = 'single',
@@ -49,6 +56,14 @@ export interface CalendarMonth {
   month: Date;
   weeks: Week[];
 }
+
+const sortRange = (range: DateRange) => {
+  if (range.from && range.to && isAfter(range.from, range.to)) {
+    return { from: range.to, to: range.from };
+  }
+
+  return range;
+};
 
 const SIX_WEEK_DAYS = 42;
 
@@ -100,6 +115,18 @@ export const useCalendar = (props: CalendarProps = {}) => {
     noop,
     new Date('2024-08-24'),
   );
+
+  const multipleValueActions = useMemo(() => {
+    if (type !== CalendarType.Multiple) {
+      return;
+    }
+
+    const values = isArray(value) ? value : [];
+
+    return createMultipleValueActions<DateType>(values, setValue, (value) =>
+      values.some((v) => isSameDay(v, value)),
+    );
+  }, [setValue, type, value]);
 
   const [mode, setMode] = useControlled(props, 'mode', noop, CalendarMode.Day);
 
@@ -257,13 +284,52 @@ export const useCalendar = (props: CalendarProps = {}) => {
     handleModeChange(CalendarMode.Day);
   };
 
+  /** range calendar handlers start */
+  const RANGE_SELECT_LENGTH = 2;
+  const temporaryRangeSelectIndexRef = useRef(0);
+
+  const increaseTemporaryRangeSelectIndex = () => {
+    temporaryRangeSelectIndexRef.current =
+      (temporaryRangeSelectIndexRef.current + 1) % RANGE_SELECT_LENGTH;
+  };
+
+  const temporaryRangeRef = useRef<DateRange>({
+    from: undefined,
+    to: undefined,
+  });
+  /** range calendar handlers end */
+
   const handleChange = (value: DateValue) => {
     if (type === CalendarType.Single) {
       setValue(value);
     }
 
-    if (type === CalendarType.Multiple) {
-      setValue(value);
+    if (type === CalendarType.Multiple && multipleValueActions) {
+      multipleValueActions.toggleValue(value as DateType);
+    }
+
+    if (type === CalendarType.Range) {
+      if (temporaryRangeSelectIndexRef.current === 0) {
+        temporaryRangeRef.current.from = value as DateType;
+
+        const range: DateRange = sortRange({
+          ...temporaryRangeRef.current,
+        });
+
+        setValue(range);
+      }
+
+      if (temporaryRangeSelectIndexRef.current === RANGE_SELECT_LENGTH - 1) {
+        const range: DateRange = sortRange({
+          ...temporaryRangeRef.current,
+          to: value as DateType,
+        });
+
+        temporaryRangeRef.current = { from: undefined, to: undefined };
+        setValue(range);
+      }
+
+      increaseTemporaryRangeSelectIndex();
     }
   };
 

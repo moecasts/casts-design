@@ -6,6 +6,7 @@
 export * from './array-insert-interval';
 export * from './browser-storage';
 export * from './clamp-number';
+export * from './create-multiple-value-actions';
 export * from './dom-events';
 export * from './drop-undefined-props';
 export * from './easings';

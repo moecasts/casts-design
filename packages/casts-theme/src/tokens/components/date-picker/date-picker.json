@@ -68,7 +68,7 @@
         "value": "{size.medium}"
       },
       "paddingHorizontal": {
-        "value": "{space.025-x}"
+        "value": "{space.05-x}"
       }
     },
     "months": {
@@ -83,7 +83,7 @@
         "value": "{size.medium}"
       },
       "paddingHorizontal": {
-        "value": "{space.025-x}"
+        "value": "{space.05-x}"
       }
     }
   }
