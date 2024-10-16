@@ -1,11 +1,11 @@
 import { CSSProperties } from 'react';
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, isArray } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
 import { isAfter, isBefore, isSameDay, isSameMonth } from 'date-fns';
 
 import { useCalendarContext } from '../calendar-context';
-import { DateRange } from '../types';
+import { DateRange, DateValue } from '../types';
 
 export type UseCalendarDayCellProps = BaseComponentProps &
   any & {
@@ -30,6 +30,23 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
 
   const outside = !isSameMonth(day, date);
 
+  const isSelected = (payload: { value?: DateValue; day: Date }) => {
+    const { value, day } = payload;
+    if (!value) {
+      return false;
+    }
+
+    if (isArray(value)) {
+      return value.some((v) => isSameDay(v, day));
+    }
+
+    if (value instanceof Date) {
+      return isSameDay(value, day);
+    }
+
+    return false;
+  };
+
   const modifiers = {
     disabled: disabled || outside,
     outside,
@@ -37,6 +54,7 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     start,
     end,
     between: after && before,
+    selected: isSelected({ value, day }),
   };
 
   const classes = clsx(prefixCls, className, {
@@ -45,7 +63,7 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     [`${prefixCls}--start`]: modifiers.start,
     [`${prefixCls}--end`]: modifiers.end,
     [`${prefixCls}--between`]: modifiers.between,
-    [`${prefixCls}--selected`]: value && isSameDay(value, day),
+    [`${prefixCls}--selected`]: modifiers.selected,
   });
 
   const styles: CSSProperties = {
