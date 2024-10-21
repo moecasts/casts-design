@@ -12,21 +12,20 @@ import './styles/date-picker.scss';
 
 export const DatePicker = forwardRef(
   (props: DatePickerProps, ref: Ref<HTMLDivElement>) => {
-    const {
-      classes,
-      styles,
-      dayPickerClassNames,
-      value,
-      handleSelect,
-      getValue,
-      clearValue,
-    } = useDatePicker(props);
+    const { classes, styles, value, handleSelect, getValue, clearValue } =
+      useDatePicker(props);
 
     return (
       <div className={classes} style={styles} ref={ref}>
         <Popup
           visible
-          content={<Calendar />}
+          content={
+            <Calendar
+              onChange={(value, context) => {
+                console.log(value, context);
+              }}
+            />
+          }
           trigger="focus"
           placement="bottom-start"
         >

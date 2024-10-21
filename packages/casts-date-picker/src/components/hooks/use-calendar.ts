@@ -32,12 +32,15 @@ export enum CalendarMode {
   Day = 'day',
 }
 
+type ChangeContext = { event?: Event };
+
 export type CalendarProps = {
   date?: Date;
   defaultDate?: Date;
   value?: DateValue;
   defaultValue?: DateValue;
-  onChange?: (value: DateValue) => void;
+  onChange?: (value: DateValue, context: ChangeContext) => void;
+  onDateChange?: (date: Date) => void;
   mode?: `${CalendarMode}`;
   type?: `${CalendarType}`;
   disabled?: Date[] | ((date: Date) => boolean);
@@ -105,14 +108,16 @@ export const useCalendar = (props: CalendarProps = {}) => {
     weekStartsOn = 0,
     type,
     dateLib = defaultDateLib,
+    onChange,
+    onDateChange,
   } = props;
 
-  const [value, setValue] = useControlled(props, 'value', noop);
+  const [value, setValue] = useControlled(props, 'value', onChange);
 
   const [date, setDate] = useControlled(
     props,
     'date',
-    noop,
+    onDateChange,
     new Date('2024-08-24'),
   );
 
@@ -301,7 +306,8 @@ export const useCalendar = (props: CalendarProps = {}) => {
 
   const handleChange = (value: DateValue) => {
     if (type === CalendarType.Single) {
-      setValue(value);
+      const context: ChangeContext = {};
+      setValue(value, context);
     }
 
     if (type === CalendarType.Multiple && multipleValueActions) {
@@ -316,7 +322,8 @@ export const useCalendar = (props: CalendarProps = {}) => {
           ...temporaryRangeRef.current,
         });
 
-        setValue(range);
+        const context: ChangeContext = {};
+        setValue(range, context);
       }
 
       if (temporaryRangeSelectIndexRef.current === RANGE_SELECT_LENGTH - 1) {
@@ -326,7 +333,8 @@ export const useCalendar = (props: CalendarProps = {}) => {
         });
 
         temporaryRangeRef.current = { from: undefined, to: undefined };
-        setValue(range);
+        const context: ChangeContext = {};
+        setValue(range, context);
       }
 
       increaseTemporaryRangeSelectIndex();

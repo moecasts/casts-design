@@ -10,7 +10,7 @@ export const CalendarDayCell = forwardRef<
   HTMLButtonElement,
   CalendarDayCellProps
 >((props, ref) => {
-  const { classes, styles, day, modifiers, handleDayClick } =
+  const { classes, styles, day, modifiers, handleDayClick, buttonClasses } =
     useCalendarDayCell(props);
 
   const cellRef = useRef<HTMLButtonElement>(null);
@@ -21,12 +21,11 @@ export const CalendarDayCell = forwardRef<
 
   useImperativeHandle(ref, () => cellRef.current as HTMLButtonElement);
 
-  const content = (
+  let content = (
     <button
       ref={cellRef}
       disabled={modifiers.disabled || modifiers.outside}
-      style={styles}
-      className={classes}
+      className={buttonClasses}
       onClick={() => handleDayClick(day)}
     >
       {day.getDate()}
@@ -34,14 +33,18 @@ export const CalendarDayCell = forwardRef<
   );
 
   if (modifiers.today) {
-    return (
+    content = (
       <Badge dot placement={[-1, -1]}>
         {content}
       </Badge>
     );
   }
 
-  return content;
+  return (
+    <td className={classes} style={styles}>
+      {content}
+    </td>
+  );
 });
 
 CalendarDayCell.displayName = 'CalendarDayCell';
