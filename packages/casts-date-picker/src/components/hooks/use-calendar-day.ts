@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 import { BaseComponentProps, isArray } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import clsx from 'clsx';
-import { isAfter, isBefore, isSameDay, isSameMonth } from 'date-fns';
+import { isSameDay, isSameMonth, isWithinInterval } from 'date-fns';
 
 import { useCalendarContext } from '../calendar-context';
 import { DateRange, DateValue } from '../types';
@@ -25,8 +25,6 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
 
   const start = isSameDay(day, (value as DateRange)?.from);
   const end = isSameDay(day, (value as DateRange)?.to);
-  const after = isAfter(day, (value as DateRange)?.from);
-  const before = !end && isBefore(day, (value as DateRange)?.to);
 
   const outside = !isSameMonth(day, date);
 
@@ -47,13 +45,18 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     return false;
   };
 
+  const range = isWithinInterval(day, {
+    start: (value as DateRange)?.from,
+    end: (value as DateRange)?.to,
+  });
+
   const modifiers = {
     disabled: disabled || outside,
     outside,
     today: isSameDay(day, new Date()),
     start,
     end,
-    between: after && before,
+    range,
     selected: isSelected({ value, day }),
   };
 
@@ -62,8 +65,13 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     [`${prefixCls}--outside`]: modifiers.outside,
     [`${prefixCls}--start`]: modifiers.start,
     [`${prefixCls}--end`]: modifiers.end,
-    [`${prefixCls}--between`]: modifiers.between,
+    [`${prefixCls}--range`]: modifiers.range,
     [`${prefixCls}--selected`]: modifiers.selected,
+  });
+
+  const buttonClasses = clsx(`${prefixCls}-button`, {
+    [`${prefixCls}-button--disabled`]: modifiers.disabled,
+    [`${prefixCls}-button--selected`]: modifiers.selected,
   });
 
   const styles: CSSProperties = {
@@ -82,5 +90,6 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     month,
     modifiers,
     handleDayClick,
+    buttonClasses,
   };
 };

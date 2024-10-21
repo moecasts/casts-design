@@ -2,6 +2,7 @@ import { cloneElement, CSSProperties, isValidElement, ReactNode } from 'react';
 import {
   BaseComponentProps,
   formatSizeUnit,
+  isUndefined,
   WithRequired,
 } from '@casts/common';
 import clsx from 'clsx';
@@ -65,12 +66,13 @@ export const useBadge = (props: UseBadgeProps) => {
   const [placementRight, placementTop] = Array.isArray(placement)
     ? placement
     : [];
-  const offsetStyles: CSSProperties = !(placementRight || placementTop)
-    ? {}
-    : {
-        right: formatSizeUnit(placementRight),
-        top: formatSizeUnit(placementTop),
-      };
+  const offsetStyles: CSSProperties =
+    isUndefined(placementRight) || isUndefined(placementTop)
+      ? {}
+      : {
+          right: formatSizeUnit(placementRight),
+          top: formatSizeUnit(placementTop),
+        };
 
   const badgeStyles: CSSProperties = {
     ...offsetStyles,

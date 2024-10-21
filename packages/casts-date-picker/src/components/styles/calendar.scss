@@ -42,9 +42,17 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
   &-month {
     border-collapse: collapse;
 
-    td {
-      padding: 0px;
-      text-align: center;
+    tr {
+      .#{$calendar-prefix-cls}-day-cell:first-child {
+        &::before {
+          left: 1px;
+        }
+      }
+      .#{$calendar-prefix-cls}-day-cell:last-child {
+        &::before {
+          right: 1px;
+        }
+      }
     }
   }
 
@@ -57,64 +65,72 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
 
   &-day-cell {
     position: relative;
-    min-width: $calendar-day-cell-min-width;
-    min-height: $calendar-day-cell-min-height;
-    padding-right: $calendar-day-cell-padding-horizontal;
-    padding-left: $calendar-day-cell-padding-horizontal;
-    margin: 1px;
+    padding: 1px;
+    text-align: center;
 
-    @include button-style($selector: #{$calendar-prefix-cls}-day-cell);
-    @include button-color(
-      $selector: #{$calendar-prefix-cls}-day-cell,
-      // $color-surface-active: $color-surface-neutral-hover,
-      // $color-text-active: $color-text-neutral-hover,
-      // $color-surface-active: transparent
-    );
+    &::before {
+      position: absolute;
+      top: 1px;
+      right: 0px;
+      bottom: 1px;
+      left: 0px;
+      z-index: 0;
+      display: inline-block;
+      content: '';
+      background-color: transparent;
+      transition:
+        background-color $motion-duration-rapid $motion-easing-in-out,
+        color $motion-duration-rapid $motion-easing-in-out;
+    }
+
+    &-button {
+      position: relative;
+      min-width: $calendar-day-cell-min-width;
+      min-height: $calendar-day-cell-min-height;
+      padding-right: $calendar-day-cell-padding-horizontal;
+      padding-left: $calendar-day-cell-padding-horizontal;
+
+      @include button-style($selector: #{$calendar-prefix-cls}-day-cell-button);
+      @include button-color(
+        $selector: #{$calendar-prefix-cls}-day-cell-button,
+        // $color-surface-active: $color-surface-neutral-hover,
+        // $color-text-active: $color-text-neutral-hover,
+        // $color-surface-active: transparent
+      );
+    }
 
     &.#{$calendar-prefix-cls}-day-cell--outside {
       opacity: $opacity-60;
-
-      // &:hover {
-      //   background-color: transparent !important;
-      // }
     }
 
-    &.#{$calendar-prefix-cls}-day-cell--between {
-      color: $color-text-brand-default !important;
-      background-color: $color-surface-brand-default !important;
-
-      border-radius: 0;
-    }
-
-    &.#{$calendar-prefix-cls}-day-cell--end,
-    &.#{$calendar-prefix-cls}-day-cell--between {
+    &.#{$calendar-prefix-cls}-day-cell--range {
       &::before {
-        position: absolute;
-        top: -1px;
-        bottom: -1px;
-        left: -4px;
-        display: inline-block;
-        width: 4px;
-        content: '';
-        // background-color: $color-surface-brand-default;
+        background-color: $color-surface-brand-default;
+      }
+
+      .#{$calendar-prefix-cls}-day-cell-button {
+        color: $color-text-brand-default !important;
+        background-color: $color-surface-brand-default !important;
       }
     }
 
     &.#{$calendar-prefix-cls}-day-cell--start,
     &.#{$calendar-prefix-cls}-day-cell--end {
-      color: $color-palette-white !important;
-      background-color: $color-shape-brand-default !important;
+      .#{$calendar-prefix-cls}-day-cell-button {
+        color: $color-palette-white !important;
+        background-color: $color-shape-brand-default !important;
+      }
     }
-  }
 
-  &-month {
-    tr {
-      td:first-child {
-        .#{$calendar-prefix-cls}-day-cell {
-          &::before {
-            background-color: transparent !important;
-          }
-        }
+    &.#{$calendar-prefix-cls}-day-cell--start {
+      &::before {
+        left: 50% !important;
+      }
+    }
+
+    &.#{$calendar-prefix-cls}-day-cell--end {
+      &::before {
+        right: 50% !important;
       }
     }
   }

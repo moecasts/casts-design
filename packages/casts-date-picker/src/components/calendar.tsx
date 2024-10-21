@@ -116,14 +116,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           {month.weeks.map((week) => (
             <tr key={week.days[0].getTime()}>
               {week.days.map((day) => (
-                <td key={day.getTime()}>
-                  <CalendarDayCell
-                    date={date}
-                    day={day}
-                    month={month}
-                    week={week}
-                  />
-                </td>
+                <CalendarDayCell
+                  key={day.getTime()}
+                  date={date}
+                  day={day}
+                  month={month}
+                  week={week}
+                />
               ))}
             </tr>
           ))}
