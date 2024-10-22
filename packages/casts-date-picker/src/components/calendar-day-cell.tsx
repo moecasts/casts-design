@@ -10,8 +10,16 @@ export const CalendarDayCell = forwardRef<
   HTMLButtonElement,
   CalendarDayCellProps
 >((props, ref) => {
-  const { classes, styles, day, modifiers, handleDayClick, buttonClasses } =
-    useCalendarDayCell(props);
+  const {
+    classes,
+    styles,
+    day,
+    modifiers,
+    handleDayClick,
+    buttonClasses,
+    handleMouseEnter,
+    handleMouseLeave,
+  } = useCalendarDayCell(props);
 
   const cellRef = useRef<HTMLButtonElement>(null);
 
@@ -27,6 +35,8 @@ export const CalendarDayCell = forwardRef<
       disabled={modifiers.disabled || modifiers.outside}
       className={buttonClasses}
       onClick={() => handleDayClick(day)}
+      onMouseEnter={() => handleMouseEnter(day)}
+      onMouseLeave={() => handleMouseLeave(day)}
     >
       {day.getDate()}
     </button>

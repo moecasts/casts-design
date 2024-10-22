@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
   createMultipleValueActions,
   isArray,
@@ -113,6 +113,10 @@ export const useCalendar = (props: CalendarProps = {}) => {
   } = props;
 
   const [value, setValue] = useControlled(props, 'value', onChange);
+  const [rangeHover, setRangeHover] = useState<DateRange>({
+    from: undefined,
+    to: undefined,
+  });
 
   const [date, setDate] = useControlled(
     props,
@@ -341,6 +345,24 @@ export const useCalendar = (props: CalendarProps = {}) => {
     }
   };
 
+  const handleRangeHover = (endValue: DateType, action: 'start' | 'end') => {
+    if (temporaryRangeSelectIndexRef.current === 0) {
+      return;
+    }
+
+    if (action === 'end') {
+      setRangeHover({ from: undefined, to: undefined });
+      return;
+    }
+
+    const rangeHover = sortRange({
+      ...(value as DateRange),
+      to: endValue,
+    });
+
+    setRangeHover(rangeHover);
+  };
+
   return {
     date,
     mode,
@@ -372,5 +394,8 @@ export const useCalendar = (props: CalendarProps = {}) => {
     handleNextMonthClick,
     handleMonthClick,
     handleYearClick,
+
+    rangeHover,
+    handleRangeHover,
   };
 };

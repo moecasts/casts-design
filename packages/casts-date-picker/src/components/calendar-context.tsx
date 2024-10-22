@@ -1,11 +1,14 @@
 import { createContext, FC, useContext } from 'react';
 import { BaseComponentProps } from '@casts/common';
 
-import { DateValue } from './types';
+import { DateRange, DateType, DateValue } from './types';
 
 interface CalendarContextProps {
   value?: DateValue;
   handleChange?: (value: DateValue) => void;
+
+  rangeHover?: DateRange;
+  handleRangeHover?: (value: DateType, action: 'start' | 'end') => void;
 }
 
 const CalendarContext = createContext<CalendarContextProps>({});

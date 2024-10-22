@@ -19,7 +19,8 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
 
   const { getPrefixCls } = useConfig();
 
-  const { value, handleChange } = useCalendarContext();
+  const { value, handleChange, rangeHover, handleRangeHover } =
+    useCalendarContext();
 
   const prefixCls = getPrefixCls('calendar-day-cell');
 
@@ -65,7 +66,12 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     [`${prefixCls}--outside`]: modifiers.outside,
     [`${prefixCls}--start`]: modifiers.start,
     [`${prefixCls}--end`]: modifiers.end,
-    [`${prefixCls}--range`]: modifiers.range,
+    [`${prefixCls}--range`]:
+      modifiers.range ||
+      isWithinInterval(day, {
+        start: rangeHover.from,
+        end: rangeHover.to,
+      }),
     [`${prefixCls}--selected`]: modifiers.selected,
   });
 
@@ -82,6 +88,14 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     handleChange?.(day);
   };
 
+  const handleMouseEnter = (day: Date) => {
+    handleRangeHover?.(day, 'start');
+  };
+
+  const handleMouseLeave = (day: Date) => {
+    handleRangeHover?.(day, 'end');
+  };
+
   return {
     ...rest,
     classes,
@@ -89,7 +103,9 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     day,
     month,
     modifiers,
-    handleDayClick,
     buttonClasses,
+    handleDayClick,
+    handleMouseEnter,
+    handleMouseLeave,
   };
 };

@@ -58,6 +58,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       date,
       value,
       handleChange,
+      rangeHover,
+      handleRangeHover,
     } = useCalendar(propsWithDefault);
 
     const renderYears = (year: Date) => {
@@ -208,7 +210,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     );
 
     return (
-      <CalendarProvider value={value} handleChange={handleChange}>
+      <CalendarProvider
+        value={value}
+        handleChange={handleChange}
+        rangeHover={rangeHover}
+        handleRangeHover={handleRangeHover}
+      >
         <div className={classes} ref={ref}>
           {calendar.months.map((month) => (
             <Fragment key={month.weeks[0].days[0].getTime()}>
