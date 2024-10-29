@@ -1,4 +1,7 @@
-import { BaseComponentProps } from '@casts/common';
+import { BaseComponentProps, Size } from '@casts/common';
+
+import { ChangeContext } from '../hooks';
+import { DateRange, DateValue } from './common';
 
 export enum DatePickerMode {
   Single = 'single',
@@ -8,12 +11,48 @@ export enum DatePickerMode {
 
 export type DatePickerValue = string | string[];
 
-export type UseDatePickerProps = BaseComponentProps & {
-  value?: DatePickerValue;
+export type BaseDatePickerProps = BaseComponentProps & {
+  /**
+   * size of the input
+   */
+  size?: Size;
+  /**
+   * popup controlled visible
+   */
+  visible?: boolean;
+  /**
+   * popup visible
+   */
+  defaultVisible?: boolean;
 
+  /**
+   * visible change event
+   */
+  onVisibleChange?: (visible: boolean) => void;
+
+  /**
+   * input placeholder
+   */
+  placeholder?: string;
+};
+
+export type UseDatePickerProps = BaseDatePickerProps & {
   mode?: `${DatePickerMode}`;
 
-  onChange?: (value: DatePickerValue) => void;
+  value?: Omit<DateValue, 'DateRange'>;
+
+  onChange?: (
+    value: Omit<DateValue, 'DateRange'>,
+    context: ChangeContext,
+  ) => void;
 };
 
 export type DatePickerProps = UseDatePickerProps;
+
+export type UseDateRangePickerProps = BaseDatePickerProps & {
+  value?: DateRange;
+
+  onChange?: (value: DateRange, context: ChangeContext) => void;
+};
+
+export type DateRangePickerProps = UseDateRangePickerProps;

@@ -1,8 +1,13 @@
 import { BaseComponentProps, useDefaultProps } from '@casts/common';
 
-import { CalendarMode, CalendarMonth, useCalendar } from './hooks';
+import {
+  CalendarMode,
+  CalendarMonth,
+  useCalendar,
+  UseCalendarProps,
+} from './hooks';
 
-export type CalendarProps = BaseComponentProps & any;
+export type CalendarProps = BaseComponentProps & UseCalendarProps;
 
 import { forwardRef, Fragment } from 'react';
 import { Button } from '@casts/button';
@@ -118,13 +123,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           {month.weeks.map((week) => (
             <tr key={week.days[0].getTime()}>
               {week.days.map((day) => (
-                <CalendarDayCell
-                  key={day.getTime()}
-                  date={date}
-                  day={day}
-                  month={month}
-                  week={week}
-                />
+                <CalendarDayCell key={day.getTime()} date={date} day={day} />
               ))}
             </tr>
           ))}

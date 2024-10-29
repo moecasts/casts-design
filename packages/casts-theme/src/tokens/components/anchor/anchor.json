@@ -39,7 +39,7 @@
         "space": {
           "outset": {
             "vertical": {
-              "value": "{space.0625-x}"
+              "value": "{space.00625-x}"
             }
           },
           "inset": {

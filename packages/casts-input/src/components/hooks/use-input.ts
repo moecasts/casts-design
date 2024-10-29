@@ -157,7 +157,7 @@ export const useInput = (props: UseInputProps) => {
       return;
     }
 
-    onChange?.('', { e });
+    onChange?.('', { e, action: 'clear' });
   };
 
   return {

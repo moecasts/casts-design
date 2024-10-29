@@ -4,18 +4,17 @@ import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
 import { format } from 'date-fns';
-import { DateRange } from 'react-day-picker';
 
 import { getDayPickerClassNames } from '../helpers';
-import { DatePickerMode, DateValue, UseDatePickerProps } from '../types';
+import { DateRange, DateValue, UseDateRangePickerProps } from '../types';
 import { ChangeContext } from './use-calendar';
 
-export const useDatePicker = (props: UseDatePickerProps) => {
-  const { className, style, mode, ...rest } = props;
+export const useDateRangePicker = (props: UseDateRangePickerProps) => {
+  const { className, style, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
-  const prefixCls = getPrefixCls('date-picker');
+  const prefixCls = getPrefixCls('date-range-picker');
 
   const classes = clsx(prefixCls, className);
   const styles: CSSProperties = { ...style };
@@ -37,18 +36,8 @@ export const useDatePicker = (props: UseDatePickerProps) => {
     setVisible(visible);
   };
 
-  const handleSelect = (
-    value: NonNullable<UseDatePickerProps['value']>,
-    context: ChangeContext,
-  ) => {
-    if (mode === DatePickerMode.Single) {
-      setValue(value, context);
-      handleVisibleChange(false);
-    }
-
-    if (mode === DatePickerMode.Multiple) {
-      setValue(value, context);
-    }
+  const handleSelect = (value: DateRange, context: ChangeContext) => {
+    setValue(value, context);
   };
 
   const handleInputChange = noop;
@@ -59,14 +48,12 @@ export const useDatePicker = (props: UseDatePickerProps) => {
       : value;
 
     if (isArray(dateRange)) {
-      return dateRange
-        ?.map((date) => {
-          if (!date) {
-            return '';
-          }
-          return format(date, 'yyyy-MM-dd');
-        })
-        .join(', ');
+      return dateRange?.map((date) => {
+        if (!date) {
+          return '';
+        }
+        return format(date, 'yyyy-MM-dd');
+      });
     }
 
     return value instanceof Date ? format(value, 'yyyy-MM-dd') : undefined;
@@ -79,7 +66,6 @@ export const useDatePicker = (props: UseDatePickerProps) => {
 
   return {
     ...rest,
-    mode,
     classes,
     styles,
     dayPickerClassNames,

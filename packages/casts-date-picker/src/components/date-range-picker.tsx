@@ -1,20 +1,23 @@
 import { forwardRef, Ref } from 'react';
 import { useDefaultProps } from '@casts/common';
 import { Calendar2Line } from '@casts/icons';
-import { Input } from '@casts/input';
 import { Popup } from '@casts/popup';
+import { RangeInput } from '@casts/range-input';
 
 import { Calendar } from './calendar';
-import { defaultDatePickerProps } from './default-props';
-import { useDatePicker } from './hooks';
-import { DatePickerProps, DateValue } from './types';
+import { defaultDateRangePickerProps } from './default-props';
+import { useDateRangePicker } from './hooks';
+import { DateRange, DateRangePickerProps, DateValue } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
-import './styles/date-picker.scss';
+import './styles/date-range-picker.scss';
 
-export const DatePicker = forwardRef(
-  (props: DatePickerProps, ref: Ref<HTMLDivElement>) => {
-    const propsWithDefault = useDefaultProps(props, defaultDatePickerProps);
+export const DateRangePicker = forwardRef(
+  (props: DateRangePickerProps, ref: Ref<HTMLDivElement>) => {
+    const propsWithDefault = useDefaultProps(
+      props,
+      defaultDateRangePickerProps,
+    );
 
     const {
       classes,
@@ -26,20 +29,19 @@ export const DatePicker = forwardRef(
       handleInputChange,
       visible,
       handleVisibleChange,
-      mode,
       placeholder,
       size,
-    } = useDatePicker(propsWithDefault);
+    } = useDateRangePicker(propsWithDefault);
 
     return (
       <Popup
         visible={visible}
         content={
           <Calendar
-            type={mode}
+            type={'range'}
             value={value as Exclude<DateValue, 'DateRange'>}
             onChange={(value, context) => {
-              handleSelect(value, context);
+              handleSelect(value as unknown as DateRange, context);
             }}
           />
         }
@@ -48,11 +50,11 @@ export const DatePicker = forwardRef(
         onVisibleChange={handleVisibleChange}
       >
         <div className={classes} style={styles} ref={ref}>
-          <Input
+          <RangeInput
             size={size}
             placeholder={placeholder}
-            clearable
             value={formatValue(value as any) as any}
+            clearable
             suffix={<Calendar2Line />}
             onChange={(value, context) => {
               if (context.action === 'clear') {
@@ -69,4 +71,4 @@ export const DatePicker = forwardRef(
   },
 );
 
-DatePicker.displayName = 'DatePicker';
+DateRangePicker.displayName = 'DateRangePicker';

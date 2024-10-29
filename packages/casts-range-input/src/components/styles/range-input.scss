@@ -113,6 +113,7 @@ $statuses: 'success', 'warning', 'error';
 
   &-wrap {
     display: inline-block;
+    width: 100%;
 
     @each $status in $statuses {
       &--#{$status} {

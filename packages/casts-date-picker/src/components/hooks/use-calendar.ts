@@ -32,9 +32,12 @@ export enum CalendarMode {
   Day = 'day',
 }
 
-type ChangeContext = { event?: Event };
+export type ChangeContext = {
+  event?: Event;
+  action?: 'clear';
+};
 
-export type CalendarProps = {
+export type UseCalendarProps = {
   date?: Date;
   defaultDate?: Date;
   value?: DateValue;
@@ -99,9 +102,8 @@ const getMonthStructure = (
   return { weeks, month, year: dateLib.startOfYear(month) };
 };
 
-export const useCalendar = (props: CalendarProps = {}) => {
+export const useCalendar = (props: UseCalendarProps = {}) => {
   const {
-    // onSelect,
     disabled,
     minDate,
     maxDate,
@@ -122,7 +124,7 @@ export const useCalendar = (props: CalendarProps = {}) => {
     props,
     'date',
     onDateChange,
-    new Date('2024-08-24'),
+    new Date(),
   );
 
   const multipleValueActions = useMemo(() => {

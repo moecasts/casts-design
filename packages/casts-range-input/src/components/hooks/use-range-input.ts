@@ -158,7 +158,7 @@ export const useRangeInput = (props: UseRangeInputProps) => {
       currentValue = currentValue.substring(0, currentMaxLength);
     }
 
-    const newValue: RangeInputValue = [...value];
+    const newValue: RangeInputValue = [...(value || [])];
     newValue[index] = currentValue;
 
     onChange?.(newValue, { e });

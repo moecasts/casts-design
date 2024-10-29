@@ -7,6 +7,7 @@ export interface ChangeHandler<T, P extends any[]> {
 }
 
 export const useControlled = <
+  T extends Exclude<R[K], undefined>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   P extends any[],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,7 +21,7 @@ export const useControlled = <
    * use fallbackDefaultValue when defaultValue is not exist
    */
   fallbackDefaultValue?: Exclude<R[K], undefined>,
-): [Exclude<R[K], undefined>, ChangeHandler<Exclude<R[K], undefined>, P>] => {
+): [T, ChangeHandler<Exclude<R[K], undefined>, P>] => {
   // is controlled mode when valueKey is exist in props
   const controlled = Reflect.has(props, valueKey);
   // control as unknown prop

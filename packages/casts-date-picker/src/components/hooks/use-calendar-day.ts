@@ -7,15 +7,23 @@ import { isSameDay, isSameMonth, isWithinInterval } from 'date-fns';
 import { useCalendarContext } from '../calendar-context';
 import { DateRange, DateValue } from '../types';
 
-export type UseCalendarDayCellProps = BaseComponentProps &
-  any & {
-    disabled?: boolean;
-    day?: Date;
-    month?: Date;
-  };
+export type UseCalendarDayCellProps = BaseComponentProps & {
+  /**
+   * whether the cell is disabled
+   */
+  disabled?: boolean;
+  /**
+   * the day of the cell
+   */
+  day: Date;
+  /**
+   * the date of the calendar
+   */
+  date?: Date;
+};
 
 export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
-  const { className, style, disabled, day, date, month, ...rest } = props;
+  const { className, style, disabled, day, date, ...rest } = props;
 
   const { getPrefixCls } = useConfig();
 
@@ -24,10 +32,12 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
 
   const prefixCls = getPrefixCls('calendar-day-cell');
 
-  const start = isSameDay(day, (value as DateRange)?.from);
-  const end = isSameDay(day, (value as DateRange)?.to);
+  const { from: rangeFrom, to: rangeTo } = (value || {}) as DateRange;
 
-  const outside = !isSameMonth(day, date);
+  const start = rangeFrom && isSameDay(day, rangeFrom);
+  const end = rangeTo && isSameDay(day, rangeTo);
+
+  const outside = date && !isSameMonth(day, date);
 
   const isSelected = (payload: { value?: DateValue; day: Date }) => {
     const { value, day } = payload;
@@ -46,10 +56,13 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     return false;
   };
 
-  const range = isWithinInterval(day, {
-    start: (value as DateRange)?.from,
-    end: (value as DateRange)?.to,
-  });
+  const range =
+    rangeFrom &&
+    rangeTo &&
+    isWithinInterval(day, {
+      start: rangeFrom,
+      end: rangeTo,
+    });
 
   const modifiers = {
     disabled: disabled || outside,
@@ -61,17 +74,23 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     selected: isSelected({ value, day }),
   };
 
+  const { from: rangeHoverFrom, to: rangeHoverTo } = (rangeHover ||
+    {}) as DateRange;
+
+  const withinRangeHover =
+    rangeHoverFrom &&
+    rangeHoverTo &&
+    isWithinInterval(day, {
+      start: rangeHoverFrom,
+      end: rangeHoverTo,
+    });
+
   const classes = clsx(prefixCls, className, {
     [`${prefixCls}--disabled`]: modifiers.disabled,
     [`${prefixCls}--outside`]: modifiers.outside,
     [`${prefixCls}--start`]: modifiers.start,
     [`${prefixCls}--end`]: modifiers.end,
-    [`${prefixCls}--range`]:
-      modifiers.range ||
-      isWithinInterval(day, {
-        start: rangeHover.from,
-        end: rangeHover.to,
-      }),
+    [`${prefixCls}--range`]: modifiers.range || withinRangeHover,
     [`${prefixCls}--selected`]: modifiers.selected,
   });
 
@@ -101,7 +120,6 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
     classes,
     styles,
     day,
-    month,
     modifiers,
     buttonClasses,
     handleDayClick,

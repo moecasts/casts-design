@@ -4,6 +4,7 @@ export type InputValue = string | number;
 
 export type ChangeEventContext = {
   type?: 'input';
+  action?: 'clear';
   e?:
     | ChangeEvent<HTMLInputElement>
     | CompositionEvent<HTMLInputElement>
