@@ -29,7 +29,7 @@ const LayoutLeftFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9V3h12ZM7 21H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4v18Z" />
+      <path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9V3zM7 21H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4z" />
     </svg>
   );
 };

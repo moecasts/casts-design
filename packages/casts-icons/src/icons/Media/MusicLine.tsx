@@ -25,7 +25,7 @@ const MusicLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 13.535V3h8v2h-6v12a4 4 0 1 1-2-3.465ZM10 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+      <path d="M12 13.535V3h8v2h-6v12a4 4 0 1 1-2-3.465M10 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
     </svg>
   );
 };

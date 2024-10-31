@@ -25,7 +25,7 @@ const Filter2Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M10 14 4 5V3h16v2l-6 9v6l-4 2v-8Z" />
+      <path d="M10 14 4 5V3h16v2l-6 9v6l-4 2z" />
     </svg>
   );
 };

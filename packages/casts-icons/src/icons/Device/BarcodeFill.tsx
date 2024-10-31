@@ -25,7 +25,7 @@ const BarcodeFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2 4h2v16H2V4Zm4 0h2v16H6V4Zm3 0h3v16H9V4Zm4 0h2v16h-2V4Zm3 0h2v16h-2V4Zm3 0h3v16h-3V4Z" />
+      <path d="M2 4h2v16H2zm4 0h2v16H6zm3 0h3v16H9zm4 0h2v16h-2zm3 0h2v16h-2zm3 0h3v16h-3z" />
     </svg>
   );
 };

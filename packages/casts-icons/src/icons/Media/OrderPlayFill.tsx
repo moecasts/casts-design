@@ -29,7 +29,7 @@ const OrderPlayFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M17 4V2.067a.5.5 0 0 1 .82-.384l4.12 3.433a.5.5 0 0 1-.321.884H2V4h15ZM2 18h20v2H2v-2Zm0-7h20v2H2v-2Z" />
+      <path d="M17 4V2.068a.5.5 0 0 1 .82-.385l4.12 3.433a.5.5 0 0 1-.321.884H2V4zM2 18h20v2H2zm0-7h20v2H2z" />
     </svg>
   );
 };

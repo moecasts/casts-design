@@ -25,7 +25,7 @@ const MistFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M4 4h4v2H4V4Zm12 15h4v2h-4v-2ZM2 9h10v2H2V9Zm12 0h6v2h-6V9ZM4 14h6v2H4v-2Zm8 0h10v2H12v-2ZM10 4h12v2H10V4ZM2 19h12v2H2v-2Z" />
+      <path d="M4 4h4v2H4zm12 15h4v2h-4zM2 9h10v2H2zm12 0h6v2h-6zM4 14h6v2H4zm8 0h10v2H12zM10 4h12v2H10zM2 19h12v2H2z" />
     </svg>
   );
 };

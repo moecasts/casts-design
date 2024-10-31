@@ -25,7 +25,7 @@ const QrScanLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21 16v5H3v-5h2v3h14v-3h2ZM3 11h18v2H3v-2Zm18-3h-2V5H5v3H3V3h18v5Z" />
+      <path d="M21 16v5H3v-5h2v3h14v-3zM3 11h18v2H3zm18-3h-2V5H5v3H3V3h18z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const Menu5Line = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M18 18v2H6v-2h12Zm3-7v2H3v-2h18Zm-3-7v2H6V4h12Z" />
+      <path d="M18 18v2H6v-2zm3-7v2H3v-2zm-3-7v2H6V4z" />
     </svg>
   );
 };

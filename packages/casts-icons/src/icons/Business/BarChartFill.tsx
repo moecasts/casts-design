@@ -29,7 +29,7 @@ const BarChartFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 12h4v9H3v-9Zm14-4h4v13h-4V8Zm-7-6h4v19h-4V2Z" />
+      <path d="M3 12h4v9H3zm14-4h4v13h-4zm-7-6h4v19h-4z" />
     </svg>
   );
 };

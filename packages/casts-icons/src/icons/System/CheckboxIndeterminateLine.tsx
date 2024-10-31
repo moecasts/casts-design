@@ -29,7 +29,7 @@ const CheckboxIndeterminateLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm1 2v14h14V5H5Zm2 6h10v2H7v-2Z" />
+      <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m1 2v14h14V5zm2 6h10v2H7z" />
     </svg>
   );
 };

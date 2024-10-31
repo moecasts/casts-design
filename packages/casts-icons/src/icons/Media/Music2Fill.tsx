@@ -25,7 +25,7 @@ const Music2Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M20 3v14a4 4 0 1 1-2-3.465V6H9v11a4 4 0 1 1-2-3.465V3h13Z" />
+      <path d="M20 3v14a4 4 0 1 1-2-3.465V6H9v11a4 4 0 1 1-2-3.465V3z" />
     </svg>
   );
 };

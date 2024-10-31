@@ -25,7 +25,7 @@ const Shining2Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 .5 16 8l7.5 4-7.5 4-4 7.5L8 16 .5 12 8 8l4-7.5Z" />
+      <path d="M12 .5 16 8l7.5 4-7.5 4-4 7.5L8 16 .5 12 8 8z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const HexagonFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M17.5 2.5 23 12l-5.5 9.5h-11L1 12l5.5-9.5h11Z" />
+      <path d="M17.5 2.5 23 12l-5.5 9.5h-11L1 12l5.5-9.5z" />
     </svg>
   );
 };

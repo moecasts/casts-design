@@ -25,7 +25,7 @@ const EqualLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M19 8H5v2h14V8Zm0 6H5v2h14v-2Z" />
+      <path d="M19 8H5v2h14zm0 6H5v2h14z" />
     </svg>
   );
 };

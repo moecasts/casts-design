@@ -25,7 +25,7 @@ const DivideFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 11h14v2H5v-2Zm7-3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" />
+      <path d="M5 11h14v2H5zm7-3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
     </svg>
   );
 };

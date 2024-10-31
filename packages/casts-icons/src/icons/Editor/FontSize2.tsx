@@ -25,7 +25,7 @@ const FontSize2 = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M10 6v15H8V6H2V4h14v2h-6Zm8 8v7h-2v-7h-3v-2h8v2h-3Z" />
+      <path d="M10 6v15H8V6H2V4h14v2zm8 8v7h-2v-7h-3v-2h8v2z" />
     </svg>
   );
 };

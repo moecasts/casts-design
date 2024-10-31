@@ -29,7 +29,7 @@ const Building3Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M10 10.111V1l11 6v14H3V7l7 3.111Z" />
+      <path d="M10 10.111V1l11 6v14H3V7z" />
     </svg>
   );
 };

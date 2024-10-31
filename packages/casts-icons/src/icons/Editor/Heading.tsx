@@ -25,7 +25,7 @@ const Heading = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M17 11V4h2v17h-2v-8H7v8H5V4h2v7h10Z" />
+      <path d="M17 11V4h2v17h-2v-8H7v8H5V4h2v7z" />
     </svg>
   );
 };

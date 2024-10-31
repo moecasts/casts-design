@@ -25,7 +25,7 @@ const ProfileLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21.008 3c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016ZM20 5H4v14h16V5Zm-2 10v2H6v-2h12Zm-6-8v6H6V7h6Zm6 4v2h-4v-2h4Zm-8-2H8v2h2V9Zm8-2v2h-4V7h4Z" />
+      <path d="M21.008 3c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3zM20 5H4v14h16zm-2 10v2H6v-2zm-6-8v6H6V7zm6 4v2h-4v-2zm-8-2H8v2h2zm8-2v2h-4V7z" />
     </svg>
   );
 };

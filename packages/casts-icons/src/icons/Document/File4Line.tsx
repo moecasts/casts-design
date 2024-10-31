@@ -25,7 +25,7 @@ const File4Line = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m21 16-6.003 6H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v13Zm-2-1V4H5v16h9v-5h5Z" />
+      <path d="m21 16-6.003 6H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1zm-2-1V4H5v16h9v-5z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const Dice1Line = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 5v14h14V5H5ZM3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm9 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+      <path d="M5 5v14h14V5zM3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zm9 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
     </svg>
   );
 };

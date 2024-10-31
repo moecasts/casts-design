@@ -29,7 +29,7 @@ const MenuSearchFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M18.617 13.032a5.5 5.5 0 1 1 1.414-1.414l2.676 2.675-1.414 1.414-2.675-2.675ZM3 4h5v2H3V4Zm0 7h5v2H3v-2Zm0 7h18v2H3v-2Z" />
+      <path d="M18.618 13.032a5.5 5.5 0 1 1 1.414-1.414l2.675 2.675-1.414 1.414zM3 4h5v2H3zm0 7h5v2H3zm0 7h18v2H3z" />
     </svg>
   );
 };

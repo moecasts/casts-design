@@ -25,7 +25,7 @@ const RamFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2 5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h3v-2h2v2h2v-2h2v2h2v-2h2v2h2v-2h2v2h3a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2Zm3 4h6v3H5V9Zm8 0h6v3h-6V9Z" />
+      <path d="M2 5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h3v-2h2v2h2v-2h2v2h2v-2h2v2h2v-2h2v2h3a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1zm3 4h6v3H5zm8 0h6v3h-6z" />
     </svg>
   );
 };

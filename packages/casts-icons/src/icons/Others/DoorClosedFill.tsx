@@ -29,7 +29,7 @@ const DoorClosedFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2.998 21v-2h2V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v15h2v2h-18Zm12-10h-2v2h2v-2Z" />
+      <path d="M2.998 21v-2h2V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v15h2v2zm12-10h-2v2h2z" />
     </svg>
   );
 };

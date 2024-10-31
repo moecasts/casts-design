@@ -29,7 +29,7 @@ const CornerLeftDownFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M10 5h9v2h-7v7.586h5.414L11 21l-6.414-6.414H10V5Z" />
+      <path d="M10 5h9v2h-7v7.586h5.414L11 21l-6.414-6.414H10z" />
     </svg>
   );
 };

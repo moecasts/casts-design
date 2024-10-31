@@ -29,7 +29,7 @@ const BarChartHorizontalLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 3v2H3V3h9Zm4 16v2H3v-2h13Zm6-8v2H3v-2h19Z" />
+      <path d="M12 3v2H3V3zm4 16v2H3v-2zm6-8v2H3v-2z" />
     </svg>
   );
 };

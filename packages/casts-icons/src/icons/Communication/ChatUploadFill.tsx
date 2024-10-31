@@ -29,7 +29,7 @@ const ChatUploadFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M6.455 19 2 22.5V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6.455ZM13 11h3l-4-4-4 4h3v4h2v-4Z" />
+      <path d="M6.455 19 2 22.5V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1zM13 11h3l-4-4-4 4h3v4h2z" />
     </svg>
   );
 };

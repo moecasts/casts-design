@@ -25,7 +25,7 @@ const InfoI = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm-3 4h2v8H9v2h6v-2h-2V8H9v2Z" />
+      <path d="M12 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m-3 4h2v8H9v2h6v-2h-2V8H9z" />
     </svg>
   );
 };

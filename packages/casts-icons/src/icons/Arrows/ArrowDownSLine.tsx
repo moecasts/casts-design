@@ -29,7 +29,7 @@ const ArrowDownSLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m12 13.171 4.95-4.95 1.414 1.415L12 16 5.636 9.636 7.05 8.222l4.95 4.95Z" />
+      <path d="m12 13.171 4.95-4.95 1.414 1.415L12 16 5.636 9.636 7.05 8.222z" />
     </svg>
   );
 };

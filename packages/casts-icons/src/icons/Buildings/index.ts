@@ -30,6 +30,8 @@ export { Home7Fill } from './Home7Fill';
 export { Home7Line } from './Home7Line';
 export { Home8Fill } from './Home8Fill';
 export { Home8Line } from './Home8Line';
+export { Home9Fill } from './Home9Fill';
+export { Home9Line } from './Home9Line';
 export { HomeFill } from './HomeFill';
 export { HomeGearFill } from './HomeGearFill';
 export { HomeGearLine } from './HomeGearLine';

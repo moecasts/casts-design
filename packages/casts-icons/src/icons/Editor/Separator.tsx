@@ -25,7 +25,7 @@ const Separator = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2 11h2v2H2v-2Zm4 0h12v2H6v-2Zm14 0h2v2h-2v-2Z" />
+      <path d="M2 11h2v2H2zm4 0h12v2H6zm14 0h2v2h-2z" />
     </svg>
   );
 };

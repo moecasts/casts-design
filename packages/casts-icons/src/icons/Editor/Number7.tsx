@@ -25,7 +25,7 @@ const Number7 = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M19 2v1.5L10.763 22H8.574l8.013-18H6V2h13Z" />
+      <path d="M19 2v1.5L10.763 22H8.574l8.013-18H6V2z" />
     </svg>
   );
 };

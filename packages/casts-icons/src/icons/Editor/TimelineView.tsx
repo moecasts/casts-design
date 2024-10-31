@@ -25,7 +25,7 @@ const TimelineView = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3Zm1 16V5h16v14H4ZM14 7H6v2h8V7Zm4 8v2h-8v-2h8Zm-2-4H8v2h8v-2Z" />
+      <path d="M3 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm1 16V5h16v14zM14 7H6v2h8zm4 8v2h-8v-2zm-2-4H8v2h8z" />
     </svg>
   );
 };

@@ -29,7 +29,7 @@ const SignalWifiErrorFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 3c4.285 0 8.22 1.497 11.31 3.996L22.5 8H18L18 13.571 12 21 .69 6.997A17.925 17.925 0 0 1 12 3Zm10 16v2h-2v-2h2Zm0-9v7h-2v-7h2Z" />
+      <path d="M12 3c4.285 0 8.22 1.497 11.31 3.996L22.5 8H18L18 13.571 12 21 .69 6.997A17.93 17.93 0 0 1 12 3m10 16v2h-2v-2zm0-9v7h-2v-7z" />
     </svg>
   );
 };

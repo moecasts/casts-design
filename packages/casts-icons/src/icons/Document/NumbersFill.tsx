@@ -25,7 +25,7 @@ const NumbersFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M9 18H4v-8h5v8Zm6 0h-5V6h5v12Zm6 0h-5V2h5v16Zm1 4H3v-2h19v2Z" />
+      <path d="M9 18H4v-8h5zm6 0h-5V6h5zm6 0h-5V2h5zm1 4H3v-2h19z" />
     </svg>
   );
 };

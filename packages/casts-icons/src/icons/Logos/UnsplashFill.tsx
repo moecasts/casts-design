@@ -25,7 +25,7 @@ const UnsplashFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M8.501 11v5h7v-5h5.5v10h-18V11h5.5Zm7-8v5h-7V3h7Z" />
+      <path d="M8.501 11v5h7v-5h5.5v10h-18V11zm7-8v5h-7V3z" />
     </svg>
   );
 };
