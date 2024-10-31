@@ -29,7 +29,7 @@ const MenuFoldFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21 18v2H3v-2h18ZM6.95 3.55v9.9L2 8.5l4.95-4.95ZM21 11v2h-9v-2h9Zm0-7v2h-9V4h9Z" />
+      <path d="M21 18v2H3v-2zM6.95 3.55v9.9L2 8.5zM21 11v2h-9v-2zm0-7v2h-9V4z" />
     </svg>
   );
 };

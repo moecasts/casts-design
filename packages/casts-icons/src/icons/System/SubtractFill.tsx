@@ -25,7 +25,7 @@ const SubtractFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M19 11H5v2h14v-2Z" />
+      <path d="M19 11H5v2h14z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const CrossFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M14 2h-4v6H4v4h6v10h4V12h6V8h-6V2Z" />
+      <path d="M14 2h-4v6H4v4h6v10h4V12h6V8h-6z" />
     </svg>
   );
 };

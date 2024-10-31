@@ -25,7 +25,7 @@ const Filter3Line = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M10 18h4v-2h-4v2ZM3 6v2h18V6H3Zm3 7h12v-2H6v2Z" />
+      <path d="M10 18h4v-2h-4zM3 6v2h18V6zm3 7h12v-2H6z" />
     </svg>
   );
 };

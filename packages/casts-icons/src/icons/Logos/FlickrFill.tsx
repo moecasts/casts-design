@@ -25,7 +25,7 @@ const FlickrFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M11 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm12 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" />
+      <path d="M11 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0m12 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0" />
     </svg>
   );
 };

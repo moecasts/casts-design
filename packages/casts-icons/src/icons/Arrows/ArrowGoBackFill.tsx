@@ -29,7 +29,7 @@ const ArrowGoBackFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M8 7v4L2 6l6-5v4h5a8 8 0 1 1 0 16H4v-2h9a6 6 0 0 0 0-12H8Z" />
+      <path d="M8 7v4L2 6l6-5v4h5a8 8 0 1 1 0 16H4v-2h9a6 6 0 0 0 0-12z" />
     </svg>
   );
 };

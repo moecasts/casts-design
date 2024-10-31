@@ -25,7 +25,7 @@ const CalendarView = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2 4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Zm2 15h16V9H4v10Zm7-6H6v4h5v-4Z" />
+      <path d="M2 4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm2 15h16V9H4zm7-6H6v4h5z" />
     </svg>
   );
 };

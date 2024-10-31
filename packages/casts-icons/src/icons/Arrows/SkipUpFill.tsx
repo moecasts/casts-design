@@ -25,7 +25,7 @@ const SkipUpFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M6 7h12v2H6V7Zm6 4-6 6h12l-6-6Z" />
+      <path d="M6 7h12v2H6zm6 4-6 6h12z" />
     </svg>
   );
 };

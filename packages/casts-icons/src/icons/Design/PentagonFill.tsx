@@ -25,7 +25,7 @@ const PentagonFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m12 .7 10.747 7.808-4.105 12.634H5.358L1.253 8.508 12 .7Z" />
+      <path d="m12 .7 10.747 7.808-4.105 12.634H5.358L1.253 8.508z" />
     </svg>
   );
 };

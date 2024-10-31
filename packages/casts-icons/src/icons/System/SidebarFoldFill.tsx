@@ -29,7 +29,7 @@ const SidebarFoldFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M13 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h9V3Zm2 18V3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5ZM11 8.5v7L7 12l4-3.5Z" />
+      <path d="M13 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h9zm2 18V3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1zM11 8.5v7L7 12z" />
     </svg>
   );
 };

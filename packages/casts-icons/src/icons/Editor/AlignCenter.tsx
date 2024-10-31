@@ -25,7 +25,7 @@ const AlignCenter = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 4h18v2H3V4Zm2 15h14v2H5v-2Zm-2-5h18v2H3v-2Zm2-5h14v2H5V9Z" />
+      <path d="M3 4h18v2H3zm2 15h14v2H5zm-2-5h18v2H3zm2-5h14v2H5z" />
     </svg>
   );
 };

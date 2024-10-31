@@ -29,7 +29,7 @@ const DashboardFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 13h8V3H3v10Zm0 8h8v-6H3v6Zm10 0h8V11h-8v10Zm0-18v6h8V3h-8Z" />
+      <path d="M3 13h8V3H3zm0 8h8v-6H3zm10 0h8V11h-8zm0-18v6h8V3z" />
     </svg>
   );
 };

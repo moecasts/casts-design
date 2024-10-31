@@ -29,7 +29,7 @@ const VipCrownFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2.005 19h20v2h-20v-2Zm0-14 5 3 5-6 5 6 5-3v12h-20V5Z" />
+      <path d="M2.005 19h20v2h-20zm0-14 5 3 5-6 5 6 5-3v12h-20z" />
     </svg>
   );
 };

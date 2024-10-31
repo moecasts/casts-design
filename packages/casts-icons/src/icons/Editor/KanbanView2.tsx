@@ -25,7 +25,7 @@ const KanbanView2 = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M2 4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Zm14 15h4V5h-4v14ZM14 5h-4v14h4V5ZM4 5v14h4V5H4Z" />
+      <path d="M2 4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm14 15h4V5h-4zM14 5h-4v14h4zM4 5v14h4V5z" />
     </svg>
   );
 };

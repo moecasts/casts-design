@@ -25,7 +25,7 @@ const Text = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M13 6v15h-2V6H5V4h14v2h-6Z" />
+      <path d="M13 6v15h-2V6H5V4h14v2z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const Layout6Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M15 10v11H3a1 1 0 0 1-1-1V10h13Zm7 0v10a1 1 0 0 1-1 1h-4V10h5Zm-1-7a1 1 0 0 1 1 1v4H2V4a1 1 0 0 1 1-1h18Z" />
+      <path d="M15 10v11H3a1 1 0 0 1-1-1V10zm7 0v10a1 1 0 0 1-1 1h-4V10zm-1-7a1 1 0 0 1 1 1v4H2V4a1 1 0 0 1 1-1z" />
     </svg>
   );
 };

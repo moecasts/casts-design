@@ -29,7 +29,7 @@ const ArrowDropLeftFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m9 12 4-4v8l-4-4Z" />
+      <path d="m9 12 4-4v8z" />
     </svg>
   );
 };

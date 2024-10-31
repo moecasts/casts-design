@@ -29,7 +29,7 @@ const ArrowTurnForwardFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M17 8v5a6 6 0 0 1-12 0V4H3v9a8 8 0 1 0 16 0V8h4l-5-6-5 6h4Z" />
+      <path d="M17 8v5a6 6 0 0 1-12 0V4H3v9a8 8 0 1 0 16 0V8h4l-5-6-5 6z" />
     </svg>
   );
 };

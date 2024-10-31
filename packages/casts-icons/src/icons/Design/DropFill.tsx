@@ -25,7 +25,7 @@ const DropFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5.636 6.633 12 .269l6.364 6.364a9 9 0 1 1-12.728 0Z" />
+      <path d="M5.636 6.633 12 .269l6.364 6.364a9 9 0 1 1-12.728 0" />
     </svg>
   );
 };

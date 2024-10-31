@@ -29,7 +29,7 @@ const CornerUpRightLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 10v9h2v-7h10.172l-3.95 3.95 1.414 1.414L21 11l-6.364-6.364-1.414 1.414 3.95 3.95H5Z" />
+      <path d="M5 10v9h2v-7h10.172l-3.95 3.95 1.414 1.414L21 11l-6.364-6.364-1.414 1.414 3.95 3.95z" />
     </svg>
   );
 };

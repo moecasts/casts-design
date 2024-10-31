@@ -25,7 +25,7 @@ const FontMono = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M6 4h13v2H8v6h10v2H8v7H6V4Z" />
+      <path d="M6 4h13v2H8v6h10v2H8v7H6z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const StockFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M8.005 5.003h3v9h-3v3h-2v-3h-3v-9h3v-3h2v3Zm10 5h3v9h-3v3h-2v-3h-3v-9h3v-3h2v3Z" />
+      <path d="M8.005 5.003h3v9h-3v3h-2v-3h-3v-9h3v-3h2zm10 5h3v9h-3v3h-2v-3h-3v-9h3v-3h2z" />
     </svg>
   );
 };

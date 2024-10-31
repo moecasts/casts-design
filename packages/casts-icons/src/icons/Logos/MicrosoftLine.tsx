@@ -29,7 +29,7 @@ const MicrosoftLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M11.001 5h-6v6h6V5Zm2 0v6h6V5h-6Zm6 8h-6v6h6v-6Zm-8 6v-6h-6v6h6Zm-8-16h18v18h-18V3Z" />
+      <path d="M11.001 5h-6v6h6zm2 0v6h6V5zm6 8h-6v6h6zm-8 6v-6h-6v6zm-8-16h18v18h-18z" />
     </svg>
   );
 };

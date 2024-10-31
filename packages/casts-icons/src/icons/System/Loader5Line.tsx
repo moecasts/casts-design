@@ -25,7 +25,7 @@ const Loader5Line = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 3a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7V3Z" />
+      <path d="M12 3a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7z" />
     </svg>
   );
 };

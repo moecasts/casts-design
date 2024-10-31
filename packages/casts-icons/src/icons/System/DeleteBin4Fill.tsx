@@ -29,7 +29,7 @@ const DeleteBin4Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M20 7v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7H2V5h20v2h-2Zm-9 3v7h2v-7h-2ZM7 2h10v2H7V2Z" />
+      <path d="M20 7v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7H2V5h20v2zm-9 3v7h2v-7zM7 2h10v2H7z" />
     </svg>
   );
 };

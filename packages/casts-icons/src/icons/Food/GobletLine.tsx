@@ -25,7 +25,7 @@ const GobletLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M11 19v-5.111L3 5V3h18v2l-8 8.889V19h5v2H6v-2h5ZM7.49 7h9.02l1.8-2H5.69l1.8 2Zm1.8 2L12 12.01 14.71 9H9.29Z" />
+      <path d="M11 19v-5.111L3 5V3h18v2l-8 8.889V19h5v2H6v-2zM7.49 7h9.02l1.8-2H5.69zm1.8 2L12 12.01 14.71 9z" />
     </svg>
   );
 };

@@ -25,7 +25,7 @@ const FontSans = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M7 4h12v2h-9v6h8v2h-8v7H7V4Z" />
+      <path d="M7 4h12v2h-9v6h8v2h-8v7H7z" />
     </svg>
   );
 };

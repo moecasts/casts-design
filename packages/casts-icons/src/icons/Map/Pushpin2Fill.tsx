@@ -25,7 +25,7 @@ const Pushpin2Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M18 3v2h-1v6l2 3v2h-6v7h-2v-7H5v-2l2-3V5H6V3h12Z" />
+      <path d="M18 3v2h-1v6l2 3v2h-6v7h-2v-7H5v-2l2-3V5H6V3z" />
     </svg>
   );
 };

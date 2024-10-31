@@ -25,7 +25,7 @@ const PauseFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M6 5h2v14H6V5Zm10 0h2v14h-2V5Z" />
+      <path d="M6 5h2v14H6zm10 0h2v14h-2z" />
     </svg>
   );
 };

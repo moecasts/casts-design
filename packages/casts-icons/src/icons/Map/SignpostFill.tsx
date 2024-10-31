@@ -25,7 +25,7 @@ const SignpostFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 5V2h-2v3H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h13.414l4.293-4.293a1 1 0 0 0 0-1.414L17.414 5H12Zm0 12h-2v5h2v-5Z" />
+      <path d="M12 5V2h-2v3H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h13.414l4.293-4.293a1 1 0 0 0 0-1.414L17.414 5zm0 12h-2v5h2z" />
     </svg>
   );
 };

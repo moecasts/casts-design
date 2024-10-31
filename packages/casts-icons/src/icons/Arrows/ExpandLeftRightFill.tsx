@@ -29,7 +29,7 @@ const ExpandLeftRightFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m9 6-6 6 6 6V6Zm6 12 6-6-6-6v12Z" />
+      <path d="m9 6-6 6 6 6zm6 12 6-6-6-6z" />
     </svg>
   );
 };
