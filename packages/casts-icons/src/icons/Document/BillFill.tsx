@@ -25,7 +25,7 @@ const BillFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1ZM8 9v2h8V9H8Zm0 4v2h8v-2H8Z" />
+      <path d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1M8 9v2h8V9zm0 4v2h8v-2z" />
     </svg>
   );
 };

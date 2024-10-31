@@ -29,7 +29,7 @@ const ArrowUpDownFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 8H8.001L8 20H6V8H2l5-5 5 5Zm10 8-5 5-5-5h4V4h2v12h4Z" />
+      <path d="M12 8H8.001L8 20H6V8H2l5-5zm10 8-5 5-5-5h4V4h2v12z" />
     </svg>
   );
 };

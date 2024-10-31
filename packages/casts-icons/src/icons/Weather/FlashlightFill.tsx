@@ -29,7 +29,7 @@ const FlashlightFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M13 10h7l-9 13v-9H4l9-13v9Z" />
+      <path d="M13 10h7l-9 13v-9H4l9-13z" />
     </svg>
   );
 };

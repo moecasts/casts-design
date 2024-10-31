@@ -29,7 +29,7 @@ const LineChartFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 3v16h16v2H3V3h2Zm14.94 2.94 2.12 2.12L16 14.122l-3-3-3.94 3.94-2.12-2.122L13 6.88l3 3 3.94-3.94Z" />
+      <path d="M5 3v16h16v2H3V3zm14.94 2.94 2.12 2.12L16 14.122l-3-3-3.94 3.94-2.12-2.122L13 6.88l3 3z" />
     </svg>
   );
 };

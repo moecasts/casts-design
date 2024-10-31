@@ -29,7 +29,7 @@ const Equalizer3Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M7 3v3H3v2h4v3h3V3H7Zm5 5h9V6h-9v2Zm5 5v3h4v2h-4v3h-3v-8h3Zm-5 5H3v-2h9v2Z" />
+      <path d="M7 3v3H3v2h4v3h3V3zm5 5h9V6h-9zm5 5v3h4v2h-4v3h-3v-8zm-5 5H3v-2h9z" />
     </svg>
   );
 };

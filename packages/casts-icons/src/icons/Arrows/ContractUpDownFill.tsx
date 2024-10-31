@@ -29,7 +29,7 @@ const ContractUpDownFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m18 5-6 6-6-6h12Zm0 14-6-6-6 6h12Z" />
+      <path d="m18 5-6 6-6-6zm0 14-6-6-6 6z" />
     </svg>
   );
 };

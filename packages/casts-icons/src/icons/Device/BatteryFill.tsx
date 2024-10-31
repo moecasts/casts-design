@@ -25,7 +25,7 @@ const BatteryFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18 4h2v6h-2V9Z" />
+      <path d="M3 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1m18 4h2v6h-2z" />
     </svg>
   );
 };

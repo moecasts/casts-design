@@ -29,7 +29,7 @@ const ContractLeftFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M15 5v6h6v2h-6v6l-7-7 7-7ZM4 19V5h2v14H4Z" />
+      <path d="M15 5v6h6v2h-6v6l-7-7zM4 19V5h2v14z" />
     </svg>
   );
 };

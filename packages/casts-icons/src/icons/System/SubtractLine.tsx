@@ -25,7 +25,7 @@ const SubtractLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 11v2h14v-2H5Z" />
+      <path d="M5 11v2h14v-2z" />
     </svg>
   );
 };

@@ -29,7 +29,7 @@ const SortAlphabetDesc = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M4.869 11H2.667L6 3h2l3.333 8H9.131l-.41-1H5.28l-.41 1Zm1.23-3h1.803L7 5.8 6.098 8Zm15.9 0-4-5-4 5h3v13h2V8h3Zm-11 5H3v2h4.855L3 19v2h8v-2H6.146L11 15v-2Z" />
+      <path d="M4.869 11H2.667L6 3h2l3.333 8H9.131l-.41-1H5.28zm1.23-3h1.803L7 5.8zm15.9 0-4-5-4 5h3v13h2V8zm-11 5H3v2h4.855L3 19v2h8v-2H6.146L11 15z" />
     </svg>
   );
 };

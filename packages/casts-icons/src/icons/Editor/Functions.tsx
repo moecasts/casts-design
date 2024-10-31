@@ -25,7 +25,7 @@ const Functions = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m5 18 7.68-6L5 6V4h14v2H8.263L16 12l-7.737 6H19v2H5v-2Z" />
+      <path d="m5 18 7.68-6L5 6V4h14v2H8.263L16 12l-7.737 6H19v2H5z" />
     </svg>
   );
 };

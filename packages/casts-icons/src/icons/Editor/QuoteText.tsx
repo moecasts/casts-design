@@ -25,7 +25,7 @@ const QuoteText = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21 4H3v2h18V4Zm0 7H8v2h13v-2Zm0 7H8v2h13v-2ZM5 11H3v9h2v-9Z" />
+      <path d="M21 4H3v2h18zm0 7H8v2h13zm0 7H8v2h13zM5 11H3v9h2z" />
     </svg>
   );
 };

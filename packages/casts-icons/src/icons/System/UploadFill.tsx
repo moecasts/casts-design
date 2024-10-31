@@ -25,7 +25,7 @@ const UploadFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 19h18v2H3v-2Zm10-9v8h-2v-8H4l8-8 8 8h-7Z" />
+      <path d="M3 19h18v2H3zm10-9v8h-2v-8H4l8-8 8 8z" />
     </svg>
   );
 };

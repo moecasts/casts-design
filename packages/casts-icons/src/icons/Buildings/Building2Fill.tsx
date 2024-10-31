@@ -29,7 +29,7 @@ const Building2Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 19h2V6l6.394 2.74a1 1 0 0 1 .606.92V19h2v2H1v-2h2V5.65a1 1 0 0 1 .594-.914l7.703-3.423a.5.5 0 0 1 .703.456V19Z" />
+      <path d="M12 19h2V6l6.394 2.74a1 1 0 0 1 .606.92V19h2v2H1v-2h2V5.65a1 1 0 0 1 .594-.914l7.703-3.423a.5.5 0 0 1 .703.456z" />
     </svg>
   );
 };

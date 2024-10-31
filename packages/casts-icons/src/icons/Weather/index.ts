@@ -52,6 +52,8 @@ export { ShiningFill } from './ShiningFill';
 export { ShiningLine } from './ShiningLine';
 export { ShowersFill } from './ShowersFill';
 export { ShowersLine } from './ShowersLine';
+export { SnowflakeFill } from './SnowflakeFill';
+export { SnowflakeLine } from './SnowflakeLine';
 export { SnowyFill } from './SnowyFill';
 export { SnowyLine } from './SnowyLine';
 export { Sparkling2Fill } from './Sparkling2Fill';

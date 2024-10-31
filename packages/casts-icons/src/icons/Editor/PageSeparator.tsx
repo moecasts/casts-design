@@ -29,7 +29,7 @@ const PageSeparator = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M17 21v-4H7v4H5v-5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v5h-2ZM7 3v4h10V3h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3h2ZM2 9l4 3-4 3V9Zm20 0v6l-4-3 4-3Z" />
+      <path d="M17 21v-4H7v4H5v-5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v5zM7 3v4h10V3h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3zM2 9l4 3-4 3zm20 0v6l-4-3z" />
     </svg>
   );
 };

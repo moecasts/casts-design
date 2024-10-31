@@ -25,7 +25,7 @@ const User4Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M5 20h14v2H5v-2Zm7-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" />
+      <path d="M5 20h14v2H5zm7-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16" />
     </svg>
   );
 };

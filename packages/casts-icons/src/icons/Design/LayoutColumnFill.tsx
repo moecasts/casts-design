@@ -29,7 +29,7 @@ const LayoutColumnFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 5v14h7V5h-7ZM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+      <path d="M12 5v14h7V5zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1" />
     </svg>
   );
 };

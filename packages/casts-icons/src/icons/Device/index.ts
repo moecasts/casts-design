@@ -78,6 +78,8 @@ export { MacbookFill } from './MacbookFill';
 export { MacbookLine } from './MacbookLine';
 export { MacFill } from './MacFill';
 export { MacLine } from './MacLine';
+export { MobileDownloadFill } from './MobileDownloadFill';
+export { MobileDownloadLine } from './MobileDownloadLine';
 export { MouseFill } from './MouseFill';
 export { MouseLine } from './MouseLine';
 export { PhoneFill } from './PhoneFill';

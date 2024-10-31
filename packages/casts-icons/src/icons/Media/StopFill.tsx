@@ -25,7 +25,7 @@ const StopFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+      <path d="M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1" />
     </svg>
   );
 };

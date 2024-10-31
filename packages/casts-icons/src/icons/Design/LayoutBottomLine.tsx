@@ -29,7 +29,7 @@ const LayoutBottomLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h18ZM4 16v3h16v-3H4Zm0-2h16V5H4v9Z" />
+      <path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM4 16v3h16v-3zm0-2h16V5H4z" />
     </svg>
   );
 };

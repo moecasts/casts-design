@@ -29,7 +29,7 @@ const HotelBedFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M22 11v9h-2v-3H4v3H2V4h2v10h8V7h6a4 4 0 0 1 4 4ZM8 13a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+      <path d="M22 11v9h-2v-3H4v3H2V4h2v10h8V7h6a4 4 0 0 1 4 4M8 13a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
     </svg>
   );
 };

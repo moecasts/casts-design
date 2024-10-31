@@ -29,7 +29,7 @@ const BarChartHorizontalFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M12 3v4H3V3h9Zm4 14v4H3v-4h13Zm6-7v4H3v-4h19Z" />
+      <path d="M12 3v4H3V3zm4 14v4H3v-4zm6-7v4H3v-4z" />
     </svg>
   );
 };

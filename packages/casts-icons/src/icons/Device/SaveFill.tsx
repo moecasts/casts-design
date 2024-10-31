@@ -25,7 +25,7 @@ const SaveFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M18 21v-8H6v8H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h13l4 4v13a1 1 0 0 1-1 1h-2Zm-2 0H8v-6h8v6Z" />
+      <path d="M18 21v-8H6v8H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h13l4 4v13a1 1 0 0 1-1 1zm-2 0H8v-6h8z" />
     </svg>
   );
 };

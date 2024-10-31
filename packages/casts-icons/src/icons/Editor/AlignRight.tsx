@@ -25,7 +25,7 @@ const AlignRight = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 4h18v2H3V4Zm4 15h14v2H7v-2Zm-4-5h18v2H3v-2Zm4-5h14v2H7V9Z" />
+      <path d="M3 4h18v2H3zm4 15h14v2H7zm-4-5h18v2H3zm4-5h14v2H7z" />
     </svg>
   );
 };

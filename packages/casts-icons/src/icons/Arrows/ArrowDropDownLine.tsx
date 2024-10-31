@@ -29,7 +29,7 @@ const ArrowDropDownLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m12 15-4.243-4.242 1.415-1.414L12 12.172l2.828-2.828 1.415 1.414L12 15.001Z" />
+      <path d="m12 15-4.243-4.242 1.415-1.414L12 12.172l2.828-2.828 1.415 1.414z" />
     </svg>
   );
 };

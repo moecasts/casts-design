@@ -16,6 +16,8 @@ export { Drinks2Fill } from './Drinks2Fill';
 export { Drinks2Line } from './Drinks2Line';
 export { DrinksFill } from './DrinksFill';
 export { DrinksLine } from './DrinksLine';
+export { Goblet2Fill } from './Goblet2Fill';
+export { Goblet2Line } from './Goblet2Line';
 export { GobletFill } from './GobletFill';
 export { GobletLine } from './GobletLine';
 export { KnifeBloodFill } from './KnifeBloodFill';

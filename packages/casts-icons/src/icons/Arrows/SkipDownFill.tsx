@@ -29,7 +29,7 @@ const SkipDownFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M18 17H6v-2h12v2Zm-6-4 6-6H6l6 6Z" />
+      <path d="M18 17H6v-2h12zm-6-4 6-6H6z" />
     </svg>
   );
 };

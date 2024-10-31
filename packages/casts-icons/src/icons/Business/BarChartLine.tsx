@@ -29,7 +29,7 @@ const BarChartLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 12h2v9H3v-9Zm16-4h2v13h-2V8Zm-8-6h2v19h-2V2Z" />
+      <path d="M3 12h2v9H3zm16-4h2v13h-2zm-8-6h2v19h-2z" />
     </svg>
   );
 };

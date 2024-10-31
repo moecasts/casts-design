@@ -25,7 +25,7 @@ const FunctionLine = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 3h8v8H3V3Zm0 10h8v8H3v-8ZM13 3h8v8h-8V3Zm0 10h8v8h-8v-8Zm2-8v4h4V5h-4Zm0 10v4h4v-4h-4ZM5 5v4h4V5H5Zm0 10v4h4v-4H5Z" />
+      <path d="M3 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm0 10a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM13 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1zm0 10a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1zm2-9v4h4V5zm0 10v4h4v-4zM5 5v4h4V5zm0 10v4h4v-4z" />
     </svg>
   );
 };

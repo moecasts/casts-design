@@ -25,7 +25,7 @@ const Menu3Fill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M3 4h18v2H3V4Zm6 7h12v2H9v-2Zm-6 7h18v2H3v-2Z" />
+      <path d="M3 4h18v2H3zm6 7h12v2H9zm-6 7h18v2H3z" />
     </svg>
   );
 };

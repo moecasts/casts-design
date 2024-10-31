@@ -29,7 +29,7 @@ const DragMoveFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m12 22-4-4h8l-4 4Zm0-20 4 4H8l4-4Zm0 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM2 12l4-4v8l-4-4Zm20 0-4 4V8l4 4Z" />
+      <path d="m12 22-4-4h8zm0-20 4 4H8zm0 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4M2 12l4-4v8zm20 0-4 4V8z" />
     </svg>
   );
 };

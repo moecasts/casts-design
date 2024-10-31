@@ -29,7 +29,7 @@ const ArrowRightSFill = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="m16 12-6 6V6l6 6Z" />
+      <path d="m16 12-6 6V6z" />
     </svg>
   );
 };

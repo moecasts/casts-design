@@ -25,7 +25,7 @@ const Space = (initProps: IconProps) => {
       role="img"
       {...props}
     >
-      <path d="M4 9v4h16V9h2v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9h2Z" />
+      <path d="M4 9v4h16V9h2v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9z" />
     </svg>
   );
 };
