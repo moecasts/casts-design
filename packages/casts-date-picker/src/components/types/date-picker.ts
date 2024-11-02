@@ -56,3 +56,14 @@ export type UseDateRangePickerProps = BaseDatePickerProps & {
 };
 
 export type DateRangePickerProps = UseDateRangePickerProps;
+
+export type UseDateTimePickerProps = BaseDatePickerProps & {
+  value?: Omit<DateValue, 'DateRange'>;
+
+  onChange?: (
+    value: Omit<DateValue, 'DateRange'>,
+    context: ChangeContext,
+  ) => void;
+};
+
+export type DateTimePickerProps = UseDateTimePickerProps;

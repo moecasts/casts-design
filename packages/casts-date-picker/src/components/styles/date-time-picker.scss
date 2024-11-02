@@ -1,0 +1,24 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$date-picker-prefix-cls: #{$prefix-cls}-date-time-picker;
+
+.#{$date-picker-prefix-cls} {
+  &-popup {
+    .#{$prefix-cls}-popup-content {
+      padding: 0px;
+    }
+  }
+  &-panel {
+    display: flex;
+
+    &-date {
+      padding: $space-0375-x;
+    }
+
+    &-time {
+      padding: $space-0375-x;
+      border-left: 1px solid $color-border-divider-default;
+    }
+  }
+}

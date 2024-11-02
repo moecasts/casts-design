@@ -1,0 +1,62 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$time-picker-panel-prefix-cls: #{$prefix-cls}-time-picker-panel;
+
+$cell-width: 58px;
+
+.#{$time-picker-panel-prefix-cls} {
+  &-header {
+    min-height: 32px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  &-body {
+    position: relative;
+    display: flex;
+  }
+
+  &-column {
+    position: relative;
+    z-index: 1;
+    height: 32px * 7;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    @include scrollbar(8px, 2px, true);
+
+    &::before,
+    &::after {
+      display: block;
+      height: 50%;
+      content: '';
+    }
+
+    &-mask {
+      position: absolute;
+      top: 50%;
+      z-index: 0;
+      display: flex;
+      gap: 8px;
+      width: 100%;
+
+      & > div {
+        width: $cell-width;
+        height: 32px;
+        background-color: $color-surface-brand-default;
+        border-radius: $radius-medium;
+      }
+    }
+  }
+
+  &-cell {
+    width: $cell-width;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+  }
+}

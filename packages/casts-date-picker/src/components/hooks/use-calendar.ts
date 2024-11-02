@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { ReactNode, useMemo, useRef, useState } from 'react';
 import {
   createMultipleValueActions,
   isArray,
@@ -51,6 +51,7 @@ export type UseCalendarProps = {
   maxDate?: Date;
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   dateLib?: typeof defaultDateLib;
+  renderFooter?: () => ReactNode;
 };
 
 export interface Week {

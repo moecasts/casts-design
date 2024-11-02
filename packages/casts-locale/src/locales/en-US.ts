@@ -32,4 +32,18 @@ export const enUS = {
   empty: {
     description: 'No data',
   },
+
+  input: {
+    placeholder: 'please enter',
+  },
+
+  select: {
+    placeholder: 'please select',
+  },
+
+  datePicker: {
+    placeholder: {
+      date: 'select date',
+    },
+  },
 };

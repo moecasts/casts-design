@@ -1,7 +1,9 @@
 import { forwardRef, Ref } from 'react';
 import { useDefaultProps } from '@casts/common';
+import { useConfig } from '@casts/config-provider';
 import { Calendar2Line } from '@casts/icons';
 import { Input } from '@casts/input';
+import { translate } from '@casts/locale';
 import { Popup } from '@casts/popup';
 
 import { Calendar } from './calendar';
@@ -27,9 +29,14 @@ export const DatePicker = forwardRef(
       visible,
       handleVisibleChange,
       mode,
-      placeholder,
       size,
     } = useDatePicker(propsWithDefault);
+
+    const { locale } = useConfig();
+
+    const placeholder =
+      propsWithDefault.placeholder ||
+      (translate(locale.datePicker.placeholder.date) as string);
 
     return (
       <Popup

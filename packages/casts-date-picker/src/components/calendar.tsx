@@ -200,13 +200,19 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       </div>
     );
 
-    const renderFooter = () => (
-      <div className={footerClasses}>
-        <Link size="small" onClick={handleCurrentClick}>
-          今天
-        </Link>
-      </div>
-    );
+    const renderFooter = () => {
+      if (props.renderFooter) {
+        return props.renderFooter();
+      }
+
+      return (
+        <div className={footerClasses}>
+          <Link size="small" onClick={handleCurrentClick}>
+            今天
+          </Link>
+        </div>
+      );
+    };
 
     return (
       <CalendarProvider

@@ -17,3 +17,7 @@ $ pnpm add @casts/date-picker
 ## Basic
 
 <code src="../examples/basic.tsx" />
+
+## Different size
+
+<code src="../examples/different-size.tsx" />

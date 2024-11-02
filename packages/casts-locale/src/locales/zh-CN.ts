@@ -32,4 +32,18 @@ export const zhCN = {
   empty: {
     description: '暂无数据',
   },
+
+  input: {
+    placeholder: '请输入',
+  },
+
+  select: {
+    placeholder: '请选择',
+  },
+
+  datePicker: {
+    placeholder: {
+      date: '请选择日期',
+    },
+  },
 };
