@@ -1,5 +1,18 @@
-import { CSSProperties, forwardRef, Ref, useMemo } from 'react';
-import { BaseComponentProps, range, useDefaultProps } from '@casts/common';
+import {
+  CSSProperties,
+  forwardRef,
+  Ref,
+  UIEvent,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import {
+  BaseComponentProps,
+  range,
+  useDebounceFn,
+  useDefaultProps,
+} from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { Calendar2Line } from '@casts/icons';
 import { Input } from '@casts/input';
@@ -21,6 +34,10 @@ export type TimePickerPanelProps = UseTimePickerPanelProps;
 export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const { className, style, ...rest } = props;
   const { getPrefixCls } = useConfig();
+
+  // const [value, setValue] = useControlled(props, 'value', noop);
+
+  const [segments, setSegments] = useState([0, 0, 0]);
 
   const prefixCls = getPrefixCls('time-picker-panel');
 
@@ -45,7 +62,36 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const columnClasses = `${prefixCls}-column`;
   const columnMaskClasses = `${prefixCls}-column-mask`;
 
-  const cellClasses = `${prefixCls}-cell`;
+  const cellClasses = clsx(`${prefixCls}-cell`, {});
+
+  useEffect(() => console.log(segments), [segments]);
+
+  const handleColumnScroll = useDebounceFn(
+    (segment: number, e: UIEvent<HTMLElement>) => {
+      const snapToCell = (e: UIEvent<HTMLElement>) => {
+        const ITEM_HEIGHT = 32;
+
+        const target = e.target as HTMLElement;
+
+        const distance =
+          Math.round(target.scrollTop / ITEM_HEIGHT) * ITEM_HEIGHT;
+
+        const newSegments = [...segments];
+
+        newSegments[segment] = distance / ITEM_HEIGHT;
+
+        setSegments(newSegments);
+
+        target.scrollTo({
+          top: distance,
+          behavior: 'smooth',
+        });
+      };
+
+      snapToCell(e);
+    },
+    { wait: 50 },
+  );
 
   return {
     ...rest,
@@ -58,6 +104,8 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
     bodyClasses,
     styles,
     columns,
+
+    handleColumnScroll,
   };
 };
 
@@ -72,6 +120,7 @@ export const TimePickerPanel = forwardRef(
       headerClasses,
       bodyClasses,
       columnMaskClasses,
+      handleColumnScroll,
     } = useTimePickerPanel(props);
 
     return (
@@ -86,7 +135,11 @@ export const TimePickerPanel = forwardRef(
             <div></div>
           </div>
           {columns.map((column, index) => (
-            <ul className={columnClasses} key={index}>
+            <ul
+              className={columnClasses}
+              key={index}
+              onScroll={(e) => handleColumnScroll.run(index, e)}
+            >
               {column.map((cell) => {
                 return (
                   <li className={cellClasses} key={cell}>

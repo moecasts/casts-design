@@ -4,6 +4,7 @@
 
 $time-picker-panel-prefix-cls: #{$prefix-cls}-time-picker-panel;
 
+$cell-height: 32px;
 $cell-width: 58px;
 
 .#{$time-picker-panel-prefix-cls} {
@@ -21,24 +22,30 @@ $cell-width: 58px;
   &-column {
     position: relative;
     z-index: 1;
-    height: 32px * 7;
+    height: $cell-height * 7;
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
     overflow-y: auto;
 
-    @include scrollbar(8px, 2px, true);
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &::before,
     &::after {
       display: block;
-      height: 50%;
+      height: calc(50% - $cell-height);
       content: '';
+    }
+
+    &::after {
+      height: 50%;
     }
 
     &-mask {
       position: absolute;
-      top: 50%;
+      top: calc(50% - $cell-height);
       z-index: 0;
       display: flex;
       gap: 8px;
@@ -46,7 +53,7 @@ $cell-width: 58px;
 
       & > div {
         width: $cell-width;
-        height: 32px;
+        height: $cell-height;
         background-color: $color-surface-brand-default;
         border-radius: $radius-medium;
       }
@@ -55,8 +62,8 @@ $cell-width: 58px;
 
   &-cell {
     width: $cell-width;
-    height: 32px;
-    line-height: 32px;
+    height: $cell-height;
+    line-height: $cell-height;
     text-align: center;
   }
 }
