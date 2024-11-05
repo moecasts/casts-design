@@ -4,14 +4,15 @@
 
 $time-picker-panel-prefix-cls: #{$prefix-cls}-time-picker-panel;
 
-$cell-height: 32px;
-$cell-width: 58px;
+$cell-height: 28px;
+$cell-width: 51px;
 
 .#{$time-picker-panel-prefix-cls} {
   &-header {
     min-height: 32px;
-    margin-bottom: 8px;
+    margin-bottom: $space-025-x;
     text-align: center;
+    border-bottom: 1px solid $color-border-divider-default;
   }
 
   &-body {
@@ -27,6 +28,7 @@ $cell-width: 58px;
     margin: 0px;
     overflow-x: hidden;
     overflow-y: auto;
+    list-style-type: none;
 
     &::-webkit-scrollbar {
       display: none;
@@ -40,7 +42,7 @@ $cell-width: 58px;
     }
 
     &::after {
-      height: 50%;
+      height: calc(50% - $space-05-x);
     }
 
     &-mask {
@@ -48,12 +50,12 @@ $cell-width: 58px;
       top: calc(50% - $cell-height);
       z-index: 0;
       display: flex;
-      gap: 8px;
       width: 100%;
 
       & > div {
         width: $cell-width;
         height: $cell-height;
+        margin: $space-025-x;
         background-color: $color-surface-brand-default;
         border-radius: $radius-medium;
       }
@@ -63,7 +65,19 @@ $cell-width: 58px;
   &-cell {
     width: $cell-width;
     height: $cell-height;
+    margin: $space-025-x;
     line-height: $cell-height;
     text-align: center;
+    cursor: pointer;
+    border-radius: $radius-medium;
+
+    &:hover {
+      color: $color-text-neutral-hover;
+    }
+
+    &.#{$time-picker-panel-prefix-cls}-cell--selected {
+      color: $color-text-brand-default;
+      background-color: transparent;
+    }
   }
 }

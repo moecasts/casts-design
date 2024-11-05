@@ -3,8 +3,8 @@ import {
   forwardRef,
   Ref,
   UIEvent,
-  useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import {
@@ -31,13 +31,13 @@ export type UseTimePickerPanelProps = BaseComponentProps;
 
 export type TimePickerPanelProps = UseTimePickerPanelProps;
 
+const ITEM_HEIGHT = 28 + 4;
+
 export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const { className, style, ...rest } = props;
   const { getPrefixCls } = useConfig();
 
   // const [value, setValue] = useControlled(props, 'value', noop);
-
-  const [segments, setSegments] = useState([0, 0, 0]);
 
   const prefixCls = getPrefixCls('time-picker-panel');
 
@@ -47,6 +47,7 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const generateColumns = () => {
     return [
+      ['AM', 'PM'],
       range(0, 24).map((hour) => hour.toFixed().padStart(2, '0')),
       range(0, 60).map((minute) => minute.toFixed().padStart(2, '0')),
       range(0, 60).map((second) => second.toFixed().padStart(2, '0')),
@@ -55,6 +56,12 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const columns = useMemo(() => generateColumns(), []);
 
+  const [segments, setSegments] = useState(() =>
+    columns.map((column) => column[0]),
+  );
+
+  const columnRefs = useRef<Record<number, HTMLElement>>({});
+
   const headerClasses = `${prefixCls}-header`;
 
   const bodyClasses = `${prefixCls}-body`;
@@ -62,15 +69,29 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const columnClasses = `${prefixCls}-column`;
   const columnMaskClasses = `${prefixCls}-column-mask`;
 
-  const cellClasses = clsx(`${prefixCls}-cell`, {});
+  const getCellClasses = (column: number, current: string) => {
+    const cellClasses = clsx(`${prefixCls}-cell`, {
+      [`${prefixCls}-cell--selected`]: segments[column] === current,
+    });
 
-  useEffect(() => console.log(segments), [segments]);
+    return cellClasses;
+  };
+
+  const handleCellClick = (payload: { segment: number; current: number }) => {
+    const { segment, current } = payload;
+    const container = columnRefs.current[segment];
+
+    const distance = current * ITEM_HEIGHT;
+
+    container.scrollTo({
+      top: distance,
+      behavior: 'smooth',
+    });
+  };
 
   const handleColumnScroll = useDebounceFn(
     (segment: number, e: UIEvent<HTMLElement>) => {
       const snapToCell = (e: UIEvent<HTMLElement>) => {
-        const ITEM_HEIGHT = 32;
-
         const target = e.target as HTMLElement;
 
         const distance =
@@ -78,7 +99,11 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
         const newSegments = [...segments];
 
-        newSegments[segment] = distance / ITEM_HEIGHT;
+        const current = distance / ITEM_HEIGHT;
+
+        const item = columns[segment][current];
+
+        newSegments[segment] = item;
 
         setSegments(newSegments);
 
@@ -95,17 +120,23 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   return {
     ...rest,
+
+    columnRefs,
+
     classes,
     columnClasses,
     columnMaskClasses,
 
-    cellClasses,
     headerClasses,
     bodyClasses,
     styles,
     columns,
 
+    handleCellClick,
+
     handleColumnScroll,
+
+    getCellClasses,
   };
 };
 
@@ -116,11 +147,13 @@ export const TimePickerPanel = forwardRef(
       styles,
       columns,
       columnClasses,
-      cellClasses,
+      getCellClasses,
       headerClasses,
       bodyClasses,
       columnMaskClasses,
       handleColumnScroll,
+      handleCellClick,
+      columnRefs,
     } = useTimePickerPanel(props);
 
     return (
@@ -130,19 +163,40 @@ export const TimePickerPanel = forwardRef(
         </div>
         <div className={bodyClasses}>
           <div className={columnMaskClasses}>
-            <div></div>
-            <div></div>
-            <div></div>
+            {columns.map((_, index) => (
+              <div key={index}></div>
+            ))}
           </div>
           {columns.map((column, index) => (
             <ul
+              ref={(el) => {
+                columnRefs.current[index] = el as HTMLElement;
+              }}
               className={columnClasses}
               key={index}
               onScroll={(e) => handleColumnScroll.run(index, e)}
             >
-              {column.map((cell) => {
+              {column.map((cell, current) => {
                 return (
-                  <li className={cellClasses} key={cell}>
+                  <li
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                    role="button"
+                    className={getCellClasses(index, cell)}
+                    key={cell}
+                    onClick={() => {
+                      handleCellClick({
+                        segment: index,
+                        current,
+                      });
+                    }}
+                    onKeyDown={() => {
+                      handleCellClick({
+                        segment: index,
+                        current,
+                      });
+                    }}
+                    tabIndex={0}
+                  >
                     {cell}
                   </li>
                 );

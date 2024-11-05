@@ -1,5 +1,6 @@
 import { ReactNode, useMemo, useRef, useState } from 'react';
 import {
+  BaseComponentProps,
   createMultipleValueActions,
   isArray,
   noop,
@@ -37,7 +38,7 @@ export type ChangeContext = {
   action?: 'clear';
 };
 
-export type UseCalendarProps = {
+export type UseCalendarProps = BaseComponentProps & {
   date?: Date;
   defaultDate?: Date;
   value?: DateValue;
@@ -105,6 +106,7 @@ const getMonthStructure = (
 
 export const useCalendar = (props: UseCalendarProps = {}) => {
   const {
+    className,
     disabled,
     minDate,
     maxDate,
@@ -145,7 +147,7 @@ export const useCalendar = (props: UseCalendarProps = {}) => {
   const { getPrefixCls } = useConfig();
   const prefixCls = getPrefixCls('calendar');
 
-  const classes = clsx(prefixCls);
+  const classes = clsx(prefixCls, className);
 
   const yearsClasses = `${prefixCls}-years`;
   const yearsCellClasses = `${prefixCls}-years-cell`;

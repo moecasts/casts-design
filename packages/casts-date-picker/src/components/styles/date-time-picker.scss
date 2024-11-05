@@ -12,13 +12,22 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-time-picker;
   &-panel {
     display: flex;
 
+    @media screen and (max-width: $breakpoint-small) {
+      flex-direction: column;
+    }
+
     &-date {
       padding: $space-0375-x;
     }
 
     &-time {
       padding: $space-0375-x;
+
       border-left: 1px solid $color-border-divider-default;
+      @media screen and (max-width: $breakpoint-small) {
+        border-top: 1px solid $color-border-divider-default;
+        border-left: none;
+      }
     }
   }
 }
