@@ -58,8 +58,10 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
 
   &-weekday {
     display: inline-block;
-    margin-bottom: $calendar-weekday-margin-bottom;
+    height: 32px;
+    // margin-bottom: $calendar-weekday-margin-bottom;
     font-weight: normal;
+    line-height: 32px;
     color: $calendar-weekday-color-text;
   }
 

@@ -31,11 +31,13 @@ export type UseTimePickerPanelProps = BaseComponentProps;
 
 export type TimePickerPanelProps = UseTimePickerPanelProps;
 
-const ITEM_HEIGHT = 28 + 4;
+const ITEM_HEIGHT = 32 + 2;
 
 export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const { className, style, ...rest } = props;
   const { getPrefixCls } = useConfig();
+
+  const formatA = true;
 
   // const [value, setValue] = useControlled(props, 'value', noop);
 
@@ -47,11 +49,11 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const generateColumns = () => {
     return [
-      ['AM', 'PM'],
+      formatA && ['AM', 'PM'],
       range(0, 24).map((hour) => hour.toFixed().padStart(2, '0')),
       range(0, 60).map((minute) => minute.toFixed().padStart(2, '0')),
       range(0, 60).map((second) => second.toFixed().padStart(2, '0')),
-    ];
+    ].filter(Boolean);
   };
 
   const columns = useMemo(() => generateColumns(), []);
