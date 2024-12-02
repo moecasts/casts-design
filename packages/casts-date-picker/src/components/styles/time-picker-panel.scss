@@ -65,5 +65,11 @@ $cell-width: 58px;
     height: $cell-height;
     line-height: $cell-height;
     text-align: center;
+    cursor: pointer;
+    transform: color $motion-duration-rapid $motion-easing-in-out;
+
+    &:hover {
+      color: $color-text-secondary;
+    }
   }
 }

@@ -1,14 +1,18 @@
 import {
   CSSProperties,
   forwardRef,
+  KeyboardEvent,
+  MouseEvent,
   Ref,
   UIEvent,
-  useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import {
   BaseComponentProps,
+  getKeyboardEvents,
+  KEYCODE_CONFIRM,
   range,
   useDebounceFn,
   useDefaultProps,
@@ -19,6 +23,7 @@ import { Input } from '@casts/input';
 import { translate } from '@casts/locale';
 import { Popup } from '@casts/popup';
 import { clsx } from 'clsx';
+import { format } from 'date-fns';
 
 import { Calendar } from './calendar';
 import { useDateTimePicker } from './hooks';
@@ -27,15 +32,26 @@ import { BaseDatePickerProps, DateValue } from './types';
 import './styles/time-picker-panel.scss';
 import './styles/date-time-picker.scss';
 
-export type UseTimePickerPanelProps = BaseComponentProps;
+export type UseTimePickerPanelProps = BaseComponentProps & {
+  /**
+   * default value is `HH:mm:ss`
+   * eg:
+   *  23:99:99
+   */
+  format?: (value: string) => string;
+};
 
 export type TimePickerPanelProps = UseTimePickerPanelProps;
+
+const ITEM_HEIGHT = 32;
 
 export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const { className, style, ...rest } = props;
   const { getPrefixCls } = useConfig();
 
   // const [value, setValue] = useControlled(props, 'value', noop);
+
+  const columnElementRefs = useRef<(HTMLUListElement | null)[]>([]);
 
   const [segments, setSegments] = useState([0, 0, 0]);
 
@@ -64,13 +80,9 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const cellClasses = clsx(`${prefixCls}-cell`, {});
 
-  useEffect(() => console.log(segments), [segments]);
-
   const handleColumnScroll = useDebounceFn(
     (segment: number, e: UIEvent<HTMLElement>) => {
       const snapToCell = (e: UIEvent<HTMLElement>) => {
-        const ITEM_HEIGHT = 32;
-
         const target = e.target as HTMLElement;
 
         const distance =
@@ -93,8 +105,44 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
     { wait: 50 },
   );
 
+  const handleCellClick = (payload: {
+    column: number;
+    segment: number;
+    e: MouseEvent<Element> | KeyboardEvent<Element>;
+  }) => {
+    const { column, segment } = payload;
+
+    const newSegments = [...segments];
+
+    newSegments[column] = segment;
+
+    setSegments(newSegments);
+
+    const columnElement = columnElementRefs.current[column];
+
+    if (!columnElement) {
+      return;
+    }
+
+    columnElement.scrollTo({
+      top: segment * ITEM_HEIGHT,
+      behavior: 'smooth',
+    });
+  };
+
+  const valueDisplay = useMemo(() => {
+    const time = format(
+      new Date(0, 0, 0, segments[0], segments[1], segments[2]),
+      'HH:mm:ss',
+    );
+    return props.format ? props.format(time) : time;
+  }, [segments, props.format]);
+
   return {
     ...rest,
+    valueDisplay,
+    columnElementRefs,
+
     classes,
     columnClasses,
     columnMaskClasses,
@@ -106,6 +154,7 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
     columns,
 
     handleColumnScroll,
+    handleCellClick,
   };
 };
 
@@ -121,12 +170,15 @@ export const TimePickerPanel = forwardRef(
       bodyClasses,
       columnMaskClasses,
       handleColumnScroll,
+      handleCellClick,
+      columnElementRefs,
+      valueDisplay,
     } = useTimePickerPanel(props);
 
     return (
       <div ref={ref} className={classes} style={styles}>
         <div className={headerClasses}>
-          <span>Hour</span>
+          <span>{valueDisplay}</span>
         </div>
         <div className={bodyClasses}>
           <div className={columnMaskClasses}>
@@ -139,10 +191,36 @@ export const TimePickerPanel = forwardRef(
               className={columnClasses}
               key={index}
               onScroll={(e) => handleColumnScroll.run(index, e)}
+              ref={(el) => {
+                columnElementRefs.current[index] = el;
+              }}
             >
               {column.map((cell) => {
                 return (
-                  <li className={cellClasses} key={cell}>
+                  <li
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                    role="button"
+                    className={cellClasses}
+                    key={cell}
+                    onClick={(e) =>
+                      handleCellClick({
+                        column: index,
+                        segment: parseInt(cell),
+                        e,
+                      })
+                    }
+                    onKeyPress={getKeyboardEvents([
+                      [
+                        KEYCODE_CONFIRM,
+                        (e) =>
+                          handleCellClick({
+                            column: index,
+                            segment: parseInt(cell),
+                            e,
+                          }),
+                      ],
+                    ])}
+                  >
                     {cell}
                   </li>
                 );
