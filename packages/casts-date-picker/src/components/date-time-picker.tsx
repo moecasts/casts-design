@@ -19,6 +19,7 @@ import { Input } from '@casts/input';
 import { translate } from '@casts/locale';
 import { Popup } from '@casts/popup';
 import { clsx } from 'clsx';
+import { format } from 'date-fns';
 
 import { Calendar } from './calendar';
 import { useDateTimePicker } from './hooks';
@@ -27,7 +28,14 @@ import { BaseDatePickerProps, DateValue } from './types';
 import './styles/time-picker-panel.scss';
 import './styles/date-time-picker.scss';
 
-export type UseTimePickerPanelProps = BaseComponentProps;
+export type UseTimePickerPanelProps = BaseComponentProps & {
+  /**
+   * default value is `HH:mm:ss`
+   * eg:
+   *   23:59:59
+   */
+  format?: (value: string) => string;
+};
 
 export type TimePickerPanelProps = UseTimePickerPanelProps;
 
@@ -120,6 +128,16 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
     { wait: 50 },
   );
 
+  const valueDisplay = useMemo(() => {
+    const timeSegments = (
+      formatA ? [segments[1], ...segments.slice(2)] : segments.slice(1)
+    ).map((segment) => parseInt(segment, 10));
+
+    const time = format(new Date(0, 0, 0, ...timeSegments), 'B HH:mm:ss');
+
+    return props.format ? props.format(time) : time;
+  }, [props.format, segments]);
+
   return {
     ...rest,
 
@@ -139,6 +157,8 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
     handleColumnScroll,
 
     getCellClasses,
+
+    valueDisplay,
   };
 };
 
@@ -156,12 +176,13 @@ export const TimePickerPanel = forwardRef(
       handleColumnScroll,
       handleCellClick,
       columnRefs,
+      valueDisplay,
     } = useTimePickerPanel(props);
 
     return (
       <div ref={ref} className={classes} style={styles}>
         <div className={headerClasses}>
-          <span>Hour</span>
+          <span>{valueDisplay}</span>
         </div>
         <div className={bodyClasses}>
           <div className={columnMaskClasses}>
