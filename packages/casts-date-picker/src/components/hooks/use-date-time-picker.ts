@@ -3,16 +3,17 @@ import { isArray, noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
-import { format } from 'date-fns';
+import { format, set } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 
 import {
-  DatePickerMode,
   DateValue,
   UseDatePickerProps,
   UseDateTimePickerProps,
 } from '../types';
 import { ChangeContext } from './use-calendar';
+
+const DATETIME_FORMAT = 'yyyy-MM-dd HH:mm:ss';
 
 export const useDateTimePicker = (
   props: UseDateTimePickerProps & { mode?: any },
@@ -47,17 +48,24 @@ export const useDateTimePicker = (
   };
 
   const handleSelect = (
-    value: NonNullable<UseDatePickerProps['value']>,
+    newValue: NonNullable<UseDatePickerProps['value']>,
     context: ChangeContext,
   ) => {
-    if (mode === DatePickerMode.Single) {
-      setValue(value, context);
-      handleVisibleChange(false);
-    }
+    const finalValue = set(
+      (value as Date) ||
+        set(new Date(), {
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        }),
+      {
+        year: (newValue as Date).getFullYear(),
+        month: (newValue as Date).getMonth(),
+        date: (newValue as Date).getDate(),
+      },
+    );
 
-    if (mode === DatePickerMode.Multiple) {
-      setValue(value, context);
-    }
+    setValue(finalValue, context);
   };
 
   const handleInputChange = noop;
@@ -73,17 +81,36 @@ export const useDateTimePicker = (
           if (!date) {
             return '';
           }
-          return format(date, 'yyyy-MM-dd');
+          return format(date, DATETIME_FORMAT);
         })
         .join(', ');
     }
 
-    return value instanceof Date ? format(value, 'yyyy-MM-dd') : undefined;
+    return value instanceof Date ? format(value, DATETIME_FORMAT) : undefined;
+  };
+
+  const handleTimeChange = (time: string) => {
+    const [hours, minutes, seconds] = time.split(':').map(Number);
+    const newValue = set(new Date(value as Date), {
+      hours,
+      minutes,
+      seconds,
+    });
+
+    setValue(newValue, {});
   };
 
   const clearValue = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setValue(undefined as any, { action: 'clear' });
+  };
+
+  const formatTimeValue = (value: DateValue) => {
+    if (!value) {
+      return;
+    }
+
+    return format(value as Date, 'HH:mm:ss');
   };
 
   return {
@@ -97,9 +124,11 @@ export const useDateTimePicker = (
     value,
     handleSelect,
     formatValue,
+    formatTimeValue,
     clearValue,
     handleInputChange,
     visible,
+    handleTimeChange,
     handleVisibleChange,
     popupClasses,
   };

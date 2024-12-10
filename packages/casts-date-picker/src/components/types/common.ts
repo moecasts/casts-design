@@ -6,3 +6,5 @@ export type DateRange = {
 };
 
 export type DateValue = DateType | DateType[] | DateRange;
+
+export type TimeValue = string;
