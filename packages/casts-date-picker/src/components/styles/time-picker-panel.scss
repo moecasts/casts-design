@@ -12,6 +12,7 @@ $cell-size: 7;
 .#{$time-picker-panel-prefix-cls} {
   &-header {
     min-height: 32px;
+    padding-top: $space-025-x;
     margin-bottom: $space-05-x;
     text-align: center;
     border-bottom: 1px solid $color-border-divider-default;

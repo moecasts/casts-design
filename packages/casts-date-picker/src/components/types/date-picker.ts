@@ -1,7 +1,6 @@
 import { BaseComponentProps, Size } from '@casts/common';
 
-import { ChangeContext } from '../hooks';
-import { DateRange, DateValue } from './common';
+import { ChangeContext, DateRange, DateValue } from './common';
 
 export enum DatePickerMode {
   Single = 'single',
@@ -39,12 +38,9 @@ export type BaseDatePickerProps = BaseComponentProps & {
 export type UseDatePickerProps = BaseDatePickerProps & {
   mode?: `${DatePickerMode}`;
 
-  value?: Omit<DateValue, 'DateRange'>;
+  value?: DateValue;
 
-  onChange?: (
-    value: Omit<DateValue, 'DateRange'>,
-    context: ChangeContext,
-  ) => void;
+  onChange?: (value: DateValue, context: ChangeContext) => void;
 };
 
 export type DatePickerProps = UseDatePickerProps;
@@ -58,12 +54,9 @@ export type UseDateRangePickerProps = BaseDatePickerProps & {
 export type DateRangePickerProps = UseDateRangePickerProps;
 
 export type UseDateTimePickerProps = BaseDatePickerProps & {
-  value?: Omit<DateValue, 'DateRange'>;
+  value?: DateValue;
 
-  onChange?: (
-    value: Omit<DateValue, 'DateRange'>,
-    context: ChangeContext,
-  ) => void;
+  onChange?: (value: DateValue, context: ChangeContext) => void;
 };
 
 export type DateTimePickerProps = UseDateTimePickerProps;

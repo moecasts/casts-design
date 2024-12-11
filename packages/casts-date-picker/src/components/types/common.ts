@@ -5,6 +5,20 @@ export type DateRange = {
   to?: DateType | undefined;
 };
 
-export type DateValue = DateType | DateType[] | DateRange;
+export type DateValue = DateType | DateType[];
 
 export type TimeValue = string;
+
+export type ChangeContext = {
+  event?: Event;
+  action?: 'clear';
+  dateString?: string;
+  rangeString?: {
+    from: string;
+    to: string;
+  };
+};
+
+export type PickerChangeContext = ChangeContext;
+
+export type CalendarDateValue = DateValue | DateRange;

@@ -1,11 +1,4 @@
-import {
-  CSSProperties,
-  UIEvent,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { CSSProperties, UIEvent, useMemo, useRef, useState } from 'react';
 import {
   BaseComponentProps,
   noop,
@@ -57,10 +50,6 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   const TIME_FORMAT = formatA ? 'B HH:mm:ss' : 'HH:mm:ss';
 
   const [value, setValue] = useControlled(props, 'value', onChange);
-
-  useEffect(() => {
-    console.log('debug1 value', { value, pV: props.value });
-  }, [value, props.value]);
 
   const prefixCls = getPrefixCls('time-picker-panel');
 

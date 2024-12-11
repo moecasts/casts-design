@@ -46,7 +46,7 @@ export const DatePicker = forwardRef(
             type={mode}
             value={value as Exclude<DateValue, 'DateRange'>}
             onChange={(value, context) => {
-              handleSelect(value, context);
+              handleSelect(value as DateValue, context);
             }}
           />
         }

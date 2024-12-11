@@ -1,14 +1,19 @@
 import { CSSProperties, useMemo } from 'react';
-import { isArray, noop, useControlled } from '@casts/common';
+import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
 import { format } from 'date-fns';
-import { DateRange } from 'react-day-picker';
 
 import { getDayPickerClassNames } from '../helpers';
-import { DatePickerMode, DateValue, UseDatePickerProps } from '../types';
-import { ChangeContext } from './use-calendar';
+import {
+  ChangeContext,
+  DatePickerMode,
+  DateValue,
+  UseDatePickerProps,
+} from '../types';
+
+const DATE_FORMAT = 'yyyy-MM-dd';
 
 export const useDatePicker = (props: UseDatePickerProps) => {
   const { className, style, mode, ...rest } = props;
@@ -25,7 +30,21 @@ export const useDatePicker = (props: UseDatePickerProps) => {
     [prefixCls],
   );
 
-  const [value, setValue] = useControlled(props, 'value', props.onChange);
+  const [value, _setValue] = useControlled(
+    props,
+    'value',
+    props.onChange || console.log,
+  );
+
+  /**
+   * append `dateString` to context
+   */
+  const setValue: typeof _setValue = (value, context) => {
+    _setValue(value, {
+      ...context,
+      dateString: format(value as Date, DATE_FORMAT),
+    });
+  };
 
   const [visible, setVisible] = useControlled(
     props,
@@ -54,21 +73,6 @@ export const useDatePicker = (props: UseDatePickerProps) => {
   const handleInputChange = noop;
 
   const formatValue = (value: DateValue) => {
-    const dateRange = (value as DateRange)?.from
-      ? [(value as DateRange).from, (value as DateRange).to]
-      : value;
-
-    if (isArray(dateRange)) {
-      return dateRange
-        ?.map((date) => {
-          if (!date) {
-            return '';
-          }
-          return format(date, 'yyyy-MM-dd');
-        })
-        .join(', ');
-    }
-
     return value instanceof Date ? format(value, 'yyyy-MM-dd') : undefined;
   };
 

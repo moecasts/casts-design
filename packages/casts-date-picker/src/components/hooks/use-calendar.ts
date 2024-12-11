@@ -18,7 +18,13 @@ import {
 } from 'date-fns';
 
 import { dateLib as defaultDateLib } from '../helpers';
-import { DateRange, DateType, DateValue } from '../types';
+import {
+  CalendarDateValue,
+  ChangeContext,
+  DateRange,
+  DateType,
+  DateValue,
+} from '../types';
 
 export enum CalendarType {
   Single = 'single',
@@ -33,17 +39,12 @@ export enum CalendarMode {
   Day = 'day',
 }
 
-export type ChangeContext = {
-  event?: Event;
-  action?: 'clear';
-};
-
 export type UseCalendarProps = BaseComponentProps & {
   date?: Date;
   defaultDate?: Date;
-  value?: DateValue;
-  defaultValue?: DateValue;
-  onChange?: (value: DateValue, context: ChangeContext) => void;
+  value?: CalendarDateValue;
+  defaultValue?: CalendarDateValue;
+  onChange?: (value: CalendarDateValue, context: ChangeContext) => void;
   onDateChange?: (date: Date) => void;
   mode?: `${CalendarMode}`;
   type?: `${CalendarType}`;

@@ -6,8 +6,9 @@ import { clsx } from 'clsx';
 import { format } from 'date-fns';
 
 import { getDayPickerClassNames } from '../helpers';
-import { DateRange, DateValue, UseDateRangePickerProps } from '../types';
-import { ChangeContext } from './use-calendar';
+import { ChangeContext, DateRange, UseDateRangePickerProps } from '../types';
+
+const DATE_FORMAT = 'yyyy-MM-dd';
 
 export const useDateRangePicker = (props: UseDateRangePickerProps) => {
   const { className, style, ...rest } = props;
@@ -24,7 +25,25 @@ export const useDateRangePicker = (props: UseDateRangePickerProps) => {
     [prefixCls],
   );
 
-  const [value, setValue] = useControlled(props, 'value', props.onChange);
+  const [value, _setValue] = useControlled(
+    props,
+    'value',
+    props.onChange || ((value, context) => console.log({ value, context })),
+  );
+
+  /**
+   * append `dateString` to context
+   */
+  const setValue: typeof _setValue = (value, context) => {
+    console.log('debug1 setValue', { value, context });
+    _setValue(value, {
+      ...context,
+      rangeString: {
+        from: value.from ? format(value.from as Date, DATE_FORMAT) : '',
+        to: value.to ? format(value.to as Date, DATE_FORMAT) : '',
+      },
+    });
+  };
 
   const [visible, setVisible] = useControlled(
     props,
@@ -42,7 +61,7 @@ export const useDateRangePicker = (props: UseDateRangePickerProps) => {
 
   const handleInputChange = noop;
 
-  const formatValue = (value: DateValue) => {
+  const formatValue = (value: DateRange) => {
     const dateRange = (value as DateRange)?.from
       ? [(value as DateRange).from, (value as DateRange).to]
       : value;
@@ -52,11 +71,11 @@ export const useDateRangePicker = (props: UseDateRangePickerProps) => {
         if (!date) {
           return '';
         }
-        return format(date, 'yyyy-MM-dd');
+        return format(date, DATE_FORMAT);
       });
     }
 
-    return value instanceof Date ? format(value, 'yyyy-MM-dd') : undefined;
+    return value instanceof Date ? format(value, DATE_FORMAT) : undefined;
   };
 
   const clearValue = () => {

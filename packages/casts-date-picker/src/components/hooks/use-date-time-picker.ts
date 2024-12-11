@@ -1,17 +1,16 @@
 import { CSSProperties } from 'react';
-import { isArray, noop, useControlled } from '@casts/common';
+import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
 import { format, set } from 'date-fns';
-import { DateRange } from 'react-day-picker';
 
 import {
+  ChangeContext,
   DateValue,
   UseDatePickerProps,
   UseDateTimePickerProps,
 } from '../types';
-import { ChangeContext } from './use-calendar';
 
 const DATETIME_FORMAT = 'yyyy-MM-dd HH:mm:ss';
 
@@ -35,13 +34,27 @@ export const useDateTimePicker = (
 
   const styles: CSSProperties = { ...style };
 
-  const [value, setValue] = useControlled(props, 'value', props.onChange);
+  const [value, _setValue] = useControlled(
+    props,
+    'value',
+    props.onChange || console.log,
+  );
 
   const [visible, setVisible] = useControlled(
     props,
     'visible',
     props.onVisibleChange,
   );
+
+  /**
+   * append `dateString` to context
+   */
+  const setValue: typeof _setValue = (value, context) => {
+    _setValue(value, {
+      ...context,
+      dateString: format(value as Date, DATETIME_FORMAT),
+    });
+  };
 
   const handleVisibleChange: PopupProps['onVisibleChange'] = (visible) => {
     setVisible(visible);
@@ -71,21 +84,6 @@ export const useDateTimePicker = (
   const handleInputChange = noop;
 
   const formatValue = (value: DateValue) => {
-    const dateRange = (value as DateRange)?.from
-      ? [(value as DateRange).from, (value as DateRange).to]
-      : value;
-
-    if (isArray(dateRange)) {
-      return dateRange
-        ?.map((date) => {
-          if (!date) {
-            return '';
-          }
-          return format(date, DATETIME_FORMAT);
-        })
-        .join(', ');
-    }
-
     return value instanceof Date ? format(value, DATETIME_FORMAT) : undefined;
   };
 
