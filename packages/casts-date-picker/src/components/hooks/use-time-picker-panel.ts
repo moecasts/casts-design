@@ -1,6 +1,14 @@
-import { CSSProperties, UIEvent, useMemo, useRef, useState } from 'react';
+import {
+  CSSProperties,
+  UIEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   BaseComponentProps,
+  map,
   noop,
   range,
   useControlled,
@@ -68,6 +76,8 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const columns = useMemo(() => generateColumns(), []);
 
+  const isScrolling = useRef(false);
+
   const [segments, setSegments] = useState(() =>
     columns.map((column) => column[0]),
   );
@@ -122,12 +132,15 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
         newSegments[segment] = item;
 
         setSegments(newSegments);
-        handleChange(newSegments);
+        if (!isScrolling.current) {
+          handleChange(newSegments);
+        }
 
         target.scrollTo({
           top: distance,
           behavior: 'smooth',
         });
+        isScrolling.current = false;
       };
 
       snapToCell(e);
@@ -144,6 +157,38 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
     return props.format ? props.format(time) : time;
   }, [props.format, segments]);
+
+  /** when value change, scroll to the correct position */
+  useEffect(() => {
+    if (!value) {
+      return;
+    }
+
+    if (value === segments.join(':')) {
+      return;
+    }
+
+    isScrolling.current = true;
+
+    const newSegments = value
+      .split(':')
+      .map((segment) => parseInt(segment, 10));
+
+    map(columnRefs.current, (column, index) => {
+      if (!column) {
+        return;
+      }
+
+      const current = newSegments[Number(index)];
+      const distance = current * ITEM_HEIGHT;
+
+      column.scrollTo({
+        top: distance,
+      });
+    });
+
+    setSegments(newSegments.map(String));
+  }, [value]);
 
   return {
     ...rest,

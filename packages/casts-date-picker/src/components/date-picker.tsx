@@ -30,6 +30,7 @@ export const DatePicker = forwardRef(
       handleVisibleChange,
       mode,
       size,
+      formatCalendarValue,
     } = useDatePicker(propsWithDefault);
 
     const { locale } = useConfig();
@@ -44,7 +45,7 @@ export const DatePicker = forwardRef(
         content={
           <Calendar
             type={mode}
-            value={value as Exclude<DateValue, 'DateRange'>}
+            value={formatCalendarValue(value)}
             onChange={(value, context) => {
               handleSelect(value as DateValue, context);
             }}

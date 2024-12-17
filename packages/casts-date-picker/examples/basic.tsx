@@ -10,9 +10,16 @@ import { Space } from '@casts/space';
 export const CodeBasic = () => {
   return (
     <Space direction="vertical" style={{ width: 300 }}>
-      <DateTimePicker />
+      <DateTimePicker
+        defaultValue={'2024-12-17 19:33:22'}
+        onChange={console.log}
+      />
 
-      <DatePicker placeholder="Please select single date" mode={'single'} />
+      <DatePicker
+        defaultValue={'2024-12-17 19:33:22'}
+        placeholder="Please select single date"
+        mode={'single'}
+      />
 
       <DatePicker
         placeholder="Please select multiple dates"

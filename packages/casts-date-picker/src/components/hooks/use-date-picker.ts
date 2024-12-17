@@ -3,7 +3,7 @@ import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
-import { format } from 'date-fns';
+import { format, isValid } from 'date-fns';
 
 import { getDayPickerClassNames } from '../helpers';
 import {
@@ -30,11 +30,7 @@ export const useDatePicker = (props: UseDatePickerProps) => {
     [prefixCls],
   );
 
-  const [value, _setValue] = useControlled(
-    props,
-    'value',
-    props.onChange || console.log,
-  );
+  const [value, _setValue] = useControlled(props, 'value', props.onChange);
 
   /**
    * append `dateString` to context
@@ -42,7 +38,9 @@ export const useDatePicker = (props: UseDatePickerProps) => {
   const setValue: typeof _setValue = (value, context) => {
     _setValue(value, {
       ...context,
-      dateString: format(value as Date, DATE_FORMAT),
+      dateString: isValid(value)
+        ? format(value as Date, DATE_FORMAT)
+        : undefined,
     });
   };
 
@@ -73,7 +71,18 @@ export const useDatePicker = (props: UseDatePickerProps) => {
   const handleInputChange = noop;
 
   const formatValue = (value: DateValue) => {
-    return value instanceof Date ? format(value, 'yyyy-MM-dd') : undefined;
+    const date = new Date(value as Date);
+    return isValid(date) ? format(date, DATE_FORMAT) : undefined;
+  };
+
+  const formatCalendarValue = (value: DateValue) => {
+    const date = new Date(value as Date);
+
+    if (!isValid(date)) {
+      return;
+    }
+
+    return date;
   };
 
   const clearValue = () => {
@@ -94,5 +103,6 @@ export const useDatePicker = (props: UseDatePickerProps) => {
     handleInputChange,
     visible,
     handleVisibleChange,
+    formatCalendarValue,
   };
 };

@@ -40,6 +40,8 @@ export type UseDatePickerProps = BaseDatePickerProps & {
 
   value?: DateValue;
 
+  defaultValue?: DateValue;
+
   onChange?: (value: DateValue, context: ChangeContext) => void;
 };
 
@@ -48,6 +50,8 @@ export type DatePickerProps = UseDatePickerProps;
 export type UseDateRangePickerProps = BaseDatePickerProps & {
   value?: DateRange;
 
+  defaultValue?: DateRange;
+
   onChange?: (value: DateRange, context: ChangeContext) => void;
 };
 
@@ -55,6 +59,8 @@ export type DateRangePickerProps = UseDateRangePickerProps;
 
 export type UseDateTimePickerProps = BaseDatePickerProps & {
   value?: DateValue;
+
+  defaultValue?: DateValue;
 
   onChange?: (value: DateValue, context: ChangeContext) => void;
 };

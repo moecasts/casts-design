@@ -3,7 +3,7 @@ import { noop, useControlled } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { PopupProps } from '@casts/popup';
 import { clsx } from 'clsx';
-import { format, set } from 'date-fns';
+import { format, isValid, set } from 'date-fns';
 
 import {
   ChangeContext,
@@ -52,7 +52,9 @@ export const useDateTimePicker = (
   const setValue: typeof _setValue = (value, context) => {
     _setValue(value, {
       ...context,
-      dateString: format(value as Date, DATETIME_FORMAT),
+      dateString: isValid(value)
+        ? format(value as Date, DATETIME_FORMAT)
+        : undefined,
     });
   };
 
@@ -84,16 +86,21 @@ export const useDateTimePicker = (
   const handleInputChange = noop;
 
   const formatValue = (value: DateValue) => {
-    return value instanceof Date ? format(value, DATETIME_FORMAT) : undefined;
+    return isValid(new Date(value as Date))
+      ? format(value as Date, DATETIME_FORMAT)
+      : undefined;
   };
 
   const handleTimeChange = (time: string) => {
     const [hours, minutes, seconds] = time.split(':').map(Number);
-    const newValue = set(new Date(value as Date), {
-      hours,
-      minutes,
-      seconds,
-    });
+    const newValue = set(
+      isValid(value) ? new Date(value as Date) : new Date(),
+      {
+        hours,
+        minutes,
+        seconds,
+      },
+    );
 
     setValue(newValue, {});
   };
@@ -103,8 +110,18 @@ export const useDateTimePicker = (
     setValue(undefined as any, { action: 'clear' });
   };
 
+  const formatCalendarValue = (value: DateValue) => {
+    const date = new Date(value as Date);
+
+    if (!isValid(date)) {
+      return;
+    }
+
+    return date;
+  };
+
   const formatTimeValue = (value: DateValue) => {
-    if (!value) {
+    if (!isValid(new Date(value as Date))) {
       return;
     }
 
@@ -129,5 +146,6 @@ export const useDateTimePicker = (
     handleTimeChange,
     handleVisibleChange,
     popupClasses,
+    formatCalendarValue,
   };
 };

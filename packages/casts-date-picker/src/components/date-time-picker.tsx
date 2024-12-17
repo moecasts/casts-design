@@ -9,12 +9,12 @@ import { Popup } from '@casts/popup';
 import { Calendar } from './calendar';
 import { useDateTimePicker } from './hooks';
 import { TimePickerPanel } from './time-picker-panel';
-import { BaseDatePickerProps, DateValue } from './types';
+import { DateValue, UseDateTimePickerProps } from './types';
 
 import './styles/time-picker-panel.scss';
 import './styles/date-time-picker.scss';
 
-export type DateTimePickerProps = BaseDatePickerProps;
+export type DateTimePickerProps = UseDateTimePickerProps;
 
 export const DateTimePicker = forwardRef(
   (props: DateTimePickerProps, ref: Ref<HTMLDivElement>) => {
@@ -38,6 +38,7 @@ export const DateTimePicker = forwardRef(
       panelTimeClasses,
       handleTimeChange,
       formatTimeValue,
+      formatCalendarValue,
     } = useDateTimePicker(propsWithDefault);
 
     const { locale } = useConfig();
@@ -48,14 +49,14 @@ export const DateTimePicker = forwardRef(
 
     return (
       <Popup
-        visible={visible || true}
+        visible={visible}
         className={popupClasses}
         content={
           <div className={panelClasses}>
             <Calendar
               className={panelDateClasses}
               type={mode}
-              value={value as Exclude<DateValue, 'DateRange'>}
+              value={formatCalendarValue(value)}
               onChange={(value, context) => {
                 handleSelect(value as DateValue, context);
               }}
