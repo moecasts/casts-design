@@ -116,6 +116,8 @@ export { MovieAiFill } from './MovieAiFill';
 export { MovieAiLine } from './MovieAiLine';
 export { MovieFill } from './MovieFill';
 export { MovieLine } from './MovieLine';
+export { MultiImageFill } from './MultiImageFill';
+export { MultiImageLine } from './MultiImageLine';
 export { Music2Fill } from './Music2Fill';
 export { Music2Line } from './Music2Line';
 export { MusicAiFill } from './MusicAiFill';
