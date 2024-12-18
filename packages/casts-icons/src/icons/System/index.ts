@@ -6,6 +6,8 @@ export { AddFill } from './AddFill';
 export { AddLargeFill } from './AddLargeFill';
 export { AddLargeLine } from './AddLargeLine';
 export { AddLine } from './AddLine';
+export { AlarmAddFill } from './AlarmAddFill';
+export { AlarmAddLine } from './AlarmAddLine';
 export { AlarmFill } from './AlarmFill';
 export { AlarmLine } from './AlarmLine';
 export { AlarmSnoozeFill } from './AlarmSnoozeFill';
