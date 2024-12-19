@@ -9,6 +9,7 @@ import { getDayPickerClassNames } from '../helpers';
 import {
   ChangeContext,
   DatePickerMode,
+  DateType,
   DateValue,
   UseDatePickerProps,
 } from '../types';
@@ -32,16 +33,45 @@ export const useDatePicker = (props: UseDatePickerProps) => {
 
   const [value, _setValue] = useControlled(props, 'value', props.onChange);
 
+  const getDateString = (value: DateType) => {
+    return isValid(value) ? format(value as Date, DATE_FORMAT) : undefined;
+  };
+
+  const formatValue = (value: DateValue) => {
+    if (mode === DatePickerMode.Single) {
+      const date = new Date(value as Date);
+      return getDateString(date);
+    }
+
+    if (mode === DatePickerMode.Multiple) {
+      return (value as DateType[])
+        .map((value) => new Date(value as Date))
+        .map(getDateString)
+        .filter(Boolean) as string[];
+    }
+
+    return undefined;
+  };
+
   /**
    * append `dateString` to context
    */
   const setValue: typeof _setValue = (value, context) => {
-    _setValue(value, {
+    const newContext = {
       ...context,
-      dateString: isValid(value)
-        ? format(value as Date, DATE_FORMAT)
-        : undefined,
-    });
+    };
+
+    if (mode === DatePickerMode.Single) {
+      newContext.dateString = getDateString(value as DateType);
+    }
+
+    if (mode === DatePickerMode.Multiple) {
+      newContext.dateStrings = (value as DateType[])
+        .map(getDateString)
+        .filter(Boolean) as string[];
+    }
+
+    _setValue(value, newContext);
   };
 
   const [visible, setVisible] = useControlled(
@@ -69,11 +99,6 @@ export const useDatePicker = (props: UseDatePickerProps) => {
   };
 
   const handleInputChange = noop;
-
-  const formatValue = (value: DateValue) => {
-    const date = new Date(value as Date);
-    return isValid(date) ? format(date, DATE_FORMAT) : undefined;
-  };
 
   const formatCalendarValue = (value: DateValue) => {
     const date = new Date(value as Date);

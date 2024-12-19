@@ -13,6 +13,7 @@ export type ChangeContext = {
   event?: Event;
   action?: 'clear';
   dateString?: string;
+  dateStrings?: string[];
   rangeString?: {
     from: string;
     to: string;

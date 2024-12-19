@@ -1,11 +1,4 @@
-import {
-  CSSProperties,
-  UIEvent,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { CSSProperties, UIEvent, useEffect, useMemo, useRef } from 'react';
 import {
   BaseComponentProps,
   map,
@@ -78,9 +71,13 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
   const isScrolling = useRef(false);
 
-  const [segments, setSegments] = useState(() =>
-    columns.map((column) => column[0]),
-  );
+  const segments = useMemo(() => {
+    if (!value) {
+      return columns.map((column) => column[0]);
+    }
+
+    return value.split(':').map(String);
+  }, [value, columns]);
 
   const columnRefs = useRef<Record<number, HTMLElement>>({});
 
@@ -100,14 +97,29 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
   };
 
   const handleChange = (segments: string[]) => {
-    setValue(segments.join(':'));
+    const newValue = segments.join(':');
+
+    if (newValue === value) {
+      return;
+    }
+
+    setValue(newValue);
   };
 
   const handleCellClick = (payload: { segment: number; current: number }) => {
     const { segment, current } = payload;
+
     const container = columnRefs.current[segment];
 
     const distance = current * ITEM_HEIGHT;
+
+    const newSegments = [...segments];
+    newSegments[segment] = columns[segment][current];
+
+    if (container.scrollTop === distance) {
+      handleChange(newSegments);
+      return;
+    }
 
     container.scrollTo({
       top: distance,
@@ -131,16 +143,12 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
 
         newSegments[segment] = item;
 
-        setSegments(newSegments);
-        if (!isScrolling.current) {
-          handleChange(newSegments);
-        }
+        handleChange(newSegments);
 
         target.scrollTo({
           top: distance,
           behavior: 'smooth',
         });
-        isScrolling.current = false;
       };
 
       snapToCell(e);
@@ -164,10 +172,6 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
       return;
     }
 
-    if (value === segments.join(':')) {
-      return;
-    }
-
     isScrolling.current = true;
 
     const newSegments = value
@@ -186,9 +190,7 @@ export const useTimePickerPanel = (props: UseTimePickerPanelProps) => {
         top: distance,
       });
     });
-
-    setSegments(newSegments.map(String));
-  }, [value]);
+  }, [value, segments]);
 
   return {
     ...rest,
