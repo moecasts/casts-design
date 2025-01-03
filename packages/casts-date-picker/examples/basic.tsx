@@ -4,12 +4,23 @@ import {
   DatePicker,
   DateRangePicker,
   DateTimePicker,
+  DateTimeRangePicker,
 } from '@casts/date-picker';
 import { Space } from '@casts/space';
 
 export const CodeBasic = () => {
   return (
-    <Space direction="vertical" style={{ width: 300 }}>
+    <Space direction="vertical" style={{ width: 400 }}>
+      <div style={{ marginBottom: 40 }}>
+        <DateTimeRangePicker
+          defaultValue={{
+            from: new Date('2025-01-1 19:33:22'),
+            to: new Date('2025-01-17 19:33:24'),
+          }}
+          // visible
+        />
+      </div>
+
       <DateTimePicker
         defaultValue={new Date('2024-12-17 19:33:22')}
         onChange={console.log}

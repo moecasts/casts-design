@@ -85,6 +85,14 @@ export const useCalendarDayCell = (props: UseCalendarDayCellProps) => {
       end: rangeHoverTo,
     });
 
+  if (day.getDate() === 4) {
+    console.log('debug1 rangeFrom:', {
+      day: day.getDate(),
+      rangeHover,
+      withinRangeHover,
+    });
+  }
+
   const classes = clsx(prefixCls, className, {
     [`${prefixCls}--disabled`]: modifiers.disabled,
     [`${prefixCls}--outside`]: modifiers.outside,

@@ -32,15 +32,14 @@ export const useDateRangePicker = (props: UseDateRangePickerProps) => {
   );
 
   /**
-   * append `dateString` to context
+   * append `rangeString` to context
    */
   const setValue: typeof _setValue = (value, context) => {
-    console.log('debug1 setValue', { value, context });
     _setValue(value, {
       ...context,
       rangeString: {
-        from: value.from ? format(value.from as Date, DATE_FORMAT) : '',
-        to: value.to ? format(value.to as Date, DATE_FORMAT) : '',
+        from: value?.from ? format(value.from as Date, DATE_FORMAT) : '',
+        to: value?.to ? format(value.to as Date, DATE_FORMAT) : '',
       },
     });
   };

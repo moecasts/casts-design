@@ -2,20 +2,23 @@ import { forwardRef, Ref } from 'react';
 import { useDefaultProps } from '@casts/common';
 import { useConfig } from '@casts/config-provider';
 import { Calendar2Line } from '@casts/icons';
-import { Input } from '@casts/input';
 import { translate } from '@casts/locale';
 import { Popup } from '@casts/popup';
+import { RangeInput } from '@casts/range-input';
+import { DateRange } from 'react-day-picker';
 
 import { Calendar } from './calendar';
-import { useDateTimePicker } from './hooks';
+import { useDateTimeRangePicker } from './hooks';
 import { TimePickerPanel } from './time-picker-panel';
-import { DateTimePickerProps, DateValue } from './types';
+import { UseDateTimeRangePickerProps } from './types';
 
 import './styles/time-picker-panel.scss';
-import './styles/date-time-picker.scss';
+import './styles/date-time-range-picker.scss';
 
-export const DateTimePicker = forwardRef(
-  (props: DateTimePickerProps, ref: Ref<HTMLDivElement>) => {
+export type DateTimeRangePickerProps = UseDateTimeRangePickerProps;
+
+export const DateTimeRangePicker = forwardRef(
+  (props: DateTimeRangePickerProps, ref: Ref<HTMLDivElement>) => {
     const propsWithDefault = useDefaultProps(props, {});
 
     const {
@@ -37,7 +40,7 @@ export const DateTimePicker = forwardRef(
       handleTimeChange,
       formatTimeValue,
       formatCalendarValue,
-    } = useDateTimePicker(propsWithDefault);
+    } = useDateTimeRangePicker(propsWithDefault);
 
     const { locale } = useConfig();
 
@@ -53,10 +56,10 @@ export const DateTimePicker = forwardRef(
           <div className={panelClasses}>
             <Calendar
               className={panelDateClasses}
-              type={mode}
-              value={formatCalendarValue(value)}
+              type={'range'}
+              value={value}
               onChange={(value, context) => {
-                handleSelect(value as DateValue, context);
+                handleSelect(value as DateRange, context);
               }}
               renderFooter={() => null}
             />
@@ -72,11 +75,11 @@ export const DateTimePicker = forwardRef(
         onVisibleChange={handleVisibleChange}
       >
         <div className={classes} style={styles} ref={ref}>
-          <Input
+          <RangeInput
             size={size}
             placeholder={placeholder}
-            clearable
             value={formatValue(value as any) as any}
+            clearable
             suffix={<Calendar2Line />}
             onChange={(value, context) => {
               if (context.action === 'clear') {
@@ -93,4 +96,4 @@ export const DateTimePicker = forwardRef(
   },
 );
 
-DateTimePicker.displayName = 'DateTimePicker';
+DateTimeRangePicker.displayName = 'DateTimeRangePicker';

@@ -7,7 +7,7 @@ import { RangeInput } from '@casts/range-input';
 import { Calendar } from './calendar';
 import { defaultDateRangePickerProps } from './default-props';
 import { useDateRangePicker } from './hooks';
-import { DateRange, DateRangePickerProps, DateValue } from './types';
+import { DateRange, DateRangePickerProps } from './types';
 
 import '@casts/theme/styles/scss/core.scss';
 import './styles/date-range-picker.scss';
@@ -39,9 +39,9 @@ export const DateRangePicker = forwardRef(
         content={
           <Calendar
             type={'range'}
-            value={value as Exclude<DateValue, 'DateRange'>}
+            value={value}
             onChange={(value, context) => {
-              handleSelect(value as unknown as DateRange, context);
+              handleSelect(value as DateRange, context);
             }}
           />
         }

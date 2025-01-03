@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useRef, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import {
   BaseComponentProps,
   createMultipleValueActions,
@@ -368,6 +368,20 @@ export const useCalendar = (props: UseCalendarProps = {}) => {
 
     setRangeHover(rangeHover);
   };
+
+  // auto clear range hover unless value.from set and value.to not set
+  useEffect(() => {
+    console.log('debug1 value', {
+      value,
+      test: (value as DateRange)?.from && !(value as DateRange)?.to,
+    });
+
+    if (!((value as DateRange)?.from && !(value as DateRange)?.to)) {
+      return;
+    }
+
+    setRangeHover({ from: undefined, to: undefined });
+  }, [value]);
 
   return {
     date,

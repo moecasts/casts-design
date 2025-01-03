@@ -66,3 +66,13 @@ export type UseDateTimePickerProps = BaseDatePickerProps & {
 };
 
 export type DateTimePickerProps = UseDateTimePickerProps;
+
+export type UseDateTimeRangePickerProps = BaseDatePickerProps & {
+  value?: DateRange;
+
+  defaultValue?: DateRange;
+
+  onChange?: (value: DateRange, context: ChangeContext) => void;
+};
+
+export type DateTiemRangePickerProps = UseDateTimeRangePickerProps;
