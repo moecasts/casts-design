@@ -1,0 +1,103 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/badge';
+@import '@casts/theme/styles/scss/vars/badge';
+
+$badge-prefix-cls: #{$prefix-cls}-badge;
+
+.#{$badge-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+
+  &-count,
+  &-custom-component,
+  &-text,
+  &-dot {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-count,
+  &-custom-component,
+  &-dot {
+    @at-root .#{$badge-prefix-cls}:not(.#{$badge-prefix-cls}--standalone) & {
+      position: absolute;
+    }
+
+    @at-root .#{$badge-prefix-cls}--right-top:not(
+          .#{$badge-prefix-cls}--standalone
+        )
+        & {
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+
+    @at-root .#{$badge-prefix-cls}--right-bottom:not(
+          .#{$badge-prefix-cls}--standalone
+        )
+        & {
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 50%);
+    }
+
+    @at-root .#{$badge-prefix-cls}--left-top:not(
+          .#{$badge-prefix-cls}--standalone
+        )
+        & {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    @at-root .#{$badge-prefix-cls}--left-bottom:not(
+          .#{$badge-prefix-cls}--standalone
+        )
+        & {
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &-count,
+  &-dot {
+    background-color: $badge-color-surface-default;
+
+    @at-root .#{$badge-prefix-cls}:not(.#{$badge-prefix-cls}--standalone) & {
+      position: absolute;
+    }
+  }
+
+  &-count {
+    min-width: $badge-count-line-height;
+    padding: 0 $space-025-x;
+    font-size: $badge-count-font-size;
+    line-height: $badge-count-line-height;
+    color: $badge-color-text-default;
+    text-align: center;
+    border-radius: $radius-pill;
+  }
+
+  &-dot {
+    width: $badge-dot-size-default;
+    height: $badge-dot-size-default;
+    border-radius: $radius-circle;
+  }
+
+  &-custom-component {
+    & > * {
+      vertical-align: middle;
+    }
+  }
+
+  &-text {
+    margin-left: $badge-space;
+    font-size: $badge-text-font-size;
+    line-height: $badge-text-line-height;
+    color: $color-text-primary;
+  }
+}
