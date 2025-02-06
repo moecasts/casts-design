@@ -1,0 +1,46 @@
+{
+  "breakpoint": {
+    "xsmall": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "0px"
+    },
+    "small": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "576px"
+    },
+    "medium": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "768px"
+    },
+    "large": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "992px"
+    },
+    "xlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "1200px"
+    },
+    "xxlarge": {
+      "attributes": {
+        "category": "size"
+      },
+      "noReference": true,
+      "value": "1600px"
+    }
+  }
+}

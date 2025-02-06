@@ -1,0 +1,90 @@
+{
+  "calendar": {
+    "header": {
+      "minHeight": {
+        "value": "32px"
+      },
+      "space": {
+        "outside": {
+          "value": "{space.05-x}"
+        }
+      }
+    },
+    "footer": {
+      "space": {
+        "inset": {
+          "value": "{space.05-x}"
+        },
+        "outside": {
+          "value": "{space.05-x} calc(0px - {space.05-x}) calc(0px - {space.05-x})"
+        }
+      },
+      "borderTopColor": {
+        "value": "{color.border.component.default}"
+      }
+    },
+    "navigator": {
+      "space": {
+        "gap": {
+          "value": "{space.025-x}"
+        }
+      },
+      "button": {
+        "color": {
+          "value": "{color.text.secondary}"
+        }
+      }
+    },
+    "weekday": {
+      "marginBottom": {
+        "value": "{space.05-x}"
+      },
+      "color": {
+        "text": {
+          "value": "{color.text.tertiary}"
+        }
+      }
+    },
+    "dayCell": {
+      "minWidth": {
+        "value": "{size.medium}"
+      },
+      "minHeight": {
+        "value": "{size.medium}"
+      },
+      "paddingHorizontal": {
+        "value": "{space.025-x}"
+      }
+    },
+    "years": {
+      "space": {
+        "gap": {
+          "value": "{space.05-x}"
+        }
+      }
+    },
+    "yearCell": {
+      "minHeight": {
+        "value": "{size.medium}"
+      },
+      "paddingHorizontal": {
+        "value": "{space.05-x}"
+      }
+    },
+    "months": {
+      "space": {
+        "gap": {
+          "value": "{space.05-x}"
+        }
+      }
+    },
+    "monthCell": {
+      "minHeight": {
+        "value": "{size.medium}"
+      },
+      "paddingHorizontal": {
+        "value": "{space.05-x}"
+      }
+    }
+  }
+}

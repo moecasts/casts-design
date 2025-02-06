@@ -1,0 +1,51 @@
+{
+  "name": "@casts/theme",
+  "version": "0.0.1",
+  "description": "themes of casts design",
+  "repository": "https://github.com/moecasts/casts-design",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:tokens": "node ./dist/cjs/builder/index.js",
+    "build:tokens:dev": "chokidar './src/tokens/!(ts)**/*.(json|json5|js|ts)' -c 'pnpm build:tokens'",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && pnpm run build",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "authors": [
+    "moecasts <moecasts.caster@gmail.com>"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled",
+    "styles"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@casts/standard": "workspace:^0.0.1",
+    "@types/chroma-js": "^2.4.0",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^20.5.8",
+    "chokidar-cli": "^3.0.0",
+    "father": "^4.5.2",
+    "vite": "^4.4.9",
+    "vitest": "^1.3.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.11",
+    "chroma-js": "^2.4.2",
+    "glob": "^10.3.4",
+    "style-dictionary": "^3.8.0"
+  },
+  "sideEffects": [
+    "**/*.{css,scss,sass}"
+  ]
+}
