@@ -1,0 +1,9 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+.#{$prefix-cls}-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 0;
+  fill: currentColor;
+}
