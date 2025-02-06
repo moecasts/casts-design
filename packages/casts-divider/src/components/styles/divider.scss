@@ -1,0 +1,94 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/divider';
+@import '@casts/theme/styles/scss/vars/divider';
+
+$divider-prefix-cls: #{$prefix-cls}-divider;
+
+.#{$divider-prefix-cls} {
+  align-items: center;
+
+  &-content {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &::before,
+  &::after {
+    display: inline-block;
+    flex: 1;
+    content: '';
+  }
+
+  &--vertical {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: $divider-space-horizontal;
+    margin-left: $divider-space-horizontal;
+    vertical-align: middle;
+
+    &:not(.#{$divider-prefix-cls}--with-content) {
+      height: $divider-size-vertical;
+    }
+
+    &::before,
+    &::after {
+      border-inline-start: $divider-border-width solid
+        $divider-color-border-default;
+    }
+
+    .#{$divider-prefix-cls}-content {
+      padding-top: $divider-space-horizontal;
+      padding-bottom: $divider-space-horizontal;
+      writing-mode: vertical-lr;
+    }
+
+    &.#{$divider-prefix-cls}--align {
+      &-start {
+        &::before {
+          max-height: $divider-size-horizontal-max;
+        }
+      }
+
+      &-end {
+        &::after {
+          max-height: $divider-size-horizontal-max;
+        }
+      }
+    }
+  }
+
+  &--horizontal {
+    display: flex;
+    width: 100%;
+    margin-top: $divider-space-horizontal;
+    margin-bottom: $divider-space-horizontal;
+    vertical-align: middle;
+
+    &::before,
+    &::after {
+      border-block-start: $divider-border-width solid
+        $divider-color-border-default;
+    }
+
+    &.#{$divider-prefix-cls}--align {
+      &-start {
+        &::before {
+          max-width: $divider-size-horizontal-max;
+        }
+      }
+
+      &-end {
+        &::after {
+          max-width: $divider-size-horizontal-max;
+        }
+      }
+    }
+
+    .#{$divider-prefix-cls}-content {
+      padding-right: $divider-space-horizontal;
+      padding-left: $divider-space-horizontal;
+    }
+  }
+}
