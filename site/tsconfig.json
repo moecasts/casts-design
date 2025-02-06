@@ -1,0 +1,14 @@
+{
+  "files": ["typings.d.ts", "typings/react-router-dom.d.ts"],
+  "extends": "../tsconfig.json",
+  "include": ["src", "packages", "../docs"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@casts/rd-vite/*": ["packages/rd-vite/src/*"],
+      "@casts/rd-theme/*": ["packages/rd-theme/src/*"],
+      "@casts/*": ["../packages/casts-*/src"]
+    }
+  }
+  // "references": [{ "path": "./tsconfig.node.json" }]
+}
