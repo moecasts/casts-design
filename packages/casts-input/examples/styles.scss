@@ -1,0 +1,8 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+.doc-input-wrap-width-210 {
+  .#{$prefix-cls}-input-wrap {
+    width: 100%;
+    max-width: 210px;
+  }
+}
