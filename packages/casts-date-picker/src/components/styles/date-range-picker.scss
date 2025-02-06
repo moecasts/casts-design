@@ -1,0 +1,13 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$date-range-picker-prefix-cls: #{$prefix-cls}-date-range-picker;
+
+.#{$date-range-picker-prefix-cls} {
+  .#{$prefix-cls}-range-input-clear {
+    position: absolute;
+    right: $space-105-x;
+    background-color: inherit;
+    border-radius: 50%;
+  }
+}
