@@ -1,0 +1,62 @@
+{
+  "anchor": {
+    "radius": {
+      "value": "{radius.medium}"
+    },
+    "space": {
+      "indent": {
+        "value": "{space.05-x}"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "{border.width.xsmall}"
+      }
+    },
+    "link": {
+      "font": {
+        "size": {
+          "value": "{font.size.small}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.small}"
+      },
+      "color": {
+        "text": {
+          "default": {
+            "value": "{color.text.primary}"
+          },
+          "hover": {
+            "value": "{color.text.brand.hover}"
+          },
+          "active": {
+            "value": "{color.text.brand.active}"
+          }
+        }
+      },
+      "title": {
+        "space": {
+          "outset": {
+            "vertical": {
+              "value": "{space.00625-x}"
+            }
+          },
+          "inset": {
+            "vertical": {
+              "value": "{space.0125-x}"
+            },
+            "horizontal": {
+              "value": "{space.05-x}"
+            }
+          }
+        }
+      }
+    },
+    "cursor": {
+      "color": {
+        "value": "{color.shape.brand.default}"
+      }
+    }
+  }
+}

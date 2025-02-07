@@ -1,0 +1,98 @@
+{
+  "pagination": {
+    "font": {
+      "family": {
+        "value": "{font.family.mono}"
+      },
+      "size": {
+        "small": {
+          "value": "{font.size.xsmall}"
+        },
+        "medium": {
+          "value": "{font.size.small}"
+        },
+        "large": {
+          "value": "{font.size.medium}"
+        }
+      }
+    },
+    "size": {
+      "small": {
+        "value": "{size.small}"
+      },
+      "medium": {
+        "value": "{size.medium}"
+      },
+      "large": {
+        "value": "{size.large}"
+      }
+    },
+    "space": {
+      "small": {
+        "value": "{space.025-x}"
+      },
+      "medium": {
+        "value": "{space.05-x}"
+      },
+      "large": {
+        "value": "{space.075-x}"
+      }
+    },
+    "color": {
+      "outline": {
+        "default": {
+          "value": "{color.outline.brand.default}"
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "{color.palette.transparent}"
+        },
+        "hover": {
+          "value": "{color.surface.neutral.hover}"
+        },
+        "active": {
+          "value": "{color.surface.brand.default}"
+        },
+        "disabled": {
+          "value": "{color.palette.transparent}"
+        }
+      },
+      "text": {
+        "default": {
+          "value": "{color.text.neutral.default}"
+        },
+        "hover": {
+          "value": "{color.text.neutral.hover}"
+        },
+        "active": {
+          "value": "{color.text.brand.default}"
+        },
+        "disabled": {
+          "value": "{color.text.neutral.disabled}"
+        }
+      }
+    },
+    "jumper": {
+      "color": {
+        "surface": {
+          "value": "{color.surface.neutral.default}"
+        }
+      },
+      "radius": {
+        "value": "{radius.medium}"
+      },
+      "space": {
+        "small": {
+          "value": "{space.025-x}"
+        },
+        "medium": {
+          "value": "{space.05-x}"
+        },
+        "large": {
+          "value": "{space.075-x}"
+        }
+      }
+    }
+  }
+}
