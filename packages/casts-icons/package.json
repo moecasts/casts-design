@@ -12,7 +12,7 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "dev": "father dev",
-    "build": "father build",
+    "build": "cross-env FATHER_TSCONFIG_NAME=tsconfig.build.json father build",
     "build:icons": "svgr --config-file ./svgr.config.js -d ./src/icons ./assets/raw && eslint ./src --fix  && npm run build:index && npm run build:example-icon-list",
     "build:example-icon-list": "ts-node ./scripts/create-examples-icon-list.ts",
     "build:index": "ts-node ./scripts/create-root-index.ts",

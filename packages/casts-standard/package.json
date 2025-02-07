@@ -7,7 +7,7 @@
   "module": "dist/cjs/index.js",
   "scripts": {
     "dev": "father dev",
-    "build": "father build",
+    "build": "cross-env FATHER_TSCONFIG_NAME=tsconfig.build.json father build",
     "build:deps": "father prebundle",
     "prepublishOnly": "npm run build",
     "test": "vitest",
