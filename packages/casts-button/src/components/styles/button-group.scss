@@ -1,0 +1,25 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+$button-prefix-cls: #{$prefix-cls}-button;
+
+.#{$button-prefix-cls}-group {
+  white-space: nowrap;
+
+  .#{$button-prefix-cls} {
+    &:not(:first-child) {
+      border-left-width: 0px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    // to make the button outline in the group over siblings
+    &:focus-visible {
+      z-index: 1;
+    }
+  }
+}
