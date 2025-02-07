@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "files": ["typings.d.ts", "typings/react-router-dom.d.ts"],
+  "extends": "../tsconfig.json",
+  "include": ["src", "packages/rd-client", "../docs"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "paths": {
+      "@casts/rd-vite/*": ["packages/rd-vite/src/*"],
+      "@casts/rd-theme/*": ["packages/rd-theme/src/*"],
+      "@casts/*": ["../packages/casts-*/src"]
+    }
+  }
+  // "references": [{ "path": "./tsconfig.node.json" }]
+}
