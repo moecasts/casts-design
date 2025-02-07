@@ -1,0 +1,16 @@
+---
+title: @casts/common
+group:
+  title: General
+nav:
+  title: Components
+  path: /components
+---
+
+## Installation
+
+```bash
+$ pnpm add @casts/common
+```
+
+TODO
