@@ -1,0 +1,59 @@
+{
+  "motion": {
+    "duration": {
+      "instant": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "0ms"
+      },
+      "immediate": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "100ms"
+      },
+      "rapid": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "200ms"
+      },
+      "fast": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "300ms"
+      },
+      "slow": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "400ms"
+      },
+      "deliberate": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "700ms"
+      },
+      "sustained": {
+        "attributes": {
+          "category": "time"
+        },
+        "value": "2100ms"
+      }
+    },
+    "easing": {
+      "in": {
+        "value": "cubic-bezier(0.55, 0.085, 0.68, 0.53)"
+      },
+      "out": {
+        "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "in-out": {
+        "value": "cubic-bezier(0.455, 0.03, 0.515, 0.955)"
+      }
+    }
+  }
+}

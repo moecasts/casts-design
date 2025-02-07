@@ -1,0 +1,52 @@
+@import '../../scss/vars/core.scss';
+
+$scrollbar-color: $color-palette-neutral-300;
+$scrollbar-hover-color: $color-palette-neutral-400;
+$scroll-track-color: #fff;
+
+@mixin scrollbar($size: 8px, $borderSize: 2px, $only-show-on-hover: false) {
+  // Firefox and other browsers support standard scroll bar style settings
+  scrollbar-color: $scrollbar-color transparent;
+  scrollbar-width: thin;
+  // Safari/Chrome scroll bar style settings
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: $borderSize solid transparent;
+    background-clip: content-box;
+    background-color: $scrollbar-color;
+    border-radius: $size * 2 - 1px;
+  }
+  // The scroll bar is relatively narrow, and it is difficult to actually click and select when stuck at the bottom. Therefore, the scroll bar needs a hover state to guide the user to use and scroll.
+  // &::-webkit-scrollbar-thumb:vertical:hover,
+  // &::-webkit-scrollbar-thumb:horizontal:hover {
+  //   background-color: $scrollbar-hover-color;
+  // }
+
+  @if ($only-show-on-hover) {
+    &:not(:hover) {
+      scrollbar-color: transparent transparent;
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb:vertical:hover,
+      &::-webkit-scrollbar-thumb:horizontal:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+@mixin hide-scrollbar() {
+  /* firefox */
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    /* Chrome Safari */
+    display: none;
+    width: 0 !important;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "empty": {
+    "description": {
+      "space": {
+        "outer": {
+          "value": "{space.05-x}"
+        }
+      }
+    }
+  }
+}

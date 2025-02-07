@@ -1,0 +1,31 @@
+{
+  "lineHeight": {
+    "xsmall": {
+      "value": "18px"
+    },
+    "small": {
+      "value": "20px"
+    },
+    "medium": {
+      "value": "24px"
+    },
+    "large": {
+      "value": "28px"
+    },
+    "xlarge": {
+      "value": "32px"
+    },
+    "xxlarge": {
+      "value": "44px"
+    },
+    "xxxlarge": {
+      "value": "56px"
+    },
+    "xxxxlarge": {
+      "value": "80px"
+    },
+    "comfortable": {
+      "value": 1.5715
+    }
+  }
+}

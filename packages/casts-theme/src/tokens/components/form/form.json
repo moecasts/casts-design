@@ -1,0 +1,22 @@
+{
+  "formItem": {
+    "extra": {
+      "font": {
+        "size": {
+          "value": "{font.size.small}"
+        }
+      },
+      "lineHeight": {
+        "value": "{lineHeight.small}"
+      }
+    },
+    "label": {
+      "height": {
+        "value": "{size.medium}"
+      },
+      "lineHeight": {
+        "value": "{lineHeight.xlarge}"
+      }
+    }
+  }
+}

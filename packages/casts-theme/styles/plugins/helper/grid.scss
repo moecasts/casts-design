@@ -1,0 +1,65 @@
+$grid-columns: 24;
+$prefix-cls: cds;
+
+@mixin gen-grid-columns($index, $class) {
+  @if $index ==0 {
+
+    .#{$prefix-cls}-col#{$class}-#{$index} {
+      display: none;
+    }
+
+    .#{$prefix-cls}-col-push-#{$index} {
+      left: auto;
+    }
+
+    .#{$prefix-cls}-col-pull-#{$index} {
+      right: auto;
+    }
+
+    .#{$prefix-cls}-col#{$class}-push-#{$index} {
+      left: auto;
+    }
+
+    .#{$prefix-cls}-col#{$class}-pull-#{$index} {
+      right: auto;
+    }
+
+    .#{$prefix-cls}-col#{$class}-offset-#{$index} {
+      margin-left: 0;
+    }
+
+    .#{$prefix-cls}-col#{$class}-order-#{$index} {
+      order: 0;
+    }
+  }
+
+  @else {
+    .#{$prefix-cls}-col#{$class}-#{$index} {
+      display: block;
+      flex: 0 0 percentage(calc($index / $grid-columns));
+      max-width: percentage(calc($index / $grid-columns));
+    }
+
+    .#{$prefix-cls}-col#{$class}-push-#{$index} {
+      left: percentage(calc($index / $grid-columns));
+    }
+
+    .#{$prefix-cls}-col#{$class}-pull-#{$index} {
+      right: percentage(calc($index / $grid-columns));
+    }
+
+    .#{$prefix-cls}-col#{$class}-offset-#{$index} {
+      margin-left: percentage(calc($index / $grid-columns));
+    }
+
+    .#{$prefix-cls}-col#{$class}-order-#{$index} {
+      order: $index;
+    }
+
+    @include gen-grid-columns(($index - 1), $class);
+  }
+}
+
+@mixin gen-grid($class: '') {
+  @include gen-grid-columns($grid-columns, $class);
+}
