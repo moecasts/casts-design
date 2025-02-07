@@ -8,7 +8,7 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "dev": "father dev",
-    "build": "father build",
+    "build": "cross-env FATHER_TSCONFIG_NAME=tsconfig.build.json father build",
     "build:tokens": "node ./dist/cjs/builder/index.js",
     "build:tokens:dev": "chokidar './src/tokens/!(ts)**/*.(json|json5|js|ts)' -c 'pnpm build:tokens'",
     "build:deps": "father prebundle",
