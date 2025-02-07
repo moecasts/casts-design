@@ -1,0 +1,24 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/empty';
+@import '@casts/theme/styles/scss/vars/empty';
+
+$empty-prefix-cls: #{$prefix-cls}-empty;
+
+.#{$empty-prefix-cls} {
+  text-align: center;
+
+  &-image {
+    display: flex;
+    justify-content: center;
+    .#{$prefix-cls}-icon {
+      $size: 48px;
+      font-size: $size;
+    }
+  }
+
+  &-description {
+    margin-top: $empty-description-space-outer;
+    color: $color-text-tertiary;
+  }
+}
