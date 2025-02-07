@@ -1,0 +1,88 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/breadcrumbs';
+@import '@casts/theme/styles/scss/vars/breadcrumbs';
+@import '@casts/theme/styles/plugins/helper/overflow';
+
+$breadcrumb-prefix-cls: #{$prefix-cls}-breadcrumb;
+
+.#{$breadcrumb-prefix-cls} {
+  &s {
+    display: flex;
+    flex-wrap: wrap;
+
+    row-gap: $breadcrumbs-space-vertical;
+    padding: 0;
+    margin: 0;
+
+    font-size: $breadcrumbs-font-size;
+    line-height: $breadcrumbs-line-height;
+    color: $breadcrumbs-color-default;
+    list-style: none;
+  }
+
+  &-separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1em;
+    margin: 0 $breadcrumbs-separator-space-outer;
+    text-align: center;
+    user-select: none;
+
+    &:last-child {
+      display: none;
+    }
+
+    .#{$prefix-cls}-icon {
+      transform: scale(1.2);
+    }
+  }
+
+  &-item {
+    display: inline-flex;
+    align-items: center;
+
+    @at-root .#{$breadcrumb-prefix-cls}s &:last-of-type {
+      color: $breadcrumbs-color-active;
+      cursor: text;
+    }
+
+    &-icon {
+      display: inline-flex;
+      align-content: center;
+      margin-right: $breadcrumbs-item-space-inner;
+    }
+
+    & &-link {
+      display: inline-flex;
+      align-items: center;
+      overflow: hidden;
+      text-decoration: none;
+
+      transition: color $motion-duration-fast $motion-easing-in-out;
+
+      &,
+      &:visited {
+        color: inherit;
+      }
+
+      &:hover {
+        color: $breadcrumbs-color-hover;
+      }
+    }
+
+    &--overflow {
+      .#{$breadcrumb-prefix-cls}-item-content {
+        @include text-ellipsis();
+      }
+    }
+  }
+
+  &-collapse {
+    .#{$breadcrumb-prefix-cls}-item-content {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}
