@@ -1,0 +1,86 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$time-picker-panel-prefix-cls: #{$prefix-cls}-time-picker-panel;
+
+$cell-height: 32px;
+$cell-width: 56px;
+
+$cell-size: 7;
+
+.#{$time-picker-panel-prefix-cls} {
+  &-header {
+    min-height: 32px;
+    padding-top: $space-025-x;
+    margin-bottom: $space-05-x;
+    text-align: center;
+    border-bottom: 1px solid $color-border-divider-default;
+  }
+
+  &-body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-column {
+    position: relative;
+    z-index: 1;
+    height: ($cell-height + 2px) * $cell-size;
+    padding: 0px;
+    margin: 0px $space-00625-x;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style-type: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      display: block;
+      height: calc(50% - $cell-height / 2 - $space-00625-x);
+      content: '';
+    }
+
+    &-mask {
+      position: absolute;
+      top: calc(50% - $cell-height / 2 - $space-00625-x);
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      & > div {
+        width: $cell-width;
+        height: $cell-height;
+        margin: $space-00625-x;
+        background-color: $color-surface-brand-default;
+        border-radius: $radius-medium;
+      }
+    }
+  }
+
+  &-cell {
+    box-sizing: content-box;
+    width: $cell-width;
+    height: $cell-height;
+    padding: $space-00625-x 0;
+    line-height: $cell-height;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: $radius-medium;
+
+    &:hover {
+      color: $color-text-neutral-hover;
+    }
+
+    &.#{$time-picker-panel-prefix-cls}-cell--selected {
+      color: $color-text-brand-default;
+      background-color: transparent;
+    }
+  }
+}
