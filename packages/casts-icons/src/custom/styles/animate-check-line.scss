@@ -1,0 +1,20 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+.#{$prefix-cls}-icon-animate-check-line {
+  path {
+    stroke: currentColor;
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+
+    transition: stroke-dashoffset $motion-duration-slow;
+  }
+
+  &--checked {
+    path {
+      stroke-dashoffset: 0;
+    }
+  }
+}
