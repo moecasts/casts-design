@@ -1,0 +1,43 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/popup';
+@import '@casts/theme/styles/scss/vars/popup';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+$popup-themes: 'default', 'anti';
+
+.#{$prefix-cls}-popup {
+  position: relative;
+  z-index: $popup-elevation-z-index;
+  font-size: $popup-font-size;
+  border-radius: $popup-radius;
+  outline: none;
+
+  @each $theme in $popup-themes {
+    &.#{$prefix-cls}-popup--#{$theme} {
+      color: map-get($popup-tokens, popup-color-text-#{$theme});
+      background-color: map-get($popup-tokens, popup-color-surface-#{$theme});
+    }
+  }
+
+  &--shadow {
+    box-shadow: $popup-shadow;
+  }
+
+  &-content {
+    z-index: 2;
+    padding: $popup-space;
+    background-color: inherit;
+    border-radius: inherit;
+  }
+
+  &-arrow {
+    position: absolute;
+    z-index: -1;
+    background-color: inherit;
+
+    box-shadow: $popup-shadow;
+    transform: rotate(45deg);
+  }
+}
