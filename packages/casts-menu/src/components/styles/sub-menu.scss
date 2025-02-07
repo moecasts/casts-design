@@ -1,0 +1,68 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+@import '@casts/theme/styles/scss/menu';
+@import '@casts/theme/styles/scss/vars/menu';
+
+@import '@casts/theme/styles/plugins/helper/button-style';
+
+@import './vars';
+
+.#{$sub-menu-prefix-cls} {
+  &-inner {
+    margin: 0;
+    @include button-style(#{$sub-menu-prefix-cls}-inner);
+    @include button-color(
+      #{$sub-menu-prefix-cls}-inner,
+      $with-background: false
+    );
+
+    &--active {
+      &:hover {
+        $color-surface-hover: $color-surface-brand-default;
+        background-color: $color-surface-hover;
+      }
+
+      .#{$menu-item-prefix-cls}-inner {
+        background-color: transparent !important;
+      }
+    }
+
+    .#{$menu-item-prefix-cls}-inner {
+      color: inherit !important;
+    }
+  }
+
+  & + & {
+    margin-top: $menu-item-space-vertical;
+  }
+
+  .#{$prefix-cls}-menu-sub {
+    padding: 0;
+    margin: 0;
+
+    & > .#{$menu-item-prefix-cls}:first-child,
+    & > .#{$menu-item-prefix-cls}:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-arrow {
+    float: right;
+    transition: transform $motion-duration-slow;
+  }
+
+  @at-root &-popup {
+    .#{$sub-menu-prefix-cls}-arrow {
+      transform: rotate(-90deg) !important;
+    }
+
+    .#{$prefix-cls}-popup-content {
+      > *:first-child {
+        margin-top: 0px;
+      }
+      > *:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
