@@ -1,0 +1,13 @@
+diff --git a/dist/builder/bundless/dts/index.js b/dist/builder/bundless/dts/index.js
+index 4c4c6dfddcb31bea5ecd0c2943e42511f6f043ff..700e70cdb1cb2b0829b830c4a86aceff9affcb8f 100644
+--- a/dist/builder/bundless/dts/index.js
++++ b/dist/builder/bundless/dts/index.js
+@@ -17,7 +17,7 @@ function getTsconfigPath(cwd) {
+     // use require() rather than import(), to avoid jest runner to fail
+     // ref: https://github.com/nodejs/node/issues/35889
+     const ts = require('typescript');
+-    return ts.findConfigFile(cwd, ts.sys.fileExists);
++    return ts.findConfigFile(cwd, ts.sys.fileExists, process.env.FATHER_TSCONFIG_NAME);
+ }
+ exports.getTsconfigPath = getTsconfigPath;
+ /**
