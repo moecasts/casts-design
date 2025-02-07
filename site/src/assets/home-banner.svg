@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1920 480">
+  <g clip-path="url(#a)">
+    <circle cx="960" cy="480" r="600" fill="url(#b)" />
+  </g>
+  <defs>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientTransform="rotate(-90 882.772 -78.416) scale(759.208)"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CA56DA" stop-opacity=".25" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <clipPath id="a">
+      <path d="M0 0h1920v480H0z" />
+    </clipPath>
+  </defs>
+</svg>
