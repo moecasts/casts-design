@@ -1,0 +1,133 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$date-picker-prefix-cls: #{$prefix-cls}-date-picker;
+
+.#{$date-picker-prefix-cls} {
+  &-navigator {
+    display: inline-flex;
+    gap: $space-025-x;
+
+    &-prev,
+    &-next {
+      font-size: 20px;
+    }
+  }
+
+  &-day-button {
+    min-width: 32px;
+    padding-right: $space-025-x;
+    padding-left: $space-025-x;
+  }
+
+  &-outside {
+    color: $color-text-disabled;
+  }
+
+  &-selected {
+    color: $color-text-brand-default;
+
+    button {
+      color: inherit;
+    }
+  }
+
+  &-root {
+    position: relative;
+    width: fit-content;
+    .#{$date-picker-prefix-cls} {
+      &-month-grid {
+        border-collapse: collapse;
+      }
+
+      &-navigator {
+        position: absolute;
+        right: 0px;
+      }
+
+      &-month-caption {
+        min-height: 32px;
+        line-height: 32px;
+      }
+
+      &-years-dropdown,
+      &-months-dropdown {
+        .#{$prefix-cls}-input-wrap.#{$prefix-cls}-input-wrap--auto-width {
+          min-width: auto;
+        }
+        .#{$prefix-cls}-input {
+          background-color: transparent;
+        }
+      }
+
+      &-weekdays {
+        height: 32px;
+      }
+
+      &-weekday {
+        color: $color-text-tertiary;
+      }
+
+      &-week {
+        .#{$date-picker-prefix-cls}-selected.#{$date-picker-prefix-cls}-day:first-child {
+          &::before {
+            background-color: transparent !important;
+          }
+        }
+      }
+
+      &-day {
+        position: relative;
+        padding: 2px;
+
+        &::before {
+          position: absolute;
+          top: 2px;
+          bottom: 2px;
+          left: 2px;
+          display: block;
+          width: 4px;
+          content: '';
+          background-color: transparent;
+          border-radius: 0px;
+          transition: background-color $motion-duration-rapid
+            $motion-easing-in-out;
+          transform: translateX(-100%);
+        }
+
+        &.#{$date-picker-prefix-cls}-outside {
+          &::before {
+            opacity: $opacity-38;
+          }
+        }
+      }
+
+      &-range-middle,
+      &-range-end:not(&-range-start) {
+        &::before {
+          background-color: $color-surface-brand-default;
+        }
+      }
+
+      &-range-middle {
+        button {
+          border-radius: 0px;
+        }
+      }
+
+      &-range-start:not(&-range-end) {
+        button {
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+
+      &-range-end:not(&-range-start) {
+        button {
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+      }
+    }
+  }
+}

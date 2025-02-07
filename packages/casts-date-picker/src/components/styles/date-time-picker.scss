@@ -1,0 +1,36 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+$date-picker-prefix-cls: #{$prefix-cls}-date-time-picker;
+
+.#{$date-picker-prefix-cls} {
+  &-popup {
+    .#{$prefix-cls}-popup-content {
+      padding: 0px;
+    }
+  }
+  &-panel {
+    display: flex;
+
+    @media screen and (max-width: $breakpoint-small) {
+      flex-direction: column;
+    }
+
+    &-date {
+      padding: $space-0375-x;
+    }
+
+    &-time {
+      padding: $space-0375-x;
+
+      border-left: 1px solid $color-border-divider-default;
+      @media screen and (max-width: $breakpoint-small) {
+        border-top: 1px solid $color-border-divider-default;
+        border-left: none;
+        .#{$prefix-cls}-time-picker-panel-column {
+          height: (32px + 2px) * 3;
+        }
+      }
+    }
+  }
+}
