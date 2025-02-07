@@ -1,0 +1,123 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/scss/drawer';
+@import '@casts/theme/styles/scss/vars/drawer';
+
+@import '@casts/theme/styles/plugins/motion/fade';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$drawer-prefix-cls: #{$prefix-cls}-drawer;
+
+.#{$drawer-prefix-cls} {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  appearance: none;
+  background-color: $drawer-color-surface;
+
+  box-shadow: $drawer-shadow;
+
+  /* --------------------------------- placement ---------------------------------------- */
+  &--top {
+    top: 0px;
+  }
+
+  &--bottom {
+    bottom: 0px;
+  }
+
+  &--left {
+    left: 0px;
+  }
+
+  &--right {
+    right: 0px;
+  }
+
+  &--top,
+  &--bottom {
+    height: 300px;
+  }
+
+  &--left,
+  &--right {
+    width: 300px;
+  }
+
+  /* --------------------------------- container ---------------------------------------- */
+  &-root {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: $elevation-z-index-overlay;
+    width: 100%;
+    height: 100%;
+    outline: none;
+
+    &.exit-done {
+      display: none;
+    }
+  }
+
+  /* --------------------------------- mask ---------------------------------------- */
+  &-overlay {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: $drawer-mask-color-surface;
+    outline: none;
+  }
+
+  /* --------------------------------- children ---------------------------------------- */
+  & &-close {
+    position: absolute;
+    top: $drawer-close-space-top;
+    right: $drawer-close-space-right;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+
+    min-height: $drawer-header-size-min-height;
+
+    padding: $drawer-space-vertical $drawer-space-horizontal;
+
+    font-size: $drawer-header-font-size;
+    line-height: $drawer-header-line-height;
+
+    word-break: break-all;
+
+    border-bottom: $border-width-xsmall solid $drawer-color-border;
+
+    @at-root .#{$drawer-prefix-cls}--closeable & {
+      padding-right: $space-2-x;
+    }
+  }
+
+  &-content {
+    flex: 1;
+    padding: $drawer-space-vertical $drawer-space-horizontal;
+
+    overflow-y: auto;
+    overflow-y: overlay;
+
+    @include scrollbar(8px, 2px);
+  }
+
+  &-footer {
+    display: flex;
+    align-items: center;
+    padding: $drawer-space-vertical $drawer-space-horizontal;
+
+    border-top: $border-width-xsmall solid $color-border-component-default;
+  }
+}
