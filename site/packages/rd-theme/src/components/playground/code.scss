@@ -1,0 +1,76 @@
+// @import '@casts/theme/styles/scss/core';
+@import '@casts/theme/styles/scss/vars/core';
+
+@import '@casts/theme/styles/plugins/helper/scrollbar';
+
+$playground-prefix-cls: rd-code-block;
+
+.#{$playground-prefix-cls} {
+  position: relative;
+  z-index: $elevation-z-index-low;
+  background-color: $color-surface-container-default;
+  border: $border-width-xsmall solid $color-border-component-default;
+  border-radius: $radius-medium;
+
+  &-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &-previewer {
+    padding: $space-3-x $space-1025-x;
+    overflow: auto;
+    border-radius: 0;
+
+    @include scrollbar(8px, 2px, false);
+  }
+
+  &-toolbar {
+    display: flex;
+    justify-content: space-between;
+
+    height: $size-large;
+    padding-right: $space-1-x;
+
+    padding-left: $space-1-x;
+    line-height: $size-large;
+
+    border-top: $border-width-xsmall dashed $color-border-component-default;
+
+    &-left,
+    &-right {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  &-source {
+    border-top: $border-width-xsmall dashed $color-border-component-default;
+
+    .#{$prefix-cls}-code {
+      &,
+      pre {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .#{$prefix-cls}-tabs {
+      &-bar {
+        padding-right: $space-05-x;
+        padding-left: $space-05-x;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &-content {
+        padding: 0;
+        border-top: $border-width-xsmall dashed $color-border-component-default;
+      }
+    }
+  }
+}
