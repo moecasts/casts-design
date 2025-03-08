@@ -10,8 +10,7 @@ import { localeCodes } from '@casts/rd-vite/common';
 import clsx from 'clsx';
 import { Link, useNavigate } from 'react-router-dom';
 
-// @ts-ignore svgr component
-import { ReactComponent as Brand } from '../../../../../src/brand.svg';
+import Brand from '../../../../../src/brand.svg?react';
 import { getPrefixCls, prefixCls } from '../../common';
 import { Search } from '../doc-features/search';
 import { useAppContext } from '../hooks/use-app-context';

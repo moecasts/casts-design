@@ -1,5 +1,5 @@
 import vitestConfig from '@casts/standard/dist/cjs/vite/vite.config';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import { omit } from 'lodash-es';
 import path from 'path';
 import { defineConfig } from 'vite';
@@ -21,7 +21,6 @@ export default mergeConfig(
       host: '0.0.0.0',
       port: 15000,
       open: '/',
-      https: false,
     },
 
     resolve: {

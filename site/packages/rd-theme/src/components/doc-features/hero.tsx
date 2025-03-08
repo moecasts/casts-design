@@ -6,10 +6,8 @@ import { useRd } from '@casts/rd-vite/client';
 import { fallbackLocaleCode } from '@casts/rd-vite/common';
 import { Space } from '@casts/space';
 
-// @ts-ignore svgr component
-import { ReactComponent as Favicon } from '../../../../../src/assets/favicon.svg';
-// @ts-ignore svgr component
-import { ReactComponent as HomeBanner } from '../../../../../src/assets/home-banner.svg';
+import Favicon from '../../../../../src/assets/favicon.svg?react';
+import HomeBanner from '../../../../../src/assets/home-banner.svg?react';
 import { prefixCls } from '../../common/constants';
 
 export const Hero: FC<BaseComponentProps> = () => {
