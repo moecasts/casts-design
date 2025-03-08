@@ -1,4 +1,5 @@
-import { createFormatAwareProcessors } from '@mdx-js/mdx/lib/util/create-format-aware-processors.js';
+// @ts-ignore @mdx-js/mdx/internal-create-format-aware-processors is exported but not typed
+import { createFormatAwareProcessors } from '@mdx-js/mdx/internal-create-format-aware-processors';
 import { Options } from '@mdx-js/rollup';
 import { transformSync } from 'esbuild';
 import { readFileSync } from 'fs';
@@ -33,6 +34,7 @@ const getMdxOptions = ({
   mdxExtensions: ['.mdx', '.md'],
   format: 'mdx',
   remarkPlugins: [
+    remarkFrontmatter,
     remarkGFM,
     remarkMdxImages,
     remarkCodeBlockReplacer,
@@ -78,7 +80,6 @@ const getMdxOptions = ({
       },
     ],
   ],
-  recmaPlugins: [remarkFrontmatter],
 });
 
 export type RdConfig = {
@@ -100,15 +101,7 @@ export type RdConfig = {
 };
 
 export const rd = (config: RdConfig = {}) => {
-  // const docRoot = config?.root || '../';
-  // const markdownSources = detectMarkdowns(docRoot);
-  //
-  // console.log('debug1 markdownSources', markdownSources);
-
-  return [
-    createPlugin(config),
-    // searchPlugin({ sources: markdownSources }),
-  ];
+  return [createPlugin(config)];
 };
 
 export const getDefaultRdConfig = (): RdConfig => ({
@@ -207,10 +200,24 @@ const createPlugin = (userConfig: RdConfig = {}) => {
 
           if (currentAlias?.replacement) {
             const realSource = source.replace(source, currentAlias.replacement);
-            return this.resolve(realSource, importer, mergedOptions);
+            return this.resolve(realSource, importer, mergedOptions).then(
+              (result) => {
+                if (result) {
+                  return { ...result, assertions: {} };
+                }
+                return result;
+              },
+            );
           }
 
-          return this.resolve(source, importer, mergedOptions);
+          return this.resolve(source, importer, mergedOptions).then(
+            (result) => {
+              if (result) {
+                return { ...result, assertions: {} };
+              }
+              return result;
+            },
+          );
         };
       }
 

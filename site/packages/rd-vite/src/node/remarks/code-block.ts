@@ -101,7 +101,7 @@ export const remarkCodeBlock: Plugin<
     },
   ],
   MdxJsxFlowElement
-> = (options): Transformer => {
+> = (options): Transformer<MdxJsxFlowElement, MdxJsxFlowElement> => {
   const { resolverRef, root } = options;
 
   const resolve =
@@ -279,7 +279,7 @@ export const remarkCodeBlock: Plugin<
 export const remarkCodeBlockStandalone: Plugin<
   [],
   MdxJsxFlowElement
-> = (): Transformer => {
+> = (): Transformer<MdxJsxFlowElement, MdxJsxFlowElement> => {
   return (ast, file) => {
     const standaloneCodeBlocks: Record<string, string> = {};
 

@@ -20,11 +20,11 @@ import {
 import type { BlockContent } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { gfmTableFromMarkdown } from 'mdast-util-gfm-table';
+import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
 import { mdxJsxFromMarkdown } from 'mdast-util-mdx-jsx';
-import { MdxJsxFlowElement } from 'mdast-util-mdx-jsx/lib';
 import { gfmTable } from 'micromark-extension-gfm-table';
 import { mdxJsx } from 'micromark-extension-mdx-jsx';
-import { Acorn } from 'micromark-extension-mdx-jsx/lib/syntax';
+import type { Acorn } from 'micromark-util-events-to-acorn';
 import {
   ComponentDoc,
   ParserOptions,
@@ -62,7 +62,7 @@ export const remarkReactApi: Plugin<
     },
   ],
   MdxJsxFlowElement
-> = ({ resolve }): Transformer => {
+> = ({ resolve }): Transformer<MdxJsxFlowElement, MdxJsxFlowElement> => {
   return async (ast) => {
     const reactApiEntries: string[] = [];
 
@@ -154,11 +154,11 @@ export const remarkReactApi: Plugin<
           return pair[0].startsWith('use') ? 'z' : pair[0];
         });
 
-        const apisMarkdown = map(apiDataArray, ([name, apis]) => {
+        const apsMarkdown = map(apiDataArray, ([name, apis]) => {
           return `### ${name}\n${getApiTableMarkdown(apis)}`;
         }).join('\n');
 
-        const apsAst = fromMarkdown(apisMarkdown, {
+        const apsAst = fromMarkdown(apsMarkdown, {
           extensions: [
             mdxJsx({ acorn: acorn as unknown as Acorn, addResult: true }),
             gfmTable(),

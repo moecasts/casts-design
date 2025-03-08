@@ -7,9 +7,9 @@ export function rehypeToc(this: Processor, opts?: Options): Transformer {
   const tocTransformer = rehypeTocBase.bind(this)(opts);
 
   return (ast, file) => {
-    const frontmatter = matter(file);
+    matter(file);
     // @ts-ignore hide toc if matter.toc === false
-    if (frontmatter.data.matter?.toc === false) {
+    if (file.data.matter?.toc === false) {
       return ast;
     }
     // @ts-ignore toc transformer expected one argument
