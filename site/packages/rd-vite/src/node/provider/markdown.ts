@@ -50,7 +50,8 @@ export const detectMarkdowns = (
       };
       if (withMeta) {
         const file = readSync(item.path);
-        item.meta = matter(file).data.matter as SourceMeta;
+        matter(file);
+        item.meta = (file.data?.matter || {}) as SourceMeta;
 
         // generate absPath
         const { paths } = parsePath(item);

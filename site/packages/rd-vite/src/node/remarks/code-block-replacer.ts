@@ -3,7 +3,7 @@ import type { Plugin, Transformer } from 'unified';
 import { visit } from 'unist-util-visit';
 
 export const remarkCodeBlockReplacer: Plugin<[], MdxJsxFlowElement> =
-  (): Transformer => (ast) => {
+  (): Transformer<MdxJsxFlowElement, MdxJsxFlowElement> => (ast) => {
     visit(
       ast,
       {
