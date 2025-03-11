@@ -27,17 +27,16 @@
     "access": "public"
   },
   "devDependencies": {
-    "@casts/standard": "workspace:^0.0.1",
     "@swc/core": "^1.3.82",
-    "@testing-library/jest-dom": "^6.1.2",
-    "@testing-library/react": "^14.0.0",
-    "@vitest/coverage-v8": "^1.3.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@vitest/coverage-v8": "^3.0.8",
     "father": "^4.5.2",
     "jsdom": "^22.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.7.3",
-    "vite": "^4.4.9",
-    "vitest": "^1.3.1"
+    "vite": "^6.2.1",
+    "vitest": "^3.0.8"
   },
   "peerDependencies": {
     "react": ">=17"
@@ -45,6 +44,7 @@
   "dependencies": {
     "@casts/common": "workspace:^0.0.1",
     "@casts/config-provider": "workspace:^0.0.1",
+    "@casts/standard": "workspace:^0.0.1",
     "@casts/theme": "workspace:^0.0.1",
     "clsx": "^2.0.0"
   },
