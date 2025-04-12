@@ -1,18 +1,17 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/menu';
-@import '@casts/theme/styles/scss/vars/menu';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/menu' as base-menu;
+@use '@casts/theme/styles/scss/vars/menu';
 
-@import '@casts/theme/styles/plugins/helper/overflow';
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import './vars';
+@use 'vars';
 
-.#{$menu-item-prefix-cls} {
+.#{vars.$menu-item-prefix-cls} {
   flex-shrink: 0;
-  margin: $menu-item-space-outer 0;
+  margin: menu.$menu-item-space-outer 0;
   list-style: none;
-  border-radius: $radius-medium;
+  border-radius: core.$radius-medium;
 
   &--disabled {
     cursor: not-allowed;
@@ -28,27 +27,27 @@
     text-decoration: none;
     outline: none;
 
-    @include button-style(#{$menu-item-prefix-cls}-inner);
-    @include button-color(
-      #{$menu-item-prefix-cls}-inner,
+    @include button-style.button-style(#{vars.$menu-item-prefix-cls}-inner);
+    @include button-style.button-color(
+      #{vars.$menu-item-prefix-cls}-inner,
       $with-background: true,
       $color-surface-disabled: transparent
     );
 
-    @include button-space();
+    @include button-style.button-space();
 
-    .#{$menu-item-prefix-cls}-content {
+    .#{vars.$menu-item-prefix-cls}-content {
       display: inline-block;
       flex: 1;
 
-      @include text-ellipsis();
+      @include overflow.text-ellipsis();
 
-      .#{$prefix-cls}-icon {
+      .#{core.$prefix-cls}-icon {
         vertical-align: middle;
       }
     }
 
-    .#{$menu-item-prefix-cls}-prefix-icon {
+    .#{vars.$menu-item-prefix-cls}-prefix-icon {
       display: inline-flex;
       align-items: center;
     }

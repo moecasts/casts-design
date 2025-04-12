@@ -1,12 +1,11 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$radio-group-prefix-cls: #{$prefix-cls}-radio-group;
+$radio-group-prefix-cls: #{core.$prefix-cls}-radio-group;
 
 .#{$radio-group-prefix-cls} {
-  .#{$prefix-cls}-radio {
+  .#{core.$prefix-cls}-radio {
     &:not(:last-child) {
-      margin-right: $space-075-x;
+      margin-right: core.$space-075-x;
     }
   }
 }

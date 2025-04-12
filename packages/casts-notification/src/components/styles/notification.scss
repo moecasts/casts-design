@@ -1,27 +1,26 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/notification';
-@import '@casts/theme/styles/scss/vars/notification';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/notification' as base-notification;
+@use '@casts/theme/styles/scss/vars/notification';
 
-@import '@casts/theme/styles/plugins/motion/fade';
+@use '@casts/theme/styles/plugins/motion/fade';
 
-$notification-prefix-cls: #{$prefix-cls}-notification;
+$notification-prefix-cls: #{core.$prefix-cls}-notification;
 
 .#{$notification-prefix-cls} {
-  z-index: $notification-elevation-z-index;
+  z-index: notification.$notification-elevation-z-index;
   display: flex;
-  gap: $space-05-x;
+  gap: core.$space-05-x;
   align-items: flex-start;
   width: fit-content;
-  padding: $notification-space-inset;
-  margin-right: $space-05-x;
-  margin-left: $space-05-x;
-  font-size: $notification-body-font-size;
-  color: $color-text-primary;
-  background-color: $color-surface-container-default;
-  border-left: $border-width-medium solid transparent;
-  border-radius: $notification-radius;
-  box-shadow: $notification-shadow;
+  padding: notification.$notification-space-inset;
+  margin-right: core.$space-05-x;
+  margin-left: core.$space-05-x;
+  font-size: notification.$notification-body-font-size;
+  color: core.$color-text-primary;
+  background-color: core.$color-surface-container-default;
+  border-left: core.$border-width-medium solid transparent;
+  border-radius: notification.$notification-radius;
+  box-shadow: notification.$notification-shadow;
 
   svg {
     font-size: inherit;
@@ -32,42 +31,42 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
     font-size: 0;
     line-height: 0;
 
-    .#{$prefix-cls}-circular-progress-container,
+    .#{core.$prefix-cls}-circular-progress-container,
     svg {
-      width: $notification-title-line-height;
-      height: $notification-title-line-height;
-      font-size: $notification-title-line-height;
+      width: notification.$notification-title-line-height;
+      height: notification.$notification-title-line-height;
+      font-size: notification.$notification-title-line-height;
     }
 
     @at-root .#{$notification-prefix-cls}--info:not(
           .#{$notification-prefix-cls}--theme-solid
         )
         & {
-      color: $notification-color-shape-info-default;
+      color: notification.$notification-color-shape-info-default;
     }
 
     @at-root .#{$notification-prefix-cls}--success:not(
           .#{$notification-prefix-cls}--theme-solid
         )
         & {
-      color: $notification-color-shape-success-default;
+      color: notification.$notification-color-shape-success-default;
     }
 
     @at-root .#{$notification-prefix-cls}--warning:not(
           .#{$notification-prefix-cls}--theme-solid
         )
         & {
-      color: $notification-color-shape-warning-default;
+      color: notification.$notification-color-shape-warning-default;
     }
 
     @at-root .#{$notification-prefix-cls}--error:not(
           .#{$notification-prefix-cls}--theme-solid
         )
         & {
-      color: $notification-color-shape-danger-default;
+      color: notification.$notification-color-shape-danger-default;
     }
 
-    .#{$prefix-cls}-circular-progress-container {
+    .#{core.$prefix-cls}-circular-progress-container {
       color: currentColor;
     }
   }
@@ -75,18 +74,18 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
   &-body {
     flex: 1;
     overflow: hidden;
-    font-size: $notification-body-font-size;
-    line-height: $notification-body-line-height;
+    font-size: notification.$notification-body-font-size;
+    line-height: notification.$notification-body-line-height;
 
     .#{$notification-prefix-cls}-header {
       display: flex;
       align-items: center;
-      font-size: $notification-title-font-size;
-      line-height: $notification-title-line-height;
+      font-size: notification.$notification-title-font-size;
+      line-height: notification.$notification-title-line-height;
 
       .#{$notification-prefix-cls}-title {
         flex: 1;
-        font-weight: $font-weight-bold;
+        font-weight: core.$font-weight-bold;
       }
     }
 
@@ -96,7 +95,7 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
 
     & {
       div + div {
-        margin-top: $space-05-x;
+        margin-top: core.$space-05-x;
       }
     }
   }
@@ -106,14 +105,14 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
     flex-shrink: 0;
     align-items: top;
     padding: 0;
-    font-size: $notification-body-font-size;
-    line-height: $notification-title-line-height;
+    font-size: notification.$notification-body-font-size;
+    line-height: notification.$notification-title-line-height;
     color: inherit;
     cursor: pointer;
     background-color: transparent;
     border: 0;
     opacity: 0.7;
-    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    transition: opacity fade.$motion-duration-rapid fade.$motion-easing-in-out;
 
     &:hover {
       opacity: 0.84;
@@ -124,56 +123,56 @@ $notification-prefix-cls: #{$prefix-cls}-notification;
     }
 
     svg {
-      font-size: $notification-title-line-height;
+      font-size: notification.$notification-title-line-height;
     }
   }
 
   & {
     &.#{$notification-prefix-cls}--loading {
-      color: $color-surface-container-default;
+      color: core.$color-surface-container-default;
     }
 
     &.#{$notification-prefix-cls}--info {
-      border-color: $notification-color-shape-info-default;
+      border-color: notification.$notification-color-shape-info-default;
     }
 
     &.#{$notification-prefix-cls}--success {
-      border-color: $notification-color-shape-success-default;
+      border-color: notification.$notification-color-shape-success-default;
     }
 
     &.#{$notification-prefix-cls}--warning {
-      border-color: $notification-color-shape-warning-default;
+      border-color: notification.$notification-color-shape-warning-default;
     }
 
     &.#{$notification-prefix-cls}--error {
-      border-color: $notification-color-shape-danger-default;
+      border-color: notification.$notification-color-shape-danger-default;
     }
   }
 
   &--theme-solid {
     &:not(.#{$notification-prefix-cls}--loading) {
-      color: $color-palette-white;
+      color: core.$color-palette-white;
     }
 
     &.#{$notification-prefix-cls}--info {
-      background-color: $notification-color-shape-info-default;
+      background-color: notification.$notification-color-shape-info-default;
     }
 
     &.#{$notification-prefix-cls}--success {
-      background-color: $notification-color-shape-success-default;
+      background-color: notification.$notification-color-shape-success-default;
     }
 
     &.#{$notification-prefix-cls}--warning {
-      background-color: $notification-color-shape-warning-default;
+      background-color: notification.$notification-color-shape-warning-default;
     }
 
     &.#{$notification-prefix-cls}--error {
-      background-color: $notification-color-shape-danger-default;
+      background-color: notification.$notification-color-shape-danger-default;
     }
   }
 
   // unify icon size
-  .#{$prefix-cls}-circular-progress-container {
+  .#{core.$prefix-cls}-circular-progress-container {
     transform: scale(0.85);
   }
 }

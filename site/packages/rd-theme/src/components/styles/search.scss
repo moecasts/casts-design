@@ -1,14 +1,14 @@
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/plugins/helper/scrollbar';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/plugins/helper/scrollbar';
 
-@import './vars';
+@use 'vars';
 
-.#{$rd-prefix-cls}-search {
-  padding: $space-05-x;
+.#{vars.$rd-prefix-cls}-search {
+  padding: core.$space-05-x;
 
   &-dialog {
-    @media (max-width: $breakpoint-small) {
-      max-width: calc(100% - $space-2-x);
+    @media (max-width: core.$breakpoint-small) {
+      max-width: calc(100% - core.$space-2-x);
     }
   }
 
@@ -16,31 +16,31 @@
     max-height: 400px;
     max-height: min(calc(100vh - 228px), 400px);
     padding: 0px;
-    margin-top: $space-1-x;
+    margin-top: core.$space-1-x;
     overflow-y: auto;
-    @include scrollbar(8px, 2px);
+    @include scrollbar.scrollbar(8px, 2px);
   }
 
   &-item {
     display: flex;
-    gap: $space-05-x;
+    gap: core.$space-05-x;
     align-items: flex-start;
-    padding: $space-05-x;
-    font-size: $font-size-small;
-    color: $color-text-primary;
+    padding: core.$space-05-x;
+    font-size: core.$font-size-small;
+    color: core.$color-text-primary;
     text-decoration: none;
-    border-radius: $radius-medium;
-    transition-timing-function: $motion-easing-in-out;
-    transition-duration: $motion-duration-rapid;
+    border-radius: core.$radius-medium;
+    transition-timing-function: core.$motion-easing-in-out;
+    transition-duration: core.$motion-duration-rapid;
     transition-property: background-color, color;
 
     &:hover {
-      color: $color-text-brand-default;
-      background-color: $color-surface-brand-default;
+      color: core.$color-text-brand-default;
+      background-color: core.$color-surface-brand-default;
     }
 
     & + & {
-      margin-top: $space-025-x;
+      margin-top: core.$space-025-x;
     }
 
     &-icon {
@@ -48,8 +48,8 @@
       align-items: center;
       justify-content: center;
       min-height: 24px;
-      font-size: $font-size-large;
-      line-height: $line-height-large;
+      font-size: core.$font-size-large;
+      line-height: core.$line-height-large;
     }
 
     &-content {
@@ -57,14 +57,14 @@
       text-align: left;
       strong {
         font-weight: normal;
-        color: $color-text-brand-default;
+        color: core.$color-text-brand-default;
       }
     }
 
     &-location {
-      margin-top: $space-025-x;
-      font-size: $font-size-xsmall;
-      opacity: $opacity-60;
+      margin-top: core.$space-025-x;
+      font-size: core.$font-size-xsmall;
+      opacity: core.$opacity-60;
     }
   }
 }

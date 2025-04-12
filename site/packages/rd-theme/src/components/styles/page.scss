@@ -1,11 +1,11 @@
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/plugins/helper/overflow';
 
-@import './vars';
+@use 'vars';
 
-.#{$rd-prefix-cls}-page {
-  max-width: $breakpoint-xxlarge;
-  padding: $space-2-x $space-105-x;
+.#{vars.$rd-prefix-cls}-page {
+  max-width: core.$breakpoint-xxlarge;
+  padding: core.$space-2-x core.$space-105-x;
   margin: auto;
   overflow: hidden;
 }
@@ -14,15 +14,15 @@
   &-container {
     position: relative;
     display: flex;
-    padding: $space-2-x 0;
+    padding: core.$space-2-x 0;
   }
 
   &-bg {
     position: absolute;
     top: 0;
-    right: calc(0px - #{$space-105-x});
+    right: calc(0px - #{core.$space-105-x});
     bottom: 0;
-    left: calc(0px - #{$space-105-x});
+    left: calc(0px - #{core.$space-105-x});
     overflow: hidden;
 
     svg {
@@ -40,8 +40,8 @@
 
   &-hero {
     margin: 0;
-    font-size: $font-size-xxxlarge;
-    line-height: $line-height-comfortable;
+    font-size: core.$font-size-xxxlarge;
+    line-height: core.$line-height-comfortable;
     color: transparent;
 
     background-color: rgb(202, 86, 218);
@@ -55,47 +55,47 @@
 
   &-description {
     margin: 0;
-    font-size: $font-size-xxlarge;
-    line-height: $line-height-comfortable;
-    color: $color-text-primary;
+    font-size: core.$font-size-xxlarge;
+    line-height: core.$line-height-comfortable;
+    color: core.$color-text-primary;
   }
 
   &-actions {
-    margin-top: $space-2-x;
+    margin-top: core.$space-2-x;
   }
 
   &-image-container {
     display: flex;
     justify-content: center;
-    padding: $space-3-x;
+    padding: core.$space-3-x;
   }
 
   &-logo {
     width: 100%;
     max-width: 320px;
-    color: $color-shape-neutral-default;
+    color: core.$color-shape-neutral-default;
     fill: currentColor;
   }
 
-  @media (max-width: $breakpoint-medium) {
+  @media (max-width: core.$breakpoint-medium) {
     &-container {
       flex-direction: column-reverse;
       padding-top: 0px;
     }
 
     &-hero {
-      font-size: $font-size-xxlarge;
-      line-height: $line-height-comfortable;
+      font-size: core.$font-size-xxlarge;
+      line-height: core.$line-height-comfortable;
     }
 
     &-description {
       margin: 0;
-      font-size: $font-size-xlarge;
-      line-height: $line-height-comfortable;
+      font-size: core.$font-size-xlarge;
+      line-height: core.$line-height-comfortable;
     }
 
     &-image-container {
-      padding: $space-1-x;
+      padding: core.$space-1-x;
     }
 
     &-logo {
@@ -107,35 +107,35 @@
 .rd-features-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $space-1-x;
-  margin-top: $space-2-x;
+  gap: core.$space-1-x;
+  margin-top: core.$space-2-x;
 
-  @media (max-width: $breakpoint-medium) {
+  @media (max-width: core.$breakpoint-medium) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 .rd-feature-card {
-  padding: $space-1-x;
+  padding: core.$space-1-x;
   overflow: hidden;
-  background-color: $color-surface-neutral-default;
-  border-radius: $radius-medium;
+  background-color: core.$color-surface-neutral-default;
+  border-radius: core.$radius-medium;
 
   &-icon {
-    margin-bottom: $space-05-x;
-    font-size: $font-size-xlarge;
-    line-height: $line-height-xlarge;
+    margin-bottom: core.$space-05-x;
+    font-size: core.$font-size-xlarge;
+    line-height: core.$line-height-xlarge;
     text-align: center;
   }
 
   &-title {
-    margin-bottom: $space-05-x;
-    font-size: $font-size-large;
-    line-height: $line-height-large;
+    margin-bottom: core.$space-05-x;
+    font-size: core.$font-size-large;
+    line-height: core.$line-height-large;
     text-align: center;
   }
 
   &-content {
-    color: $color-text-secondary;
+    color: core.$color-text-secondary;
   }
 }

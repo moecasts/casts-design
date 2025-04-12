@@ -1,19 +1,19 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/button';
-@import '@casts/theme/styles/scss/vars/button';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/button' as base-button;
+@use '@casts/theme/styles/scss/vars/button';
 
-$button-prefix-cls: #{$prefix-cls}-button;
+$button-prefix-cls: #{core.$prefix-cls}-button;
 
 @mixin button-size($size: 'medium', $selector: none) {
-  height: map-get($button-tokens, button-size-#{$size});
-  padding: 0 map-get($button-tokens, button-space-#{$size});
-  font-size: map-get($button-tokens, button-font-size-#{$size});
+  height: map.get(button.$button-tokens, button-size-#{$size});
+  padding: 0 map.get(button.$button-tokens, button-space-#{$size});
+  font-size: map.get(button.$button-tokens, button-font-size-#{$size});
 
   @if $selector !=none {
     @at-root #{$selector}.#{$button-prefix-cls}--only-icon {
-      width: map-get($button-tokens, button-size-#{$size});
-      height: map-get($button-tokens, button-size-#{$size});
+      width: map.get(button.$button-tokens, button-size-#{$size});
+      height: map.get(button.$button-tokens, button-size-#{$size});
       padding: 0;
     }
   }
@@ -49,20 +49,20 @@ $button-sizes: 'small', 'medium', 'large';
   appearance: none;
   cursor: pointer;
   background-color: transparent;
-  border: $border-width-xsmall solid transparent;
+  border: core.$border-width-xsmall solid transparent;
   -webkit-tap-highlight-color: transparent;
 
-  border-width: $border-width-xsmall;
+  border-width: core.$border-width-xsmall;
   outline-color: transparent;
   fill: currentColor;
 
   transition:
-    color $motion-duration-rapid $motion-easing-in-out,
-    opacity $motion-duration-rapid $motion-easing-in-out,
-    outline-color $motion-duration-rapid $motion-easing-in-out,
-    box-shadow $motion-duration-rapid $motion-easing-in-out,
-    border-color $motion-duration-rapid $motion-easing-in-out,
-    background-color $motion-duration-rapid $motion-easing-in-out;
+    color core.$motion-duration-rapid core.$motion-easing-in-out,
+    opacity core.$motion-duration-rapid core.$motion-easing-in-out,
+    outline-color core.$motion-duration-rapid core.$motion-easing-in-out,
+    box-shadow core.$motion-duration-rapid core.$motion-easing-in-out,
+    border-color core.$motion-duration-rapid core.$motion-easing-in-out,
+    background-color core.$motion-duration-rapid core.$motion-easing-in-out;
 
   // size
   @each $size in $button-sizes {
@@ -81,14 +81,14 @@ $button-sizes: 'small', 'medium', 'large';
       &.#{$button-prefix-cls}--#{$size} {
         &,
         &::before {
-          border-radius: map-get($button-tokens, button-radius-#{$size});
+          border-radius: map.get(button.$button-tokens, button-radius-#{$size});
         }
       }
     }
   }
 
   &--pill {
-    border-radius: $button-radius-pill;
+    border-radius: button.$button-radius-pill;
   }
 
   $button-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
@@ -96,10 +96,13 @@ $button-sizes: 'small', 'medium', 'large';
   @each $color in $button-colors {
     &.#{$button-prefix-cls}--#{$color} {
       &:focus-visible {
-        outline: $border-width-small
+        outline: core.$border-width-small
           solid
-          map-get($button-tokens, button-color-outline-#{$color}-default);
-        outline-offset: $border-width-xsmall;
+          map.get(
+            button.$button-tokens,
+            button-color-outline-#{$color}-default
+          );
+        outline-offset: core.$border-width-xsmall;
       }
     }
   }
@@ -108,18 +111,18 @@ $button-sizes: 'small', 'medium', 'large';
   &--contained {
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
-        $text-color: $color-palette-white;
+        $text-color: core.$color-palette-white;
         @if $color == 'neutral' {
-          $text-color: $color-text-anti;
+          $text-color: core.$color-text-anti;
         }
         @include button-color(
           $text-color,
-          map-get(
-            $button-tokens,
+          map.get(
+            button.$button-tokens,
             button-color-surface-#{$color}-default-on-solid
           ),
-          map-get(
-            $button-tokens,
+          map.get(
+            button.$button-tokens,
             button-color-border-#{$color}-default-on-solid
           )
         );
@@ -128,12 +131,12 @@ $button-sizes: 'small', 'medium', 'large';
         &:focus-visible {
           @include button-color(
             $text-color,
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-hover-on-solid
             ),
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-border-#{$color}-hover-on-solid
             )
           );
@@ -142,12 +145,12 @@ $button-sizes: 'small', 'medium', 'large';
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
             $text-color,
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-active-on-solid
             ),
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-border-#{$color}-active-on-solid
             )
           );
@@ -161,13 +164,13 @@ $button-sizes: 'small', 'medium', 'large';
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
         @include button-color(
-          map-get($button-tokens, button-color-text-#{$color}-default),
-          map-get(
-            $button-tokens,
+          map.get(button.$button-tokens, button-color-text-#{$color}-default),
+          map.get(
+            button.$button-tokens,
             button-color-surface-#{$color}-default-on-pastel
           ),
-          map-get(
-            $button-tokens,
+          map.get(
+            button.$button-tokens,
             button-color-surface-#{$color}-default-on-pastel
           )
         );
@@ -175,13 +178,13 @@ $button-sizes: 'small', 'medium', 'large';
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-hover),
-            map-get(
-              $button-tokens,
+            map.get(button.$button-tokens, button-color-text-#{$color}-hover),
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-hover-on-pastel
             ),
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-hover-on-pastel
             )
           );
@@ -189,13 +192,13 @@ $button-sizes: 'small', 'medium', 'large';
 
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-active),
-            map-get(
-              $button-tokens,
+            map.get(button.$button-tokens, button-color-text-#{$color}-active),
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-active-on-pastel
             ),
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-active-on-pastel
             )
           );
@@ -209,8 +212,8 @@ $button-sizes: 'small', 'medium', 'large';
           @include button-color(
             none,
             none,
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-border-#{$color}-default-on-pastel
             )
           );
@@ -220,8 +223,8 @@ $button-sizes: 'small', 'medium', 'large';
             @include button-color(
               none,
               none,
-              map-get(
-                $button-tokens,
+              map.get(
+                button.$button-tokens,
                 button-color-border-#{$color}-hover-on-pastel
               )
             );
@@ -231,8 +234,8 @@ $button-sizes: 'small', 'medium', 'large';
             @include button-color(
               none,
               none,
-              map-get(
-                $button-tokens,
+              map.get(
+                button.$button-tokens,
                 button-color-border-#{$color}-active-on-pastel
               )
             );
@@ -247,10 +250,10 @@ $button-sizes: 'small', 'medium', 'large';
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
         @include button-color(
-          map-get($button-tokens, button-color-text-#{$color}-default),
+          map.get(button.$button-tokens, button-color-text-#{$color}-default),
           none,
-          map-get(
-            $button-tokens,
+          map.get(
+            button.$button-tokens,
             button-color-border-#{$color}-default-on-solid
           )
         );
@@ -258,10 +261,10 @@ $button-sizes: 'small', 'medium', 'large';
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map.get(button.$button-tokens, button-color-text-#{$color}-hover),
             none,
-            map-get(
-              $button-tokens,
+            map.get(
+              button.$button-tokens,
               button-color-border-#{$color}-hover-on-solid
             )
           );
@@ -269,9 +272,12 @@ $button-sizes: 'small', 'medium', 'large';
 
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-active),
+            map.get(button.$button-tokens, button-color-text-#{$color}-active),
             none,
-            map-get($button-tokens, button-color-#{$color}-active-on-solid)
+            map.get(
+              button.$button-tokens,
+              button-color-#{$color}-active-on-solid
+            )
           );
         }
       }
@@ -286,7 +292,7 @@ $button-sizes: 'small', 'medium', 'large';
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
         @include button-color(
-          map-get($button-tokens, button-color-text-#{$color}-default),
+          map.get(button.$button-tokens, button-color-text-#{$color}-default),
           none,
           transparent
         );
@@ -294,9 +300,9 @@ $button-sizes: 'small', 'medium', 'large';
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-hover),
-            map-get(
-              $button-tokens,
+            map.get(button.$button-tokens, button-color-text-#{$color}-hover),
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-default-on-pastel
             ),
             none
@@ -305,9 +311,9 @@ $button-sizes: 'small', 'medium', 'large';
 
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-active),
-            map-get(
-              $button-tokens,
+            map.get(button.$button-tokens, button-color-text-#{$color}-active),
+            map.get(
+              button.$button-tokens,
               button-color-surface-#{$color}-active-on-pastel
             ),
             none
@@ -323,7 +329,7 @@ $button-sizes: 'small', 'medium', 'large';
     &:not(.#{$button-prefix-cls}--disabled) {
       text-decoration: underline;
       text-decoration-color: currentColor;
-      text-underline-offset: $space-025-x;
+      text-underline-offset: core.$space-025-x;
     }
 
     // &:hover:not(.#{$button-prefix-cls}--disabled),
@@ -339,7 +345,7 @@ $button-sizes: 'small', 'medium', 'large';
     @each $color in $button-colors {
       &.#{$button-prefix-cls}--#{$color} {
         @include button-color(
-          map-get($button-tokens, button-color-text-#{$color}-default),
+          map.get(button.$button-tokens, button-color-text-#{$color}-default),
           none,
           transparent
         );
@@ -347,7 +353,7 @@ $button-sizes: 'small', 'medium', 'large';
         &:hover:not(.#{$button-prefix-cls}--disabled),
         &:focus-visible {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-hover),
+            map.get(button.$button-tokens, button-color-text-#{$color}-hover),
             none,
             none
           );
@@ -355,7 +361,7 @@ $button-sizes: 'small', 'medium', 'large';
 
         &:active:not(.#{$button-prefix-cls}--disabled) {
           @include button-color(
-            map-get($button-tokens, button-color-text-#{$color}-active),
+            map.get(button.$button-tokens, button-color-text-#{$color}-active),
             none,
             none
           );
@@ -373,11 +379,11 @@ $button-sizes: 'small', 'medium', 'large';
   &--disabled,
   &--loading {
     cursor: not-allowed;
-    opacity: $opacity-38;
+    opacity: core.$opacity-38;
   }
 
   &--loading {
-    & > *:not(.#{$prefix-cls}-loading) {
+    & > *:not(.#{core.$prefix-cls}-loading) {
       color: transparent;
     }
   }
@@ -387,12 +393,12 @@ $button-sizes: 'small', 'medium', 'large';
     align-items: center;
   }
 
-  .#{$prefix-cls}-icon {
+  .#{core.$prefix-cls}-icon {
     font-size: inherit;
   }
 
-  &:not(&--only-icon) > .#{$prefix-cls}-icon {
-    margin-right: $space-025-x;
+  &:not(&--only-icon) > .#{core.$prefix-cls}-icon {
+    margin-right: core.$space-025-x;
   }
 
   @keyframes loadingCircle {
@@ -405,13 +411,13 @@ $button-sizes: 'small', 'medium', 'large';
     }
   }
 
-  .#{$prefix-cls}-loading {
+  .#{core.$prefix-cls}-loading {
     position: absolute;
     display: inline-block;
     line-height: 0;
     transition:
-      width $motion-duration-fast $motion-easing-in-out,
-      opacity $motion-duration-fast $motion-easing-in-out;
-    animation: loadingCircle $motion-duration-deliberate infinite linear;
+      width core.$motion-duration-fast core.$motion-easing-in-out,
+      opacity core.$motion-duration-fast core.$motion-easing-in-out;
+    animation: loadingCircle core.$motion-duration-deliberate infinite linear;
   }
 }

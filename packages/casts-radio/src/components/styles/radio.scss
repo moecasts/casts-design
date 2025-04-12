@@ -1,16 +1,15 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/radio';
-@import '@casts/theme/styles/scss/vars/radio';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/radio' as base-radio;
+@use '@casts/theme/styles/scss/vars/radio';
 
-$radio-prefix-cls: #{$prefix-cls}-radio;
+$radio-prefix-cls: #{radio.$prefix-cls}-radio;
 
 .#{$radio-prefix-cls} {
   position: relative;
   display: inline-flex;
   align-items: center;
-  font-size: $radio-font-size;
-  line-height: $radio-line-height;
+  font-size: radio.$radio-font-size;
+  line-height: radio.$radio-line-height;
   cursor: pointer;
 
   &-pre {
@@ -25,14 +24,14 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
     box-sizing: border-box;
     display: inline-block;
     flex-shrink: 0;
-    width: $radio-size;
-    height: $radio-size;
-    margin-right: $space-05-x;
-    border-color: $radio-color-border-default;
+    width: radio.$radio-size;
+    height: radio.$radio-size;
+    margin-right: core.$space-05-x;
+    border-color: radio.$radio-color-border-default;
     border-style: solid;
-    border-width: $border-width-xsmall;
+    border-width: core.$border-width-xsmall;
     border-radius: 100%;
-    transition: border $motion-duration-rapid $motion-easing-in-out;
+    transition: border core.$motion-duration-rapid core.$motion-easing-in-out;
 
     &::before {
       position: absolute;
@@ -45,7 +44,7 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
       background-color: transparent;
       border-radius: inherit;
       opacity: 0;
-      transition: all $motion-duration-rapid $motion-easing-in-out;
+      transition: all core.$motion-duration-rapid core.$motion-easing-in-out;
       transform: translate(-50%, -50%) scale(0);
     }
 
@@ -59,18 +58,18 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
           .#{$radio-prefix-cls}--disabled
         ):focus-visible
         & {
-      border-color: $radio-color-border-hover;
+      border-color: radio.$radio-color-border-hover;
     }
 
     @at-root .#{$radio-prefix-cls}-pre:focus-visible + & {
-      outline: $border-width-small solid $radio-color-outline-default;
+      outline: core.$border-width-small solid radio.$radio-color-outline-default;
     }
 
     @at-root .#{$radio-prefix-cls}--checked & {
-      border-color: $radio-color-border-active;
+      border-color: radio.$radio-color-border-active;
 
       &::before {
-        background-color: $radio-input-inner-color-active;
+        background-color: radio.$radio-input-inner-color-active;
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.55);
       }
@@ -78,15 +77,15 @@ $radio-prefix-cls: #{$prefix-cls}-radio;
   }
 
   &--disabled {
-    color: $color-text-disabled;
+    color: core.$color-text-disabled;
     cursor: not-allowed;
 
     .#{$radio-prefix-cls}-input {
-      background-color: $radio-color-surface-disabled;
-      border-color: $radio-color-border-disabled;
+      background-color: radio.$radio-color-surface-disabled;
+      border-color: radio.$radio-color-border-disabled;
 
       &::before {
-        background-color: $radio-input-inner-color-disabled;
+        background-color: radio.$radio-input-inner-color-disabled;
       }
     }
   }

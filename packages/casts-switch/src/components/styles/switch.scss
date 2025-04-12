@@ -1,10 +1,10 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/switch';
-@import '@casts/theme/styles/scss/vars/switch';
+@use '@casts/theme/styles/scss/switch' as base-switch;
+@use '@casts/theme/styles/scss/vars/switch';
 
-$switch-prefix-cls: #{$prefix-cls}-switch;
+$switch-prefix-cls: #{switch.$prefix-cls}-switch;
 
 $sizes: 'small', 'medium', 'large';
 
@@ -20,8 +20,8 @@ $shapes: 'pill', 'round';
   &:focus-visible {
     outline: none;
     .#{$switch-prefix-cls}-indicator {
-      outline: $border-width-small solid $color-outline-brand-default;
-      outline-offset: $border-width-xsmall;
+      outline: core.$border-width-small solid core.$color-outline-brand-default;
+      outline-offset: core.$border-width-xsmall;
     }
   }
 
@@ -38,12 +38,12 @@ $shapes: 'pill', 'round';
   /* --------------------------------- size start ---------------------------------------- */
   @each $size in $sizes {
     &--#{$size} {
-      font-size: map-get(
-        $map: $switch-tokens,
+      font-size: map.get(
+        $map: switch.$switch-tokens,
         $key: switch-indicator-font-size-#{$size}
       );
-      line-height: map-get(
-        $map: $switch-tokens,
+      line-height: map.get(
+        $map: switch.$switch-tokens,
         $key: switch-indicator-font-size-#{$size}
       );
     }
@@ -55,7 +55,10 @@ $shapes: 'pill', 'round';
     .#{$switch-prefix-cls}-indicator {
       &,
       &-handle {
-        border-radius: map-get($map: $switch-tokens, $key: switch-radius-pill);
+        border-radius: map.get(
+          $map: switch.$switch-tokens,
+          $key: switch-radius-pill
+        );
       }
     }
   }
@@ -66,8 +69,8 @@ $shapes: 'pill', 'round';
         .#{$switch-prefix-cls}-indicator {
           &,
           &-handle {
-            border-radius: map-get(
-              $map: $switch-tokens,
+            border-radius: map.get(
+              $map: switch.$switch-tokens,
               $key: switch-radius-round-#{$size}
             );
           }
@@ -83,24 +86,24 @@ $shapes: 'pill', 'round';
 
     align-content: center;
     min-width: 2.5em;
-    height: calc(1em + $switch-indicator-space * 2);
+    height: calc(1em + switch.$switch-indicator-space * 2);
 
-    padding: $switch-indicator-space;
+    padding: switch.$switch-indicator-space;
     overflow: hidden;
     user-select: none;
 
-    background-color: $switch-color-surface-default;
+    background-color: switch.$switch-color-surface-default;
     outline-color: transparent;
     transition-timing-function: ease;
-    transition-duration: $motion-duration-rapid;
+    transition-duration: core.$motion-duration-rapid;
 
     transition-property: background-color, outline-color;
 
     &-handle {
       position: absolute;
-      top: $switch-indicator-space;
-      right: $switch-indicator-space;
-      left: $switch-indicator-space;
+      top: switch.$switch-indicator-space;
+      right: switch.$switch-indicator-space;
+      left: switch.$switch-indicator-space;
 
       display: inline-flex;
       align-items: center;
@@ -112,8 +115,8 @@ $shapes: 'pill', 'round';
 
       content: '';
       background-color: #fff;
-      box-shadow: $shadow-level-1;
-      transition: all $motion-duration-rapid ease;
+      box-shadow: core.$shadow-level-1;
+      transition: all core.$motion-duration-rapid ease;
 
       &-icon {
         display: inline-flex;
@@ -148,30 +151,30 @@ $shapes: 'pill', 'round';
     &-end {
       display: inline-flex;
       align-items: center;
-      padding: $switch-indicator-space;
-      color: $switch-indicator-color-text;
+      padding: switch.$switch-indicator-space;
+      color: switch.$switch-indicator-color-text;
       white-space: nowrap;
     }
 
     &-start {
-      padding-right: calc(1.5em + $switch-indicator-space);
+      padding-right: calc(1.5em + switch.$switch-indicator-space);
     }
 
     &-end {
-      padding-left: calc(1.5em + $switch-indicator-space);
+      padding-left: calc(1.5em + switch.$switch-indicator-space);
     }
   }
 
   &-label {
-    margin-left: $switch-space;
+    margin-left: switch.$switch-space;
   }
 
   &--checked {
     .#{$switch-prefix-cls}-indicator {
-      background-color: $switch-color-surface-active;
+      background-color: switch.$switch-color-surface-active;
 
       &-handle {
-        left: calc(100% - 1em - $switch-indicator-space);
+        left: calc(100% - 1em - switch.$switch-indicator-space);
       }
     }
 
@@ -179,7 +182,7 @@ $shapes: 'pill', 'round';
       &:not(.#{$switch-prefix-cls}--disabled, .#{$switch-prefix-cls}--loading) {
         .#{$switch-prefix-cls}-indicator {
           &-handle {
-            left: calc(100% - 1.5em - $switch-indicator-space);
+            left: calc(100% - 1.5em - switch.$switch-indicator-space);
           }
         }
       }
@@ -193,7 +196,7 @@ $shapes: 'pill', 'round';
   &--disabled {
     cursor: not-allowed;
     .#{$switch-prefix-cls}-indicator {
-      opacity: $opacity-60;
+      opacity: core.$opacity-60;
     }
   }
 }

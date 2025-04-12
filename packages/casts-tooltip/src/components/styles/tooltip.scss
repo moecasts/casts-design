@@ -1,11 +1,10 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/tooltip';
-@import '@casts/theme/styles/scss/vars/tooltip';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/tooltip' as base-tooltip;
+@use '@casts/theme/styles/scss/vars/tooltip';
 
-@import '@casts/theme/styles/plugins/motion/fade';
+@use '@casts/theme/styles/plugins/motion/fade';
 
-$tooltip-prefix-cls: #{$prefix-cls}-tooltip;
+$tooltip-prefix-cls: #{core.$prefix-cls}-tooltip;
 
 .#{$tooltip-prefix-cls} {
   &.#{$tooltip-prefix-cls}--square {
@@ -13,12 +12,12 @@ $tooltip-prefix-cls: #{$prefix-cls}-tooltip;
   }
 
   &.#{$tooltip-prefix-cls}--round {
-    border-radius: $tooltip-radius;
+    border-radius: tooltip.$tooltip-radius;
   }
 
   &.#{$tooltip-prefix-cls}--circle {
-    padding-right: $tooltip-space;
-    padding-left: $tooltip-space;
-    border-radius: $radius-pill;
+    padding-right: tooltip.$tooltip-space;
+    padding-left: tooltip.$tooltip-space;
+    border-radius: core.$radius-pill;
   }
 }

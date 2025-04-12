@@ -1,11 +1,11 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/progress';
-@import '@casts/theme/styles/scss/vars/progress';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/progress' as base-progress;
+@use '@casts/theme/styles/scss/vars/progress';
 
 @keyframes linearKeyframe {
   0% {
-    left: calc(0% - $progress-linear-indeterminate-bar-width);
+    left: calc(0% - progress.$progress-linear-indeterminate-bar-width);
   }
 
   100% {
@@ -13,7 +13,7 @@
   }
 }
 
-$linear-prefix-cls: #{$prefix-cls}-linear-progress;
+$linear-prefix-cls: #{progress.$prefix-cls}-linear-progress;
 
 @mixin flex-and-align-center($display: flex) {
   display: $display;
@@ -25,13 +25,16 @@ $sizes: 'small', 'medium', 'large';
 .#{$linear-prefix-cls} {
   position: relative;
   width: 100%;
-  color: $progress-color-brand-default;
+  color: progress.$progress-color-brand-default;
   @include flex-and-align-center;
 
   @mixin linear-progress-height {
     @each $size in $sizes {
       &--#{$size} {
-        height: map-get($progress-tokens, progress-linear-size-#{$size});
+        height: map.get(
+          progress.$progress-tokens,
+          progress-linear-size-#{$size}
+        );
       }
     }
   }
@@ -42,9 +45,9 @@ $sizes: 'small', 'medium', 'large';
     .#{$linear-prefix-cls}-bar {
       .#{$linear-prefix-cls}-inner {
         position: absolute;
-        width: $progress-linear-indeterminate-bar-width !important;
-        animation: linearKeyframe $motion-duration-sustained
-          $motion-easing-in-out infinite;
+        width: progress.$progress-linear-indeterminate-bar-width !important;
+        animation: linearKeyframe core.$motion-duration-sustained
+          core.$motion-easing-in-out infinite;
       }
     }
   }
@@ -55,24 +58,24 @@ $sizes: 'small', 'medium', 'large';
     flex: 1;
     height: 100%;
     overflow: hidden;
-    background-color: $progress-track-color;
-    border-radius: $radius-large;
+    background-color: progress.$progress-track-color;
+    border-radius: core.$radius-large;
 
     .#{$linear-prefix-cls}-inner {
       display: block;
       height: 100%;
       background-color: currentColor;
-      border-radius: $radius-large;
-      transition: width 150ms $motion-easing-in-out;
+      border-radius: core.$radius-large;
+      transition: width 150ms core.$motion-easing-in-out;
     }
   }
 
   &-label {
     @include flex-and-align-center(inline-flex);
-    min-width: $size-large;
-    margin-left: $space-05-x;
-    font-size: $font-size-small;
-    line-height: $line-height-small;
+    min-width: core.$size-large;
+    margin-left: core.$space-05-x;
+    font-size: core.$font-size-small;
+    line-height: core.$line-height-small;
 
     .#{$linear-prefix-cls}-icon,
     .#{$linear-prefix-cls}-text {
@@ -80,17 +83,17 @@ $sizes: 'small', 'medium', 'large';
     }
 
     .#{$linear-prefix-cls}-text {
-      color: $color-text-primary;
+      color: core.$color-text-primary;
     }
   }
 }
 
 @function get-theme-color($theme) {
   @if $theme == 'error' {
-    @return map-get($progress-tokens, progress-color-danger-default);
+    @return map.get(progress.$progress-tokens, progress-color-danger-default);
   }
 
-  @return map-get($progress-tokens, progress-color-#{$theme}-default);
+  @return map.get(progress.$progress-tokens, progress-color-#{$theme}-default);
 }
 
 @mixin linear-progress-status {

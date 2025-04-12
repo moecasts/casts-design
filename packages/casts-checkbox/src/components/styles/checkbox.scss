@@ -1,16 +1,15 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/checkbox';
-@import '@casts/theme/styles/scss/vars/checkbox';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/checkbox' as base-checkbox;
+@use '@casts/theme/styles/scss/vars/checkbox';
 
-$checkbox-prefix-cls: #{$prefix-cls}-checkbox;
+$checkbox-prefix-cls: #{checkbox.$prefix-cls}-checkbox;
 
 .#{$checkbox-prefix-cls} {
   position: relative;
   display: inline-flex;
   align-items: center;
-  font-size: $checkbox-font-size;
-  line-height: $checkbox-line-height;
+  font-size: checkbox.$checkbox-font-size;
+  line-height: checkbox.$checkbox-line-height;
   cursor: pointer;
 
   &-pre {
@@ -26,16 +25,17 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
     box-sizing: border-box;
     display: inline-block;
     flex-shrink: 0;
-    width: $checkbox-size;
-    height: $checkbox-size;
-    margin-right: $space-05-x;
-    border-color: $checkbox-color-border-default;
+    width: checkbox.$checkbox-size;
+    height: checkbox.$checkbox-size;
+    margin-right: core.$space-05-x;
+    border-color: checkbox.$checkbox-color-border-default;
     border-style: solid;
-    border-width: $border-width-xsmall;
-    border-radius: $radius-small;
+    border-width: core.$border-width-xsmall;
+    border-radius: core.$radius-small;
     transition:
-      border $motion-duration-immediate $motion-easing-in-out,
-      background-color $motion-duration-immediate $motion-easing-in-out;
+      border core.$motion-duration-immediate core.$motion-easing-in-out,
+      background-color core.$motion-duration-immediate
+        core.$motion-easing-in-out;
 
     &::before {
       position: absolute;
@@ -45,22 +45,24 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
       left: 0px;
       content: '';
 
-      border-color: $checkbox-color-border-default;
+      border-color: checkbox.$checkbox-color-border-default;
       border-style: solid;
       border-width: 0;
-      border-radius: $radius-xsmall;
+      border-radius: core.$radius-xsmall;
 
-      transition: border $motion-duration-immediate $motion-easing-in-out;
+      transition: border core.$motion-duration-immediate
+        core.$motion-easing-in-out;
     }
 
     @at-root .#{$checkbox-prefix-cls}--checked & {
       &::before {
-        border-width: calc(($checkbox-size / 2) - 1px);
+        border-width: calc((checkbox.$checkbox-size / 2) - 1px);
       }
     }
 
     @at-root .#{$checkbox-prefix-cls}-pre:focus-visible + & {
-      outline: $border-width-small solid $checkbox-color-outline-default;
+      outline: core.$border-width-small solid
+        checkbox.$checkbox-color-outline-default;
     }
 
     @at-root .#{$checkbox-prefix-cls}--indeterminate & {
@@ -70,12 +72,13 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
         left: 50%;
         display: inline-block;
         width: 0;
-        height: $border-width-small;
+        height: core.$border-width-small;
         content: '';
-        background-color: $checkbox-input-inner-color-text-active;
+        background-color: checkbox.$checkbox-input-inner-color-text-active;
         border-radius: inherit;
-        transition: all $motion-duration-immediate $motion-easing-in-out;
-        transition-delay: $motion-duration-immediate;
+        transition: all core.$motion-duration-immediate
+          core.$motion-easing-in-out;
+        transition-delay: core.$motion-duration-immediate;
         transform: translate(-50%, -50%);
       }
     }
@@ -95,8 +98,8 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
         position: absolute;
         top: 0px;
         left: 0px;
-        font-size: $checkbox-font-size;
-        color: $checkbox-input-inner-color-text-active;
+        font-size: checkbox.$checkbox-font-size;
+        color: checkbox.$checkbox-input-inner-color-text-active;
       }
     }
 
@@ -104,9 +107,9 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
           .#{$checkbox-prefix-cls}--disabled
         )
         & {
-      border-color: $checkbox-color-border-active;
+      border-color: checkbox.$checkbox-color-border-active;
       &::before {
-        border-color: $checkbox-color-border-active;
+        border-color: checkbox.$checkbox-color-border-active;
       }
     }
 
@@ -120,17 +123,17 @@ $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
           .#{$checkbox-prefix-cls}--disabled
         ):focus-visible
         & {
-      border-color: $checkbox-color-border-hover;
+      border-color: checkbox.$checkbox-color-border-hover;
     }
   }
 
   &--disabled {
-    color: $color-text-disabled !important;
+    color: core.$color-text-disabled !important;
     cursor: not-allowed;
 
     .#{$checkbox-prefix-cls}-input {
-      background-color: $checkbox-color-surface-disabled;
-      border-color: $checkbox-color-border-disabled;
+      background-color: checkbox.$checkbox-color-surface-disabled;
+      border-color: checkbox.$checkbox-color-border-disabled;
     }
   }
 

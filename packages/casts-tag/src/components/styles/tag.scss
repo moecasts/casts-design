@@ -1,19 +1,19 @@
 @use 'sass:list';
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/tag';
-@import '@casts/theme/styles/scss/vars/tag';
+@use '@casts/theme/styles/scss/tag' as base-tag;
+@use '@casts/theme/styles/scss/vars/tag';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-$tag-prefix-cls: #{$prefix-cls}-tag;
+$tag-prefix-cls: #{core.$prefix-cls}-tag;
 
 .#{$tag-prefix-cls} {
   display: inline-flex;
   align-items: center;
 
-  @include button-style($tag-prefix-cls, $cursor: initial);
+  @include button-style.button-style($tag-prefix-cls, $cursor: initial);
 
   &.#{$tag-prefix-cls}--checkable {
     cursor: pointer !important;
@@ -25,148 +25,208 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
     &--contained {
       &.#{$tag-prefix-cls}--pastel {
         &.#{$tag-prefix-cls}--#{$color} {
-          @include button-color(
+          @include button-style.button-color(
             $tag-prefix-cls,
             $with-background: true,
 
-            $color-outline-default:
-              map-get($tag-tokens, tag-color-outline-#{$color}-default),
-            $color-surface-default:
-              map-get(
-                $tag-tokens,
+            $color-outline-default: map.get(
+                tag.$tag-tokens,
+                tag-color-outline-#{$color}-default
+              ),
+            $color-surface-default: map.get(
+                tag.$tag-tokens,
                 tag-color-surface-#{$color}-default-on-pastel
               ),
-            $color-surface-hover:
-              map-get(
-                $tag-tokens,
+            $color-surface-hover: map.get(
+                tag.$tag-tokens,
                 tag-color-surface-#{$color}-default-on-pastel
               ),
-            $color-surface-active:
-              map-get(
-                $tag-tokens,
+            $color-surface-active: map.get(
+                tag.$tag-tokens,
                 tag-color-surface-#{$color}-default-on-pastel
               ),
-            $color-surface-disabled:
-              map-get(
-                $tag-tokens,
+            $color-surface-disabled: map.get(
+                tag.$tag-tokens,
                 tag-color-surface-#{$color}-default-on-pastel
               ),
-            $color-text-default:
-              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-            $color-text-hover:
-              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-            $color-text-active:
-              map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-            $color-text-disabled:
-              map-get($tag-tokens, tag-color-text-#{$color}-disabled-on-pastel)
+            $color-text-default: map.get(
+                tag.$tag-tokens,
+                tag-color-text-#{$color}-default-on-pastel
+              ),
+            $color-text-hover: map.get(
+                tag.$tag-tokens,
+                tag-color-text-#{$color}-default-on-pastel
+              ),
+            $color-text-active: map.get(
+                tag.$tag-tokens,
+                tag-color-text-#{$color}-default-on-pastel
+              ),
+            $color-text-disabled: map.get(
+                tag.$tag-tokens,
+                tag-color-text-#{$color}-disabled-on-pastel
+              )
           );
 
           &.#{$tag-prefix-cls}--bordered {
-            @include button-border(
+            @include button-style.button-border(
               $tag-prefix-cls,
               $border-style: solid,
-              $color-border-default:
-                map-get($tag-tokens, tag-color-border-#{$color}-default),
-              $color-border-hover:
-                map-get($tag-tokens, tag-color-border-#{$color}-hover),
-              $color-border-active:
-                map-get($tag-tokens, tag-color-border-#{$color}-active),
-              $color-border-disabled:
-                map-get($tag-tokens, tag-color-border-#{$color}-disabled)
+              $color-border-default: map.get(
+                  tag.$tag-tokens,
+                  tag-color-border-#{$color}-default
+                ),
+              $color-border-hover: map.get(
+                  tag.$tag-tokens,
+                  tag-color-border-#{$color}-hover
+                ),
+              $color-border-active: map.get(
+                  tag.$tag-tokens,
+                  tag-color-border-#{$color}-active
+                ),
+              $color-border-disabled: map.get(
+                  tag.$tag-tokens,
+                  tag-color-border-#{$color}-disabled
+                )
             );
           }
         }
       }
 
       &.#{$tag-prefix-cls}--#{$color} {
-        @include button-color(
+        @include button-style.button-color(
           $tag-prefix-cls,
           $with-background: true,
 
-          $color-outline-default:
-            map-get($tag-tokens, tag-color-outline-#{$color}-default),
-          $color-surface-default:
-            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
-          $color-surface-hover:
-            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
-          $color-surface-active:
-            map-get($tag-tokens, tag-color-surface-#{$color}-default-on-solid),
-          $color-surface-disabled:
-            map-get($tag-tokens, tag-color-surface-#{$color}-disabled-on-solid),
-          $color-text-default:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
-          $color-text-hover:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
-          $color-text-active:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-solid),
-          $color-text-disabled:
-            map-get($tag-tokens, tag-color-text-#{$color}-disabled-on-solid)
+          $color-outline-default: map.get(
+              tag.$tag-tokens,
+              tag-color-outline-#{$color}-default
+            ),
+          $color-surface-default: map.get(
+              tag.$tag-tokens,
+              tag-color-surface-#{$color}-default-on-solid
+            ),
+          $color-surface-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-surface-#{$color}-default-on-solid
+            ),
+          $color-surface-active: map.get(
+              tag.$tag-tokens,
+              tag-color-surface-#{$color}-default-on-solid
+            ),
+          $color-surface-disabled: map.get(
+              tag.$tag-tokens,
+              tag-color-surface-#{$color}-disabled-on-solid
+            ),
+          $color-text-default: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-solid
+            ),
+          $color-text-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-solid
+            ),
+          $color-text-active: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-solid
+            ),
+          $color-text-disabled: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-disabled-on-solid
+            )
         );
       }
     }
 
     &--outline {
       &.#{$tag-prefix-cls}--#{$color} {
-        @include button-color(
+        @include button-style.button-color(
           $tag-prefix-cls,
           $with-background: false,
 
-          $color-outline-default:
-            map-get($tag-tokens, tag-color-outline-#{$color}-default),
+          $color-outline-default: map.get(
+              tag.$tag-tokens,
+              tag-color-outline-#{$color}-default
+            ),
           $color-surface-default: transparent,
           $color-surface-hover: transparent,
           $color-surface-active: transparent,
           $color-surface-disabled: transparent,
-          $color-text-default:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-          $color-text-hover:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-          $color-text-active:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel)
+          $color-text-default: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            ),
+          $color-text-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            ),
+          $color-text-active: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            )
         );
 
-        @include button-border(
+        @include button-style.button-border(
           $tag-prefix-cls,
           $border-style: solid,
-          $color-border-default:
-            map-get($tag-tokens, tag-color-border-#{$color}-default),
-          $color-border-hover:
-            map-get($tag-tokens, tag-color-border-#{$color}-default),
-          $color-border-active:
-            map-get($tag-tokens, tag-color-border-#{$color}-default)
+          $color-border-default: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            ),
+          $color-border-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            ),
+          $color-border-active: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            )
         );
       }
     }
 
     &--dashed {
       &.#{$tag-prefix-cls}--#{$color} {
-        @include button-color(
+        @include button-style.button-color(
           $tag-prefix-cls,
           $with-background: false,
 
-          $color-outline-default:
-            map-get($tag-tokens, tag-color-outline-#{$color}-default),
+          $color-outline-default: map.get(
+              tag.$tag-tokens,
+              tag-color-outline-#{$color}-default
+            ),
           $color-surface-default: transparent,
           $color-surface-hover: transparent,
           $color-surface-active: transparent,
           $color-surface-disabled: transparent,
-          $color-text-default:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-          $color-text-hover:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel),
-          $color-text-active:
-            map-get($tag-tokens, tag-color-text-#{$color}-default-on-pastel)
+          $color-text-default: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            ),
+          $color-text-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            ),
+          $color-text-active: map.get(
+              tag.$tag-tokens,
+              tag-color-text-#{$color}-default-on-pastel
+            )
         );
 
-        @include button-border(
+        @include button-style.button-border(
           $tag-prefix-cls,
           $border-style: dashed,
-          $color-border-default:
-            map-get($tag-tokens, tag-color-border-#{$color}-default),
-          $color-border-hover:
-            map-get($tag-tokens, tag-color-border-#{$color}-default),
-          $color-border-active:
-            map-get($tag-tokens, tag-color-border-#{$color}-default)
+          $color-border-default: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            ),
+          $color-border-hover: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            ),
+          $color-border-active: map.get(
+              tag.$tag-tokens,
+              tag-color-border-#{$color}-default
+            )
         );
       }
     }
@@ -176,11 +236,15 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
 
   @each $size in $tag-sizes {
     &--#{$size} {
-      @include button-space(
-        $space-inset: map-get($tag-tokens, tag-space-#{$size})
+      @include button-style.button-space(
+        $space-inset: map.get(tag.$tag-tokens, tag-space-#{$size})
       );
 
-      @include button-size($element: 'tag', $size: $size, $tokens: $tag-tokens);
+      @include button-style.button-size(
+        $element: 'tag',
+        $size: $size,
+        $tokens: tag.$tag-tokens
+      );
     }
   }
 
@@ -193,11 +257,11 @@ $tag-prefix-cls: #{$prefix-cls}-tag;
   &-close {
     cursor: pointer;
     outline: none;
-    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    transition: opacity core.$motion-duration-rapid core.$motion-easing-in-out;
 
     &:hover,
     &:focus-visible {
-      opacity: $opacity-84;
+      opacity: core.$opacity-84;
     }
   }
 }

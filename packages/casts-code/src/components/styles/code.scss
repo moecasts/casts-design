@@ -1,27 +1,26 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/code';
-@import '@casts/theme/styles/scss/vars/code';
+@use '@casts/theme/styles/scss/code' as base-code;
+@use '@casts/theme/styles/scss/vars/code';
 
-@import '@casts/theme/styles/plugins/helper/scrollbar';
+@use '@casts/theme/styles/plugins/helper/scrollbar';
 
-$code-prefix-cls: #{$prefix-cls}-code;
+$code-prefix-cls: #{core.$prefix-cls}-code;
 
 .#{$code-prefix-cls} {
   overflow: hidden;
-  font-family: $code-font-family;
-  font-size: $code-font-size;
-  border-radius: $code-radius;
+  font-family: code.$code-font-family;
+  font-size: code.$code-font-size;
+  border-radius: code.$code-radius;
 
   .prism-code {
-    padding: $code-space 0;
+    padding: code.$code-space 0;
     margin: 0;
     overflow: auto;
     overflow: overlay;
     font-family: inherit;
 
-    @include scrollbar(8px, 2px);
+    @include scrollbar.scrollbar(8px, 2px);
   }
 
   .token-line {
@@ -29,15 +28,15 @@ $code-prefix-cls: #{$prefix-cls}-code;
     background-color: inherit;
 
     & > *:first-child {
-      padding-left: $code-line-number-space-left;
+      padding-left: code.$code-line-number-space-left;
     }
   }
 
   .token-line-num {
     display: table-cell;
-    padding-right: $code-line-number-space-right;
-    padding-left: $code-line-number-space-left;
-    color: $color-text-tertiary;
+    padding-right: code.$code-line-number-space-right;
+    padding-left: code.$code-line-number-space-left;
+    color: core.$color-text-tertiary;
     text-align: right;
     user-select: none;
     background-color: inherit;

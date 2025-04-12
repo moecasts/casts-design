@@ -1,17 +1,16 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/avatar';
-@import '@casts/theme/styles/scss/vars/avatar';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/avatar' as base-avatar;
+@use '@casts/theme/styles/scss/vars/avatar';
 
-$avatar-group-prefix-cls: #{$prefix-cls}-avatar-group;
+$avatar-group-prefix-cls: #{avatar.$prefix-cls}-avatar-group;
 
 .#{$avatar-group-prefix-cls} {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 
-  .#{$prefix-cls}-avatar {
-    margin-left: calc(0px - $space-05-x);
-    border: $border-width-small solid $avatar-group-color-border;
+  .#{avatar.$prefix-cls}-avatar {
+    margin-left: calc(0px - core.$space-05-x);
+    border: core.$border-width-small solid avatar.$avatar-group-color-border;
   }
 }

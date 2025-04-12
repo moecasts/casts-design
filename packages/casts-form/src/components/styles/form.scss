@@ -1,9 +1,8 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/form';
-@import '@casts/theme/styles/scss/vars/form';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/form' as base-form;
+@use '@casts/theme/styles/scss/vars/form';
 
-$form-prefix-cls: #{$prefix-cls}-form;
+$form-prefix-cls: #{form.$prefix-cls}-form;
 $form-item-prefix-cls: #{$form-prefix-cls}-item;
 
 .#{$form-prefix-cls} {
@@ -16,8 +15,8 @@ $form-item-prefix-cls: #{$form-prefix-cls}-item;
 
     .#{$form-item-prefix-cls} {
       display: flex;
-      margin-right: $space-105-x;
-      margin-bottom: $space-05-x;
+      margin-right: core.$space-105-x;
+      margin-bottom: core.$space-05-x;
     }
   }
 
@@ -36,7 +35,7 @@ $form-item-prefix-cls: #{$form-prefix-cls}-item;
   &--vertical,
   &--horizontal {
     .#{$form-item-prefix-cls} {
-      margin-bottom: $space-1025-x;
+      margin-bottom: core.$space-1025-x;
 
       &:last-of-type {
         margin-bottom: 0;

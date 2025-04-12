@@ -1,16 +1,15 @@
-@import '@casts/theme/styles/scss/vars/core';
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/anchor';
-@import '@casts/theme/styles/scss/anchor';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/anchor' as vars-anchor;
+@use '@casts/theme/styles/scss/anchor' as base-anchor;
 
-.#{$prefix-cls}-anchor {
+.#{base-anchor.$prefix-cls}-anchor {
   position: sticky;
   top: 0px;
   flex-shrink: 0;
   height: fit-content;
   padding: 0;
   margin: 0;
-  color: $color-text-primary;
+  color: core.$color-text-primary;
 
   list-style: none;
 
@@ -18,49 +17,49 @@
     position: absolute;
     left: 0px;
     display: block;
-    width: $anchor-border-width;
+    width: vars-anchor.$anchor-border-width;
     height: 100%;
     content: '';
-    background-color: $color-border-component-default;
-    border-radius: $radius-medium;
+    background-color: core.$color-border-component-default;
+    border-radius: core.$radius-medium;
   }
 
   &,
   ul {
-    padding-left: $anchor-space-indent;
+    padding-left: vars-anchor.$anchor-space-indent;
     margin: 0px;
     list-style: none;
   }
 
   &-link {
     overflow: hidden;
-    font-size: $anchor-link-font-size;
-    line-height: $anchor-link-line-height;
+    font-size: vars-anchor.$anchor-link-font-size;
+    line-height: vars-anchor.$anchor-link-line-height;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     &--active {
-      color: $anchor-link-color-text-active;
+      color: vars-anchor.$anchor-link-color-text-active;
     }
 
-    .#{$prefix-cls}-anchor-link-children {
-      color: $anchor-link-color-text-default;
+    .#{base-anchor.$prefix-cls}-anchor-link-children {
+      color: vars-anchor.$anchor-link-color-text-default;
     }
 
-    .#{$prefix-cls}-anchor-link-title {
+    .#{base-anchor.$prefix-cls}-anchor-link-title {
       display: block;
       width: 100%;
 
-      padding: $anchor-link-title-space-inset-vertical
-        $anchor-link-title-space-inset-horizontal;
-      margin-top: $anchor-link-title-space-outset-vertical;
-      margin-bottom: $anchor-link-title-space-outset-vertical;
+      padding: vars-anchor.$anchor-link-title-space-inset-vertical
+        vars-anchor.$anchor-link-title-space-inset-horizontal;
+      margin-top: vars-anchor.$anchor-link-title-space-outset-vertical;
+      margin-bottom: vars-anchor.$anchor-link-title-space-outset-vertical;
       overflow: hidden;
       text-decoration: none;
       text-overflow: ellipsis;
-      border-radius: $anchor-radius;
+      border-radius: vars-anchor.$anchor-radius;
 
-      transition: color $motion-duration-rapid $motion-easing-in-out;
+      transition: color core.$motion-duration-rapid core.$motion-easing-in-out;
 
       &,
       &:visited {
@@ -68,11 +67,11 @@
       }
 
       &:hover {
-        color: $anchor-link-color-text-hover;
+        color: vars-anchor.$anchor-link-color-text-hover;
       }
 
       &:active {
-        color: $anchor-link-color-text-active;
+        color: vars-anchor.$anchor-link-color-text-active;
       }
     }
   }
@@ -82,22 +81,22 @@
     bottom: 0;
     left: 0;
     display: inline-block;
-    width: $anchor-border-width;
-    height: $anchor-border-width;
+    width: vars-anchor.$anchor-border-width;
+    height: vars-anchor.$anchor-border-width;
 
-    background-color: $anchor-cursor-color;
-    border-radius: $anchor-radius;
+    background-color: vars-anchor.$anchor-cursor-color;
+    border-radius: vars-anchor.$anchor-radius;
 
     transition:
-      top $motion-duration-rapid $motion-easing-in-out,
-      left $motion-duration-rapid $motion-easing-in-out,
-      height $motion-duration-rapid $motion-easing-in-out,
-      width $motion-duration-rapid $motion-easing-in-out;
+      top core.$motion-duration-rapid core.$motion-easing-in-out,
+      left core.$motion-duration-rapid core.$motion-easing-in-out,
+      height core.$motion-duration-rapid core.$motion-easing-in-out,
+      width core.$motion-duration-rapid core.$motion-easing-in-out;
   }
 
   &--horizontal {
     display: flex;
-    padding-bottom: $anchor-space-indent;
+    padding-bottom: vars-anchor.$anchor-space-indent;
     padding-left: 0;
 
     &::before {
@@ -105,7 +104,7 @@
       bottom: 0px;
       left: unset;
       width: 100%;
-      height: $anchor-border-width;
+      height: vars-anchor.$anchor-border-width;
     }
   }
 }

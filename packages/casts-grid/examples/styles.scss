@@ -1,12 +1,12 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 .demo-grid {
   width: 100%;
 
-  .#{$prefix-cls}-row {
+  .#{core.$prefix-cls}-row {
   }
 
-  .#{$prefix-cls}-col {
+  .#{core.$prefix-cls}-col {
     div {
       display: flex;
       align-items: center;
@@ -17,13 +17,13 @@
 
     &:nth-child(even) {
       div {
-        background-color: $color-palette-brand-200;
+        background-color: core.$color-palette-brand-200;
       }
     }
 
     &:nth-child(odd) {
       div {
-        background-color: $color-palette-brand-100;
+        background-color: core.$color-palette-brand-100;
       }
     }
   }

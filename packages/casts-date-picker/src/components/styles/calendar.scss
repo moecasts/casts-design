@@ -1,10 +1,9 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import '@casts/theme/styles/scss/vars/date-picker';
+@use '@casts/theme/styles/scss/vars/date-picker';
 
-$calendar-prefix-cls: #{$prefix-cls}-calendar;
+$calendar-prefix-cls: #{date-picker.$prefix-cls}-calendar;
 
 .#{$calendar-prefix-cls} {
   // min-width: 238px;
@@ -12,26 +11,26 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
   &-header {
     display: flex;
     justify-content: space-between;
-    min-height: $calendar-header-min-height;
-    margin-bottom: $calendar-header-space-outside;
+    min-height: date-picker.$calendar-header-min-height;
+    margin-bottom: date-picker.$calendar-header-space-outside;
   }
 
   &-footer {
     display: flex;
     justify-content: flex-end;
-    padding: $calendar-footer-space-inset;
-    margin: $calendar-footer-space-outside;
-    border-top: 1px solid $color-border-component-default;
+    padding: date-picker.$calendar-footer-space-inset;
+    margin: date-picker.$calendar-footer-space-outside;
+    border-top: 1px solid core.$color-border-component-default;
   }
 
   &-navigator {
     display: inline-flex;
-    gap: $calendar-navigator-space-gap;
+    gap: date-picker.$calendar-navigator-space-gap;
     align-items: center;
 
     & &-prev,
     & &-next {
-      color: $calendar-navigator-button-color;
+      color: date-picker.$calendar-navigator-button-color;
 
       svg {
         transform: scale(1.5);
@@ -62,7 +61,7 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
     // margin-bottom: $calendar-weekday-margin-bottom;
     font-weight: normal;
     line-height: 32px;
-    color: $calendar-weekday-color-text;
+    color: date-picker.$calendar-weekday-color-text;
   }
 
   &-day-cell {
@@ -81,60 +80,62 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
       content: '';
       background-color: transparent;
       transition:
-        background-color $motion-duration-rapid $motion-easing-in-out,
-        color $motion-duration-rapid $motion-easing-in-out;
+        background-color core.$motion-duration-rapid core.$motion-easing-in-out,
+        color core.$motion-duration-rapid core.$motion-easing-in-out;
     }
 
     &-button {
       position: relative;
-      min-width: $calendar-day-cell-min-width;
-      min-height: $calendar-day-cell-min-height;
-      padding-right: $calendar-day-cell-padding-horizontal;
-      padding-left: $calendar-day-cell-padding-horizontal;
+      min-width: date-picker.$calendar-day-cell-min-width;
+      min-height: date-picker.$calendar-day-cell-min-height;
+      padding-right: date-picker.$calendar-day-cell-padding-horizontal;
+      padding-left: date-picker.$calendar-day-cell-padding-horizontal;
 
-      @include button-style($selector: #{$calendar-prefix-cls}-day-cell-button);
-      @include button-color(
+      @include button-style.button-style(
+        $selector: #{$calendar-prefix-cls}-day-cell-button
+      );
+      @include button-style.button-color(
         $selector: #{$calendar-prefix-cls}-day-cell-button,
         // $color-surface-active: $color-surface-neutral-hover,
         // $color-text-active: $color-text-neutral-hover,
-        // $color-surface-active: transparent
+         // $color-surface-active: transparent
       );
     }
 
     &.#{$calendar-prefix-cls}-day-cell--outside {
-      opacity: $opacity-60;
+      opacity: core.$opacity-60;
     }
 
     &.#{$calendar-prefix-cls}-day-cell--range {
       &::before {
-        background-color: $color-surface-brand-default;
+        background-color: core.$color-surface-brand-default;
       }
 
       .#{$calendar-prefix-cls}-day-cell-button {
-        color: $color-text-brand-default !important;
-        background-color: $color-surface-brand-default !important;
+        color: core.$color-text-brand-default !important;
+        background-color: core.$color-surface-brand-default !important;
       }
     }
 
     &.#{$calendar-prefix-cls}-day-cell--start,
     &.#{$calendar-prefix-cls}-day-cell--end {
       .#{$calendar-prefix-cls}-day-cell-button {
-        color: $color-palette-white !important;
-        background-color: $color-shape-brand-default !important;
+        color: core.$color-palette-white !important;
+        background-color: core.$color-shape-brand-default !important;
       }
     }
 
     &.#{$calendar-prefix-cls}-day-cell--start {
       &::before {
         left: 50% !important;
-        background-color: $color-surface-brand-default;
+        background-color: core.$color-surface-brand-default;
       }
     }
 
     &.#{$calendar-prefix-cls}-day-cell--end {
       &::before {
         right: 50% !important;
-        background-color: $color-surface-brand-default;
+        background-color: core.$color-surface-brand-default;
       }
     }
   }
@@ -142,20 +143,22 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
   &-years {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: $calendar-years-space-gap;
+    gap: date-picker.$calendar-years-space-gap;
   }
 
   &-year-cell {
-    min-height: $calendar-year-cell-min-height;
-    padding-right: $calendar-year-cell-padding-horizontal;
-    padding-left: $calendar-year-cell-padding-horizontal;
+    min-height: date-picker.$calendar-year-cell-min-height;
+    padding-right: date-picker.$calendar-year-cell-padding-horizontal;
+    padding-left: date-picker.$calendar-year-cell-padding-horizontal;
 
-    @include button-style($selector: #{$calendar-prefix-cls}-year-cell);
-    @include button-color(
+    @include button-style.button-style(
+      $selector: #{$calendar-prefix-cls}-year-cell
+    );
+    @include button-style.button-color(
       $selector: #{$calendar-prefix-cls}-year-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
-      // $color-surface-active: transparent
+       // $color-surface-active: transparent
     );
 
     & > * {
@@ -166,20 +169,22 @@ $calendar-prefix-cls: #{$prefix-cls}-calendar;
   &-months {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: $calendar-months-space-gap;
+    gap: date-picker.$calendar-months-space-gap;
   }
 
   &-month-cell {
-    min-height: $calendar-month-cell-min-height;
-    padding-right: $calendar-month-cell-padding-horizontal;
-    padding-left: $calendar-month-cell-padding-horizontal;
+    min-height: date-picker.$calendar-month-cell-min-height;
+    padding-right: date-picker.$calendar-month-cell-padding-horizontal;
+    padding-left: date-picker.$calendar-month-cell-padding-horizontal;
 
-    @include button-style($selector: #{$calendar-prefix-cls}-month-cell);
-    @include button-color(
+    @include button-style.button-style(
+      $selector: #{$calendar-prefix-cls}-month-cell
+    );
+    @include button-style.button-color(
       $selector: #{$calendar-prefix-cls}-month-cell,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
-      // $color-surface-active: transparent
+       // $color-surface-active: transparent
     );
 
     & > * {

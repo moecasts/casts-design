@@ -1,25 +1,25 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/range-input';
-@import '@casts/theme/styles/scss/vars/range-input';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/range-input' as base-range-input;
+@use '@casts/theme/styles/scss/vars/range-input';
 
-@import '@casts/theme/styles/plugins/helper/theme';
+@use '@casts/theme/styles/plugins/helper/theme';
 
-$range-input-prefix-cls: #{$prefix-cls}-range-input;
+$range-input-prefix-cls: #{range-input.$prefix-cls}-range-input;
 
 @mixin input-size($size: 'medium') {
   $font-size: if(
     $size == 'small',
-    $range-input-font-size-small,
-    $range-input-font-size-medium
+    range-input.$range-input-font-size-small,
+    range-input.$range-input-font-size-medium
   );
   $line-height: if(
     $size == 'small',
-    $range-input-line-height-small,
-    $range-input-line-height-medium
+    range-input.$range-input-line-height-small,
+    range-input.$range-input-line-height-medium
   );
 
-  height: map-get($range-input-tokens, range-input-size-#{$size});
+  height: map.get(range-input.$range-input-tokens, range-input-size-#{$size});
   font-size: $font-size;
   line-height: $line-height;
 }
@@ -29,27 +29,33 @@ $sizes: 'small', 'medium', 'large';
 $statuses: 'success', 'warning', 'error';
 
 @mixin input-color($status, $disabled: false) {
-  $theme: get-theme-by-status($status);
+  $theme: theme.get-theme-by-status($status);
   $disabled-selector: '.#{$range-input-prefix-cls}-wrap--disabled .#{$range-input-prefix-cls}';
 
   & {
     $color-suffix: if($disabled ==true, 'disabled', 'default');
-    color: map-get($core-tokens, color-shape-#{$theme}-#{$color-suffix});
-    background-color: map-get(
-      $core-tokens,
+    color: map.get(core.$core-tokens, color-shape-#{$theme}-#{$color-suffix});
+    background-color: map.get(
+      core.$core-tokens,
       color-surface-#{$theme}-#{$color-suffix}
     );
 
     &:hover:not(#{$disabled-selector}) {
-      background-color: map-get($core-tokens, color-surface-#{$theme}-hover);
+      background-color: map.get(
+        core.$core-tokens,
+        color-surface-#{$theme}-hover
+      );
     }
 
     &--focused:not(#{$disabled-selector}),
     &:focus:not(#{$disabled-selector}) {
       background-color: transparent !important;
-      border-color: map-get($core-tokens, color-border-#{$theme}-default);
-      outline: $range-input-outline-width solid
-        map-get($range-input-tokens, input-color-outline-#{$theme}-default);
+      border-color: map.get(core.$core-tokens, color-border-#{$theme}-default);
+      outline: range-input.$range-input-outline-width solid
+        map.get(
+          range-input.$range-input-tokens,
+          input-color-outline-#{$theme}-default
+        );
     }
   }
 }
@@ -59,37 +65,38 @@ $statuses: 'success', 'warning', 'error';
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding-right: $space-05-x;
-  padding-left: $space-05-x;
+  padding-right: core.$space-05-x;
+  padding-left: core.$space-05-x;
   overflow: hidden;
   cursor: text;
-  background-color: $color-surface-component-default;
+  background-color: core.$color-surface-component-default;
   border-color: transparent;
   border-style: solid;
-  border-width: $range-input-border-width;
-  border-radius: $range-input-radius;
+  border-width: range-input.$range-input-border-width;
+  border-radius: range-input.$range-input-radius;
   transition:
-    background-color $motion-duration-rapid #{$motion-easing-in-out},
-    border-color $motion-duration-rapid #{$motion-easing-in-out},
-    outline-color-color $motion-duration-rapid #{$motion-easing-in-out};
+    background-color core.$motion-duration-rapid #{core.$motion-easing-in-out},
+    border-color core.$motion-duration-rapid #{core.$motion-easing-in-out},
+    outline-color-color core.$motion-duration-rapid
+      #{core.$motion-easing-in-out};
 
   &:hover:not(&-wrap--disabled &) {
-    background-color: $color-surface-component-hover;
+    background-color: core.$color-surface-component-hover;
   }
 
   &--focused:not(&-wrap--disabled &),
   &:focus:not(&-wrap--disabled &) {
     background-color: transparent !important;
-    border-color: $color-border-brand-default;
-    outline: $range-input-outline-width solid
-      $range-input-color-outline-brand-default;
+    border-color: core.$color-border-brand-default;
+    outline: range-input.$range-input-outline-width solid
+      range-input.$range-input-color-outline-brand-default;
   }
 
   &--bordered {
-    border-color: $color-border-neutral-default;
+    border-color: core.$color-border-neutral-default;
 
     &:hover {
-      border-color: $color-border-neutral-hover;
+      border-color: core.$color-border-neutral-hover;
     }
   }
 
@@ -102,8 +109,8 @@ $statuses: 'success', 'warning', 'error';
 
   // shape
   &--circle {
-    padding-right: $space-075-x;
-    padding-left: $space-075-x;
+    padding-right: core.$space-075-x;
+    padding-left: core.$space-075-x;
     border-radius: 999px;
   }
 
@@ -118,9 +125,9 @@ $statuses: 'success', 'warning', 'error';
     @each $status in $statuses {
       &--#{$status} {
         .#{$range-input-prefix-cls}-tips {
-          $theme: get-theme-by-status($status);
-          color: map-get(
-            $range-input-tokens,
+          $theme: theme.get-theme-by-status($status);
+          color: map.get(
+            range-input.$range-input-tokens,
             range-input-color-text-#{$theme}-default
           );
         }
@@ -133,7 +140,7 @@ $statuses: 'success', 'warning', 'error';
 
     &--disabled {
       .#{$range-input-prefix-cls}-tips {
-        color: $color-text-disabled;
+        color: core.$color-text-disabled;
       }
 
       .#{$range-input-prefix-cls} {
@@ -143,9 +150,9 @@ $statuses: 'success', 'warning', 'error';
       @each $status in $statuses {
         @at-root &.#{$range-input-prefix-cls}-wrap--#{$status} {
           .#{$range-input-prefix-cls}-tips {
-            $theme: get-theme-by-status($status);
-            color: map-get(
-              $range-input-tokens,
+            $theme: theme.get-theme-by-status($status);
+            color: map.get(
+              range-input.$range-input-tokens,
               range-input-color-text-#{$theme}-disabled
             );
           }
@@ -159,7 +166,7 @@ $statuses: 'success', 'warning', 'error';
 
       .#{$range-input-prefix-cls}-inner {
         &::placeholder {
-          color: $color-text-disabled;
+          color: core.$color-text-disabled;
         }
       }
     }
@@ -185,13 +192,13 @@ $statuses: 'success', 'warning', 'error';
     height: fit-content;
     padding: 0px;
     font-size: inherit;
-    color: $color-text-secondary;
+    color: core.$color-text-secondary;
     cursor: pointer;
     background-color: transparent;
     border: 0px;
     outline: none;
     opacity: 0;
-    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    transition: opacity core.$motion-duration-rapid core.$motion-easing-in-out;
 
     svg {
       position: relative;
@@ -203,8 +210,9 @@ $statuses: 'success', 'warning', 'error';
       width: 100%;
       height: 100%;
       content: '';
-      border-radius: $radius-circle;
-      transition: background-color $motion-duration-rapid $motion-easing-in-out;
+      border-radius: core.$radius-circle;
+      transition: background-color core.$motion-duration-rapid
+        core.$motion-easing-in-out;
       transform: scale(1.3);
     }
 
@@ -223,7 +231,7 @@ $statuses: 'success', 'warning', 'error';
   }
 
   &:hover:not(&-wrap--disabled &) {
-    background-color: $color-surface-component-hover;
+    background-color: core.$color-surface-component-hover;
 
     .#{$range-input-prefix-cls}-clear {
       width: fit-content;
@@ -232,7 +240,7 @@ $statuses: 'success', 'warning', 'error';
   }
 
   & > *:not(:last-child) {
-    margin-right: $space-025-x;
+    margin-right: core.$space-025-x;
   }
 
   &-inner {
@@ -241,14 +249,14 @@ $statuses: 'success', 'warning', 'error';
 
     max-width: 100%;
     padding: 0;
-    padding-right: $space-025-x;
+    padding-right: core.$space-025-x;
 
-    padding-left: $space-025-x;
+    padding-left: core.$space-025-x;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 
-    color: $color-text-primary;
+    color: core.$color-text-primary;
 
     text-overflow: ellipsis;
 
@@ -259,7 +267,7 @@ $statuses: 'success', 'warning', 'error';
     outline: 0;
 
     &::placeholder {
-      color: $color-text-tertiary;
+      color: core.$color-text-tertiary;
     }
   }
 
@@ -270,14 +278,14 @@ $statuses: 'success', 'warning', 'error';
   }
 
   &-tips {
-    padding-right: $space-0125-x;
-    padding-left: $space-0125-x;
-    margin-top: $space-0125-x;
-    font-size: #{$font-size-small};
-    color: $color-text-tertiary;
+    padding-right: core.$space-0125-x;
+    padding-left: core.$space-0125-x;
+    margin-top: core.$space-0125-x;
+    font-size: #{core.$font-size-small};
+    color: core.$color-text-tertiary;
   }
 
   &-separator {
-    color: $color-text-tertiary;
+    color: core.$color-text-tertiary;
   }
 }
