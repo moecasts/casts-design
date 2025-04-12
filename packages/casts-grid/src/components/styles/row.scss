@@ -1,7 +1,6 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$row-prefix-cls: #{$prefix-cls}-row;
+$row-prefix-cls: #{core.$prefix-cls}-row;
 
 .#{$row-prefix-cls} {
   display: flex;

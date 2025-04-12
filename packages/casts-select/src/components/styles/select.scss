@@ -1,26 +1,26 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/select';
-@import '@casts/theme/styles/scss/vars/select';
+@use '@casts/theme/styles/scss/select' as base-select;
+@use '@casts/theme/styles/scss/vars/select';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/plugins/helper/overflow';
 
-@import '@casts/theme/styles/plugins/helper/scrollbar';
+@use '@casts/theme/styles/plugins/helper/scrollbar';
 
-$select-prefix-cls: #{$prefix-cls}-select;
+$select-prefix-cls: #{core.$prefix-cls}-select;
 
 .#{$select-prefix-cls} {
   display: inline-flex;
 
   &-arrow {
-    color: $select-arrow-color-default;
+    color: select.$select-arrow-color-default;
   }
 
   &-popup {
-    .#{$prefix-cls}-popup-content {
+    .#{core.$prefix-cls}-popup-content {
       padding: 0px;
     }
   }
@@ -28,19 +28,19 @@ $select-prefix-cls: #{$prefix-cls}-select;
   @mixin list-style() {
     display: flex;
     flex-direction: column;
-    gap: $select-option-space-outer;
+    gap: select.$select-option-space-outer;
   }
 
   &-list {
     @include list-style();
     max-height: 300px;
 
-    padding: $select-list-space;
+    padding: select.$select-list-space;
     margin: 0;
     overflow-y: auto;
     overflow-y: overlay;
     list-style: none;
-    @include scrollbar(8px, 2px);
+    @include scrollbar.scrollbar(8px, 2px);
 
     &-virtual-scroll-container {
       position: relative;
@@ -55,7 +55,7 @@ $select-prefix-cls: #{$prefix-cls}-select;
       top: 0px;
       left: 0px;
       width: 100%;
-      padding-bottom: $select-list-space;
+      padding-bottom: select.$select-list-space;
     }
   }
 
@@ -65,27 +65,30 @@ $select-prefix-cls: #{$prefix-cls}-select;
     align-items: center;
     cursor: pointer;
 
-    @include text-ellipsis();
+    @include overflow.text-ellipsis();
 
-    @include button-style($selector: #{$select-prefix-cls}-option);
-    @include button-color($selector: #{$select-prefix-cls}-option);
+    @include button-style.button-style($selector: #{$select-prefix-cls}-option);
+    @include button-style.button-color($selector: #{$select-prefix-cls}-option);
 
-    @include button-space(
-      $space-inset: map-get($select-tokens, select-option-space-inset-medium)
+    @include button-style.button-space(
+      $space-inset: map.get(
+          select.$select-tokens,
+          select-option-space-inset-medium
+        )
     );
 
-    .#{$prefix-cls}-checkbox-input {
+    .#{core.$prefix-cls}-checkbox-input {
       margin-right: 0px;
     }
 
     &:hover {
-      .#{$prefix-cls}-checkbox-input {
-        border-color: $color-border-brand-hover;
+      .#{core.$prefix-cls}-checkbox-input {
+        border-color: core.$color-border-brand-hover;
       }
     }
 
     &-label {
-      @include text-ellipsis();
+      @include overflow.text-ellipsis();
     }
   }
 
@@ -94,10 +97,10 @@ $select-prefix-cls: #{$prefix-cls}-select;
   @each $size in $select-sizes {
     &-popup--#{$size} {
       .#{$select-prefix-cls}-option {
-        @include button-size(
+        @include button-style.button-size(
           $element: select-option,
           $size: $size,
-          $tokens: $select-tokens
+          $tokens: select.$select-tokens
         );
       }
     }

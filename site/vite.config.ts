@@ -30,13 +30,21 @@ export default mergeConfig(
       },
     },
 
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       additionalData: '$prefix-cls: rdc;\n',
-    //     },
-    //   },
-    // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // additionalData: '$prefix-cls: rdc;\n',
+          additionalData: (content, fileName) => {
+            // console.log(`[DEBUG] ${fileName}`);
+            // if (fileName.includes('@casts/theme/styles/scss/vars/core')) {
+            //   console.log(`[DEBUG2] ${fileName}: \n${content}`);
+            // }
+            // console.log('debug1 content', content);
+            return content;
+          },
+        },
+      },
+    },
 
     plugins: [
       react(),

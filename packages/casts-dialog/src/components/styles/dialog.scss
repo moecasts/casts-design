@@ -1,13 +1,12 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/dialog';
-@import '@casts/theme/styles/scss/vars/dialog';
+@use '@casts/theme/styles/scss/dialog' as base-dialog;
+@use '@casts/theme/styles/scss/vars/dialog';
 
-@import '@casts/theme/styles/plugins/motion/fade';
-@import '@casts/theme/styles/plugins/motion/expand';
+@use '@casts/theme/styles/plugins/motion/fade';
+@use '@casts/theme/styles/plugins/motion/expand';
 
-$dialog-prefix-cls: #{$prefix-cls}-dialog;
+$dialog-prefix-cls: #{core.$prefix-cls}-dialog;
 
 @mixin fullscreenStyles() {
   position: fixed;
@@ -24,17 +23,17 @@ $dialog-prefix-cls: #{$prefix-cls}-dialog;
   width: 100%;
   max-width: 520px;
   margin: 0;
-  background-color: $dialog-color-surface;
-  border-radius: $radius-large;
-  box-shadow: $dialog-shadow;
+  background-color: dialog.$dialog-color-surface;
+  border-radius: core.$radius-large;
+  box-shadow: dialog.$dialog-shadow;
 
   &-container {
     @include fullscreenStyles();
-    z-index: $elevation-z-index-dialog;
+    z-index: core.$elevation-z-index-dialog;
     box-sizing: border-box;
     flex-direction: column;
     padding-top: 100px;
-    padding-bottom: $space-105-x;
+    padding-bottom: core.$space-105-x;
 
     overflow: overlay;
     overflow: auto;
@@ -60,14 +59,15 @@ $dialog-prefix-cls: #{$prefix-cls}-dialog;
 
   &-mask {
     @include fullscreenStyles();
-    z-index: $elevation-z-index-overlay;
+    z-index: core.$elevation-z-index-overlay;
 
-    background-color: $dialog-mask-color-surface;
+    background-color: dialog.$dialog-mask-color-surface;
   }
 
   &-body,
   &-footer {
-    padding: $dialog-space-section-vertical $dialog-space-section-horizontal;
+    padding: dialog.$dialog-space-section-vertical
+      dialog.$dialog-space-section-horizontal;
   }
 
   &-header {
@@ -75,16 +75,17 @@ $dialog-prefix-cls: #{$prefix-cls}-dialog;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: $dialog-header-size;
-    padding: $dialog-space-header-vertical $dialog-space-section-horizontal;
-    font-size: $font-size-large;
-    line-height: $line-height-large;
-    border-block-end: 1px solid $color-border-component-default;
+    min-height: dialog.$dialog-header-size;
+    padding: dialog.$dialog-space-header-vertical
+      dialog.$dialog-space-section-horizontal;
+    font-size: core.$font-size-large;
+    line-height: core.$line-height-large;
+    border-block-end: 1px solid core.$color-border-component-default;
   }
 
   &-body {
-    font-size: $font-size-medium;
-    line-height: $line-height-medium;
+    font-size: core.$font-size-medium;
+    line-height: core.$line-height-medium;
   }
 
   &-footer {
@@ -92,7 +93,7 @@ $dialog-prefix-cls: #{$prefix-cls}-dialog;
     flex-wrap: wrap;
     gap: 16px;
     justify-content: flex-end;
-    border-block-start: 1px solid $color-border-component-default;
+    border-block-start: 1px solid core.$color-border-component-default;
   }
 
   &--simple {

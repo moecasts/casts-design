@@ -1,26 +1,25 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/menu';
-@import '@casts/theme/styles/scss/vars/menu';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/menu' as base-menu;
+@use '@casts/theme/styles/scss/vars/menu';
 
-@import '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/plugins/helper/overflow';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import './vars';
+@use 'vars';
 
-.#{$menu-group-prefix-cls} {
+.#{vars.$menu-group-prefix-cls} {
   &-label {
     position: relative;
     display: inline-block;
     width: 100%;
-    color: $menu-group-label-color-text;
-    @include button-size(
+    color: menu.$menu-group-label-color-text;
+    @include button-style.button-size(
       $element: 'menu-item',
       $size: 'medium',
-      $tokens: $menu-tokens
+      $tokens: menu.$menu-tokens
     );
-    @include button-space();
-    @include text-ellipsis();
+    @include button-style.button-space();
+    @include overflow.text-ellipsis();
   }
 }

@@ -1,4 +1,4 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 .demo-shadow-item {
   display: inline-flex;
@@ -6,7 +6,7 @@
   justify-content: center;
   width: 100px;
   height: 100px;
-  background-color: $color-palette-neutral-100;
+  background-color: core.$color-palette-neutral-100;
 
-  border-radius: $radius-large;
+  border-radius: core.$radius-large;
 }

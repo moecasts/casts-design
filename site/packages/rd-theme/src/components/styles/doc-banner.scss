@@ -1,21 +1,23 @@
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/plugins/helper/overflow';
 
-@import './vars';
+@use 'vars';
 
-.#{$rd-prefix-cls}-doc-banner {
+.#{vars.$rd-prefix-cls}-doc-banner {
   box-sizing: border-box;
-  max-width: $content-max-width;
-  padding: $space-2-x;
+  max-width: vars.$content-max-width;
+  padding: core.$space-2-x;
   margin: auto;
   overflow: hidden;
 
   &-container {
     position: relative;
-    background-color: $color-surface-container-default;
-    border-bottom: $border-width-xsmall solid $color-border-component-default;
+    background-color: core.$color-surface-container-default;
+    border-bottom: core.$border-width-xsmall solid
+      core.$color-border-component-default;
     opacity: 1;
-    transition: opacity $motion-duration-immediate $motion-easing-in-out;
+    transition: opacity core.$motion-duration-immediate
+      core.$motion-easing-in-out;
 
     &--fixed {
       opacity: 0;
@@ -23,36 +25,36 @@
 
     &--sticky {
       position: sticky;
-      top: $header-height;
-      z-index: $elevation-z-index-sticky;
+      top: vars.$header-height;
+      z-index: core.$elevation-z-index-sticky;
       margin-top: -77px;
       visibility: hidden;
       opacity: 0;
 
-      &.#{$rd-prefix-cls}-doc-banner-container--fixed {
+      &.#{vars.$rd-prefix-cls}-doc-banner-container--fixed {
         visibility: visible;
         opacity: 1;
       }
 
-      .#{$rd-prefix-cls}-doc-banner-title {
+      .#{vars.$rd-prefix-cls}-doc-banner-title {
         text-overflow: ellipsis;
-        @include text-ellipsis();
+        @include overflow.text-ellipsis();
       }
     }
   }
 
   &-breadcrumbs {
     width: fit-content;
-    padding: $space-05-x $space-075-x;
-    margin-bottom: $space-105-x;
-    background-color: $color-surface-neutral-default;
-    border-radius: $radius-medium;
+    padding: core.$space-05-x core.$space-075-x;
+    margin-bottom: core.$space-105-x;
+    background-color: core.$color-surface-neutral-default;
+    border-radius: core.$radius-medium;
   }
 
   &-subtitle {
-    margin-top: $space-1-x;
+    margin-top: core.$space-1-x;
     margin-bottom: 0;
-    color: $color-text-tertiary;
+    color: core.$color-text-tertiary;
   }
 
   &-divider {
@@ -60,7 +62,7 @@
     margin-bottom: 0;
   }
 
-  .#{$rd-prefix-cls}-doc-banner--sticky {
+  .#{vars.$rd-prefix-cls}-doc-banner--sticky {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -74,15 +76,15 @@
   }
 
   &--sticky {
-    padding-top: $space-1-x;
-    padding-bottom: $space-1-x;
+    padding-top: core.$space-1-x;
+    padding-bottom: core.$space-1-x;
 
-    background-color: $color-surface-container-default;
+    background-color: core.$color-surface-container-default;
   }
 
   & &-title {
     &--sticky {
-      margin: calc(0 - $space-2-x) !important;
+      margin: calc(0 - core.$space-2-x) !important;
     }
   }
 }

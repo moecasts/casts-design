@@ -1,45 +1,44 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$date-time-range-picker-prefix-cls: #{$prefix-cls}-date-time-range-picker;
+$date-time-range-picker-prefix-cls: #{core.$prefix-cls}-date-time-range-picker;
 
 .#{$date-time-range-picker-prefix-cls} {
   &-popup {
-    .#{$prefix-cls}-popup-content {
+    .#{core.$prefix-cls}-popup-content {
       padding: 0px;
     }
   }
   &-panel {
     display: flex;
 
-    @media screen and (max-width: $breakpoint-small) {
+    @media screen and (max-width: core.$breakpoint-small) {
       flex-direction: column;
     }
 
     &-date {
-      padding: $space-0375-x;
+      padding: core.$space-0375-x;
     }
 
     &-time {
       // padding: $space-0375-x;
       display: flex;
-      gap: $space-05-x;
+      gap: core.$space-05-x;
 
       width: 238px;
 
-      .#{$prefix-cls}-input-wrap {
+      .#{core.$prefix-cls}-input-wrap {
         flex: 1 1 auto;
       }
 
-      .#{$prefix-cls}-input-inner {
+      .#{core.$prefix-cls}-input-inner {
         width: 0px;
       }
     }
   }
 
-  .#{$prefix-cls}-range-input-clear {
+  .#{core.$prefix-cls}-range-input-clear {
     position: absolute;
-    right: $space-105-x;
+    right: core.$space-105-x;
     background-color: inherit;
     border-radius: 50%;
   }

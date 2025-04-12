@@ -1,10 +1,10 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/link';
-@import '@casts/theme/styles/scss/vars/link';
+@use '@casts/theme/styles/scss/link' as base-link;
+@use '@casts/theme/styles/scss/vars/link';
 
-$link-prefix-cls: #{$prefix-cls}-link;
+$link-prefix-cls: #{link.$prefix-cls}-link;
 
 $link-sizes: 'small', 'medium', 'large';
 
@@ -13,41 +13,41 @@ $link-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
 .#{$link-prefix-cls} {
   position: relative;
   display: inline-flex;
-  gap: $link-space-gap;
+  gap: link.$link-space-gap;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  border-radius: $radius-small;
+  border-radius: core.$radius-small;
 
-  outline-width: $border-width-small;
+  outline-width: core.$border-width-small;
   outline-style: solid;
   outline-color: transparent;
-  outline-offset: $border-width-small;
+  outline-offset: core.$border-width-small;
 
-  transition: color $motion-duration-rapid $motion-easing-in-out;
+  transition: color core.$motion-duration-rapid core.$motion-easing-in-out;
 
   @each $size in $link-sizes {
     &.#{$link-prefix-cls}--#{$size} {
-      font-size: map-get($link-tokens, link-font-size-#{$size});
-      line-height: map-get($link-tokens, link-line-height-#{$size});
+      font-size: map.get(link.$link-tokens, link-font-size-#{$size});
+      line-height: map.get(link.$link-tokens, link-line-height-#{$size});
     }
   }
 
   @each $color in $link-colors {
     &.#{$link-prefix-cls}--#{$color} {
-      color: map-get($link-tokens, link-color-text-#{$color}-default);
+      color: map.get(link.$link-tokens, link-color-text-#{$color}-default);
 
       &:hover {
-        color: map-get($link-tokens, link-color-text-#{$color}-hover);
+        color: map.get(link.$link-tokens, link-color-text-#{$color}-hover);
       }
 
       &:active {
-        color: map-get($link-tokens, link-color-text-#{$color}-active);
+        color: map.get(link.$link-tokens, link-color-text-#{$color}-active);
       }
 
       &:focus-visible {
-        outline-color: map-get(
-          $link-tokens,
+        outline-color: map.get(
+          link.$link-tokens,
           link-color-outline-#{$color}-default
         );
       }
@@ -75,7 +75,7 @@ $link-colors: 'brand', 'info', 'success', 'warning', 'danger', 'neutral';
       height: 1px;
       content: '';
       background-color: currentColor;
-      transition: opacity $motion-duration-rapid $motion-easing-in-out;
+      transition: opacity core.$motion-duration-rapid core.$motion-easing-in-out;
     }
   }
 }

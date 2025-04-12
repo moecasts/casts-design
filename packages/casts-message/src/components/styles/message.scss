@@ -1,24 +1,23 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/message';
-@import '@casts/theme/styles/scss/vars/message';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/message' as base-message;
+@use '@casts/theme/styles/scss/vars/message';
 
-@import '@casts/theme/styles/plugins/motion/fade';
+@use '@casts/theme/styles/plugins/motion/fade';
 
-.#{$prefix-cls}-message {
-  z-index: $message-elevation-z-index;
+.#{core.$prefix-cls}-message {
+  z-index: message.$message-elevation-z-index;
   display: flex;
-  gap: $space-05-x;
+  gap: core.$space-05-x;
   align-items: flex-start;
   width: fit-content;
-  padding: $message-space-inset;
-  margin-right: $space-05-x;
-  margin-left: $space-05-x;
-  font-size: $message-font-size;
-  color: $color-text-primary;
-  background-color: $color-surface-container-default;
-  border-radius: $message-radius;
-  box-shadow: $message-shadow;
+  padding: message.$message-space-inset;
+  margin-right: core.$space-05-x;
+  margin-left: core.$space-05-x;
+  font-size: message.$message-font-size;
+  color: core.$color-text-primary;
+  background-color: core.$color-surface-container-default;
+  border-radius: message.$message-radius;
+  box-shadow: message.$message-shadow;
 
   svg {
     font-size: inherit;
@@ -29,39 +28,47 @@
     font-size: 0;
     line-height: 0;
 
-    .#{$prefix-cls}-circular-progress-container,
+    .#{core.$prefix-cls}-circular-progress-container,
     svg {
-      width: $message-line-height;
-      height: $message-line-height;
-      font-size: $message-line-height;
+      width: message.$message-line-height;
+      height: message.$message-line-height;
+      font-size: message.$message-line-height;
     }
 
-    @at-root .#{$prefix-cls}-message--info:not(.#{$prefix-cls}-message--fill)
+    @at-root .#{core.$prefix-cls}-message--info:not(
+          .#{core.$prefix-cls}-message--fill
+        )
         & {
-      color: $message-color-shape-info-default;
+      color: message.$message-color-shape-info-default;
     }
 
-    @at-root .#{$prefix-cls}-message--success:not(.#{$prefix-cls}-message--fill)
+    @at-root .#{core.$prefix-cls}-message--success:not(
+          .#{core.$prefix-cls}-message--fill
+        )
         & {
-      color: $message-color-shape-success-default;
+      color: message.$message-color-shape-success-default;
     }
 
-    @at-root .#{$prefix-cls}-message--warning:not(.#{$prefix-cls}-message--fill)
+    @at-root .#{core.$prefix-cls}-message--warning:not(
+          .#{core.$prefix-cls}-message--fill
+        )
         & {
-      color: $message-color-shape-warning-default;
+      color: message.$message-color-shape-warning-default;
     }
 
-    @at-root .#{$prefix-cls}-message--error:not(.#{$prefix-cls}-message--fill)
+    @at-root .#{core.$prefix-cls}-message--error:not(
+          .#{core.$prefix-cls}-message--fill
+        )
         & {
-      color: $message-color-shape-danger-default;
+      color: message.$message-color-shape-danger-default;
     }
   }
 
   &-content {
     flex: 1;
     overflow: hidden;
-    font-size: $message-font-size;
-    line-height: $message-line-height;
+    font-size: message.$message-font-size;
+    line-height: message.$message-line-height;
   }
 
   &-close {
@@ -69,52 +76,52 @@
     flex-shrink: 0;
     align-items: top;
     padding: 0;
-    font-size: $message-font-size;
-    line-height: $message-line-height;
+    font-size: message.$message-font-size;
+    line-height: message.$message-line-height;
     color: inherit;
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    opacity: $opacity-60;
-    transition: opacity $motion-duration-rapid $motion-easing-in-out;
+    opacity: core.$opacity-60;
+    transition: opacity fade.$motion-duration-rapid fade.$motion-easing-in-out;
 
     &:hover {
-      opacity: $opacity-84;
+      opacity: core.$opacity-84;
     }
 
     &:active {
-      opacity: $opacity-90;
+      opacity: core.$opacity-90;
     }
 
     svg {
-      font-size: $message-line-height;
+      font-size: message.$message-line-height;
     }
   }
 
   &--fill {
-    &:not(.#{$prefix-cls}-message--loading) {
-      color: $color-palette-white;
+    &:not(.#{core.$prefix-cls}-message--loading) {
+      color: core.$color-palette-white;
     }
 
-    &.#{$prefix-cls}-message--info {
-      background-color: $message-color-shape-info-default;
+    &.#{core.$prefix-cls}-message--info {
+      background-color: message.$message-color-shape-info-default;
     }
 
-    &.#{$prefix-cls}-message--success {
-      background-color: $message-color-shape-success-default;
+    &.#{core.$prefix-cls}-message--success {
+      background-color: message.$message-color-shape-success-default;
     }
 
-    &.#{$prefix-cls}-message--warning {
-      background-color: $message-color-shape-warning-default;
+    &.#{core.$prefix-cls}-message--warning {
+      background-color: message.$message-color-shape-warning-default;
     }
 
-    &.#{$prefix-cls}-message--error {
-      background-color: $message-color-shape-danger-default;
+    &.#{core.$prefix-cls}-message--error {
+      background-color: message.$message-color-shape-danger-default;
     }
   }
 
   // unify icon size
-  .#{$prefix-cls}-circular-progress-container {
+  .#{core.$prefix-cls}-circular-progress-container {
     transform: scale(0.85);
   }
 }

@@ -1,12 +1,11 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$date-picker-prefix-cls: #{$prefix-cls}-date-picker;
+$date-picker-prefix-cls: #{core.$prefix-cls}-date-picker;
 
 .#{$date-picker-prefix-cls} {
   &-navigator {
     display: inline-flex;
-    gap: $space-025-x;
+    gap: core.$space-025-x;
 
     &-prev,
     &-next {
@@ -16,16 +15,16 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
 
   &-day-button {
     min-width: 32px;
-    padding-right: $space-025-x;
-    padding-left: $space-025-x;
+    padding-right: core.$space-025-x;
+    padding-left: core.$space-025-x;
   }
 
   &-outside {
-    color: $color-text-disabled;
+    color: core.$color-text-disabled;
   }
 
   &-selected {
-    color: $color-text-brand-default;
+    color: core.$color-text-brand-default;
 
     button {
       color: inherit;
@@ -52,10 +51,10 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
 
       &-years-dropdown,
       &-months-dropdown {
-        .#{$prefix-cls}-input-wrap.#{$prefix-cls}-input-wrap--auto-width {
+        .#{core.$prefix-cls}-input-wrap.#{core.$prefix-cls}-input-wrap--auto-width {
           min-width: auto;
         }
-        .#{$prefix-cls}-input {
+        .#{core.$prefix-cls}-input {
           background-color: transparent;
         }
       }
@@ -65,7 +64,7 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
       }
 
       &-weekday {
-        color: $color-text-tertiary;
+        color: core.$color-text-tertiary;
       }
 
       &-week {
@@ -90,14 +89,14 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
           content: '';
           background-color: transparent;
           border-radius: 0px;
-          transition: background-color $motion-duration-rapid
-            $motion-easing-in-out;
+          transition: background-color core.$motion-duration-rapid
+            core.$motion-easing-in-out;
           transform: translateX(-100%);
         }
 
         &.#{$date-picker-prefix-cls}-outside {
           &::before {
-            opacity: $opacity-38;
+            opacity: core.$opacity-38;
           }
         }
       }
@@ -105,7 +104,7 @@ $date-picker-prefix-cls: #{$prefix-cls}-date-picker;
       &-range-middle,
       &-range-end:not(&-range-start) {
         &::before {
-          background-color: $color-surface-brand-default;
+          background-color: core.$color-surface-brand-default;
         }
       }
 

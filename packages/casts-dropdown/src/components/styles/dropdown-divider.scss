@@ -1,15 +1,14 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 // @import '@casts/theme/styles/scss/dropdown';
-@import '@casts/theme/styles/scss/vars/dropdown';
+@use '@casts/theme/styles/scss/vars/dropdown';
 
-$dropdown-divider-prefix-cls: #{$prefix-cls}-dropdown-divider;
+$dropdown-divider-prefix-cls: #{dropdown.$prefix-cls}-dropdown-divider;
 
 .#{$dropdown-divider-prefix-cls} {
   width: auto;
-  margin-top: $dropdown-divider-space-outer;
-  margin-right: calc(0px - $dropdown-menu-space);
-  margin-bottom: $dropdown-divider-space-outer;
-  margin-left: calc(0px - $dropdown-menu-space);
+  margin-top: dropdown.$dropdown-divider-space-outer;
+  margin-right: calc(0px - dropdown.$dropdown-menu-space);
+  margin-bottom: dropdown.$dropdown-divider-space-outer;
+  margin-left: calc(0px - dropdown.$dropdown-menu-space);
 }

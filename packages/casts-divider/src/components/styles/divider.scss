@@ -1,9 +1,8 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/divider';
-@import '@casts/theme/styles/scss/vars/divider';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/divider' as base-divider;
+@use '@casts/theme/styles/scss/vars/divider';
 
-$divider-prefix-cls: #{$prefix-cls}-divider;
+$divider-prefix-cls: #{divider.$prefix-cls}-divider;
 
 .#{$divider-prefix-cls} {
   align-items: center;
@@ -24,36 +23,36 @@ $divider-prefix-cls: #{$prefix-cls}-divider;
   &--vertical {
     display: inline-flex;
     flex-direction: column;
-    margin-right: $divider-space-horizontal;
-    margin-left: $divider-space-horizontal;
+    margin-right: divider.$divider-space-horizontal;
+    margin-left: divider.$divider-space-horizontal;
     vertical-align: middle;
 
     &:not(.#{$divider-prefix-cls}--with-content) {
-      height: $divider-size-vertical;
+      height: divider.$divider-size-vertical;
     }
 
     &::before,
     &::after {
-      border-inline-start: $divider-border-width solid
-        $divider-color-border-default;
+      border-inline-start: divider.$divider-border-width solid
+        divider.$divider-color-border-default;
     }
 
     .#{$divider-prefix-cls}-content {
-      padding-top: $divider-space-horizontal;
-      padding-bottom: $divider-space-horizontal;
+      padding-top: divider.$divider-space-horizontal;
+      padding-bottom: divider.$divider-space-horizontal;
       writing-mode: vertical-lr;
     }
 
     &.#{$divider-prefix-cls}--align {
       &-start {
         &::before {
-          max-height: $divider-size-horizontal-max;
+          max-height: divider.$divider-size-horizontal-max;
         }
       }
 
       &-end {
         &::after {
-          max-height: $divider-size-horizontal-max;
+          max-height: divider.$divider-size-horizontal-max;
         }
       }
     }
@@ -62,33 +61,33 @@ $divider-prefix-cls: #{$prefix-cls}-divider;
   &--horizontal {
     display: flex;
     width: 100%;
-    margin-top: $divider-space-horizontal;
-    margin-bottom: $divider-space-horizontal;
+    margin-top: divider.$divider-space-horizontal;
+    margin-bottom: divider.$divider-space-horizontal;
     vertical-align: middle;
 
     &::before,
     &::after {
-      border-block-start: $divider-border-width solid
-        $divider-color-border-default;
+      border-block-start: divider.$divider-border-width solid
+        divider.$divider-color-border-default;
     }
 
     &.#{$divider-prefix-cls}--align {
       &-start {
         &::before {
-          max-width: $divider-size-horizontal-max;
+          max-width: divider.$divider-size-horizontal-max;
         }
       }
 
       &-end {
         &::after {
-          max-width: $divider-size-horizontal-max;
+          max-width: divider.$divider-size-horizontal-max;
         }
       }
     }
 
     .#{$divider-prefix-cls}-content {
-      padding-right: $divider-space-horizontal;
-      padding-left: $divider-space-horizontal;
+      padding-right: divider.$divider-space-horizontal;
+      padding-left: divider.$divider-space-horizontal;
     }
   }
 }

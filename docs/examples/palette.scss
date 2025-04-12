@@ -1,9 +1,9 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 .demo-color-item {
   width: 100px;
   height: 100px;
 
-  border-radius: $radius-medium;
-  box-shadow: $shadow-level-4;
+  border-radius: core.$radius-medium;
+  box-shadow: core.$shadow-level-4;
 }

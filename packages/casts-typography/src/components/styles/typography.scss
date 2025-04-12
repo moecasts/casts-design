@@ -1,16 +1,16 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/typography';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/vars/typography';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/typography' as base-typography;
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/typography';
 
-$typography-prefix-cls: #{$prefix-cls}-typography;
+$typography-prefix-cls: #{typography.$prefix-cls}-typography;
 
 .#{$typography-prefix-cls} {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: $font-family-default;
-  font-size: $typography-body-font-size;
-  line-height: $typography-body-line-height;
+  font-family: core.$font-family-default;
+  font-size: typography.$typography-body-font-size;
+  line-height: typography.$typography-body-line-height;
   overflow-wrap: break-word;
 
   @at-root {
@@ -20,43 +20,43 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
   }
 
   &--hero {
-    font-size: $typography-hero-font-size;
-    line-height: $typography-hero-line-height;
+    font-size: typography.$typography-hero-font-size;
+    line-height: typography.$typography-hero-line-height;
   }
 
   &--subtitle {
-    font-size: $typography-subtitle-font-size;
-    line-height: $typography-subtitle-line-height;
+    font-size: typography.$typography-subtitle-font-size;
+    line-height: typography.$typography-subtitle-line-height;
   }
 
   &--caption {
-    font-size: $typography-caption-font-size;
-    line-height: $typography-caption-line-height;
+    font-size: typography.$typography-caption-font-size;
+    line-height: typography.$typography-caption-line-height;
   }
 
   &,
   mark {
-    color: $typography-color-text;
+    color: typography.$typography-color-text;
   }
 
   code,
   kbd {
-    padding: $space-0125-x $space-025-x;
-    margin: 0px $space-0125-x;
-    font-family: $font-family-code;
+    padding: core.$space-0125-x core.$space-025-x;
+    margin: 0px core.$space-0125-x;
+    font-family: core.$font-family-code;
     font-size: 85%;
-    background-color: $typography-block-color-background;
-    border: $border-width-xsmall solid $typography-color-border;
-    border-radius: $radius-small;
+    background-color: typography.$typography-block-color-background;
+    border: core.$border-width-xsmall solid typography.$typography-color-border;
+    border-radius: core.$radius-small;
   }
 
   kbd {
-    border-bottom-width: $border-width-small;
+    border-bottom-width: core.$border-width-small;
   }
 
   mark {
-    padding: 0 $space-025-x;
-    background-color: $typography-mark-color-background;
+    padding: 0 core.$space-025-x;
+    background-color: typography.$typography-mark-color-background;
   }
 
   u {
@@ -69,7 +69,7 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
   }
 
   strong {
-    font-weight: $font-weight-bold;
+    font-weight: core.$font-weight-bold;
   }
 
   i {
@@ -82,38 +82,39 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
     list-style: circle;
 
     li {
-      padding: 0 0 0 $space-025-x;
-      margin: 0 0 0 $space-1025-x;
+      padding: 0 0 0 core.$space-025-x;
+      margin: 0 0 0 core.$space-1025-x;
     }
   }
 
   blockquote {
-    padding: $space-05-x;
-    margin: $space-075-x 0;
-    color: $color-text-secondary;
-    border-left: $border-width-medium solid $typography-color-border;
+    padding: core.$space-05-x;
+    margin: core.$space-075-x 0;
+    color: core.$color-text-secondary;
+    border-left: core.$border-width-medium solid
+      typography.$typography-color-border;
   }
 
   pre {
-    padding: $space-05-x;
+    padding: core.$space-05-x;
     word-wrap: break-word;
     white-space: pre-wrap;
-    background-color: $typography-block-color-background;
-    border: $border-width-xsmall solid $typography-color-border;
-    border-radius: $radius-medium;
+    background-color: typography.$typography-block-color-background;
+    border: core.$border-width-xsmall solid typography.$typography-color-border;
+    border-radius: core.$radius-medium;
   }
 
   a {
-    color: $color-text-brand-default;
+    color: core.$color-text-brand-default;
     text-decoration: none;
 
     &:hover,
     &:focus-visible {
-      color: $color-text-brand-hover;
+      color: core.$color-text-brand-hover;
     }
 
     &:active {
-      color: $color-text-brand-active;
+      color: core.$color-text-brand-active;
     }
   }
 
@@ -125,13 +126,13 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
       h#{$level}#{&} {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: map-get(
-          $typography-tokens,
+        font-size: map.get(
+          typography.$typography-tokens,
           typography-heading-#{$level}-font-size
         );
-        font-weight: $font-weight-bold;
-        line-height: map-get(
-          $typography-tokens,
+        font-weight: core.$font-weight-bold;
+        line-height: map.get(
+          typography.$typography-tokens,
           typography-heading-#{$level}-line-height
         );
       }
@@ -139,6 +140,6 @@ $typography-prefix-cls: #{$prefix-cls}-typography;
   }
 
   &:not(span) + &:not(span) {
-    margin-top: $space-1-x;
+    margin-top: core.$space-1-x;
   }
 }

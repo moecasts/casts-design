@@ -1,7 +1,7 @@
-@import '../../scss/vars/core';
-@import './vars';
+@use '../../scss/vars/core';
+@use 'vars';
 
-.#{$prefix-cls}-expand {
+.#{core.$prefix-cls}-expand {
   &-enter,
   &-appear {
     transform: scale(0%);
@@ -11,8 +11,8 @@
       transform: scale(100%);
       opacity: 1;
       transition-property: transform, opacity;
-      transition-duration: $motion-duration-rapid;
-      transition-timing-function: $motion-easing-in;
+      transition-duration: vars.$motion-duration-rapid;
+      transition-timing-function: vars.$motion-easing-in;
     }
   }
 
@@ -20,8 +20,8 @@
     transform: scale(100%);
     opacity: 1;
     transition-property: transform, opacity;
-    transition-duration: $motion-duration-rapid;
-    transition-timing-function: $motion-easing-out;
+    transition-duration: vars.$motion-duration-rapid;
+    transition-timing-function: vars.$motion-easing-out;
   }
 
   &-exit-active,

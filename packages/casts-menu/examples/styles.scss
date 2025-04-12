@@ -1,10 +1,9 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 .demo-page-container {
-  padding: $space-2-x;
-  background-color: $color-surface-page;
-  border-radius: $radius-medium;
+  padding: core.$space-2-x;
+  background-color: core.$color-surface-page;
+  border-radius: core.$radius-medium;
 
   .cds-head-menu + .cds-head-menu {
     margin-top: 20px;

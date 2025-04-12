@@ -1,8 +1,7 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/plugins/helper/scrollbar';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/plugins/helper/scrollbar';
 
-$time-picker-panel-prefix-cls: #{$prefix-cls}-time-picker-panel;
+$time-picker-panel-prefix-cls: #{core.$prefix-cls}-time-picker-panel;
 
 $cell-height: 32px;
 $cell-width: 56px;
@@ -12,10 +11,10 @@ $cell-size: 7;
 .#{$time-picker-panel-prefix-cls} {
   &-header {
     min-height: 32px;
-    padding-top: $space-025-x;
-    margin-bottom: $space-05-x;
+    padding-top: core.$space-025-x;
+    margin-bottom: core.$space-05-x;
     text-align: center;
-    border-bottom: 1px solid $color-border-divider-default;
+    border-bottom: 1px solid core.$color-border-divider-default;
   }
 
   &-body {
@@ -29,7 +28,7 @@ $cell-size: 7;
     z-index: 1;
     height: ($cell-height + 2px) * $cell-size;
     padding: 0px;
-    margin: 0px $space-00625-x;
+    margin: 0px core.$space-00625-x;
     overflow-x: hidden;
     overflow-y: auto;
     list-style-type: none;
@@ -41,13 +40,13 @@ $cell-size: 7;
     &::before,
     &::after {
       display: block;
-      height: calc(50% - $cell-height / 2 - $space-00625-x);
+      height: calc(50% - $cell-height / 2 - core.$space-00625-x);
       content: '';
     }
 
     &-mask {
       position: absolute;
-      top: calc(50% - $cell-height / 2 - $space-00625-x);
+      top: calc(50% - $cell-height / 2 - core.$space-00625-x);
       z-index: 0;
       display: flex;
       justify-content: center;
@@ -56,9 +55,9 @@ $cell-size: 7;
       & > div {
         width: $cell-width;
         height: $cell-height;
-        margin: $space-00625-x;
-        background-color: $color-surface-brand-default;
-        border-radius: $radius-medium;
+        margin: core.$space-00625-x;
+        background-color: core.$color-surface-brand-default;
+        border-radius: core.$radius-medium;
       }
     }
   }
@@ -67,19 +66,19 @@ $cell-size: 7;
     box-sizing: content-box;
     width: $cell-width;
     height: $cell-height;
-    padding: $space-00625-x 0;
+    padding: core.$space-00625-x 0;
     line-height: $cell-height;
     text-align: center;
     cursor: pointer;
     user-select: none;
-    border-radius: $radius-medium;
+    border-radius: core.$radius-medium;
 
     &:hover {
-      color: $color-text-neutral-hover;
+      color: core.$color-text-neutral-hover;
     }
 
     &.#{$time-picker-panel-prefix-cls}-cell--selected {
-      color: $color-text-brand-default;
+      color: core.$color-text-brand-default;
       background-color: transparent;
     }
   }
