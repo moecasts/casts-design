@@ -1,7 +1,6 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/progress';
-@import '@casts/theme/styles/scss/vars/progress';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/progress' as base-progress;
+@use '@casts/theme/styles/scss/vars/progress';
 
 @keyframes circularRotateKeyframe {
   0% {
@@ -30,34 +29,34 @@
   }
 }
 
-.#{$prefix-cls}-circular-progress-container {
+.#{progress.$prefix-cls}-circular-progress-container {
   position: relative;
   display: inline-block;
   width: 1em;
   height: 1em;
   font-size: 40px;
   line-height: 0;
-  color: $progress-color-brand-default;
+  color: progress.$progress-color-brand-default;
 
-  .#{$prefix-cls}-circular-progress {
+  .#{progress.$prefix-cls}-circular-progress {
     &--indeterminate {
       animation: circularRotateKeyframe 1.4s linear infinite;
 
-      .#{$prefix-cls}-circular-progress-circle {
+      .#{progress.$prefix-cls}-circular-progress-circle {
         stroke-dasharray: 80px 200px;
         stroke-dashoffset: 0;
-        animation: circularDashKeyframe 1.4s $motion-easing-in-out infinite;
+        animation: circularDashKeyframe 1.4s core.$motion-easing-in-out infinite;
       }
     }
 
     &-circle {
       stroke: currentColor;
-      transition: stroke-dashoffset $motion-duration-immediate
-        $motion-easing-in-out;
+      transition: stroke-dashoffset core.$motion-duration-immediate
+        core.$motion-easing-in-out;
     }
 
     &-circle-track {
-      stroke: $color-surface-component-default;
+      stroke: core.$color-surface-component-default;
     }
 
     &-text {

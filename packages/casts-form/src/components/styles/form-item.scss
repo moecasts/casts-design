@@ -1,29 +1,29 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/form';
-@import '@casts/theme/styles/scss/vars/form';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/form' as base-form;
+@use '@casts/theme/styles/scss/vars/form';
 
-@import '@casts/theme/styles/plugins/motion/fade';
-@import '@casts/theme/styles/plugins/helper/theme';
+@use '@casts/theme/styles/plugins/motion/fade';
+@use '@casts/theme/styles/plugins/helper/theme';
 
-$form-prefix-cls: #{$prefix-cls}-form;
-$form-item-prefix-cls: #{$prefix-cls}-form-item;
+$form-prefix-cls: #{core.$prefix-cls}-form;
+$form-item-prefix-cls: #{core.$prefix-cls}-form-item;
 
 .#{$form-item-prefix-cls} {
   &-label {
     box-sizing: border-box;
-    min-height: $form-item-label-height;
+    min-height: form.$form-item-label-height;
 
-    padding-right: $space-1-x;
+    padding-right: core.$space-1-x;
 
     font-size: 14px;
-    line-height: $form-item-label-line-height;
+    line-height: form.$form-item-label-line-height;
     vertical-align: middle;
 
     &--required {
       &::before {
-        margin-right: $space-025-x;
-        color: $color-text-danger-default;
+        margin-right: core.$space-025-x;
+        color: core.$color-text-danger-default;
         vertical-align: middle;
         content: '*';
       }
@@ -31,7 +31,7 @@ $form-item-prefix-cls: #{$prefix-cls}-form-item;
 
     &--colon {
       &::after {
-        margin: 0 $space-0125-x;
+        margin: 0 core.$space-0125-x;
         content: ':';
       }
     }
@@ -61,8 +61,8 @@ $form-item-prefix-cls: #{$prefix-cls}-form-item;
   /* --------------------------------- extra styles ---------------------------------------- */
   .#{$form-item-prefix-cls}-extra {
     overflow: hidden;
-    font-size: $form-item-extra-font-size;
-    line-height: $form-item-extra-line-height;
+    font-size: form.$form-item-extra-font-size;
+    line-height: form.$form-item-extra-line-height;
   }
 
   $statuses: 'success', 'warning', 'error';
@@ -74,9 +74,9 @@ $form-item-prefix-cls: #{$prefix-cls}-form-item;
       }
 
       .#{$form-item-prefix-cls}-extra {
-        $theme: get-theme-by-status($status);
-        min-height: $form-item-extra-line-height;
-        color: map-get($core-tokens, color-text-#{$theme}-default);
+        $theme: theme.get-theme-by-status($status);
+        min-height: form.$form-item-extra-line-height;
+        color: map.get(core.$core-tokens, color-text-#{$theme}-default);
       }
     }
   }

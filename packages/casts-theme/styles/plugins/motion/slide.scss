@@ -1,20 +1,20 @@
-@import '../../scss/vars/core';
-@import './vars';
+@use '../../scss/vars/core';
+@use 'vars';
 
-.#{$prefix-cls}-slide {
+.#{core.$prefix-cls}-slide {
   &-enter,
   &-appear {
     &-active {
       transition-property: transition;
-      transition-duration: $motion-duration-rapid;
-      transition-timing-function: $motion-easing-in;
+      transition-duration: vars.$motion-duration-rapid;
+      transition-timing-function: vars.$motion-easing-in;
     }
   }
 
   &-exit {
     transition-property: transition;
-    transition-duration: $motion-duration-rapid;
-    transition-timing-function: $motion-easing-out;
+    transition-duration: vars.$motion-duration-rapid;
+    transition-timing-function: vars.$motion-easing-out;
   }
 
   &-exit-active,

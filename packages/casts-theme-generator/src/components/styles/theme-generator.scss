@@ -1,13 +1,12 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$theme-generator-prefix-cls: #{$prefix-cls}-theme-generator;
+$theme-generator-prefix-cls: #{core.$prefix-cls}-theme-generator;
 
 .#{$theme-generator-prefix-cls} {
   max-width: 320px;
 
   &-drawer {
-    .#{$prefix-cls}-drawer-overlay {
+    .#{core.$prefix-cls}-drawer-overlay {
       background-color: transparent;
     }
   }
@@ -18,30 +17,30 @@ $theme-generator-prefix-cls: #{$prefix-cls}-theme-generator;
     justify-content: space-between;
 
     &-title {
-      padding-right: $space-05-x;
+      padding-right: core.$space-05-x;
     }
 
     & + & {
-      margin-top: $space-1-x;
+      margin-top: core.$space-1-x;
     }
   }
 
   &-picker {
     display: inline-flex;
-    gap: $space-05-x;
+    gap: core.$space-05-x;
     align-items: center;
     width: 128px;
-    padding: $space-05-x;
+    padding: core.$space-05-x;
     cursor: pointer;
-    border: $border-width-xsmall solid $color-border-component-default;
-    border-radius: $radius-medium;
+    border: core.$border-width-xsmall solid core.$color-border-component-default;
+    border-radius: core.$radius-medium;
 
     &-preview {
       flex-shrink: 0;
-      width: $size-small;
-      height: $size-small;
-      border-radius: $radius-medium;
-      box-shadow: $shadow-level-1;
+      width: core.$size-small;
+      height: core.$size-small;
+      border-radius: core.$radius-medium;
+      box-shadow: core.$shadow-level-1;
     }
   }
 }

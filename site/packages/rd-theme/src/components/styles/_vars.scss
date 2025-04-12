@@ -1,6 +1,6 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
 $rd-prefix-cls: rd;
-$content-max-width: $breakpoint-xxlarge;
+$content-max-width: core.$breakpoint-xxlarge;
 $header-height: 64px;
 $doc-banner-height--sticky: 64px;

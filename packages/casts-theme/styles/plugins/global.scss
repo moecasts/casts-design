@@ -1,22 +1,23 @@
-@import '../scss/vars/core';
+@use '../scss/vars/core';
+@forward '../scss/vars/core';
 
 html {
-  font-family: $font-family-default;
-  font-size: $font-size-small;
-  line-height: $line-height-small;
-  color: $color-text-primary;
+  font-family: core.$font-family-default;
+  font-size: core.$font-size-small;
+  line-height: core.$line-height-small;
+  color: core.$color-text-primary;
   height: 100%;
   height: -webkit-fill-available; /* We have to fix html height */
 }
 
 body {
   margin: 0;
-  background-color: $color-surface-page;
+  background-color: core.$color-surface-page;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
 
-*[class^='#{$prefix-cls}-'] {
+*[class^='#{core.$prefix-cls}-'] {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }

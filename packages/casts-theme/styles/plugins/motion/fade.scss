@@ -1,7 +1,8 @@
-@import '../../scss/vars/core';
-@import './vars';
+@use '../../scss/vars/core';
+@use 'vars';
+@forward 'vars';
 
-.#{$prefix-cls}-fade {
+.#{core.$prefix-cls}-fade {
   &-enter,
   &-appear {
     opacity: 0;
@@ -9,16 +10,16 @@
     &-active {
       opacity: 1;
       transition-property: opacity;
-      transition-duration: $motion-duration-rapid;
-      transition-timing-function: $motion-easing-in;
+      transition-duration: vars.$motion-duration-rapid;
+      transition-timing-function: vars.$motion-easing-in;
     }
   }
 
   &-exit {
     opacity: 1;
     transition-property: opacity;
-    transition-duration: $motion-duration-rapid;
-    transition-timing-function: $motion-easing-out;
+    transition-duration: vars.$motion-duration-rapid;
+    transition-timing-function: vars.$motion-easing-out;
   }
 
   &-exit-active,

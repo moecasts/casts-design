@@ -1,9 +1,8 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/badge';
-@import '@casts/theme/styles/scss/vars/badge';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/badge' as base-badge;
+@use '@casts/theme/styles/scss/vars/badge';
 
-$badge-prefix-cls: #{$prefix-cls}-badge;
+$badge-prefix-cls: #{badge.$prefix-cls}-badge;
 
 .#{$badge-prefix-cls} {
   position: relative;
@@ -65,7 +64,7 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
 
   &-count,
   &-dot {
-    background-color: $badge-color-surface-default;
+    background-color: badge.$badge-color-surface-default;
 
     @at-root .#{$badge-prefix-cls}:not(.#{$badge-prefix-cls}--standalone) & {
       position: absolute;
@@ -73,19 +72,19 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
   }
 
   &-count {
-    min-width: $badge-count-line-height;
-    padding: 0 $space-025-x;
-    font-size: $badge-count-font-size;
-    line-height: $badge-count-line-height;
-    color: $badge-color-text-default;
+    min-width: badge.$badge-count-line-height;
+    padding: 0 core.$space-025-x;
+    font-size: badge.$badge-count-font-size;
+    line-height: badge.$badge-count-line-height;
+    color: badge.$badge-color-text-default;
     text-align: center;
-    border-radius: $radius-pill;
+    border-radius: core.$radius-pill;
   }
 
   &-dot {
-    width: $badge-dot-size-default;
-    height: $badge-dot-size-default;
-    border-radius: $radius-circle;
+    width: badge.$badge-dot-size-default;
+    height: badge.$badge-dot-size-default;
+    border-radius: core.$radius-circle;
   }
 
   &-custom-component {
@@ -95,9 +94,9 @@ $badge-prefix-cls: #{$prefix-cls}-badge;
   }
 
   &-text {
-    margin-left: $badge-space;
-    font-size: $badge-text-font-size;
-    line-height: $badge-text-line-height;
-    color: $color-text-primary;
+    margin-left: badge.$badge-space;
+    font-size: badge.$badge-text-font-size;
+    line-height: badge.$badge-text-line-height;
+    color: core.$color-text-primary;
   }
 }

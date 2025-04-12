@@ -1,11 +1,11 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/tabs';
-@import '@casts/theme/styles/scss/vars/tabs';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/tabs' as base-tabs;
+@use '@casts/theme/styles/scss/vars/tabs';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-$tabs-prefix-cls: #{$prefix-cls}-tabs;
+$tabs-prefix-cls: #{core.$prefix-cls}-tabs;
 
 $sizes: 'small', 'medium', 'large';
 
@@ -18,21 +18,21 @@ $sizes: 'small', 'medium', 'large';
     &,
     &-container {
       display: flex;
-      gap: $space-05-x;
+      gap: core.$space-05-x;
       align-items: center;
     }
 
     &::after {
       position: absolute;
-      bottom: calc(0px - $border-width-xsmall);
+      bottom: calc(0px - core.$border-width-xsmall);
       display: block;
       width: 100%;
       content: '';
-      border: $border-width-xsmall solid $tabs-color-border;
+      border: core.$border-width-xsmall solid tabs.$tabs-color-border;
     }
 
     &-container {
-      padding: $space-025-x;
+      padding: core.$space-025-x;
       white-space: nowrap;
 
       scrollbar-width: 0;
@@ -46,8 +46,8 @@ $sizes: 'small', 'medium', 'large';
     }
 
     &-item {
-      @include button-style(#{$tabs-prefix-cls}-bar-item);
-      @include button-color(#{$tabs-prefix-cls}-bar-item);
+      @include button-style.button-style(#{$tabs-prefix-cls}-bar-item);
+      @include button-style.button-color(#{$tabs-prefix-cls}-bar-item);
       box-sizing: border-box;
       display: inline-flex;
       align-items: center;
@@ -56,30 +56,32 @@ $sizes: 'small', 'medium', 'large';
       color: inherit;
       text-decoration: none;
 
-      @include button-space();
+      @include button-style.button-space();
     }
   }
 
   &-content {
-    padding: $space-05-x;
+    padding: core.$space-05-x;
   }
 
   @each $size in $sizes {
     &--#{$size} {
       .#{$tabs-prefix-cls}-bar {
-        height: map-get($tabs-tokens, tabs-bar-size-#{$size});
+        height: map.get(tabs.$tabs-tokens, tabs-bar-size-#{$size});
 
         &-item {
-          @include button-size(
+          @include button-style.button-size(
             $element: 'tabs-bar-item',
             $size: $size,
-            $tokens: $tabs-tokens
+            $tokens: tabs.$tabs-tokens
           );
 
           &-inner {
-            @include button-space(
-              $space-inset:
-                map-get($tabs-tokens, tabs-bar-item-space-inset-#{$size})
+            @include button-style.button-space(
+              $space-inset: map.get(
+                  tabs.$tabs-tokens,
+                  tabs-bar-item-space-inset-#{$size}
+                )
             );
           }
         }

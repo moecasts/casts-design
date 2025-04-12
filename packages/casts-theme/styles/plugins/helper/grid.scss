@@ -1,3 +1,4 @@
+@use "sass:math";
 $grid-columns: 24;
 $prefix-cls: cds;
 
@@ -36,20 +37,20 @@ $prefix-cls: cds;
   @else {
     .#{$prefix-cls}-col#{$class}-#{$index} {
       display: block;
-      flex: 0 0 percentage(calc($index / $grid-columns));
-      max-width: percentage(calc($index / $grid-columns));
+      flex: 0 0 math.percentage(calc($index / $grid-columns));
+      max-width: math.percentage(calc($index / $grid-columns));
     }
 
     .#{$prefix-cls}-col#{$class}-push-#{$index} {
-      left: percentage(calc($index / $grid-columns));
+      left: math.percentage(calc($index / $grid-columns));
     }
 
     .#{$prefix-cls}-col#{$class}-pull-#{$index} {
-      right: percentage(calc($index / $grid-columns));
+      right: math.percentage(calc($index / $grid-columns));
     }
 
     .#{$prefix-cls}-col#{$class}-offset-#{$index} {
-      margin-left: percentage(calc($index / $grid-columns));
+      margin-left: math.percentage(calc($index / $grid-columns));
     }
 
     .#{$prefix-cls}-col#{$class}-order-#{$index} {

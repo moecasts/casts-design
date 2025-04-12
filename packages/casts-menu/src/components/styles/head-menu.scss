@@ -1,66 +1,67 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
-@import '@casts/theme/styles/scss/menu';
-@import '@casts/theme/styles/scss/vars/menu';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/menu' as base-menu;
+@use '@casts/theme/styles/scss/vars/menu';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import './vars';
+@use 'vars';
 
-$sizes: 'small', 'medium', 'large';
-
-.#{$head-menu-prefix-cls} {
+.#{vars.$head-menu-prefix-cls} {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: $head-menu-space;
-  background-color: $menu-color-surface;
+  padding: menu.$head-menu-space;
+  background-color: menu.$menu-color-surface;
 
-  @each $size in $sizes {
+  @each $size in vars.$sizes {
     /* --------------------------------- head menu logo size ---------------------------------------- */
     &--#{$size} {
-      height: map-get($menu-tokens, menu-size-#{$size});
+      height: map.get(menu.$menu-tokens, menu-size-#{$size});
 
-      .#{$head-menu-prefix-cls}-logo {
-        height: map-get($menu-tokens, head-menu-logo-size-#{$size});
-        font-size: map-get($menu-tokens, menu-logo-font-size-#{$size});
-        line-height: map-get($menu-tokens, head-menu-logo-size-#{$size});
+      .#{vars.$head-menu-prefix-cls}-logo {
+        height: map.get(menu.$menu-tokens, head-menu-logo-size-#{$size});
+        font-size: map.get(menu.$menu-tokens, menu-logo-font-size-#{$size});
+        line-height: map.get(menu.$menu-tokens, head-menu-logo-size-#{$size});
       }
     }
 
     /* --------------------------------- head menu item size ---------------------------------------- */
-    .#{$menu-item-prefix-cls} {
+    .#{vars.$menu-item-prefix-cls} {
       margin: 0;
 
       &--#{$size} {
-        @include button-size(
+        @include button-style.button-size(
           $element: 'head-menu-item',
           $size: $size,
-          $tokens: $menu-tokens
+          $tokens: menu.$menu-tokens
         );
       }
     }
 
     /* --------------------------------- head sub menu size ---------------------------------------- */
-    .#{$sub-menu-prefix-cls} {
+    .#{vars.$sub-menu-prefix-cls} {
       &--#{$size} {
-        .#{$sub-menu-prefix-cls}-arrow {
-          font-size: map-get($menu-tokens, sub-menu-arrow-font-size-#{$size});
+        .#{vars.$sub-menu-prefix-cls}-arrow {
+          font-size: map.get(
+            menu.$menu-tokens,
+            sub-menu-arrow-font-size-#{$size}
+          );
         }
       }
     }
   }
 
-  .#{$sub-menu-prefix-cls}-popup {
-    .#{$menu-item-prefix-cls} {
-      margin: $menu-item-space-outer 0;
+  .#{vars.$sub-menu-prefix-cls}-popup {
+    .#{vars.$menu-item-prefix-cls} {
+      margin: menu.$menu-item-space-outer 0;
     }
   }
 
   &-logo {
     display: inline-flex;
     align-items: center;
-    margin-right: $menu-logo-space;
+    margin-right: menu.$menu-logo-space;
     text-align: center;
 
     img {
@@ -74,14 +75,14 @@ $sizes: 'small', 'medium', 'large';
     overflow: hidden;
 
     &,
-    .#{$overflow-wrap} {
+    .#{vars.$overflow-wrap} {
       display: flex;
       flex: 1;
     }
 
-    .#{$overflow-wrap} {
-      gap: $menu-content-space-gap;
-      padding: $menu-content-overflow-wrap-space;
+    .#{vars.$overflow-wrap} {
+      gap: menu.$menu-content-space-gap;
+      padding: menu.$menu-content-overflow-wrap-space;
     }
   }
 
@@ -91,7 +92,7 @@ $sizes: 'small', 'medium', 'large';
     white-space: nowrap;
 
     & > * + * {
-      margin-left: $menu-operations-space-gap;
+      margin-left: menu.$menu-operations-space-gap;
     }
   }
 }

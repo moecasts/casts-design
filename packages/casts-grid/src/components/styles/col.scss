@@ -1,9 +1,8 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/plugins/helper/grid';
+@use '@casts/theme/styles/plugins/helper/grid';
 
-$col-prefix-cls: #{$prefix-cls}-col;
+$col-prefix-cls: #{grid.$prefix-cls}-col;
 
 .#{$col-prefix-cls} {
   position: relative;
@@ -13,26 +12,26 @@ $col-prefix-cls: #{$prefix-cls}-col;
   min-height: 1px;
 }
 
-@include gen-grid();
+@include grid.gen-grid();
 
-@include gen-grid(-xsmall);
+@include grid.gen-grid(-xsmall);
 
-@media (min-width: $breakpoint-small) {
-  @include gen-grid(-small);
+@media (min-width: core.$breakpoint-small) {
+  @include grid.gen-grid(-small);
 }
 
-@media (min-width: $breakpoint-medium) {
-  @include gen-grid(-medium);
+@media (min-width: core.$breakpoint-medium) {
+  @include grid.gen-grid(-medium);
 }
 
-@media (min-width: $breakpoint-large) {
-  @include gen-grid(-large);
+@media (min-width: core.$breakpoint-large) {
+  @include grid.gen-grid(-large);
 }
 
-@media (min-width: $breakpoint-xlarge) {
-  @include gen-grid(-xlarge);
+@media (min-width: core.$breakpoint-xlarge) {
+  @include grid.gen-grid(-xlarge);
 }
 
-@media (min-width: $breakpoint-xxlarge) {
-  @include gen-grid(-xxlarge);
+@media (min-width: core.$breakpoint-xxlarge) {
+  @include grid.gen-grid(-xxlarge);
 }

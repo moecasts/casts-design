@@ -1,23 +1,23 @@
 @use 'sass:list';
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/pagination';
-@import '@casts/theme/styles/scss/vars/pagination';
+@use '@casts/theme/styles/scss/pagination' as base-pagination;
+@use '@casts/theme/styles/scss/vars/pagination';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-$pagination-prefix-cls: #{$prefix-cls}-pagination;
+$pagination-prefix-cls: #{core.$prefix-cls}-pagination;
 
 .#{$pagination-prefix-cls} {
   display: flex;
-  gap: $space-025-x;
+  gap: core.$space-025-x;
   align-self: center;
 
   &-pager {
     display: flex;
 
-    gap: $space-025-x;
+    gap: core.$space-025-x;
     padding: 0;
     margin: 0;
   }
@@ -28,56 +28,80 @@ $pagination-prefix-cls: #{$prefix-cls}-pagination;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: $pagination-font-family;
+    font-family: pagination.$pagination-font-family;
     text-align: center;
     user-select: none;
 
-    @include button-style(#{$pagination-prefix-cls}-btn);
-    @include button-space(#{$pagination-prefix-cls}-btn);
+    @include button-style.button-style(#{$pagination-prefix-cls}-btn);
+    @include button-style.button-space(#{$pagination-prefix-cls}-btn);
 
-    @include button-color(
+    @include button-style.button-color(
       #{$pagination-prefix-cls}-btn,
-      $color-outline-default:
-        map-get($pagination-tokens, pagination-color-outline-default),
-      $color-surface-default:
-        map-get($pagination-tokens, pagination-color-surface-default),
-      $color-surface-hover:
-        map-get($pagination-tokens, pagination-color-surface-hover),
-      $color-surface-active:
-        map-get($pagination-tokens, pagination-color-surface-active),
-      $color-surface-disabled:
-        map-get($pagination-tokens, pagination-color-surface-disabled),
-      $color-text-default:
-        map-get($pagination-tokens, pagination-color-text-default),
-      $color-text-hover:
-        map-get($pagination-tokens, pagination-color-text-hover),
-      $color-text-active:
-        map-get($pagination-tokens, pagination-color-text-active),
-      $color-text-disabled:
-        map-get($pagination-tokens, pagination-color-text-disabled)
+      $color-outline-default: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-outline-default
+        ),
+      $color-surface-default: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-surface-default
+        ),
+      $color-surface-hover: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-surface-hover
+        ),
+      $color-surface-active: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-surface-active
+        ),
+      $color-surface-disabled: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-surface-disabled
+        ),
+      $color-text-default: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-text-default
+        ),
+      $color-text-hover: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-text-hover
+        ),
+      $color-text-active: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-text-active
+        ),
+      $color-text-disabled: map.get(
+          pagination.$pagination-tokens,
+          pagination-color-text-disabled
+        )
     );
   }
 
   @each $size in $pagination-sizes {
     &--#{$size} {
       .#{$pagination-prefix-cls}-btn {
-        @include button-space(
+        @include button-style.button-space(
           // $space-inset: map-get($pagination-tokens, pagination-space-#{$size})
-          $space-inset: map-get($pagination-tokens, pagination-space-small)
+          $space-inset: map.get(
+              pagination.$pagination-tokens,
+              pagination-space-small
+            )
         );
 
-        @include button-size(
+        @include button-style.button-size(
           $element: 'pagination',
           $size: $size,
-          $tokens: $pagination-tokens
+          $tokens: pagination.$pagination-tokens
         );
 
-        min-width: map-get($pagination-tokens, pagination-size-#{$size});
+        min-width: map.get(
+          pagination.$pagination-tokens,
+          pagination-size-#{$size}
+        );
       }
     }
 
     .#{$pagination-prefix-cls}-pager {
-      .#{$prefix-cls}-icon {
+      .#{core.$prefix-cls}-icon {
         transform: scale(1.25);
       }
     }
@@ -109,9 +133,9 @@ $pagination-prefix-cls: #{$prefix-cls}-pagination;
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
-    border-radius: $pagination-jumper-radius;
+    border-radius: pagination.$pagination-jumper-radius;
 
-    .#{$prefix-cls}-input {
+    .#{core.$prefix-cls}-input {
       width: 40px;
       height: 24px;
       text-align: center;
@@ -126,19 +150,19 @@ $pagination-prefix-cls: #{$prefix-cls}-pagination;
     }
 
     & > *:not(:last-child) {
-      margin-right: $space-05-x;
+      margin-right: core.$space-05-x;
     }
   }
 
   @each $size in $pagination-sizes {
     &--#{$size} {
       .#{$pagination-prefix-cls}-jumper {
-        padding-right: map-get(
-          $pagination-tokens,
+        padding-right: map.get(
+          pagination.$pagination-tokens,
           pagination-jumper-space-#{$size}
         );
-        padding-left: map-get(
-          $pagination-tokens,
+        padding-left: map.get(
+          pagination.$pagination-tokens,
           pagination-jumper-space-#{$size}
         );
       }
@@ -147,6 +171,6 @@ $pagination-prefix-cls: #{$prefix-cls}-pagination;
 
   &-page-size-select {
     width: 120px;
-    margin-right: $space-1-x;
+    margin-right: core.$space-1-x;
   }
 }

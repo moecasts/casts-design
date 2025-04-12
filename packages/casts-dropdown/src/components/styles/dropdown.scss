@@ -1,20 +1,20 @@
-// @import '@casts/theme/styles/scss/core';
-@import '@casts/theme/styles/scss/vars/core';
+@use 'sass:map';
+@use '@casts/theme/styles/scss/vars/core';
 
-@import '@casts/theme/styles/scss/dropdown';
-@import '@casts/theme/styles/scss/vars/dropdown';
+@use '@casts/theme/styles/scss/dropdown' as base-dropdown;
+@use '@casts/theme/styles/scss/vars/dropdown';
 
-@import '@casts/theme/styles/plugins/helper/button-style';
+@use '@casts/theme/styles/plugins/helper/button-style';
 
-@import '@casts/theme/styles/plugins/helper/overflow';
+@use '@casts/theme/styles/plugins/helper/overflow';
 
-@import '@casts/theme/styles/plugins/helper/scrollbar';
+@use '@casts/theme/styles/plugins/helper/scrollbar';
 
-$dropdown-prefix-cls: #{$prefix-cls}-dropdown;
+$dropdown-prefix-cls: #{core.$prefix-cls}-dropdown;
 
 .#{$dropdown-prefix-cls} {
   &-popup {
-    .#{$prefix-cls}-popup-content {
+    .#{core.$prefix-cls}-popup-content {
       padding: 0px;
     }
   }
@@ -22,26 +22,29 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
   &-menu {
     display: flex;
     flex-direction: column;
-    gap: $dropdown-item-space-outer;
+    gap: dropdown.$dropdown-item-space-outer;
     max-height: 300px;
-    padding: $dropdown-menu-space;
+    padding: dropdown.$dropdown-menu-space;
     margin: 0px;
     overflow-y: auto;
     overflow-y: overlay;
-    @include scrollbar(8px, 2px);
+    @include scrollbar.scrollbar(8px, 2px);
   }
 
   &-item {
-    @include button-style($selector: #{$dropdown-prefix-cls}-item);
-    @include button-color(
+    @include button-style.button-style($selector: #{$dropdown-prefix-cls}-item);
+    @include button-style.button-color(
       $selector: #{$dropdown-prefix-cls}-item,
       // $color-surface-active: $color-surface-neutral-hover,
       // $color-text-active: $color-text-neutral-hover,
       $color-surface-active: transparent
     );
 
-    @include button-space(
-      $space-inset: map-get($dropdown-tokens, dropdown-item-space-inset-medium)
+    @include button-style.button-space(
+      $space-inset: map.get(
+          dropdown.$dropdown-tokens,
+          dropdown-item-space-inset-medium
+        )
     );
 
     display: inline-flex;
@@ -49,7 +52,7 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
 
     &-content {
       flex: 1;
-      @include text-ellipsis();
+      @include overflow.text-ellipsis();
     }
 
     &-arrow {
@@ -62,19 +65,19 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
 
   &-section {
     &-label {
-      padding: 0 $dropdown-section-label-space-inset-medium;
+      padding: 0 dropdown.$dropdown-section-label-space-inset-medium;
 
-      margin-top: $dropdown-section-label-space-outer;
-      margin-bottom: $dropdown-section-label-space-outer;
-      font-size: $dropdown-section-label-font-size;
-      line-height: $dropdown-section-label-line-height;
-      color: $dropdown-section-label-color;
+      margin-top: dropdown.$dropdown-section-label-space-outer;
+      margin-bottom: dropdown.$dropdown-section-label-space-outer;
+      font-size: dropdown.$dropdown-section-label-font-size;
+      line-height: dropdown.$dropdown-section-label-line-height;
+      color: dropdown.$dropdown-section-label-color;
     }
 
     &-content {
       display: flex;
       flex-direction: column;
-      gap: $dropdown-item-space-outer;
+      gap: dropdown.$dropdown-item-space-outer;
     }
   }
 
@@ -82,34 +85,36 @@ $dropdown-prefix-cls: #{$prefix-cls}-dropdown;
     &-popup--#{$size} {
       .#{$dropdown-prefix-cls}-section-label {
         padding: 0
-          map-get(
-            $dropdown-tokens,
+          map.get(
+            dropdown.$dropdown-tokens,
             dropdown-section-label-space-inset-#{$size}
           );
       }
 
       .#{$dropdown-prefix-cls}-item {
-        @include button-size(
+        @include button-style.button-size(
           $element: dropdown-item,
           $size: $size,
-          $tokens: $dropdown-tokens
+          $tokens: dropdown.$dropdown-tokens
         );
 
-        @include button-space(
-          $space-inset:
-            map-get($dropdown-tokens, dropdown-item-space-inset-#{$size})
+        @include button-style.button-space(
+          $space-inset: map.get(
+              dropdown.$dropdown-tokens,
+              dropdown-item-space-inset-#{$size}
+            )
         );
       }
     }
   }
 }
 
-$dropdown-divider-prefix-cls: #{$prefix-cls}-dropdown-divider;
+$dropdown-divider-prefix-cls: #{core.$prefix-cls}-dropdown-divider;
 
 .#{$dropdown-divider-prefix-cls} {
   width: auto;
-  margin-top: $dropdown-divider-space-outer;
-  margin-right: calc(0px - $dropdown-menu-space);
-  margin-bottom: $dropdown-divider-space-outer;
-  margin-left: calc(0px - $dropdown-menu-space);
+  margin-top: dropdown.$dropdown-divider-space-outer;
+  margin-right: calc(0px - dropdown.$dropdown-menu-space);
+  margin-bottom: dropdown.$dropdown-divider-space-outer;
+  margin-left: calc(0px - dropdown.$dropdown-menu-space);
 }

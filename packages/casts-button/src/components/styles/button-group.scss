@@ -1,6 +1,6 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-$button-prefix-cls: #{$prefix-cls}-button;
+$button-prefix-cls: #{core.$prefix-cls}-button;
 
 .#{$button-prefix-cls}-group {
   white-space: nowrap;

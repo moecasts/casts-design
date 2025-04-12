@@ -1,6 +1,6 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-.#{$prefix-cls}-icon-animate-check-line {
+.#{core.$prefix-cls}-icon-animate-check-line {
   path {
     stroke: currentColor;
     stroke-dasharray: 24;
@@ -9,7 +9,7 @@
     stroke-linejoin: round;
     stroke-width: 3;
 
-    transition: stroke-dashoffset $motion-duration-slow;
+    transition: stroke-dashoffset core.$motion-duration-slow;
   }
 
   &--checked {

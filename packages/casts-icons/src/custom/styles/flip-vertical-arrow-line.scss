@@ -1,10 +1,10 @@
-@import '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/vars/core';
 
-.#{$prefix-cls}-icon-flip-vertical-arrow-line {
+.#{core.$prefix-cls}-icon-flip-vertical-arrow-line {
   path {
     stroke: currentColor;
     stroke-width: 1.5;
-    transition: d $motion-duration-slow;
+    transition: d core.$motion-duration-slow;
   }
 
   &--flip {
