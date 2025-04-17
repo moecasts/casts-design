@@ -6,10 +6,10 @@ import { readFileSync } from 'fs';
 import { find, isEmpty } from 'lodash-es';
 import path from 'path';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeMdxImportMedia from 'rehype-mdx-import-media';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGFM from 'remark-gfm';
-import remarkMdxImages from 'remark-mdx-images';
 import { SourceMapGenerator } from 'source-map';
 import { toVFile } from 'to-vfile';
 import type { Alias, PluginOption } from 'vite';
@@ -36,7 +36,6 @@ const getMdxOptions = ({
   remarkPlugins: [
     remarkFrontmatter,
     remarkGFM,
-    remarkMdxImages,
     remarkCodeBlockReplacer,
     [remarkCodeBlock, { resolverRef, root }],
     [remarkReactApi, { resolve: resolverRef.current }],
@@ -79,6 +78,7 @@ const getMdxOptions = ({
         },
       },
     ],
+    rehypeMdxImportMedia,
   ],
 });
 
