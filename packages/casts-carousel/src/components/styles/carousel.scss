@@ -1,0 +1,129 @@
+@use '@casts/theme/styles/scss/vars/core';
+@use '@casts/theme/styles/scss/carousel' as base-carousel;
+@use '@casts/theme/styles/scss/vars/carousel';
+
+$carousel-prefix-cls: #{core.$prefix-cls}-carousel;
+
+.#{$carousel-prefix-cls} {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-viewport {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-container {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+  }
+
+  &-slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    will-change: transform, opacity;
+  }
+
+  &-dots {
+    position: absolute;
+    bottom: carousel.$carousel-dot-space-bottom;
+    left: 50%;
+    z-index: carousel.$carousel-dot-elevation-z-index;
+    display: flex;
+    gap: carousel.$carousel-dot-space-gap;
+    transform: translateX(-50%);
+
+    &-vertical {
+      top: 50%;
+      right: carousel.$carousel-navigation-button-space-side;
+      bottom: auto;
+      left: auto;
+      flex-direction: column;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-dot {
+    width: carousel.$carousel-dot-size;
+    height: carousel.$carousel-dot-size;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background-color: carousel.$carousel-dot-color-default;
+    border: none;
+    border-radius: carousel.$carousel-dot-radius;
+    outline: none;
+    transition: all carousel.$carousel-motion-duration;
+
+    &:hover {
+      background-color: carousel.$carousel-dot-color-hover;
+    }
+
+    &-active {
+      background-color: carousel.$carousel-dot-color-active;
+      transform: scale(carousel.$carousel-dot-scale-active);
+    }
+  }
+
+  &-prev,
+  &-next {
+    position: absolute;
+    z-index: carousel.$carousel-navigation-button-elevation-z-index;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: carousel.$carousel-navigation-button-size;
+    height: carousel.$carousel-navigation-button-size;
+    font-size: carousel.$carousel-navigation-button-font-size;
+    color: carousel.$carousel-navigation-button-color-text;
+    cursor: pointer;
+    background-color: carousel.$carousel-navigation-button-color-default;
+    border: none;
+    border-radius: carousel.$carousel-navigation-button-radius;
+    transition: background-color carousel.$carousel-motion-duration;
+
+    &:hover {
+      background-color: carousel.$carousel-navigation-button-color-hover;
+    }
+  }
+
+  &-prev {
+    top: 50%;
+    left: carousel.$carousel-navigation-button-space-side;
+    transform: translateY(-50%);
+
+    &-vertical {
+      top: carousel.$carousel-navigation-button-space-side;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-next {
+    top: 50%;
+    right: carousel.$carousel-navigation-button-space-side;
+    transform: translateY(-50%);
+
+    &-vertical {
+      top: auto;
+      bottom: carousel.$carousel-navigation-button-space-side;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// Vertical carousel specific styles
+.#{$carousel-prefix-cls}-vertical {
+  .#{$carousel-prefix-cls}-container {
+    flex-direction: column;
+  }
+
+  .#{$carousel-prefix-cls}-slide {
+    height: 100%;
+  }
+}
