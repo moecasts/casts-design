@@ -1,0 +1,94 @@
+@import '@casts/theme/styles/scss/vars/core';
+
+$carousel-prefix-cls: #{$prefix-cls}-carousel;
+
+.#{$carousel-prefix-cls} {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-viewport {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    border-radius: $radius-medium;
+  }
+
+  &-container {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+  }
+
+  &-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    position: relative;
+    will-change: transform, opacity;
+  }
+
+  &-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 1;
+  }
+
+  &-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &-active {
+      background-color: #fff;
+      transform: scale(1.2);
+    }
+  }
+
+  &-prev,
+  &-next {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    z-index: 1;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &-prev {
+    left: 16px;
+  }
+
+  &-next {
+    right: 16px;
+  }
+}
