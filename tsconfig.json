@@ -8,7 +8,7 @@
       "@casts/*": ["./packages/casts-*/src"]
     }
   },
-  "exclude": ["node_modules", "dist", "examples"],
+  "exclude": ["node_modules", "dist", "examples", "site"],
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs"
