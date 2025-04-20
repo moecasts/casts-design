@@ -132,10 +132,12 @@ html {
     overflow-y: auto;
     overflow-y: overlay;
 
-    border-right: global.$border-width-xsmall solid
-      global.$color-border-component-default;
-
     @include scrollbar.scrollbar(8px, 2px, true);
+
+    .#{core.$prefix-cls}-menu-content {
+      border-right: global.$border-width-xsmall solid
+        global.$color-border-component-default;
+    }
   }
 
   // aside animation
